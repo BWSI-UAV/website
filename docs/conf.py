@@ -99,7 +99,7 @@ copyright = '2018, Ross Allen'
 author = 'Ross Allen'
 
 # ghissue config
-# github_project_url = "https://github.mit.edu/BWSI/UAVRacing"
+# github_project_url = "https://github.com/BWSI-UAV/website"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

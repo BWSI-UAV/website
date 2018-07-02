@@ -1,0 +1,8 @@
+docs/_build/*
+docs/build/*
+docs/.ipynb_checkpoints/*
+*.aux
+*.log
+*.out
+*.gz
+*.fuse_hidden*

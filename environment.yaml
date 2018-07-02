@@ -1,0 +1,17 @@
+name: uav_publisher
+dependencies:
+  - python=3.6
+  - ipython
+  - yaml
+  - sphinx
+  - pip:
+    - sphinx_rtd_theme
+    - recommonmark
+    - pyyaml
+    - matplotlib
+    - scipy
+    - jupyter
+    - numpy
+    - pandas
+    - ipdb
+    - nbsphinx

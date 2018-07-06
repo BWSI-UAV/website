@@ -24,6 +24,7 @@ Welcome to UAV Racing's documentation!
    flight_log_analysis.ipynb
    project_workflow.ipynb
    intel_rtf_architecture.ipynb
+   communication_pipeline.ipynb
    enable_optical_flow.ipynb
    reference_frames.ipynb
    open_loop_translation_control.ipynb

@@ -21,6 +21,7 @@ Welcome to UAV Racing's documentation!
    :maxdepth: 2
    :caption: Laboratories & Assignments:
 
+   student_drone_setup.ipynb
    intel_rtf_architecture.ipynb
    enable_optical_flow.ipynb
    reference_frames.ipynb

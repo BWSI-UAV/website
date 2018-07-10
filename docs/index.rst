@@ -22,8 +22,8 @@ Welcome to UAV Racing's documentation!
    :caption: Laboratories & Assignments:
 
    student_drone_setup.ipynb
-   flight_log_analysis.ipynb
    project_workflow.ipynb
+   flight_log_analysis.ipynb
    intel_rtf_architecture.ipynb
    communication_pipeline.ipynb
    enable_optical_flow.ipynb

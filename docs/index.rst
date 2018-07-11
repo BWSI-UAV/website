@@ -19,7 +19,7 @@ Welcome to UAV Racing's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Laboratories & Assignments:
+   :caption: Practicals:
 
    student_drone_setup.ipynb
    project_workflow.ipynb

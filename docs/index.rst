@@ -8,7 +8,7 @@ Welcome to UAV Racing's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Course Contents:
+   :caption: Course Agenda:
 
    intro.ipynb
    initial_setup.ipynb

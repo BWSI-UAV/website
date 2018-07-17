@@ -34,7 +34,12 @@ Welcome to UAV Racing's documentation!
    downward_cam_bag.ipynb
    open_loop_translation_control.ipynb
    yaw_color_tracker.ipynb
-   exploring_px4_firmware.ipynb
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Advanced Topics:
+
+   exploring_px4_firmware.ipyn
 
 .. toctree::
    :maxdepth: 2

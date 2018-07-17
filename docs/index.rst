@@ -31,7 +31,6 @@ Welcome to UAV Racing's documentation!
    enable_optical_flow.ipynb
    reference_frames.ipynb
    downward_cam_bag.ipynb
-   hello_world.ipynb
    open_loop_translation_control.ipynb
    yaw_color_tracker.ipynb
 

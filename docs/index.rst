@@ -39,7 +39,7 @@ Welcome to UAV Racing's documentation!
    :maxdepth: 2
    :caption: Advanced Topics:
 
-   exploring_px4_firmware.ipyn
+   exploring_px4_firmware.ipynb
 
 .. toctree::
    :maxdepth: 2

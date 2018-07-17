@@ -30,7 +30,7 @@ Welcome to UAV Racing's documentation!
    accessing_video_streams.ipynb
    internal_sensor_testing.ipynb
    enable_optical_flow.ipynb
-   reference_frames.ipynb
+   coordinate_transforms.ipynb
    downward_cam_bag.ipynb
    open_loop_translation_control.ipynb
    yaw_color_tracker.ipynb

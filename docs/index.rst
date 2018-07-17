@@ -23,6 +23,7 @@ Welcome to UAV Racing's documentation!
 
    student_drone_setup.ipynb
    project_workflow.ipynb
+   calibration.ipynb
    flight_log_analysis.ipynb
    intel_rtf_architecture.ipynb
    communication_pipeline.ipynb
@@ -33,13 +34,13 @@ Welcome to UAV Racing's documentation!
    downward_cam_bag.ipynb
    open_loop_translation_control.ipynb
    yaw_color_tracker.ipynb
+   exploring_px4_firmware.ipynb
 
 .. toctree::
    :maxdepth: 2
    :caption: Supplemental Material:
 
    team_roles.ipynb
-   calibration.ipynb
    safety_checklist.ipynb
    Glossary.ipynb
 

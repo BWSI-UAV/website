@@ -35,6 +35,7 @@ Welcome to UAV Racing's documentation!
    detector.ipynb
    open_loop_translation_control.ipynb
    yaw_color_tracker.ipynb
+   line_following.ipynb
    obstacle_avoidance.ipynb
 .. toctree::
    :maxdepth: 2

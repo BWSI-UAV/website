@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Team Roles &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Safety Checklist" href="safety_checklist.html" />
+    <link rel="prev" title="Exploring PX4 Firmware" href="exploring_px4_firmware.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Autonomous UAV Racing
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous UAV Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Practicals:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Recording + Line Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Supplemental Material:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Team Roles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Pilot-in-Command">Pilot in Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Ground-Commander">Ground Commander</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Software-Developer">Software Developer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Hardware-Specialist">Hardware Specialist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Research-Specialist">Research Specialist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Autonomous UAV Racing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Team Roles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/team_roles.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Team-Roles">
+<h1>Team Roles<a class="headerlink" href="#Team-Roles" title="Permalink to this headline">¶</a></h1>
+<p>Each member of a team serves a different role with unique
+responsibilities. Sometimes an individual may be responsible for
+multiple tasks simultaneously; in this case the individual team member
+is expected to delegate tasks to other team members who are not
+currently active.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>It is the responsibility of each team member to ensure their respective
+tasks are completed. This does not mean each member has to <em>personally</em>
+do each task; they can and should delegate to other members of the team
+as needed to distribute work load and alleviate bottlenecks.</p>
+</div>
+<div class="section" id="Pilot-in-Command">
+<h2>Pilot in Command<a class="headerlink" href="#Pilot-in-Command" title="Permalink to this headline">¶</a></h2>
+<p>The pilot in command is responsible for the safe execution of flight
+tests including test prep, manual override piloting, and test tear down.
+When not conducting a flight test, the pilot in command plays a support
+role to other specialist roles.</p>
+<p><strong>Responsibilities include:</strong></p>
+<ul class="simple">
+<li>Ensuring a safe flight space and all safety protocols are observed</li>
+<li>Developing a test plan for each flight that includes the objective of
+the flight, sequence of events, and emergency plan in case of
+unexpected behavior from drone. This is to be communicated to other
+team members</li>
+<li>Piloting any manual-controlled portions of flight tests</li>
+<li>Hands-on remote control during all autonomous portions of flight
+test, ready to retake manual control</li>
+</ul>
+</div>
+<div class="section" id="Ground-Commander">
+<h2>Ground Commander<a class="headerlink" href="#Ground-Commander" title="Permalink to this headline">¶</a></h2>
+<p>The ground commander is responsible for operating the ground station and
+monitoring the health of the system during flight.</p>
+<p><strong>Responsibilities include:</strong></p>
+<ul class="simple">
+<li>Establishing communication links to drone via QGroundControl and/or
+ssh</li>
+<li>Starting necessary services for autonomous flight and monitoring
+health of services (e.g.&nbsp;distance sensor, optical flow quality, local
+position estimates, etc.)</li>
+<li>Starting and monitoring team-developed software during autonomous
+flight tests (e.g.&nbsp;velocity commands, computer vision modules, etc.)</li>
+<li>Post-flight analysis of flight telemetry</li>
+</ul>
+</div>
+<div class="section" id="Software-Developer">
+<h2>Software Developer<a class="headerlink" href="#Software-Developer" title="Permalink to this headline">¶</a></h2>
+<p>The software developer is responsible for maintaining the team’s
+codebase and operating the ground station during flight tests.</p>
+<p><strong>Responsibilities include:</strong></p>
+<ul class="simple">
+<li>Pulling, merging new code from instructional GitHub repositories
+(i.e. <em>upstream</em>)</li>
+<li>Translating team’s ideas to functional, well commented code</li>
+<li>Committing and pushing developed code back to team’s MIT GitHub
+repositories (i.e. <em>origin</em>)</li>
+</ul>
+</div>
+<div class="section" id="Hardware-Specialist">
+<h2>Hardware Specialist<a class="headerlink" href="#Hardware-Specialist" title="Permalink to this headline">¶</a></h2>
+<p>The hardware specialist is responsible for the inventory and upkeep of
+the team’s hardware (e.g.&nbsp;drone, batteries, etc).</p>
+<p><strong>Responsibilities include:</strong></p>
+<ul class="simple">
+<li>Repair of any damaged parts that result from flight test crashes</li>
+<li>Calibrating sensors as needed</li>
+<li>Battery charging and battery safety</li>
+<li>End of day parts inventory and organization</li>
+</ul>
+</div>
+<div class="section" id="Research-Specialist">
+<h2>Research Specialist<a class="headerlink" href="#Research-Specialist" title="Permalink to this headline">¶</a></h2>
+<p>The research specialist is responsible for investigating potential
+solutions to complex problems as well as documenting important
+information learned (e.g.&nbsp;wiring diagrams, command sequences, etc),
+tracking teams progress and preparing presentations.</p>
+<p><strong>Responsibilities include:</strong></p>
+<ul class="simple">
+<li>Managing team’s <code class="docutils literal notranslate"><span class="pre">documents</span></code> repository</li>
+<li>Investigate theoretical approaches to challenging autonomy problems,
+understand work required to implement such approaches, and prioritize
+team development efforts</li>
+<li>Documenting important command sequence to ensure repeatability of
+tests</li>
+<li>Researching software errors (i.e. “googling”) in order to debug
+problems without the help of instructors</li>
+<li>Prepare and deliver team challenge presentations</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="safety_checklist.html" class="btn btn-neutral float-right" title="Safety Checklist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="exploring_px4_firmware.html" class="btn btn-neutral" title="Exploring PX4 Firmware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ross Allen.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

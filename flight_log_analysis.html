@@ -236,15 +236,25 @@ make sure you are up to date by running <code class="docutils literal notranslat
 </div>
 <div class="section" id="Inspecting-Data">
 <h3>Inspecting Data<a class="headerlink" href="#Inspecting-Data" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong></p>
+<p>By using these online tools for flight data review, you will be
+uploading flight data to a server. If you use
+<code class="docutils literal notranslate"><span class="pre">jupyter.beaver.works:9000</span></code>, then the server is internal to MIT. If
+you use <code class="docutils literal notranslate"><span class="pre">https://review.px4.io/</span></code>, then you uploading to an <em>external</em>
+server.</p>
+</div>
 <p>To inspect the flight data:</p>
 <ol class="arabic simple">
-<li>open a internet browser and navigate to <code class="docutils literal notranslate"><span class="pre">jupyter.beaver.works:9000</span></code></li>
+<li>open a internet browser and navigate to
+<code class="docutils literal notranslate"><span class="pre">jupyter.beaver.works:9000</span></code>. Alternatively, if the previous link
+does not work, you can use <code class="docutils literal notranslate"><span class="pre">https://review.px4.io/</span></code>. <strong>SEE WARNING
+ABOVE</strong></li>
 <li>Click “Choose File” next to ULog File</li>
 <li>Use the pop-up to navigate to
 <code class="docutils literal notranslate"><span class="pre">laboratory/flight_log_analysis/example_flight_log.ulg</span></code></li>
-<li>Click Upload (you can leave all other fields blank) <strong>NOTE:</strong> the log
-file, which may contain position data, will be uploaded to a server
-computer at MIT.</li>
+<li>Click Upload (you can leave all other fields blank). <strong>SEE WARNING
+ABOVE</strong></li>
 <li>Wait for the plots to load. Browse the various plots using the tools
 on the side of each plot to zoom in on areas of interest</li>
 <li>Plots include data on:<ul>

@@ -12,7 +12,7 @@
     "\n",
     "__Lectures:__\n",
     "\n",
-    " 1. [Personal Introductions](https://docs.google.com/presentation/d/1Gfr472InI9QH1eIWXN7DdQv2LDH1NdkR0HbT7idqoF8/edit?usp=sharing)\n",
+    " 1. [Course Introduction](https://docs.google.com/presentation/d/1Gfr472InI9QH1eIWXN7DdQv2LDH1NdkR0HbT7idqoF8/edit?usp=sharing)\n",
     " 2. [Team Roles and Responsibilities](https://bwsi-uav.github.io/website/team_roles.html)\n"
    ]
   },

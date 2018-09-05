@@ -4,26 +4,13 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Project Workflow \n",
-    "\n",
-    "__Objective:__ practice using Bash and Git commands within in a workflow that is fundamental to this class"
+    "# Project Workflow"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Working with Bash\n",
-    "\n",
-    "__TO BE COMPLETE"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Working with Git\n",
-    "\n",
     "We will be using git and GitHub to manage all of our code and documentation throughout the course. During the online portion of this class you were exposed to some of the basics of git and GitHub. If you would like a refresher, check out the link below:\n",
     "\n",
     "https://guides.github.com/activities/hello-world/\n",

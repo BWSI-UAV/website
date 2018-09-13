@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Accessing Video Streams &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
+  <title>Intro to ROS &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Inspecting Sensor Feeds" href="internal_sensor_testing.html" />
-    <link rel="prev" title="Communication Pipeline" href="communication_pipeline.html" /> 
+    <link rel="next" title="Communication Pipeline" href="communication_pipeline.html" />
+    <link rel="prev" title="Architecture Concept Review" href="intel_rtf_architecture.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -98,14 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Intro to ROS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Accessing Video Streams</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Using-VLC-to-stream-over-RTSP">Using VLC to stream over RTSP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Using-ROS-to-view-image-topics">Using ROS to view image topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Further-reading:">Further reading:</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
@@ -170,13 +165,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Accessing Video Streams</li>
+      <li>Intro to ROS</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/accessing_video_streams.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/ros_introduction.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -208,91 +203,20 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
-<div class="section" id="Accessing-Video-Streams">
-<h1>Accessing Video Streams<a class="headerlink" href="#Accessing-Video-Streams" title="Permalink to this headline">¶</a></h1>
-<p>In this module we will connect to the UAV’s onboard cameras.</p>
-<div class="section" id="Using-VLC-to-stream-over-RTSP">
-<h2>Using VLC to stream over RTSP<a class="headerlink" href="#Using-VLC-to-stream-over-RTSP" title="Permalink to this headline">¶</a></h2>
-<p>The UAVs are running a web service (called
-<a class="reference external" href="https://github.com/Dronecode/camera-manager">camera-manager</a>) which
-exposes cameras over
-<a class="reference external" href="https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol">RTSP</a>,
-the Real Time Streaming Protocol.</p>
-<p>VLC is a video player application available on all platforms. On your
-team laptop:</p>
-<ol class="arabic simple">
-<li>Open VLC</li>
-<li>Go to the main menu, and select <code class="docutils literal notranslate"><span class="pre">Media</span> <span class="pre">-&gt;</span> <span class="pre">Open</span> <span class="pre">Network</span> <span class="pre">Stream</span></code></li>
-<li>Type in the RTSP URL for the front camera:
-<code class="docutils literal notranslate"><span class="pre">rtsp://TEAMNAME.beaver.works:8554/video13</span></code> This URL is documented
-on Intel’s
-<a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video#rtsp-streaming-with-the-camera-streaming-daemon">wiki</a>.</li>
-<li>Click <strong>Play</strong></li>
-</ol>
-</div>
-<div class="section" id="Using-ROS-to-view-image-topics">
-<h2>Using ROS to view image topics<a class="headerlink" href="#Using-ROS-to-view-image-topics" title="Permalink to this headline">¶</a></h2>
-<p>Recall the basics of <em>ROS topics</em>, which are named “buses” or “channels”
-of information which ROS uses to pass around <em>ROS messages</em> between <em>ROS
-nodes</em>. These topics can contain streaming camera sensor data, which we
-will inspect as part of this module.</p>
-<p>We will use <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code>, a desktop program which decodes and
-visualizes the binary information in a ROS image topic. However, first
-we need to launch the <em>ROS node</em> which publishes ROS Image <em>messages</em> on
-the topic.</p>
-<p>On the small HDMI display connected to the drone, open a terminal with
-the shortcut <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code> (using the keyboard connected to the drone).</p>
-<div class="admonition note">
-<strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">roscore</span></code> must first be running. If you have not started it
-already, open a separate terminal window (with <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code>), type
-<code class="docutils literal notranslate"><span class="pre">roscore</span></code> at the prompt, and then press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</div>
-<p>Inspect the list of topics in your terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rostopic list
-</pre></div>
-</div>
-<p>Now, in that terminal window, start the front camera ROS node:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roslaunch realsense_camera r200_nodelet_rgbd.launch
-</pre></div>
-</div>
-<p>Open a new terminal (<code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code>) and run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rostopic list
-</pre></div>
-</div>
-<p>You will see several additional topics listed, which include image
-topics.</p>
-<p>Let’s inspect the front camera feed. In the terminal, launch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rqt_image_view
-</pre></div>
-</div>
-<p>And in the dropdown menu, select the image topic for the front camera
-(<code class="docutils literal notranslate"><span class="pre">/camera/rgb/image_raw</span></code>):</p>
-<div class="figure" id="id1">
-<img alt="rqtimgview.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/rqtimgview.png?raw=true" />
-<p class="caption"><span class="caption-text">rqtimgview.png</span></p>
-</div>
-</div>
-<div class="section" id="Further-reading:">
-<h2>Further reading:<a class="headerlink" href="#Further-reading:" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Launching image topics in ROS:
-<a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#launching">https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#launching</a></li>
-<li>Intel’s UAV camera documentation:
-<a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video">https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video</a></li>
-<li>ROS image topics:<ul>
-<li><a class="reference external" href="http://wiki.ros.org/image_transport">Image Transport</a>, the ROS
-messaging system for images<ul>
-<li><a class="reference external" href="http://wiki.ros.org/image_transport/Tutorials/PublishingImages">Tutorial on publishing
-images</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="http://wiki.ros.org/rqt_image_view">http://wiki.ros.org/rqt_image_view</a></li>
-<li><a class="reference external" href="http://wiki.ros.org/image_view">http://wiki.ros.org/image_view</a></li>
-<li><a class="reference external" href="http://docs.ros.org/kinetic/api/sensor_msgs/html/msg/Image.html">API
-Documentation</a></li>
-</ul>
-</li>
-</ol>
-</div>
+<div class="section" id="Intro-to-ROS">
+<h1>Intro to ROS<a class="headerlink" href="#Intro-to-ROS" title="Permalink to this headline">¶</a></h1>
+<p>The Robot Operating System (ROS) is a central component to our drone’s
+autonomy. ROS offers a powerful set of tools for interfacing between
+multiple heterogeneous computer processes, which is a common theme of
+robotics due to that fact that robots are often composed of a system of
+processors, sensors, and actuators.</p>
+<p>The following set of video lectures and slides offer a concise
+introduction to ROS</p>
+<p><strong>Lecture:</strong> <a class="reference external" href="https://www.youtube.com/watch?v=0BxVPCInS3M">Video</a>,
+<a class="reference external" href="https://www.youtube.com/redirect?redir_token=9cFizt-Tf9Y2MOs3jnLu2XeWMSl8MTUzNjkzNTgyNUAxNTM2ODQ5NDI1&amp;v=0BxVPCInS3M&amp;q=https%3A%2F%2Fwww.ethz.ch%2Fcontent%2Fdam%2Fethz%2Fspecial-interest%2Fmavt%2Frobotics-n-intelligent-systems%2Frsl-dam%2FROS2017%2Flecture1.pdf&amp;event=video_description">Slides</a></p>
+<p><strong>Practice:</strong> Once you’ve completed watching the lecture, practice what
+you’ve learned in the <a class="reference external" href="communication_pipeline.html">Communication
+Pipeline</a> practical</p>
 </div>
 
 
@@ -303,10 +227,10 @@ Documentation</a></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internal_sensor_testing.html" class="btn btn-neutral float-right" title="Inspecting Sensor Feeds" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="communication_pipeline.html" class="btn btn-neutral float-right" title="Communication Pipeline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="communication_pipeline.html" class="btn btn-neutral" title="Communication Pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="intel_rtf_architecture.html" class="btn btn-neutral" title="Architecture Concept Review" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,47 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Intro to ROS\n",
+    "\n",
+    "The Robot Operating System (ROS) is a central component to our drone's autonomy. ROS offers a powerful set of tools for interfacing between multiple heterogeneous computer processes, which is a common theme of robotics due to that fact that robots are often composed of a system of processors, sensors, and actuators. \n",
+    "\n",
+    "The following set of video lectures and slides offer a concise introduction to ROS\n",
+    "\n",
+    "__Lecture:__ [Video](https://www.youtube.com/watch?v=0BxVPCInS3M), [Slides](https://www.youtube.com/redirect?redir_token=9cFizt-Tf9Y2MOs3jnLu2XeWMSl8MTUzNjkzNTgyNUAxNTM2ODQ5NDI1&v=0BxVPCInS3M&q=https%3A%2F%2Fwww.ethz.ch%2Fcontent%2Fdam%2Fethz%2Fspecial-interest%2Fmavt%2Frobotics-n-intelligent-systems%2Frsl-dam%2FROS2017%2Flecture1.pdf&event=video_description)\n",
+    "\n",
+    "__Practice:__ Once you've completed watching the lecture, practice what you've learned in the [Communication Pipeline](communication_pipeline.html) practical"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

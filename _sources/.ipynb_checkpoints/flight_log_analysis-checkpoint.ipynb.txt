@@ -10,7 +10,7 @@
     "\n",
     "In this unit we will learn how to analyze post-flight telemetry data which is a crucial skill for debugging when things go wrong or the UAV doesn't behave as expected. \n",
     "\n",
-    "The above reference list several software tools that can be used to analyze flight data from a PX4-based UAV. We will use our own version of the online tool Flight Review ([Data Analysis Site](http://uav.beaver.works:9001), [Documentation](https://github.com/PX4/flight_review)). If above site is not operational, you can use [PX4's Site](https://logs.px4.io/) (__SEE WARNING BELOW__)"
+    "The above reference list several software tools that can be used to analyze flight data from a PX4-based UAV. We will use our own version of the online tool Flight Review ([Data Analysis Site](http://uav.beaver.works:9001), [Documentation](https://github.com/PX4/flight_review)). If above site is not operational, you can use the "
    ]
   },
   {

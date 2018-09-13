@@ -26,6 +26,7 @@ Welcome to UAV Racing's documentation!
    calibration.ipynb
    flight_log_analysis.ipynb
    intel_rtf_architecture.ipynb
+   ros_introduction.ipynb
    communication_pipeline.ipynb
    accessing_video_streams.ipynb
    internal_sensor_testing.ipynb

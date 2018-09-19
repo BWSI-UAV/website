@@ -98,7 +98,10 @@
 <li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Intro to ROS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Intro to ROS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ROS-Concepts">ROS Concepts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
@@ -210,13 +213,33 @@ autonomy. ROS offers a powerful set of tools for interfacing between
 multiple heterogeneous computer processes, which is a common theme of
 robotics due to that fact that robots are often composed of a system of
 processors, sensors, and actuators.</p>
-<p>The following set of video lectures and slides offer a concise
+<p>The following set of video lectures, slides, and blog offer a concise
 introduction to ROS</p>
-<p><strong>Lecture:</strong> <a class="reference external" href="https://www.youtube.com/watch?v=0BxVPCInS3M">Video</a>,
-<a class="reference external" href="https://www.youtube.com/redirect?redir_token=9cFizt-Tf9Y2MOs3jnLu2XeWMSl8MTUzNjkzNTgyNUAxNTM2ODQ5NDI1&amp;v=0BxVPCInS3M&amp;q=https%3A%2F%2Fwww.ethz.ch%2Fcontent%2Fdam%2Fethz%2Fspecial-interest%2Fmavt%2Frobotics-n-intelligent-systems%2Frsl-dam%2FROS2017%2Flecture1.pdf&amp;event=video_description">Slides</a></p>
-<p><strong>Practice:</strong> Once you’ve completed watching the lecture, practice what
-you’ve learned in the <a class="reference external" href="communication_pipeline.html">Communication
-Pipeline</a> practical</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>The following ETH and Erle lectures reference an older version of ROS
+called <code class="docutils literal notranslate"><span class="pre">indigo</span></code>. At the time of this writing we use a version called
+<code class="docutils literal notranslate"><span class="pre">kinetic</span></code> (and will likely be moving to a version called <code class="docutils literal notranslate"><span class="pre">melodic</span></code>
+in the near future). For the most part, any commands that explicitly
+reference <code class="docutils literal notranslate"><span class="pre">indigo</span></code> can substituted with the same command where
+<code class="docutils literal notranslate"><span class="pre">kinetic</span></code> is used in place of <code class="docutils literal notranslate"><span class="pre">indigo</span></code>.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/indigo/setup.bash</span></code> –&gt;
+<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/kinetic/setup.bash</span></code></p>
+</div>
+<p><strong>Erle Robotics:</strong>
+<a class="reference external" href="https://erlerobotics.com/blog/ros-introduction/">Blog</a>,
+<a class="reference external" href="https://www.youtube.com/playlist?list=PL39WpgKDjDfVfiNVG47DBi93wsh2XHKVO">Videos</a></p>
+<p><strong>ETH Zurich:</strong>
+<a class="reference external" href="https://www.ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2017/lecture1.pdf">Slides</a>,
+<a class="reference external" href="https://www.youtube.com/watch?v=0BxVPCInS3M">Video</a></p>
+<p><strong>Practice:</strong> + <a class="reference external" href="communication_pipeline.html">Communication Pipeline</a>
+- Once you’ve completed watching the lecture, practice what you’ve
+learned in the practical + <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials">Further
+Practice</a> - For additional
+tutorials, see the ROS website</p>
+<div class="section" id="ROS-Concepts">
+<h2>ROS Concepts<a class="headerlink" href="#ROS-Concepts" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 

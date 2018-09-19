@@ -100,6 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Intro to ROS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ROS-Concepts">ROS Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Practice">Practice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
@@ -242,14 +243,20 @@ Practice</a> - For additional
 tutorials, see the ROS website</p>
 <div class="section" id="ROS-Concepts">
 <h2>ROS Concepts<a class="headerlink" href="#ROS-Concepts" title="Permalink to this headline">¶</a></h2>
-<p><strong>Note:</strong></p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
 <p>The following is taken almost directly from
 <a class="reference external" href="http://wiki.ros.org/ROS/Concepts">http://wiki.ros.org/ROS/Concepts</a> and reproduced here for completeness</p>
-</div><p><a class="reference external" href="http://wiki.ros.org/ROS/Concepts">Computation Graph</a> - The
+</div>
+<p><a class="reference external" href="http://wiki.ros.org/ROS/Concepts">Computation Graph</a> - The
 Computation Graph is the peer-to-peer network of ROS processes that are
 processing data together. The basic Computation Graph concepts of ROS
 are nodes, Master, Parameter Server, messages, services, topics, and
 bags, all of which provide data to the Graph in different ways.</p>
+<div class="figure" id="id1">
+<img alt="computation_graph" src="http://wiki.ros.org/ROS/Concepts?action=AttachFile&amp;do=get&amp;target=ROS_basic_concepts.png" />
+<p class="caption"><span class="caption-text">computation_graph</span></p>
+</div>
 <ul class="simple">
 <li><a class="reference external" href="http://wiki.ros.org/Master">Master</a> - The ROS Master provides
 <a class="reference external" href="http://wiki.ros.org/Names">name</a> registration and lookup to the
@@ -302,6 +309,11 @@ and playing back ROS message data. Bags are an important mechanism
 for storing data, such as sensor data, that can be difficult to
 collect but is necessary for developing and testing algorithms.</li>
 </ul>
+</div>
+<div class="section" id="Practice">
+<h2>Practice<a class="headerlink" href="#Practice" title="Permalink to this headline">¶</a></h2>
+<p>For practice using ROS, see the <a class="reference external" href="communication_pipeline.html">Communication
+Pipeline</a> tutorial</p>
 </div>
 </div>
 

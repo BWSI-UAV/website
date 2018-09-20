@@ -110,6 +110,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Step-3:-Launch-Talker-and-Listener">Step 3: Launch Talker and Listener</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Create-Package">Create Package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Make-Executables">Make Executables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Launch">Launch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Question-Set-3:">Question Set 3:</a></li>
 </ul>
 </li>
@@ -344,12 +347,23 @@ this mean listner.py is publishing to a topic?</li>
 <h3>Step 3: Launch Talker and Listener<a class="headerlink" href="#Step-3:-Launch-Talker-and-Listener" title="Permalink to this headline">¶</a></h3>
 <p>It’s a cumbersome to be opening a different terminal for every different
 rosnode you want to start. Instead of doing this, we can use launch
-files. Before we make a launch file, we need to more properly set up our
-catkin workspace by turning <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> into a ROS Package and
-indicate it’s dependencies on <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code> and <code class="docutils literal notranslate"><span class="pre">rospy</span></code></p>
+files.</p>
+<div class="section" id="Create-Package">
+<h4>Create Package<a class="headerlink" href="#Create-Package" title="Permalink to this headline">¶</a></h4>
+<p>Before we make a launch file, we need to more properly set up our catkin
+workspace by turning <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> into a ROS Package and indicate
+it’s dependencies on <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code> and <code class="docutils literal notranslate"><span class="pre">rospy</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
 <span class="n">catkin_create_pkg</span> <span class="n">aero_control</span> <span class="n">std_msgs</span> <span class="n">rospy</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>Your Intel drone may already have <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> as a package. If you
+receive the error:
+<code class="docutils literal notranslate"><span class="pre">catkin_create_pkg:</span> <span class="pre">error:</span> <span class="pre">File</span> <span class="pre">exists:</span> <span class="pre">~/bwsi-uav/catkin_ws/src/aero_control/package.xml</span></code>,
+then you can skip ahead to <a class="reference external" href="communication_pipeline.html#Make-Executables">Make
+Executables</a></p>
 </div>
 <p>This will create files
 <code class="docutils literal notranslate"><span class="pre">~/bwsi-uav/catkin_ws/src/aero_control/CMakeLists.txt</span></code> and
@@ -361,6 +375,9 @@ push them to your team’s MIT GitHub:</p>
 <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;starting aero_control as a package&quot;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="Make-Executables">
+<h4>Make Executables<a class="headerlink" href="#Make-Executables" title="Permalink to this headline">¶</a></h4>
 <p>Next you need to make sure that <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> are
 <em>executable</em> in order for the launch file to properly access them. This
 can be done as follows:</p>
@@ -369,6 +386,9 @@ can be done as follows:</p>
 <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">listener</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="Launch">
+<h4>Launch<a class="headerlink" href="#Launch" title="Permalink to this headline">¶</a></h4>
 <p>Now you are almost ready to run the launch file that starts <code class="docutils literal notranslate"><span class="pre">roscore</span></code>,
 <code class="docutils literal notranslate"><span class="pre">talker.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> simultaneously. We’ve given you part
 of the launch file in
@@ -391,6 +411,7 @@ and <a class="reference external" href="http://wiki.ros.org/rqt_graph">here</a> 
 <code class="docutils literal notranslate"><span class="pre">talk_listen.launch</span></code> still running, open a new terminal and run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">rqt_graph</span> <span class="n">rqt_graph</span>
 </pre></div>
+</div>
 </div>
 <div class="section" id="Question-Set-3:">
 <h4>Question Set 3:<a class="headerlink" href="#Question-Set-3:" title="Permalink to this headline">¶</a></h4>

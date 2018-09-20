@@ -112,7 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Step-3:-Launch-Talker-and-Listener">Step 3: Launch Talker and Listener</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Create-Package">Create Package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Make-Executables">Make Executables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Launch">Launch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Launch-File">Launch File</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Question-Set-3:">Question Set 3:</a></li>
 </ul>
 </li>
@@ -268,13 +268,13 @@ but adapted to our needs.</p>
 <span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero_control</span><span class="o">/</span><span class="n">communication_pipeline</span>
 </pre></div>
 </div>
-<p>If you try to run <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and or <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> you will receive
-an error stating</p>
+<p>If you try to run <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and or <code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> you
+will receive an error stating</p>
 <p><code class="docutils literal notranslate"><span class="pre">Exception:</span> <span class="pre">CODE</span> <span class="pre">INCOMPLETE!</span> <span class="pre">Delete</span> <span class="pre">this</span> <span class="pre">exception</span> <span class="pre">and</span> <span class="pre">replace</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">own</span> <span class="pre">code</span></code></p>
 <div class="section" id="Step-1:-Complete-Talker">
 <h3>Step 1: Complete Talker<a class="headerlink" href="#Step-1:-Complete-Talker" title="Permalink to this headline">¶</a></h3>
-<p>In your preferred text editor, open <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and replace/fill in
-the following code block with your own code:</p>
+<p>In your preferred text editor, open <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and
+replace/fill in the following code block with your own code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;TODO-START: FILL IN CODE HERE</span>
 <span class="sd">* create a string message that contains &quot;Hello World&quot; and the iteration number i</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -288,7 +288,7 @@ the following code block with your own code:</p>
 </pre></div>
 </div>
 <p><em>Terminal 2:</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">talker</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">simple_talker</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>After answering the following questions, you can kill the processes by
@@ -300,27 +300,27 @@ hitting <code class="docutils literal notranslate"><span class="pre">Ctrl-c</spa
 <li>List all rostopics that are being present after running talker.py</li>
 <li>What command do I run to see what is being published to the
 <code class="docutils literal notranslate"><span class="pre">/chatter</span></code> topic?</li>
-<li>What would I change in <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> to make it publish messages more
-frequently?</li>
+<li>What would I change in <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> to make it publish
+messages more frequently?</li>
 </ol>
 </div>
 </div>
 <div class="section" id="Step-2:-Complete-Listener">
 <h3>Step 2: Complete Listener<a class="headerlink" href="#Step-2:-Complete-Listener" title="Permalink to this headline">¶</a></h3>
 <p>Now we will incorporate a second rosnode to subscribe to the topic
-created by <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and listen to the messages passed. Open
-<code class="docutils literal notranslate"><span class="pre">listener.py</span></code> and replace/fill in the appropriate code block.</p>
+created by <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and listen to the messages passed. Open
+<code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> and replace/fill in the appropriate code block.</p>
 <p>Once complete, you can run the talker and listener nodes</p>
 <p><em>Terminal 1:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roscore</span>
 </pre></div>
 </div>
 <p><em>Terminal 2:</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">talker</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">simple_talker</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p><em>Terminal 3:</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">listener</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">simple_listener</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>After answering the following questions, you can kill these processes by
@@ -335,11 +335,12 @@ GitHub repositories:</p>
 <div class="section" id="Questions-Set-2:">
 <h4>Questions Set 2:<a class="headerlink" href="#Questions-Set-2:" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
-<li>List all rosnodes that exist after running talker.py and listener.py</li>
-<li>List all rostopics that are being present after running talker.py and
-listener.py</li>
-<li>In terminal I ran listener.py I see information being printed. Does
-this mean listner.py is publishing to a topic?</li>
+<li>List all rosnodes that exist after running simple_talker.py and
+simple_listener.py</li>
+<li>List all rostopics that are being present after running
+simple_talker.py and simple_listener.py</li>
+<li>In terminal I ran simple_listener.py I see information being printed.
+Does this mean simple_listner.py is publishing to a topic?</li>
 </ol>
 </div>
 </div>
@@ -378,37 +379,39 @@ push them to your team’s MIT GitHub:</p>
 </div>
 <div class="section" id="Make-Executables">
 <h4>Make Executables<a class="headerlink" href="#Make-Executables" title="Permalink to this headline">¶</a></h4>
-<p>Next you need to make sure that <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> are
-<em>executable</em> in order for the launch file to properly access them. This
-can be done as follows:</p>
+<p>Next you need to make sure that <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and
+<code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> are <em>executable</em> in order for the launch file to
+properly access them. This can be done as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero_control</span><span class="o">/</span><span class="n">communication_pipeline</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
-<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">talker</span><span class="o">.</span><span class="n">py</span>
-<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">listener</span><span class="o">.</span><span class="n">py</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">simple_talker</span><span class="o">.</span><span class="n">py</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">simple_listener</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Launch">
-<h4>Launch<a class="headerlink" href="#Launch" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="Launch-File">
+<h4>Launch File<a class="headerlink" href="#Launch-File" title="Permalink to this headline">¶</a></h4>
 <p>Now you are almost ready to run the launch file that starts <code class="docutils literal notranslate"><span class="pre">roscore</span></code>,
-<code class="docutils literal notranslate"><span class="pre">talker.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> simultaneously. We’ve given you part
-of the launch file in
-<code class="docutils literal notranslate"><span class="pre">aero_control/communication_pipeline/launch/talk_listen.launch</span></code>, but
-it’s incomplete. Can you figure out what is missing and add it yourself?</p>
+<code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> simultaneously. We’ve
+given you part of the launch file in
+<code class="docutils literal notranslate"><span class="pre">aero_control/communication_pipeline/launch/simnple_talk_listen.launch</span></code>,
+but it’s incomplete. Can you figure out what is missing and add it
+yourself?</p>
 <p>Once you’ve filled in the missing part of the launch file, follow these
 steps to run it</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span>
 <span class="n">catkin_make</span>
 <span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
-<span class="n">roslaunch</span> <span class="n">aero_control</span> <span class="n">talk_listen</span><span class="o">.</span><span class="n">launch</span>
+<span class="n">roslaunch</span> <span class="n">aero_control</span> <span class="n">simple_talk_listen</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
-<p>You should see the print statement from <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> in your
+<p>You should see the print statement from <code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> in your
 terminal.</p>
 <p>A useful tool for visualizing how information is being passed by ROS is
 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> (see references
 <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics#Using_rqt_graph">here</a>
 and <a class="reference external" href="http://wiki.ros.org/rqt_graph">here</a> for more information. With
-<code class="docutils literal notranslate"><span class="pre">talk_listen.launch</span></code> still running, open a new terminal and run:</p>
+<code class="docutils literal notranslate"><span class="pre">simple_talk_listen.launch</span></code> still running, open a new terminal and
+run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">rqt_graph</span> <span class="n">rqt_graph</span>
 </pre></div>
 </div>

@@ -277,15 +277,16 @@ drone/computer:</p>
 </pre></div>
 </div>
 <p>First, pull from upstream in <code class="docutils literal notranslate"><span class="pre">aero_control</span></code>. Your <code class="docutils literal notranslate"><span class="pre">aero_control</span></code>
-directory should now have a file called <code class="docutils literal notranslate"><span class="pre">ar_checker.py</span></code> that has
-blanks for you to fill in. Your goal with this file is to read AR tag
-detections from <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code> and check to see that the drone is
-within the proper range from the tag to be counted as a detection (by
-default, 0.9 - 1.1m but we may change this if it proves too easy). Your
-code should then log the detection or, if not in the proper position,
-directions on getting to the proper position using the information from
-<code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code>. It should then log the tag as “seen” and display an
-“Already Seen” message if it appears again.</p>
+directory should now have a files called
+<code class="docutils literal notranslate"><span class="pre">ar_localization/src/ar_checker.py</span></code> that has blanks for you to fill
+in. Your goal with this file is to read AR tag detections from
+<code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code> and check to see that the drone is within the proper
+range from the tag to be counted as a detection (by default, 0.9 - 1.1m
+but we may change this if it proves too easy). Your code should then log
+the detection or, if not in the proper position, directions on getting
+to the proper position using the information from <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code>. It
+should then log the tag as “seen” and display an “Already Seen” message
+if it appears again.</p>
 <p>You will be able to test your <code class="docutils literal notranslate"><span class="pre">ar_checker.py</span></code> using
 <code class="docutils literal notranslate"><span class="pre">ar_checker.launch</span></code>, also in your <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> directory. When
 roslaunching, you can use

@@ -212,7 +212,7 @@
 <div class="section" id="OFFBOARD-Mode-&amp;-Open-Loop-Control">
 <h1>OFFBOARD Mode &amp; Open Loop Control<a class="headerlink" href="#OFFBOARD-Mode-&-Open-Loop-Control" title="Permalink to this headline">¶</a></h1>
 <p>At the beginning of this class we flew our drones in
-<code class="docutils literal notranslate"><span class="pre">`MANUAL</span></code> &lt;<a class="reference external" href="https://docs.px4.io/en/flight_modes/manual_stabilized_mc.html">https://docs.px4.io/en/flight_modes/manual_stabilized_mc.html</a>&gt;`__
+<a class="reference external" href="https://docs.px4.io/en/flight_modes/manual_stabilized_mc.html">MANUAL</a>
 mode, piloting it using the remote control. This mode was difficult to
 control and required constant input from the pilot in order to prevent
 it from drifting off and crashing into the walls. This constant input
@@ -224,19 +224,19 @@ position was drifting toward a wall.</p>
 flow</a> and <a class="reference external" href="ar_localization.html">ARTag
 localization</a> libraries, we were able to fly
 the drone in
-<code class="docutils literal notranslate"><span class="pre">`POSITION</span></code> &lt;<a class="reference external" href="https://docs.px4.io/en/flight_modes/position_mc.html">https://docs.px4.io/en/flight_modes/position_mc.html</a>&gt;`__mode
+<a class="reference external" href="https://docs.px4.io/en/flight_modes/position_mc.html">POSITION</a>mode
 (sometimes refered to as <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> or <code class="docutils literal notranslate"><span class="pre">POSCTL</span></code>). This mode
 still took inputs from the pilot via the remote control, but it was
 <em>much</em> easier to fly since the drone could effectively hover in place
 without drifting. In this mode, the input from the pilot commanded the
 drone to make slow movements in body-frame directions.</p>
 <p>Our next step is to utilize the
-<code class="docutils literal notranslate"><span class="pre">`OFFBOARD</span></code> &lt;<a class="reference external" href="https://docs.px4.io/en/flight_modes/offboard.html">https://docs.px4.io/en/flight_modes/offboard.html</a>&gt;`__
-mode, which is removes the need for pilot input and is our first venture
-into truly autonomous flight! This practical will walk us through
-sending short duration velocity commands that the drone will execute. We
-call it “open loop” because the commands are pre-scripted and don’t
-adapt or update based on new information (i.e.&nbsp;sensor/camera data).</p>
+<a class="reference external" href="https://docs.px4.io/en/flight_modes/offboard.html">OFFBOARD</a> mode,
+which is removes the need for pilot input and is our first venture into
+truly autonomous flight! This practical will walk us through sending
+short duration velocity commands that the drone will execute. We call it
+“open loop” because the commands are pre-scripted and don’t adapt or
+update based on new information (i.e.&nbsp;sensor/camera data).</p>
 <p>For more information on PX’4 various flight modes, <a class="reference external" href="https://docs.px4.io/en/flight_modes/">see
 here</a></p>
 <div class="admonition warning">

@@ -279,26 +279,42 @@ portions of code marked as <code class="docutils literal notranslate"><span clas
 <h2>Step 2: Setup for Test Flight<a class="headerlink" href="#Step-2:-Setup-for-Test-Flight" title="Permalink to this headline">¶</a></h2>
 <p>Once <code class="docutils literal notranslate"><span class="pre">translation_control.py</span></code> has been completed and pulled onto the
 drone, run the flight test by following these procedures</p>
-<ul class="simple">
-<li>Power on remote control</li>
-<li>Power on the Intel RTF</li>
-<li>Connect to the UAV via QGroundControl</li>
-<li>SSH into the UAV (you will need to have at least four terminals SSHed
-into the UAV)</li>
-<li>In terminal 1, start distance sensor
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">aero-teraranger.service</span></code></li>
-<li>In terminal 1, start ROS <code class="docutils literal notranslate"><span class="pre">roscore</span></code></li>
-<li>In terminal 2, start <em>patched</em> optical flow + down-camera streaming.
+<ul>
+<li><p class="first">Power on remote control</p>
+</li>
+<li><p class="first">Power on the Intel RTF</p>
+</li>
+<li><p class="first">Connect to the UAV via QGroundControl</p>
+</li>
+<li><p class="first">SSH into the UAV (you will need to have at least four terminals SSHed
+into the UAV)</p>
+</li>
+<li><p class="first">In terminal 1, start distance sensor
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">aero-teraranger.service</span></code></p>
+</li>
+<li><p class="first">In terminal 1, start ROS <code class="docutils literal notranslate"><span class="pre">roscore</span></code></p>
+</li>
+<li><p class="first">In terminal 2, start <em>patched</em> optical flow + down-camera streaming.
 Note: this is different from <em>standard</em> optical flow service that
 prevents streaming downward-facing camera. Needed for line detection.
 <a class="reference external" href="https://github.mit.edu/ma23705/aero_downward_ros/blob/master/README.md">See here for more info on setting
 up</a>
-<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bwsi-uav/catkin_ws/src/aero-optical-flow/build</span>&#160;&#160; <span class="pre">sudo</span> <span class="pre">-E</span> <span class="pre">./aero-optical-flow</span></code></li>
-<li>Without arming drone, switch to <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> mode to ensure
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bwsi-uav/catkin_ws/src/aero-optical-flow/build</span></code>
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-E</span> <span class="pre">./aero-optical-flow</span></code></p>
+</li>
+<li><p class="first">Without arming drone, switch to <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> mode to ensure
 previous steps worked as expect. If QGroundControl declares that that
-position control is rejected, restart process.</li>
-<li>In terminal 3, launch mavros and translation control
-<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bwsi-uav/catkin_ws</span>&#160;&#160; <span class="pre">source</span> <span class="pre">devel/setup.bash</span>&#160;&#160; <span class="pre">roslaunch</span> <span class="pre">aero_control</span> <span class="pre">translation_control.launch</span></code></li>
+position control is rejected, restart process.</p>
+</li>
+<li><p class="first">In terminal 3, launch mavros and translation control
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bwsi-uav/catkin_ws</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">aero_control</span> <span class="n">translation_control</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </div>
 <div class="section" id="Step-3:-Test-Flight">

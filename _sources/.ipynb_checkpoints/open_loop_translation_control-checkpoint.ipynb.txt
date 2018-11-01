@@ -8,7 +8,7 @@
     "\n",
     "At the beginning of this class we flew our drones in [MANUAL](https://docs.px4.io/en/flight_modes/manual_stabilized_mc.html) mode, piloting it using the remote control. This mode was difficult to control and required constant input from the pilot in order to prevent it from drifting off and crashing into the walls. This constant input from the pilot to maintain control was a required because the drone had very little knowledge of the world; i.e. it had no way of _localizing_ itself in the world which meant that it had no way of knowing that it's position was drifting toward a wall.\n",
     "\n",
-    "After implementing off-the-shelf [_optical flow_](enable_optical_flow.html) and [_ARTag localization_](ar_localization.html) libraries, we were able to fly the drone in [POSITION](https://docs.px4.io/en/flight_modes/position_mc.html)mode (sometimes refered to as `POSITION CONTROL` or `POSCTL`). This mode still took inputs from the pilot via the remote control, but it was _much_ easier to fly since the drone could effectively hover in place without drifting. In this mode, the input from the pilot commanded the drone to make slow movements in body-frame directions.\n",
+    "After implementing off-the-shelf [_optical flow_](enable_optical_flow.html) and [_ARTag localization_](ar_localization.html) libraries, we were able to fly the drone in [POSITION](https://docs.px4.io/en/flight_modes/position_mc.html) mode (sometimes refered to as `POSITION CONTROL` or `POSCTL`). This mode still took inputs from the pilot via the remote control, but it was _much_ easier to fly since the drone could effectively hover in place without drifting. In this mode, the input from the pilot commanded the drone to make slow movements in body-frame directions.\n",
     "\n",
     "Our next step is to utilize the [OFFBOARD](https://docs.px4.io/en/flight_modes/offboard.html) mode, which is removes the need for pilot input and is our first venture into truly autonomous flight! This practical will walk us through sending short duration velocity commands that the drone will execute. We call it \"open loop\" because the commands are pre-scripted and don't adapt or update based on new information (i.e. sensor/camera data).\n",
     "\n",
@@ -143,14 +143,14 @@
   "language_info": {
    "codemirror_mode": {
     "name": "ipython",
-    "version": 2
+    "version": 3
    },
    "file_extension": ".py",
    "mimetype": "text/x-python",
    "name": "python",
    "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython2",
-   "version": "2.7.12"
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
   }
  },
  "nbformat": 4,

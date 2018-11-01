@@ -298,20 +298,20 @@ into the UAV)</p>
 Note: this is different from <em>standard</em> optical flow service that
 prevents streaming downward-facing camera. Needed for line detection.
 <a class="reference external" href="https://github.mit.edu/ma23705/aero_downward_ros/blob/master/README.md">See here for more info on setting
-up</a>
-<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bwsi-uav/catkin_ws/src/aero-optical-flow/build</span></code>
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-E</span> <span class="pre">./aero-optical-flow</span></code></p>
+up</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">/</span><span class="n">build</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="o">./</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span>
+</pre></div>
+</div>
 </li>
 <li><p class="first">Without arming drone, switch to <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> mode to ensure
 previous steps worked as expect. If QGroundControl declares that that
 position control is rejected, restart process.</p>
 </li>
-<li><p class="first">In terminal 3, launch mavros and translation control
-<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bwsi-uav/catkin_ws</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">aero_control</span> <span class="n">translation_control</span><span class="o">.</span><span class="n">launch</span>
+<li><p class="first">In terminal 3, launch mavros and translation control</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span>
+<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<span class="n">roslaunch</span> <span class="n">aero_control</span> <span class="n">translation_control</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 </li>

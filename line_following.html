@@ -109,21 +109,14 @@
 <li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Line Following</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Setup-for-Line-Following">Setup for Line Following</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Launching-Line-Following">Launching Line Following</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#PID-Tuning">PID Tuning</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#Breaking-Down-Line-Following">Breaking Down Line Following</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Computer-Vision-(detector.py)">Computer Vision (<code class="docutils literal notranslate"><span class="pre">detector.py</span></code>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Control-Systems-(tracker.py)">Control Systems (<code class="docutils literal notranslate"><span class="pre">tracker.py</span></code>)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Checkpoints">Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Control-Systems-(tracker.py)">Control Systems (<code class="docutils literal notranslate"><span class="pre">tracker.py</span></code>)</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#Preflight-Code-Checkpoint">Preflight Code Checkpoint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Setup-for-Test-Flight">Setup for Test Flight</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Step-3:-Test-Flight">Step 3: Test Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Test-Flight">Test Flight</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
@@ -222,7 +215,7 @@
 </style>
 <div class="section" id="Line-Following">
 <h1>Line Following<a class="headerlink" href="#Line-Following" title="Permalink to this headline">¶</a></h1>
-<p>In this document, you will learn how to put together your
+<p>In this practical, you will learn how to put together your
 parameterization of a line detected from the downward camera with a
 flight controller to accurately follow a line.</p>
 <p>Key tools:</p>
@@ -231,29 +224,6 @@ flight controller to accurately follow a line.</p>
 <li>Closed-loop velocity control</li>
 <li><code class="docutils literal notranslate"><span class="pre">rosmsg</span></code></li>
 </ul>
-<div class="section" id="Setup-for-Line-Following">
-<h2>Setup for Line Following<a class="headerlink" href="#Setup-for-Line-Following" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Launching-Line-Following">
-<h3>Launching Line Following<a class="headerlink" href="#Launching-Line-Following" title="Permalink to this headline">¶</a></h3>
-<p>You will be using a launch file to execute line following code called
-<code class="docutils literal notranslate"><span class="pre">detect_track.launch</span></code>. This launch file will be provided to you in
-<code class="docutils literal notranslate"><span class="pre">aero_control</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">detect_track.launch</span></code> does a few things:</p>
-<ul class="simple">
-<li>Sets target MAV frame for velocity commands to <code class="docutils literal notranslate"><span class="pre">bu</span></code></li>
-<li>Initializes <code class="docutils literal notranslate"><span class="pre">detector.py</span></code> and <code class="docutils literal notranslate"><span class="pre">tracker.py</span></code></li>
-<li>Launches MAVROS</li>
-</ul>
-</div>
-<div class="section" id="PID-Tuning">
-<h3>PID Tuning<a class="headerlink" href="#PID-Tuning" title="Permalink to this headline">¶</a></h3>
-<p>Start thinking, as you are writing line following code, about how much
-you want your drone to respond to moving off of the line. Should its
-response be aggressive? Consider the pros and cons of aggressive vs
-non-aggressive control behavior. Your <span class="math notranslate nohighlight">\(K_{P_x}\)</span> and
-<span class="math notranslate nohighlight">\(K_{P_y}\)</span> should always start below 1.</p>
-</div>
-</div>
 <div class="section" id="Breaking-Down-Line-Following">
 <h2>Breaking Down Line Following<a class="headerlink" href="#Breaking-Down-Line-Following" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Computer-Vision-(detector.py)">
@@ -288,7 +258,12 @@ the line using the unit vector in the direction of the line, making
 sure that the unit vector is positive <span class="math notranslate nohighlight">\(p_{target}\)</span></li>
 <li>Calculate the vector from the center of the frame to the extrapolated
 point (this represents error) <span class="math notranslate nohighlight">\(\vec{r}_{to-target}\)</span></li>
-<li>Calculate <span class="math notranslate nohighlight">\(c_x(t)\)</span> and <span class="math notranslate nohighlight">\(c_y(t)\)</span> using your pre-determined
+<li>Select safe, appropriate gains for your proportional velocity
+controller than enable the drone to change its velocity to track a
+the target on the line. Should its response be aggressive? Consider
+the pros and cons of aggressive vs non-aggressive control behavior.
+Your <span class="math notranslate nohighlight">\(K_{P_x}\)</span> and <span class="math notranslate nohighlight">\(K_{P_y}\)</span> should always start below 1.</li>
+<li>Calculate <span class="math notranslate nohighlight">\(v_x(t)\)</span> and <span class="math notranslate nohighlight">\(v_y(t)\)</span> using your pre-determined
 <span class="math notranslate nohighlight">\(K_P\)</span> values.</li>
 </ul>
 <p>Diagram:</p>
@@ -296,8 +271,10 @@ point (this represents error) <span class="math notranslate nohighlight">\(\vec{
 <img alt="line_diagram.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/line_diagram.jpg?raw=true" />
 <p class="caption"><span class="caption-text">line_diagram.jpg</span></p>
 </div>
-<div class="section" id="Checkpoints">
-<h4>Checkpoints<a class="headerlink" href="#Checkpoints" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="Preflight-Code-Checkpoint">
+<h2>Preflight Code Checkpoint<a class="headerlink" href="#Preflight-Code-Checkpoint" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Graph error vs.&nbsp;time on the provided <code class="docutils literal notranslate"><span class="pre">rosbag</span></code>. An instructor will
 check to see that the error graphs are consistent with actual data.
@@ -315,8 +292,6 @@ verify that the velocity commands are successful.</li>
 </ul>
 <p>After these checkpoints, you will be allowed to fly your code and test
 it to tune your <span class="math notranslate nohighlight">\(K_P\)</span> constants.</p>
-</div>
-</div>
 </div>
 <div class="section" id="Setup-for-Test-Flight">
 <h2>Setup for Test Flight<a class="headerlink" href="#Setup-for-Test-Flight" title="Permalink to this headline">¶</a></h2>
@@ -362,7 +337,8 @@ previous steps worked as expect. If QGroundControl declares that that
 position control is rejected, use QGroundControl &gt; Widgets &gt; MAVLink
 Inspector to debug and potentially restart process.</p>
 </li>
-<li><p class="first">In terminal 3, launch mavros and translation control</p>
+<li><p class="first">In terminal 3, launch <code class="docutils literal notranslate"><span class="pre">mavros</span></code>, <code class="docutils literal notranslate"><span class="pre">detector</span></code>, and <code class="docutils literal notranslate"><span class="pre">tracker</span></code> using
+<code class="docutils literal notranslate"><span class="pre">detect_track.launch</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span>
 <span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
 <span class="n">roslaunch</span> <span class="n">aero_control</span> <span class="n">detect_track</span><span class="o">.</span><span class="n">launch</span>
@@ -378,8 +354,8 @@ detection.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="Step-3:-Test-Flight">
-<h2>Step 3: Test Flight<a class="headerlink" href="#Step-3:-Test-Flight" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Test-Flight">
+<h2>Test Flight<a class="headerlink" href="#Test-Flight" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>WARNING:</strong></p>
 <p>Pilot-in-Command must always be ready to regain control by switching

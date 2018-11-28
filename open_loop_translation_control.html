@@ -287,12 +287,22 @@ drone, run the flight test by following these procedures</p>
 <li><p class="first">Connect to the UAV via QGroundControl</p>
 </li>
 <li><p class="first">SSH into the UAV (you will need to have at least four terminals SSHed
-into the UAV)</p>
+into the UAV). use X-forwarding in order to pass graphics
+(i.e.&nbsp;stream the camera feed from the drone to your computer).
+Example replacing <code class="docutils literal notranslate"><span class="pre">&lt;team-drone-name&gt;</span></code> with the name of your drone:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">X</span> <span class="n">uav</span><span class="o">@&lt;</span><span class="n">team</span><span class="o">-</span><span class="n">drone</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;.</span><span class="n">beaver</span><span class="o">.</span><span class="n">works</span>
+</pre></div>
+</div>
 </li>
-<li><p class="first">In terminal 1, start distance sensor
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">aero-teraranger.service</span></code></p>
+<li><p class="first">In terminal 1, start distance sensor</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">aero</span><span class="o">-</span><span class="n">teraranger</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
 </li>
-<li><p class="first">In terminal 1, start ROS <code class="docutils literal notranslate"><span class="pre">roscore</span></code></p>
+<li><p class="first">In terminal 1, start ROS</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roscore</span>
+</pre></div>
+</div>
 </li>
 <li><p class="first">In terminal 2, start <em>patched</em> optical flow + down-camera streaming.
 Note: this is different from <em>standard</em> optical flow service that

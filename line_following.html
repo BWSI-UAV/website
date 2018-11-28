@@ -122,7 +122,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Challenge-Specification">Challenge Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Setup-for-Test-Flight">Setup for Test Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Step-3:-Test-Flight">Step 3: Test Flight</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
@@ -317,11 +318,84 @@ it to tune your <span class="math notranslate nohighlight">\(K_P\)</span> consta
 </div>
 </div>
 </div>
-<div class="section" id="Challenge-Specification">
-<h2>Challenge Specification<a class="headerlink" href="#Challenge-Specification" title="Permalink to this headline">¶</a></h2>
-<p>You will be asked to fly on a straight line of LED lights. We will be
-limiting flights to 8 seconds, after which instructors will land your
-drone to avoid errors caused by attempting curved line following.</p>
+<div class="section" id="Setup-for-Test-Flight">
+<h2>Setup for Test Flight<a class="headerlink" href="#Setup-for-Test-Flight" title="Permalink to this headline">¶</a></h2>
+<p>Once <code class="docutils literal notranslate"><span class="pre">detector.py</span></code> and <code class="docutils literal notranslate"><span class="pre">tracker.py</span></code> have been completed and pulled
+onto the drone, run the flight test by following these procedures</p>
+<ul>
+<li><p class="first">Power on remote control</p>
+</li>
+<li><p class="first">Power on the Intel RTF</p>
+</li>
+<li><p class="first">Connect to the UAV via QGroundControl</p>
+</li>
+<li><p class="first">SSH into the UAV (you will need to have at least four terminals SSHed
+into the UAV). use X-forwarding in order to pass graphics
+(i.e.&nbsp;stream the camera feed from the drone to your computer).
+Example replacing <code class="docutils literal notranslate"><span class="pre">&lt;team-drone-name&gt;</span></code> with the name of your drone:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">X</span> <span class="n">uav</span><span class="o">@&lt;</span><span class="n">team</span><span class="o">-</span><span class="n">drone</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;.</span><span class="n">beaver</span><span class="o">.</span><span class="n">works</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In terminal 1, start distance sensor</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">aero</span><span class="o">-</span><span class="n">teraranger</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In terminal 1, start ROS</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roscore</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In terminal 2, start <em>patched</em> optical flow + down-camera streaming.
+Note: this is different from <em>standard</em> optical flow service that
+prevents streaming downward-facing camera. Needed for line detection.
+<a class="reference external" href="https://github.mit.edu/ma23705/aero_downward_ros/blob/master/README.md">See here for more info on setting
+up</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">/</span><span class="n">build</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="o">./</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Without arming drone, switch to <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> mode to ensure
+previous steps worked as expect. If QGroundControl declares that that
+position control is rejected, use QGroundControl &gt; Widgets &gt; MAVLink
+Inspector to debug and potentially restart process.</p>
+</li>
+<li><p class="first">In terminal 3, launch mavros and translation control</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span>
+<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<span class="n">roslaunch</span> <span class="n">aero_control</span> <span class="n">detect_track</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">(OPTIONAL) In terminal 4, visualize the downward camera feed for line
+detection.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rqt_image_view</span>
+</pre></div>
+</div>
+<p>and select <code class="docutils literal notranslate"><span class="pre">/line/detector_image</span></code> from the dropdown menu</p>
+</li>
+</ul>
+</div>
+<div class="section" id="Step-3:-Test-Flight">
+<h2>Step 3: Test Flight<a class="headerlink" href="#Step-3:-Test-Flight" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING:</strong></p>
+<p>Pilot-in-Command must always be ready to regain control by switching
+back to <code class="docutils literal notranslate"><span class="pre">POSCTL</span></code> mode. Never take your hands off the remote control!</p>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> mode</p>
+<ol class="arabic simple">
+<li>Arm the quadrotor</li>
+<li>Takeoff</li>
+<li>Position in a safe location in the air</li>
+<li>Switch to <code class="docutils literal notranslate"><span class="pre">OFFBOARD</span></code> mode to run test</li>
+<li>Regain control with <code class="docutils literal notranslate"><span class="pre">POSITION</span></code> mode</li>
+<li>Land quadrotor</li>
+<li>Disarm</li>
+<li>Collect <a class="reference external" href="flight_log_analysis.html">flight log</a></li>
+</ol>
 </div>
 </div>
 

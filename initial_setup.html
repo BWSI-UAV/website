@@ -88,7 +88,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Module 0: UAV Environment Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Instructional-Content-Access">Instructional Content Access</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#MIT-GitHub-Account">MIT GitHub Account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edX-Account">edX Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#BWSI-edX-Account">BWSI edX Account</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Intel-RTF-Drone-Setup">Intel RTF Drone Setup</a><ul>
@@ -120,9 +120,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Laptop-Setup">Laptop Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Install-Ubunutu-(Operating-System)">Install Ubunutu (Operating System)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Dual-Boot-Native-Linux">Dual Boot Native Linux</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Virtual-Machine-Linux-Guest">Virtual Machine Linux Guest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Ubunutu-Linux-(Operating-System)">Install Ubunutu Linux (Operating System)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Option-1:-Dual-Boot-Native-Linux">Option 1: Dual Boot Native Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Option-2:-Virtual-Machine-Linux-Guest">Option 2: Virtual Machine Linux Guest</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#PX4-Development-Environment-(UAV-Firmware)">PX4 Development Environment (UAV Firmware)</a></li>
@@ -257,13 +257,21 @@
 <hr class="docutils" />
 <div class="section" id="Instructional-Content-Access">
 <h2>Instructional Content Access<a class="headerlink" href="#Instructional-Content-Access" title="Permalink to this headline">¶</a></h2>
+<p>Throughout this course we leverage instructional content from various
+sources. For better or worse, some of those source require accounts.
+Please follow the links below for setting up accounts for MIT’s GitHub
+and BWSI’s edX platforms</p>
 <div class="section" id="MIT-GitHub-Account">
 <h3>MIT GitHub Account<a class="headerlink" href="#MIT-GitHub-Account" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://kb.mit.edu/confluence/display/istcontrib/Creating+a+Touchstone+Collaboration+Account">MIT Touchstone Collaboration Account
 Instructions</a></p>
 </div>
-<div class="section" id="edX-Account">
-<h3>edX Account<a class="headerlink" href="#edX-Account" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="BWSI-edX-Account">
+<h3>BWSI edX Account<a class="headerlink" href="#BWSI-edX-Account" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://beaverworks.ll.mit.edu/CMS/bw/bwsiapply">Instructions for BWSI’s edX
+application</a>. Note:
+You should already have an account having completed the pre-requisite
+online portion of this course</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -640,22 +648,73 @@ under the sections; specifically:</p>
 <div class="section" id="Laptop-Setup">
 <h2>Laptop Setup<a class="headerlink" href="#Laptop-Setup" title="Permalink to this headline">¶</a></h2>
 <p>In short, when working with the embedded systems involved with robotics,
-you need a Linux environment on your laptop or desktop. Period.</p>
+you need a Linux environment on your laptop or desktop. <strong>Period</strong>.</p>
 <p>There are plenty of hacks and tricks for trying to get Windows or MacOS
 to play nicely with the software tools and libraries used in robotics,
 but in the end you will waste more time—and endure more
 frustration—trying to get those tools working than you would if you just
-commit to working in Linux from the beginning.</p>
+commit to working in Linux from the beginning. In short, this class is
+designed around a Linux operating system and we do not have the
+bandwidth to provide equivalent instruction for other operating systems.</p>
 <p>Below we layout the steps necessary to get you laptop or desktop setup
 to develop the Intel Ready-To-Fly Drone</p>
-<div class="section" id="Install-Ubunutu-(Operating-System)">
-<h3>Install Ubunutu (Operating System)<a class="headerlink" href="#Install-Ubunutu-(Operating-System)" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="Dual-Boot-Native-Linux">
-<h4>Dual Boot Native Linux<a class="headerlink" href="#Dual-Boot-Native-Linux" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="Install-Ubunutu-Linux-(Operating-System)">
+<h3>Install Ubunutu Linux (Operating System)<a class="headerlink" href="#Install-Ubunutu-Linux-(Operating-System)" title="Permalink to this headline">¶</a></h3>
+<p>There are many “flavors” of Linux; this course will utilize the most
+popular (arguably) version known as
+<a class="reference external" href="https://www.ubuntu.com/">Ubuntu</a>.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTE:</strong></p>
+<p>As of the Summer of 2019, we are still using Ubuntu 16.04 LTS for this
+course. Please select this version of Ubuntu while installing using one
+of the following options.</p>
 </div>
-<div class="section" id="Virtual-Machine-Linux-Guest">
-<h4>Virtual Machine Linux Guest<a class="headerlink" href="#Virtual-Machine-Linux-Guest" title="Permalink to this headline">¶</a></h4>
-<p>!!TO BE COMPLETED!!</p>
+<div class="section" id="Option-1:-Dual-Boot-Native-Linux">
+<h4>Option 1: Dual Boot Native Linux<a class="headerlink" href="#Option-1:-Dual-Boot-Native-Linux" title="Permalink to this headline">¶</a></h4>
+<p><em>This option tends to be preferred by full-time Linux users. It’s how I
+set up my personal computers</em></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Multi-booting">Dual booting</a> is kinda
+like creating a separate computer inside your computer. Think of it like
+your computer having a split personality: any time you turn on your
+computer it can either be a Windows computer or a Linux computer,
+depending on what option you pick during startup. This is different from
+<a class="reference external" href="https://en.wikipedia.org/wiki/Virtual_machine">Virtual Machine</a>
+which is more like one computer running a <em>simulation</em> of another
+computer.</p>
+<p>There are many tutorials online that describe how to create a dual boot
+Windows/Linux computer; I find Ubuntu’s tutorial the most refined.
+Please follow instructions below</p>
+<p><a class="reference external" href="https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-desktop#0">https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-desktop#0</a></p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>DISCLAIMER 1:</strong></p>
+<p>Dual booting requires <em>partitioning</em> your hard drive which poses risk of
+losing data on your computer if done incorrectly. It is strongly
+recommended to backup your hard drive before proceeding.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>DISCLAIMER 2:</strong></p>
+<p>This process may take roughly an hour for someone who knows what they
+are doing, but several hours for someone who is doing it for the first
+time. Plan accordingly.</p>
+</div>
+<p>We argue that, in the long term, the power and flexibility of Linux is
+worth the risk and effort. <em>It’s almost impossible to be an effective
+roboticist without it!</em></p>
+</div>
+<div class="section" id="Option-2:-Virtual-Machine-Linux-Guest">
+<h4>Option 2: Virtual Machine Linux Guest<a class="headerlink" href="#Option-2:-Virtual-Machine-Linux-Guest" title="Permalink to this headline">¶</a></h4>
+<p><em>This option can be good when getting started with Linux as it requires
+less “surgery” on your computer, but it will eventually hit
+roadblocks/difficulties that a dual-boot avoids</em></p>
+<p>An alternative to dual booting is the create a virtual machine to run a
+“guest” Linux machine as a program within you native operating system.
+You should have already done this as part of the <a class="reference external" href="https://bwsix.mit.edu">online pre-requisite
+course</a>.</p>
+<p>As with Dual Booting, there are many online tutorials to follow for
+creating a Ubuntu Linux virtual machine. Here is a link to one tutorial
+that uses <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a>:</p>
+<p><a class="reference external" href="https://medium.com/&#64;tushar0618/install-ubuntu-16-04-lts-on-virtual-box-desktop-version-30dc6f1958d0">Medium Article on Linux VM
+Install</a></p>
 </div>
 </div>
 <div class="section" id="PX4-Development-Environment-(UAV-Firmware)">
@@ -682,12 +741,14 @@ to develop the Intel Ready-To-Fly Drone</p>
 <a class="reference external" href="https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html">https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html</a></p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
-<p>There appears to be a conflict between ROS and Sphinx over that presents
-with the error</p>
+<p>There appears to be a conflict between ROS and Sphinx that presents with
+the error</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Could</span> <span class="ow">not</span> <span class="kn">import</span> <span class="nn">extension</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">builders</span><span class="o">.</span><span class="n">latex</span> <span class="p">(</span><span class="n">exception</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">roman</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To resolve this we have a conda environment dedicated to publishing</p>
+<p>To resolve this we have a <a class="reference external" href="https://github.com/BWSI-UAV/website/blob/master/environment.yaml">conda
+environment</a>
+dedicated to publishing</p>
 </div>
 <p>Spell checker (<strong>NOTE:</strong> Need to ensure this doesn’t spell check in the
 cloud) +

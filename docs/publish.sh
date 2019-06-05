@@ -1,4 +1,4 @@
-#!/bin/bash)
+#!/bin/bash
 # BUILDDIR="build"
 
 python -m sphinx . build

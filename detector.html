@@ -119,6 +119,7 @@
 <p class="caption"><span class="caption-text">Advanced Topics:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Supplemental Material:</span></p>
 <ul>
@@ -307,7 +308,8 @@ Message*.msg files with your .msg file, such that it looks like this:</p>
 </div>
 <div class="section" id="Modifying-talker.py-and-listener.py-to-use-custom-messages">
 <h2>Modifying <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> to use custom messages<a class="headerlink" href="#Modifying-talker.py-and-listener.py-to-use-custom-messages" title="Permalink to this headline">¶</a></h2>
-<p>Fill out the <code class="docutils literal notranslate"><span class="pre">TODO</span></code> sections in both python files.</p>
+<p>Fill out the <code class="docutils literal notranslate"><span class="pre">TODO</span></code> sections in <code class="docutils literal notranslate"><span class="pre">line_tracker/src/talker.py</span></code> and
+<code class="docutils literal notranslate"><span class="pre">line_tracker/src/listener.py</span></code>.</p>
 <p>You will probabally find the following guide/example code helpful:
 <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CustomMessagePublisherSubscriber%28python%29">link</a></p>
 <p>Dont worry about making any files exicutable since we will be using
@@ -317,8 +319,9 @@ launchfiles</p>
 </div>
 <div class="section" id="Writing-detector.py">
 <h2>Writing <code class="docutils literal notranslate"><span class="pre">detector.py</span></code><a class="headerlink" href="#Writing-detector.py" title="Permalink to this headline">¶</a></h2>
-<p>Fill out the TODO sections, you should be able to reuse code from
-<code class="docutils literal notranslate"><span class="pre">talker.py</span></code>, your line paramaterization notebook, and
+<p>Fill out the TODO sections in <code class="docutils literal notranslate"><span class="pre">line_tracker/src/detector.py</span></code>, you
+should be able to reuse code from <code class="docutils literal notranslate"><span class="pre">line_tracker/src/talker.py</span></code>, your
+line paramaterization notebook, and
 <a class="reference external" href="downward_cam_bag.html?highlight=recording#Integrating-opencv-and-ROS-images">this</a>
 example code.</p>
 <p>To run your code, use <code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">aero_control</span> <span class="pre">detect_listen.launch</span></code> in

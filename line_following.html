@@ -110,8 +110,8 @@
 <li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Line Following</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Breaking-Down-Line-Following">Breaking Down Line Following</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Computer-Vision-(detector.py)">Computer Vision (<code class="docutils literal notranslate"><span class="pre">detector.py</span></code>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Control-Systems-(tracker.py)">Control Systems (<code class="docutils literal notranslate"><span class="pre">tracker.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Computer-Vision-(line_tracker/src/detector.py)">Computer Vision (<code class="docutils literal notranslate"><span class="pre">line_tracker/src/detector.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Control-Systems-(line_tracker/src/tracker.py)">Control Systems (<code class="docutils literal notranslate"><span class="pre">line_tracker/src/tracker.py</span></code>)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Preflight-Code-Checkpoint">Preflight Code Checkpoint</a></li>
@@ -124,6 +124,7 @@
 <p class="caption"><span class="caption-text">Advanced Topics:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Supplemental Material:</span></p>
 <ul>
@@ -226,8 +227,8 @@ flight controller to accurately follow a line.</p>
 </ul>
 <div class="section" id="Breaking-Down-Line-Following">
 <h2>Breaking Down Line Following<a class="headerlink" href="#Breaking-Down-Line-Following" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Computer-Vision-(detector.py)">
-<h3>Computer Vision (<code class="docutils literal notranslate"><span class="pre">detector.py</span></code>)<a class="headerlink" href="#Computer-Vision-(detector.py)" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Computer-Vision-(line_tracker/src/detector.py)">
+<h3>Computer Vision (<code class="docutils literal notranslate"><span class="pre">line_tracker/src/detector.py</span></code>)<a class="headerlink" href="#Computer-Vision-(line_tracker/src/detector.py)" title="Permalink to this headline">¶</a></h3>
 <p>Your computer vision algorithms must be precise and accurate when
 detecting the LED strip that will feature in the final race.</p>
 <p>Be sure to test your existing CV algorithms by publishing an Image
@@ -237,8 +238,8 @@ your code</strong>. Notify an instructor once you have the proper image
 displayed on top of the <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> we have provided you. You will then
 be permitted to move on to the next stage of development in this task.</p>
 </div>
-<div class="section" id="Control-Systems-(tracker.py)">
-<h3>Control Systems (<code class="docutils literal notranslate"><span class="pre">tracker.py</span></code>)<a class="headerlink" href="#Control-Systems-(tracker.py)" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Control-Systems-(line_tracker/src/tracker.py)">
+<h3>Control Systems (<code class="docutils literal notranslate"><span class="pre">line_tracker/src/tracker.py</span></code>)<a class="headerlink" href="#Control-Systems-(line_tracker/src/tracker.py)" title="Permalink to this headline">¶</a></h3>
 <p>You will be controlling two degrees of freedom in the line following
 task: <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span></p>
 <p>Using information about the image that the downward camera is

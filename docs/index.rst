@@ -43,6 +43,7 @@ Welcome to UAV Racing's documentation!
    :caption: Advanced Topics:
 
    exploring_px4_firmware.ipynb
+   kalman_filters.ipynb
 
 .. toctree::
    :maxdepth: 2

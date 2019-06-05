@@ -21,8 +21,8 @@ Welcome to UAV Racing's documentation!
    :maxdepth: 2
    :caption: Practicals:
 
-   student_drone_setup.ipynb
    project_workflow.ipynb
+   student_drone_setup.ipynb
    calibration.ipynb
    flight_log_analysis.ipynb
    intel_rtf_architecture.ipynb

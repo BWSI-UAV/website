@@ -42,6 +42,7 @@ Welcome to UAV Racing's documentation!
    :maxdepth: 2
    :caption: Advanced Topics:
 
+   vim_tutorial.ipynb
    exploring_px4_firmware.ipynb
    kalman_filters.ipynb
 

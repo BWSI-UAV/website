@@ -1,0 +1,138 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Flight Log Analysis\n",
+    "\n",
+    "[**Reference: Dronecode Documentation**](https://dev.px4.io/en/log/flight_log_analysis.html)\n",
+    "\n",
+    "In this unit we will learn how to analyze post-flight telemetry data which is a crucial skill for debugging when things go wrong or the UAV doesn't behave as expected. \n",
+    "\n",
+    "The above reference list several software tools that can be used to analyze flight data from a PX4-based UAV. We will use our own version of the online tool Flight Review ([Data Analysis Site](http://uav.beaver.works:9001), [Documentation](https://github.com/PX4/flight_review)). If above site is not operational, you can use [PX4's Site](https://logs.px4.io/) (__SEE WARNING BELOW__)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Analyze Pre-recorded Flight\n",
+    "\n",
+    "To practice using FlightPlot we have recorded data from a test flight that you will download (i.e. clone from GitHub) and analyze.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Import/Open Data\n",
+    "\n",
+    "Clone the prerecorded flight data from the `laboratory` repository on GitHub. Assuming you have already cloned this repo to your computer, make sure you are up to date by running `git pull upstream master`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Inspecting Data \n",
+    "\n",
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Warning:** \n",
+    "\n",
+    "By using these online tools for flight data review, you will be uploading flight data to a server. If you use `jupyter.beaver.works:9000`, then the server is internal to MIT. If you use `https://review.px4.io/`, then you uploading to an _external_ server.\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "To inspect the flight data:\n",
+    "\n",
+    "1. open a internet browser and navigate to `jupyter.beaver.works:9000`. Alternatively, if the previous link does not work, you can use `https://review.px4.io/`. __SEE WARNING ABOVE__\n",
+    "2. Click \"Choose File\" next to ULog File\n",
+    "3. Use the pop-up to navigate to `laboratory/flight_log_analysis/example_flight_log.ulg`\n",
+    "4. Click Upload (you can leave all other fields blank). __SEE WARNING ABOVE__\n",
+    "5. Wait for the plots to load. Browse the various plots using the tools on the side of each plot to zoom in on areas of interest\n",
+    "6. Plots include data on:\n",
+    "    - Local Position estimates and setpoints\n",
+    "    - Velocity estimates and setpoints\n",
+    "    - Yaw Angle and Yaw Angular rate estimates and setpoints\n",
+    "    - RC inputs\n",
+    "    - Parameter values\n",
+    "    - Accelerometer data\n",
+    "    - etc\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Problem Set\n",
+    "\n",
+    "- At what time did the mode switch from Manual to Position Control?\n",
+    "- What was the maximum velocity?\n",
+    "- What was the maximum deviation between the estimate position and the target position in x, y, z?\n",
+    "- Can you describe the pattern or shape of the flight path during the Position Control portion of the flight?\n",
+    "- What is the maximum acceleration?\n",
+    "- At what time did the drone take off? At what time did it land?\n",
+    "- What is the maximum discrepancy between the estimate z-position and the height sensor reading?\n",
+    "- What are the parameter values for `COM_POS_FS_EPH`, `EKF2_AID_MASK`, and `EKF2_HGT_MODE`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Analyze Your Flight\n",
+    "\n",
+    "Now that you know how to use a flight log analysis tool, take a look at one of your flights. \n",
+    "\n",
+    "Your drone stores flight logs onboard in the location: `/var/lib/mavlink-router/`\n",
+    "\n",
+    "You will need to first copy the flight log from the drone to your computer in order to analyze it. To do this, we will use secure copy (scp). From your laptop run the following, replacing `<your-drone-name>` and `<timestamped-log-file-name>` with the name of your drone and the flight log name, respectively.\n",
+    "\n",
+    "```\n",
+    "scp uav@<your-drone-name>.beaver.works:/var/lib/mavlink-router/<timestamped-log-file-name>.ulg ~/laboratory/flight_log_analysis/\n",
+    "```\n",
+    "\n",
+    "Once copied, open the log in FlightPlot to review your flight data and answer the previous questions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Document and Push\n",
+    "\n",
+    "When you are done analyzing the the pre-recorded flight and your own flight, the team's [research specialist](https://bwsi-uav.github.io/website/team_roles.html#Research-Specialist) is to document the answers to the problem set in a markdown file (for example, you could call it flight_log_analysis_answers.md), add, commit, and push to your team's `documents` repository."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 2",
+   "language": "python",
+   "name": "python2"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

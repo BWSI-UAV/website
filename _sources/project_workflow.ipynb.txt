@@ -15,7 +15,7 @@
    "source": [
     "## Working with Bash\n",
     "\n",
-    "Please see the [tutorial here](https://docs.google.com/presentation/d/1oHvgSuEw-JCodptHiPUNJVaFFAIavAKGWx73SvviHc4/edit?usp=sharing)"
+    "__TO BE COMPLETED__"
    ]
   },
   {
@@ -23,10 +23,6 @@
    "metadata": {},
    "source": [
     "## Working with Git\n",
-    "\n",
-    "Please see the [tutorial here](https://docs.google.com/presentation/d/1M-5IOTDlP4XkRy8c_6W5KSo7d45keXrfQQf4F43HNbc/edit?usp=sharing)\n",
-    "\n",
-    "For further instruction:\n",
     "\n",
     "We will be using git and GitHub to manage all of our code and documentation throughout the course. During the online portion of this class you were exposed to some of the basics of git and GitHub. If you would like a refresher, check out the link below:\n",
     "\n",
@@ -49,50 +45,16 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Laptop Repository Setup\n",
-    "\n",
-    "We are going to start by cloning and configuring the `laboratory` repo on the team laptops. Similar instructions can be used to configure the repo on your own personal laptops. The goal is to configure `laboratory` such to have an `upstream` remote repo to access new code provided by the instructors, as well as an `origin` remote repo where your team collaborates on new code.\n",
-    "\n",
-    "Start by cloning the public repository that the instructors manage\n",
-    "```\n",
-    "cd ~/bwsi-uav\n",
-    "git clone https://github.com/BWSI-UAV/laboratory.git\n",
-    "```\n",
-    "This remote repo starts as your `origin` but we are going to reconfigure it to your `upstream` remote repo\n",
-    "\n",
-    "```\n",
-    "cd ~/bwsi-uav/laboratory\n",
-    "git remote add upstream https://github.com/BWSI-UAV/laboratory.git \n",
-    "```\n",
-    "\n",
-    "Now you need to create your team's own `laboratory`. Go to github.mit.edu on the team laptop with your team's Github account. Make a new private repository titled `laboratory` and copy the remote repository URL found here, making sure to select SSH:\n",
-    "![copy-remote-repository-url-quick-setup.png](https://help.github.com/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)\n",
-    "\n",
-    "Go to the SSH'd terminal window and type the following commands:\n",
-    "\n",
-    "```\n",
-    "cd ~/bwsi-uav/laboratory\n",
-    "git remote set-url origin <remote repo URL, pasted>\n",
-    "git remote -v\n",
-    "```\n",
-    "\n",
-    "You should see both an `upstream` and `origin` remote repo (each has two entries: fetch and push)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "## Testing Repository Setup\n",
     "\n",
     "We will now test that you have configured your drone directories and repositories correctly\n",
     "\n",
-    "1. Instructors: push a new file called `git_hello_world.md` to https://github.com/BWSI-UAV/laboratory/tree/master/project_workflow\n",
-    "2. Research Specialist: on the team laptop, and navigates to the `laboratory` repository.\n",
+    "1. Instructors: push a new file called `git_hello_world.md` to https://github.com/BWSI-UAV/laboratory/project_workflow \n",
+    "2. Research Specialist: uses ssh to connect to drone, and navigates to the `laboratory` repository.\n",
     "3. Research Specialist: pulls the new file with `git pull upstream master`. Open new file and add one line of text. Example: \"Hello! this is the (team name) team! My name is (your name), today's research specialist!\"\n",
-    "4. Research Specialist: commit changes to `git_hello_world.md` locally on team laptop\n",
-    "5. Team Members: In sequence each team member uses the team laptop, opens `git_hello_world.md`, adds another line of text (e.g. \"Hello this is (your name)!), and commits. At this point their should be 5 new lines in `git_hello_world.md`.\n",
-    "6. Research Specialist: On the team laptop, push new commits to `git_hello_world.md` to your team's `laboratory` with `git push origin master`\n",
+    "4. Research Specialist: commit changes to `git_hello_world.md` locally on drone\n",
+    "5. Team Members: In sequence each team member uses ssh to connect to drone (from their own laptop or team laptop), opens `git_hello_world.md`, adds another line of text (e.g. \"Hello this is (your name)!), and commits. At this point their should be 5 new lines in `git_hello_world.md`.\n",
+    "6. Research Specialist: Connect to drone and push new commits to `git_hello_world.md` to your team's `laboratory` with `git push origin master`\n",
     "7. Team Members: In sequence each team member pulls the new commits to their own laptops with `git pull origin master`, modifies the file again to add another line (totaling 10 new lines from the start of the exercise), commits, and pushes back to team's repository\n",
     "\n",
     "### Stretch Goal: Merge Conflicts\n",
@@ -103,13 +65,6 @@
     "2. Software Specialist: on personal laptop, attempt to pull upstream change to `git_hello_world.md` with `git pull upstream master`. Git will inform you that a conflict has occured\n",
     "3. Team: In 20 minutes, see if you are able to resolve the conflict without help from instructors. A successful resolution will create a file with all of the teams additoins as well as the instructors additions"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {

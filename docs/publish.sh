@@ -7,6 +7,7 @@ echo "DEBUG: copying new tmp files"; cp -r build /tmp/gh-pages
 echo "DEBUG: changing directory"; cd ..; pwd
 echo "DEBUG: checking out gh-pages"
 if git checkout gh-pages; then
+	echo "DEBUG: pulling any changes from gh-pages": git pull origin gh-pages
 	echo "DEBUG: cleaning out old gh-pages files"; rm -rf * &&\
 	echo "DEBUG: copying over new files"; cp -r /tmp/gh-pages/* . &&\
 	echo "DEBUG: bypass jekyll"; touch .nojekyll &&\

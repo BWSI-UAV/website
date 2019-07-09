@@ -96,6 +96,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Project Workflow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Working-with-Bash">Working with Bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Working-with-Git">Working with Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Laptop-Repository-Setup">Laptop Repository Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Testing-Repository-Setup">Testing Repository Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Stretch-Goal:-Merge-Conflicts">Stretch Goal: Merge Conflicts</a></li>
 </ul>
@@ -247,6 +248,39 @@ password so everyone has access. The passwords should NOT be documented
 else their is a risk of someone else gaining access to your account.</p>
 </div>
 </div>
+<div class="section" id="Laptop-Repository-Setup">
+<h2>Laptop Repository Setup<a class="headerlink" href="#Laptop-Repository-Setup" title="Permalink to this headline">¶</a></h2>
+<p>We are going to start by cloning and configuring the <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> repo
+on the team laptops. Similar instructions can be used to configure the
+repo on your own personal laptops. The goal is to configure
+<code class="docutils literal notranslate"><span class="pre">laboratory</span></code> such to have an <code class="docutils literal notranslate"><span class="pre">upstream</span></code> remote repo to access new
+code provided by the instructors, as well as an <code class="docutils literal notranslate"><span class="pre">origin</span></code> remote repo
+where your team collaborates on new code.</p>
+<p>Start by cloning the public repository that the instructors manage</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">laboratory</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>This remote repo starts as your <code class="docutils literal notranslate"><span class="pre">origin</span></code> but we are going to
+reconfigure it to your <code class="docutils literal notranslate"><span class="pre">upstream</span></code> remote repo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">laboratory</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">laboratory</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Now you need to create your team’s own <code class="docutils literal notranslate"><span class="pre">laboratory</span></code>. Go to
+github.mit.edu on the team laptop with your team’s Github account. Make
+a new private repository titled <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> and copy the remote
+repository URL found here, making sure to select SSH:
+<img alt="copy-remote-repository-url-quick-setup.png" src="https://help.github.com/assets/images/help/repository/copy-remote-repository-url-quick-setup.png" /></p>
+<p>Go to the SSH’d terminal window and type the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">laboratory</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="nb">set</span><span class="o">-</span><span class="n">url</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">remote</span> <span class="n">repo</span> <span class="n">URL</span><span class="p">,</span> <span class="n">pasted</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+</div>
+<p>You should see both an <code class="docutils literal notranslate"><span class="pre">upstream</span></code> and <code class="docutils literal notranslate"><span class="pre">origin</span></code> remote repo (each has
+two entries: fetch and push)</p>
+</div>
 <div class="section" id="Testing-Repository-Setup">
 <h2>Testing Repository Setup<a class="headerlink" href="#Testing-Repository-Setup" title="Permalink to this headline">¶</a></h2>
 <p>We will now test that you have configured your drone directories and
@@ -254,20 +288,19 @@ repositories correctly</p>
 <ol class="arabic simple">
 <li>Instructors: push a new file called <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code> to
 <a class="reference external" href="https://github.com/BWSI-UAV/laboratory/tree/master/project_workflow">https://github.com/BWSI-UAV/laboratory/tree/master/project_workflow</a></li>
-<li>Research Specialist: uses ssh to connect to drone, and navigates to
-the <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> repository.</li>
+<li>Research Specialist: on the team laptop, and navigates to the
+<code class="docutils literal notranslate"><span class="pre">laboratory</span></code> repository.</li>
 <li>Research Specialist: pulls the new file with
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></code>. Open new file and add one line of text.
 Example: “Hello! this is the (team name) team! My name is (your
 name), today’s research specialist!”</li>
 <li>Research Specialist: commit changes to <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code> locally
-on drone</li>
-<li>Team Members: In sequence each team member uses ssh to connect to
-drone (from their own laptop or team laptop), opens
-<code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code>, adds another line of text (e.g. “Hello this
-is (your name)!), and commits. At this point their should be 5 new
-lines in <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code>.</li>
-<li>Research Specialist: Connect to drone and push new commits to
+on team laptop</li>
+<li>Team Members: In sequence each team member uses the team laptop,
+opens <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code>, adds another line of text (e.g. “Hello
+this is (your name)!), and commits. At this point their should be 5
+new lines in <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code>.</li>
+<li>Research Specialist: On the team laptop, push new commits to
 <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code> to your team’s <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> with
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code></li>
 <li>Team Members: In sequence each team member pulls the new commits to

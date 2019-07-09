@@ -88,11 +88,12 @@
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Module 2: Computer Vision</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Unit-1:-Kernels,-Edges,-Thresholds">Unit 1: Kernels, Edges, Thresholds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Unit-2:-Regression,-Line-Parameterization">Unit 2: Regression, Line Parameterization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Unit-3:-Color-Segmentation">Unit 3: Color Segmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Unit-4:-Integration-with-Quadrotor">Unit 4: Integration with Quadrotor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Unit-5:-Advanced-Topics">Unit 5: Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-1:-A-Survey-of-Computer-Vision">Unit 1: A Survey of Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-2:-Kernels,-Edges,-Thresholds">Unit 2: Kernels, Edges, Thresholds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-3:-Regression,-Line-Parameterization">Unit 3: Regression, Line Parameterization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-4:-Color-Segmentation">Unit 4: Color Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-5:-Integration-with-Quadrotor">Unit 5: Integration with Quadrotor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-6:-Advanced-Topics">Unit 6: Advanced Topics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
@@ -214,35 +215,52 @@
 </style>
 <div class="section" id="Module-2:-Computer-Vision">
 <h1>Module 2: Computer Vision<a class="headerlink" href="#Module-2:-Computer-Vision" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Unit-1:-Kernels,-Edges,-Thresholds">
-<h2>Unit 1: Kernels, Edges, Thresholds<a class="headerlink" href="#Unit-1:-Kernels,-Edges,-Thresholds" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong></p>
+<div class="section" id="Unit-1:-A-Survey-of-Computer-Vision">
+<h2>Unit 1: A Survey of Computer Vision<a class="headerlink" href="#Unit-1:-A-Survey-of-Computer-Vision" title="Permalink to this headline">¶</a></h2>
+<p><strong>Goal</strong>: Understand the motivation and princples of utilizing computer
+vision as a means of perception for autonomous systems. Survey several
+common applications and current research trends in the field of computer
+vision from a robotics perspective.</p>
+</div>
+<div class="section" id="Unit-2:-Kernels,-Edges,-Thresholds">
+<h2>Unit 2: Kernels, Edges, Thresholds<a class="headerlink" href="#Unit-2:-Kernels,-Edges,-Thresholds" title="Permalink to this headline">¶</a></h2>
+<p><strong>Goal:</strong> This unit introduces the fundamentals of image analysis for
+machine vision. We will treat images and videos as two-dimensional
+signals, allowing us to apply signal processing techniques to detect and
+interpret features in a camera stream on an embedded platform in
+real-time, using <a class="reference external" href="https://opencv.org/">the OpenCV library</a>.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
 <li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/derivatives_and_windows.ipynb">Derivatives</a></li>
 <li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/convolutions.ipynb">Convolution</a></li>
-<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/convolutions.ipynb">OpenCV</a></li>
+<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/OpenCV.ipynb">OpenCV</a></li>
 </ol>
 </div>
-<div class="section" id="Unit-2:-Regression,-Line-Parameterization">
-<h2>Unit 2: Regression, Line Parameterization<a class="headerlink" href="#Unit-2:-Regression,-Line-Parameterization" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong></p>
+<div class="section" id="Unit-3:-Regression,-Line-Parameterization">
+<h2>Unit 3: Regression, Line Parameterization<a class="headerlink" href="#Unit-3:-Regression,-Line-Parameterization" title="Permalink to this headline">¶</a></h2>
+<p><strong>Goal:</strong> Learn how to detect an LED rope present in a camera image by
+applying linear regression on thresholded pixel values, as the first
+step in enabling the drone to follow an LED track.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
 <li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/LinearRegression.ipynb">Linear
 Regression</a></li>
+<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/Downward.ipynb">Detecting the LED
+line</a></li>
 </ol>
 </div>
-<div class="section" id="Unit-3:-Color-Segmentation">
-<h2>Unit 3: Color Segmentation<a class="headerlink" href="#Unit-3:-Color-Segmentation" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong></p>
+<div class="section" id="Unit-4:-Color-Segmentation">
+<h2>Unit 4: Color Segmentation<a class="headerlink" href="#Unit-4:-Color-Segmentation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Goal:</strong> Understand how to detect and segment a specific, narrow range
+of colors within an image.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
-<li>[Color Segmentation and Bounding Boxes]</li>
+<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/ColorSegmentation.ipynb">Color Segmentation and Bounding
+Boxes</a></li>
 </ol>
 </div>
-<div class="section" id="Unit-4:-Integration-with-Quadrotor">
-<h2>Unit 4: Integration with Quadrotor<a class="headerlink" href="#Unit-4:-Integration-with-Quadrotor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Unit-5:-Integration-with-Quadrotor">
+<h2>Unit 5: Integration with Quadrotor<a class="headerlink" href="#Unit-5:-Integration-with-Quadrotor" title="Permalink to this headline">¶</a></h2>
 <p><strong>Goal:</strong> In order to utilize computer vision techniques for UAV
 control, we need to be able to pass information between our vision
 processes (i.e.&nbsp;ROS nodes) and our command/control processes in a
@@ -254,8 +272,8 @@ messages.</p>
 <li><a class="reference external" href="detector.html">Line Param ROS Message</a></li>
 </ol>
 </div>
-<div class="section" id="Unit-5:-Advanced-Topics">
-<h2>Unit 5: Advanced Topics<a class="headerlink" href="#Unit-5:-Advanced-Topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Unit-6:-Advanced-Topics">
+<h2>Unit 6: Advanced Topics<a class="headerlink" href="#Unit-6:-Advanced-Topics" title="Permalink to this headline">¶</a></h2>
 <p><strong>Goal:</strong> Understand the theory behind some of the “black box”
 algorithms we have used thus far as well as the frontiers of computer
 vision research</p>

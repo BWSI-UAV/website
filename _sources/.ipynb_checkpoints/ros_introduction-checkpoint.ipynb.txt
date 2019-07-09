@@ -38,7 +38,7 @@
    "source": [
     "## Homework:\n",
     "\n",
-    "Answer [the following questions](https://docs.google.com/document/d/1BmTwGv_Sx6fKMbd0iuHN6Em4Y7BP8QMHWJ-_6twdDXU/edit?usp=sharing) and submit your team's answers by email.\n"
+    "Answer [the following questions](https://docs.google.com/document/d/1BmTwGv_Sx6fKMbd0iuHN6Em4Y7BP8QMHWJ-_6twdDXU/edit?usp=sharing) and submit your answers by email.\n"
    ]
   },
   {

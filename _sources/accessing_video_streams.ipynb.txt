@@ -1,0 +1,120 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Accessing Video Streams\n",
+    "\n",
+    "In this module we will connect to the UAV's onboard cameras."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Using VLC to stream over RTSP\n",
+    "\n",
+    "The UAVs are running a web service (called [camera-manager](https://github.com/Dronecode/camera-manager)) which exposes cameras over [RTSP](https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol), the Real Time Streaming Protocol. \n",
+    "\n",
+    "VLC is a video player application available on all platforms. On your team laptop:\n",
+    "\n",
+    "1. Open VLC\n",
+    "2. Go to the main menu, and select `Media -> Open Network Stream`\n",
+    "3. Type in the RTSP URL for the front camera:\n",
+    "    ```\n",
+    "    rtsp://TEAMNAME.beaver.works:8554/video13\n",
+    "    ```\n",
+    "    This URL is documented on Intel's [wiki](https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video#rtsp-streaming-with-the-camera-streaming-daemon).\n",
+    "4. Click **Play**    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Using ROS to view image topics\n",
+    "\n",
+    "Recall the basics of *ROS topics*, which are named \"buses\" or \"channels\" of information which ROS uses to pass around *ROS messages* between *ROS nodes*. These topics can contain streaming camera sensor data, which we will inspect as part of this module.\n",
+    "\n",
+    "We will use `rqt_image_view`, a desktop program which decodes and visualizes the binary information in a ROS image topic. However, first we need to launch the *ROS node* which publishes ROS Image *messages* on the topic.\n",
+    "\n",
+    "On the small HDMI display connected to the drone, open a terminal with the shortcut `Ctrl+Alt+t` (using the keyboard connected to the drone).\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "**Note:** `roscore` must first be running. If you have not started it already, open a separate terminal window (with `Ctrl+Alt+t`), type `roscore` at the prompt, and then press `Enter`.\n",
+    "</div>\n",
+    "\n",
+    "Inspect the list of topics in your terminal:\n",
+    "\n",
+    "```\n",
+    "$ rostopic list\n",
+    "```\n",
+    "\n",
+    "Now, in that terminal window, start the front camera ROS node:\n",
+    "\n",
+    "```\n",
+    "$ roslaunch realsense_camera r200_nodelet_rgbd.launch\n",
+    "```\n",
+    "\n",
+    "Open a new terminal (`Ctrl+Alt+t`) and run:\n",
+    "\n",
+    "```\n",
+    "$ rostopic list\n",
+    "```\n",
+    "\n",
+    "You will see several additional topics listed, which include image topics.\n",
+    "\n",
+    "Let's inspect the front camera feed. In the terminal, launch:\n",
+    "\n",
+    "```\n",
+    "$ rqt_image_view\n",
+    "```\n",
+    "\n",
+    "And in the dropdown menu, select the image topic for the front camera (`/camera/rgb/image_raw`):\n",
+    "\n",
+    "![rqtimgview.png](https://github.com/BWSI-UAV/website/blob/master/docs/images/rqtimgview.png?raw=true)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Further reading:\n",
+    "\n",
+    "1. Launching image topics in ROS:\n",
+    "    https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#launching\n",
+    "2. Intel's UAV camera documentation:\n",
+    "    https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video\n",
+    "3. ROS image topics:    \n",
+    "    * [Image Transport](http://wiki.ros.org/image_transport), the ROS messaging system for images\n",
+    "        * **[Tutorial on publishing images](http://wiki.ros.org/image_transport/Tutorials/PublishingImages)**\n",
+    "    * http://wiki.ros.org/rqt_image_view\n",
+    "    * http://wiki.ros.org/image_view\n",
+    "    * [API Documentation](http://docs.ros.org/kinetic/api/sensor_msgs/html/msg/Image.html)\n",
+    "    "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

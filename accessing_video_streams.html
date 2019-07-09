@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Accessing Video Streams &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inspecting Sensor Feeds" href="internal_sensor_testing.html" />
+    <link rel="prev" title="Communication Pipeline" href="communication_pipeline.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Autonomous UAV Racing
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous UAV Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Practicals:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Accessing Video Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Using-VLC-to-stream-over-RTSP">Using VLC to stream over RTSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Using-ROS-to-view-image-topics">Using ROS to view image topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Further-reading:">Further reading:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Recording + Line Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Autonomous UAV Racing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Accessing Video Streams</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/accessing_video_streams.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Accessing-Video-Streams">
+<h1>Accessing Video Streams<a class="headerlink" href="#Accessing-Video-Streams" title="Permalink to this headline">¶</a></h1>
+<p>In this module we will connect to the UAV’s onboard cameras.</p>
+<div class="section" id="Using-VLC-to-stream-over-RTSP">
+<h2>Using VLC to stream over RTSP<a class="headerlink" href="#Using-VLC-to-stream-over-RTSP" title="Permalink to this headline">¶</a></h2>
+<p>The UAVs are running a web service (called <a class="reference external" href="https://github.com/Dronecode/camera-manager">camera-manager</a>) which exposes cameras over <a class="reference external" href="https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol">RTSP</a>, the Real Time Streaming Protocol.</p>
+<p>VLC is a video player application available on all platforms. On your team laptop:</p>
+<ol class="arabic simple">
+<li><p>Open VLC</p></li>
+<li><p>Go to the main menu, and select <code class="docutils literal notranslate"><span class="pre">Media</span> <span class="pre">-&gt;</span> <span class="pre">Open</span> <span class="pre">Network</span> <span class="pre">Stream</span></code></p></li>
+<li><p>Type in the RTSP URL for the front camera: <code class="docutils literal notranslate"><span class="pre">rtsp://TEAMNAME.beaver.works:8554/video13</span></code> This URL is documented on Intel’s <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video#rtsp-streaming-with-the-camera-streaming-daemon">wiki</a>.</p></li>
+<li><p>Click <strong>Play</strong></p></li>
+</ol>
+</div>
+<div class="section" id="Using-ROS-to-view-image-topics">
+<h2>Using ROS to view image topics<a class="headerlink" href="#Using-ROS-to-view-image-topics" title="Permalink to this headline">¶</a></h2>
+<p>Recall the basics of <em>ROS topics</em>, which are named “buses” or “channels” of information which ROS uses to pass around <em>ROS messages</em> between <em>ROS nodes</em>. These topics can contain streaming camera sensor data, which we will inspect as part of this module.</p>
+<p>We will use <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code>, a desktop program which decodes and visualizes the binary information in a ROS image topic. However, first we need to launch the <em>ROS node</em> which publishes ROS Image <em>messages</em> on the topic.</p>
+<p>On the small HDMI display connected to the drone, open a terminal with the shortcut <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code> (using the keyboard connected to the drone).</p>
+<div class="admonition note">
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">roscore</span></code> must first be running. If you have not started it already, open a separate terminal window (with <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code>), type <code class="docutils literal notranslate"><span class="pre">roscore</span></code> at the prompt, and then press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
+</div>
+<p>Inspect the list of topics in your terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rostopic list
+</pre></div>
+</div>
+<p>Now, in that terminal window, start the front camera ROS node:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roslaunch realsense_camera r200_nodelet_rgbd.launch
+</pre></div>
+</div>
+<p>Open a new terminal (<code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code>) and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rostopic list
+</pre></div>
+</div>
+<p>You will see several additional topics listed, which include image topics.</p>
+<p>Let’s inspect the front camera feed. In the terminal, launch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rqt_image_view
+</pre></div>
+</div>
+<p>And in the dropdown menu, select the image topic for the front camera (<code class="docutils literal notranslate"><span class="pre">/camera/rgb/image_raw</span></code>):</p>
+<p><img alt="rqtimgview.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/rqtimgview.png?raw=true" /></p>
+</div>
+<div class="section" id="Further-reading:">
+<h2>Further reading:<a class="headerlink" href="#Further-reading:" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Launching image topics in ROS: <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#launching">https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#launching</a></p></li>
+<li><p>Intel’s UAV camera documentation: <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video">https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video</a></p></li>
+<li><p>ROS image topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://wiki.ros.org/image_transport">Image Transport</a>, the ROS messaging system for images</p>
+<ul>
+<li><p><a class="reference external" href="http://wiki.ros.org/image_transport/Tutorials/PublishingImages">Tutorial on publishing images</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://wiki.ros.org/rqt_image_view">http://wiki.ros.org/rqt_image_view</a></p></li>
+<li><p><a class="reference external" href="http://wiki.ros.org/image_view">http://wiki.ros.org/image_view</a></p></li>
+<li><p><a class="reference external" href="http://docs.ros.org/kinetic/api/sensor_msgs/html/msg/Image.html">API Documentation</a></p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="internal_sensor_testing.html" class="btn btn-neutral float-right" title="Inspecting Sensor Feeds" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="communication_pipeline.html" class="btn btn-neutral float-left" title="Communication Pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ross Allen
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

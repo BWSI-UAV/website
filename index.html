@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to UAV Racing’s documentation! &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="BWSI’s Autonomous UAV Racing" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Autonomous UAV Racing
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous UAV Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Practicals:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Recording + Line Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Autonomous UAV Racing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to UAV Racing’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="welcome-to-uav-racing-s-documentation">
+<h1>Welcome to UAV Racing’s documentation!<a class="headerlink" href="#welcome-to-uav-racing-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous UAV Racing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#Course-Overview">Course Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#Beaver-Works-Summer-Institute">Beaver Works Summer Institute</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="initial_setup.html#Instructional-Content-Access">Instructional Content Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initial_setup.html#Intel-RTF-Drone-Setup">Intel RTF Drone Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initial_setup.html#Laptop-Setup">Laptop Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initial_setup.html#Troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quadrotor_basics.html#Unit-0:-Introductions">Unit 0: Introductions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadrotor_basics.html#Unit-1:-Quadrotor-Hands-On">Unit 1: Quadrotor Hands-On</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadrotor_basics.html#Unit-2:-Embedded-Drone-Architecture">Unit 2: Embedded Drone Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadrotor_basics.html#Unit-3:-Localization">Unit 3: Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadrotor_basics.html#Challenge-1:-Position-Control-Navigation"><em>Challenge 1:</em> Position Control Navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="computer_vision.html#Unit-1:-A-Survey-of-Computer-Vision">Unit 1: A Survey of Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computer_vision.html#Unit-2:-Kernels,-Edges,-Thresholds">Unit 2: Kernels, Edges, Thresholds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computer_vision.html#Unit-3:-Regression,-Line-Parameterization">Unit 3: Regression, Line Parameterization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computer_vision.html#Unit-4:-Color-Segmentation">Unit 4: Color Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computer_vision.html#Unit-5:-Integration-with-Quadrotor">Unit 5: Integration with Quadrotor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computer_vision.html#Unit-6:-Advanced-Topics">Unit 6: Advanced Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="planning_control.html#Unit-1:-Kinematics">Unit 1: Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="planning_control.html#Challenge-2:-Aerial-Choreography"><em>Challenge 2:</em> Aerial Choreography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="planning_control.html#Unit-2:-Dynamics-&amp;-State-Estimation">Unit 2: Dynamics &amp; State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="planning_control.html#Unit-3:-Feedback-Control">Unit 3: Feedback Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="planning_control.html#Unit-4:-Planning">Unit 4: Planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Practicals:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_workflow.html#Working-with-Bash">Working with Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_workflow.html#Working-with-Git">Working with Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_workflow.html#Testing-Repository-Setup">Testing Repository Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="student_drone_setup.html#Physical-Setup">Physical Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="student_drone_setup.html#Logging-In">Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="student_drone_setup.html#Software-Setup">Software Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Step-1:-Connect-to-the-Drone">Step 1: Connect to the Drone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Step-2:-Calibration-Setup">Step 2: Calibration Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Step-3:-Compass-Calibration">Step 3: Compass Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Step-4:-Accelerometer-Calibration">Step 4: Accelerometer Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Step-5:-Gyroscope-and-Level-Horizon-Calibration">Step 5: Gyroscope and Level Horizon Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Note:-Level-Horizon-calibration-is-critical-for-proper-drone-operation.">Note: Level Horizon calibration is critical for proper drone operation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Step-6:-Verifying-Calibration">Step 6: Verifying Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Step-7:-Radio-Calibration-(RC-Controller)">Step 7: Radio Calibration (RC Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#Flight-Modes">Flight Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#You-are-now-finished-with-calibration!">You are now finished with calibration!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flight_log_analysis.html#Analyze-Pre-recorded-Flight">Analyze Pre-recorded Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flight_log_analysis.html#Analyze-Your-Flight">Analyze Your Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flight_log_analysis.html#Document-and-Push">Document and Push</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intel_rtf_architecture.html#Videos">Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intel_rtf_architecture.html#Problem-Set">Problem Set</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ros_introduction.html#ROS-Concepts">ROS Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_introduction.html#Practice">Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="communication_pipeline.html#Talker---Listener">Talker - Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_pipeline.html#MAVROS">MAVROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_pipeline.html#Advanced-Topics:-uORB">Advanced Topics: uORB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accessing_video_streams.html#Using-VLC-to-stream-over-RTSP">Using VLC to stream over RTSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessing_video_streams.html#Using-ROS-to-view-image-topics">Using ROS to view image topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessing_video_streams.html#Further-reading:">Further reading:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internal_sensor_testing.html#Measuring-Translational-Movement-(Accelerometer)">Measuring Translational Movement (Accelerometer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal_sensor_testing.html#Measuring-Angular-Motion-(Gyroscope)">Measuring Angular Motion (Gyroscope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal_sensor_testing.html#Trying-out-Optical-Flow">Trying out Optical Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enable_optical_flow.html#Step-1:-Install-Libraries">Step 1: Install Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_optical_flow.html#Step-2:-Start-Optical-Flow-Services">Step 2: Start Optical Flow Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_optical_flow.html#Step-3:-Verify-Services">Step 3: Verify Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_optical_flow.html#Step-4:-Test-Flight">Step 4: Test Flight</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_transforms.html#Coordinate-Frame-Practice">Coordinate Frame Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_transforms.html#Further-Reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Recording + Line Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="downward_cam_bag.html#rosbag-Usage"><code class="docutils literal notranslate"><span class="pre">rosbag</span></code> Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="downward_cam_bag.html#Post-bag-Clean-up">Post-bag Clean-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="downward_cam_bag.html#Playing-your-bag-file">Playing your bag file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="downward_cam_bag.html#Integrating-opencv-and-ROS-images">Integrating <code class="docutils literal notranslate"><span class="pre">opencv</span></code> and ROS images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="detector.html#Building-the-message-with-catkin">Building the message with catkin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detector.html#Modifying-talker.py-and-listener.py-to-use-custom-messages">Modifying <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> to use custom messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detector.html#Writing-detector.py">Writing <code class="docutils literal notranslate"><span class="pre">detector.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="open_loop_translation_control.html#Step-1:-Complete-Control-Script">Step 1: Complete Control Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="open_loop_translation_control.html#Step-2:-Setup-for-Test-Flight">Step 2: Setup for Test Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="open_loop_translation_control.html#Step-3:-Test-Flight">Step 3: Test Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="open_loop_translation_control.html#Step-4:-Reference-Frame-Intuition">Step 4: Reference Frame Intuition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="line_following.html#Breaking-Down-Line-Following">Breaking Down Line Following</a></li>
+<li class="toctree-l2"><a class="reference internal" href="line_following.html#Preflight-Code-Checkpoint">Preflight Code Checkpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="line_following.html#Setup-for-Test-Flight">Setup for Test Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="line_following.html#Test-Flight">Test Flight</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="obstacle_avoidance.html#Setup-for-Obstacle-Avoidance">Setup for Obstacle Avoidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstacle_avoidance.html#ar_obstacle.py-Overview"><code class="docutils literal notranslate"><span class="pre">ar_obstacle.py</span></code> Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstacle_avoidance.html#Breaking-down-Obstacle-Avoidance">Breaking down Obstacle Avoidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstacle_avoidance.html#Checkpoints">Checkpoints</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vim_tutorial.html">Vim Text Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vim_tutorial.html#GUI-based-and-Terminal-based-Editors">GUI-based and Terminal-based Editors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim_tutorial.html#Vim-Tutorial">Vim Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="team_roles.html#Pilot-in-Command">Pilot in Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team_roles.html#Ground-Commander">Ground Commander</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team_roles.html#Software-Developer">Software Developer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team_roles.html#Hardware-Specialist">Hardware Specialist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team_roles.html#Research-Specialist">Research Specialist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="safety_checklist.html#Flight-Prep">Flight Prep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety_checklist.html#Manual-Flight">Manual Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety_checklist.html#Battery-Handling-&amp;-Charging">Battery Handling &amp; Charging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety_checklist.html#Emergency-Procedures">Emergency Procedures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="intro.html" class="btn btn-neutral float-right" title="BWSI’s Autonomous UAV Racing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ross Allen
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

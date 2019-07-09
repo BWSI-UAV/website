@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Student Drone Setup &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Calibrating Intel RTF Drones" href="calibration.html" />
+    <link rel="prev" title="Project Workflow" href="project_workflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Autonomous UAV Racing
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous UAV Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Practicals:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Student Drone Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Physical-Setup">Physical Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Logging-In">Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Software-Setup">Software Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Logging-into-MIT-Github">Logging into MIT Github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Git-and-SSH-Keys">Git and SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Directory-Setup">Directory Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Recording + Line Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Autonomous UAV Racing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Student Drone Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/student_drone_setup.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Student-Drone-Setup">
+<h1>Student Drone Setup<a class="headerlink" href="#Student-Drone-Setup" title="Permalink to this headline">¶</a></h1>
+<p>This documentation will introduce you to the physical setup required to use the drone in ‘desktop mode’ and connect via WiFi to the drone, as well as specific instructions on how to setup the drone’s directory structure.</p>
+<div class="section" id="Physical-Setup">
+<h2>Physical Setup<a class="headerlink" href="#Physical-Setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Locate your team backpack and have the team hardware specialist start unpacking in accordance with the following directions.</p></li>
+<li><p>Connect your white power strip to a nearby wall tap.</p></li>
+<li><p>Plug in your Eyoyo display to the white strip using a DC power supply that fits into the DC IN port on the Eyoyo. Next, take the Micro HDMI to HDMI cable and plug it into the Micro HDMI port on the drone.</p></li>
+</ol>
+<p><img alt="micro-hdmi.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/micro-hdmi.jpg?raw=tru" /></p>
+<ol class="arabic simple" start="4">
+<li><p>If your drone’s USB cable is attached to another cable (leading to a sensor on the drone), ask an instructor to help you unplug the USB cable. You will then be able to connect it to the USB hub in your backpack, which will be powered by a USB to wall plug adapter. Attach the keyboard and mouse to this hub.</p></li>
+<li><p>Take the wall plug to XT60 (yellow battery plug) adapter and attach it to the drone’s XT60 port, located near the power button.</p></li>
+<li><p>Press the power button on the drone. It should light up white and blue, and the fan should begin to spin.</p></li>
+<li><p>If prompted, press enter twice when the Ubuntu boot screens appear on the Eyoyo. Alternatively, you can let the bootloader select the correct version for you by not touching any keys/mouse for roughly 10 seconds.</p></li>
+<li><p>You are now on your drone! Proceed to Logging In.</p></li>
+</ol>
+</div>
+<div class="section" id="Logging-In">
+<h2>Logging In<a class="headerlink" href="#Logging-In" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>You will be prompted for a password when you log in to your drone. Ask an instructor for the password to your drone.</p></li>
+<li><p>You are now logged into the drone.</p></li>
+<li><p>You will now learn how to SSH (secure shell) into your drone. This will allow you to run terminal commands over WiFi without using the Eyoyo/keyboard/mouse (desktop mode) combo.</p></li>
+<li><p>Ground Commander: Open your team laptop, and open a Terminal window (using Terminator/Terminal).</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-Y</span> <span class="pre">uav&#64;&lt;yourteam&gt;.beaver.works</span></code> and press Enter. (replace <code class="docutils literal notranslate"><span class="pre">&lt;yourteam&gt;</span></code> with the hostname of the drone, listed on the drone’s terminal as <code class="docutils literal notranslate"><span class="pre">uav&#64;&lt;yourteam&gt;</span></code>)</p></li>
+<li><p>When prompted for the password, use the previously obtained drone password to login. SSH (and other Bash utilities) will not show the password as you type it.</p></li>
+<li><p>If prompted, type <code class="docutils literal notranslate"><span class="pre">yes</span></code> and press enter.</p></li>
+<li><p>You should now be connected to the drone via SSH over WiFi.</p></li>
+</ol>
+</div>
+<div class="section" id="Software-Setup">
+<h2>Software Setup<a class="headerlink" href="#Software-Setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Logging-into-MIT-Github">
+<h3>Logging into MIT Github<a class="headerlink" href="#Logging-into-MIT-Github" title="Permalink to this headline">¶</a></h3>
+<p>Each team has an account on github.mit.edu tied to its email account. The general format is <code class="docutils literal notranslate"><span class="pre">bwsiuav+&lt;teamname&gt;&#64;gmail.com</span></code> and the password is as given by the instructors.</p>
+<ol class="arabic simple">
+<li><p>Visit github.mit.edu on your team laptop and login using the aforementioned credentials under Touchstone Collaboration.</p></li>
+<li><p>Click on your profile photo in the top right corner and go to settings.</p></li>
+<li><p>Click SSH and GPG Keys. Keep this window open while you follow the next few steps.</p></li>
+</ol>
+</div>
+<div class="section" id="Git-and-SSH-Keys">
+<h3>Git and SSH Keys<a class="headerlink" href="#Git-and-SSH-Keys" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>On the Terminal window in which you SSH’d into the drone, (it will say <code class="docutils literal notranslate"><span class="pre">uav&#64;&lt;teamname&gt;:</span></code>) follow the following instructions on how to generate an SSH key for Github: <a class="reference external" href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/</a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>Be sure to use your team’s email, as listed above, for <code class="docutils literal notranslate"><span class="pre">your_email&#64;example.com</span></code>. It is also unnecessary to have a passphrase on the SSH key.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Once complete, follow these directions about adding your newly minted SSH key to the MIT Github account: <a class="reference external" href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/</a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>Be sure you are using github.mit.edu NOT github.com to submit the SSH key.</p>
+</div>
+</div>
+<div class="section" id="Directory-Setup">
+<h3>Directory Setup<a class="headerlink" href="#Directory-Setup" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>On the SSH window on your team laptop, enter the following commands</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span>
+<span class="n">catkin_make</span>
+<span class="n">echo</span> <span class="s2">&quot;source ~/bwsi-uav/catkin_ws/devel/setup.bash&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">cd</span> <span class="n">src</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">aero_control</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">aero_control</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">aero_control</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">laboratory</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">laboratory</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">laboratory</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">documents</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">documents</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">documents</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Go to github.mit.edu on the team laptop with your team’s Github account. Make a new private repository titled <code class="docutils literal notranslate"><span class="pre">documents</span></code> and copy the remote repository URL found here, making sure to select SSH: <img alt="copy-remote-repository-url-quick-setup.png" src="https://help.github.com/assets/images/help/repository/copy-remote-repository-url-quick-setup.png" /></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>The copied url should start with <code class="docutils literal notranslate"><span class="pre">git&#64;github.mit.edu</span></code>, if it starts with <code class="docutils literal notranslate"><span class="pre">https://github.mit.edu</span></code> than you need to go back and select the SSH option.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Go to the SSH’d terminal window and type the following commands:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">documents</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="nb">set</span><span class="o">-</span><span class="n">url</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">remote</span> <span class="n">repo</span> <span class="n">URL</span><span class="p">,</span> <span class="n">pasted</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>where &lt;remote repo URL, pasted&gt; is the URL you have just copied from github.mit.edu.</p>
+<ol class="arabic simple" start="4">
+<li><p>Go to github.mit.edu on the team laptop with your team’s Github account. Make a new private repository titled <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> and copy the remote repository URL found here, making sure to select SSH: <img alt="copy-remote-repository-url-quick-setup.png" src="https://help.github.com/assets/images/help/repository/copy-remote-repository-url-quick-setup.png" /></p></li>
+<li><p>Go to the SSH’d terminal window and type the following commands:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">laboratory</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="nb">set</span><span class="o">-</span><span class="n">url</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">remote</span> <span class="n">repo</span> <span class="n">URL</span><span class="p">,</span> <span class="n">pasted</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>where &lt;remote repo URL, pasted&gt; is the URL you have just copied from github.mit.edu.</p>
+<ol class="arabic simple" start="6">
+<li><p>Go to github.mit.edu on the team laptop with your team’s Github account. Make a new private repository titled <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> and copy the remote repository URL found here, making sure to select SSH: <img alt="copy-remote-repository-url-quick-setup.png" src="https://help.github.com/assets/images/help/repository/copy-remote-repository-url-quick-setup.png" /></p></li>
+<li><p>Go to the SSH’d terminal window and type the following commands:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero_control</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="nb">set</span><span class="o">-</span><span class="n">url</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">remote</span> <span class="n">repo</span> <span class="n">URL</span><span class="p">,</span> <span class="n">pasted</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>where &lt;remote repo URL, pasted&gt; is the URL you have just copied from github.mit.edu.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="calibration.html" class="btn btn-neutral float-right" title="Calibrating Intel RTF Drones" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="project_workflow.html" class="btn btn-neutral float-left" title="Project Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ross Allen
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

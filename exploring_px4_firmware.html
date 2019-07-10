@@ -17,34 +17,38 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Kalman Filters" href="kalman_filters.html" />
     <link rel="prev" title="Vim Text Editor" href="vim_tutorial.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -204,27 +208,21 @@
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="section" id="Exploring-PX4-Firmware">
 <h1>Exploring PX4 Firmware<a class="headerlink" href="#Exploring-PX4-Firmware" title="Permalink to this headline">¶</a></h1>
-<p>This is an advanced (and yet to be completed) tutorial on exploring and
-modifying the PX4 firmware. The PX4 firmware is the low-level, real-time
-flight control code that runs on the drone’s flight control board. For
-this class, the flight control board is the Intel AeroFC but PX4 runs
-just the same on <a class="reference external" href="https://docs.px4.io/en/flight_controller/">a wide range of other autopilot
-boards</a>.</p>
-<p>The PX4 source code is all open source and under active development; see
-<a class="reference external" href="https://github.com/PX4/Firmware">here</a>. This means that you can go
-in an modify the low-level control algorithms that are responsible for
-keeping your drone in stable, controlled flight! This low-level access
-is a powerful tool for developing advanced capabilities for your drone,
-but also increases the complexity and potential safety hazard of
-operations; thus why this is considered an advanced topic.</p>
+<p>This is an advanced (and yet to be completed) tutorial on exploring and modifying the PX4 firmware. The PX4 firmware is the low-level, real-time flight control code that runs on the drone’s flight control board. For this class, the flight control board is the Intel AeroFC but PX4 runs just the same on <a class="reference external" href="https://docs.px4.io/en/flight_controller/">a wide range of other autopilot boards</a>.</p>
+<p>The PX4 source code is all open source and under active development; see <a class="reference external" href="https://github.com/PX4/Firmware">here</a>. This means that you can go in an modify the low-level control algorithms that are responsible for keeping your drone in stable, controlled flight! This low-level access is a powerful tool for developing advanced capabilities for your drone, but also increases the complexity and potential safety hazard of operations; thus why this is considered an advanced topic.</p>
 <p>In this tutorial we will see how to:</p>
 <ol class="arabic simple">
-<li>Build and flash new versions of Firmware</li>
-<li>Enable the <code class="docutils literal notranslate"><span class="pre">uORB</span> <span class="pre">Listener</span></code> functionality for low-level debugging</li>
-<li>Write a <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> app for PX4</li>
+<li><p>Build and flash new versions of Firmware</p></li>
+<li><p>Enable the <code class="docutils literal notranslate"><span class="pre">uORB</span> <span class="pre">Listener</span></code> functionality for low-level debugging</p></li>
+<li><p>Write a <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> app for PX4</p></li>
 </ol>
 </div>
 
@@ -239,7 +237,7 @@ operations; thus why this is considered an advanced topic.</p>
         <a href="kalman_filters.html" class="btn btn-neutral float-right" title="Kalman Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="vim_tutorial.html" class="btn btn-neutral" title="Vim Text Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vim_tutorial.html" class="btn btn-neutral float-left" title="Vim Text Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -248,7 +246,7 @@ operations; thus why this is considered an advanced topic.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ross Allen.
+        &copy; Copyright 2018, Ross Allen
 
     </p>
   </div>
@@ -265,33 +263,16 @@ operations; thus why this is considered an advanced topic.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

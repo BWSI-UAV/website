@@ -17,32 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -186,6 +190,204 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -202,86 +404,74 @@
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="section" id="Flight-Log-Analysis">
 <h1>Flight Log Analysis<a class="headerlink" href="#Flight-Log-Analysis" title="Permalink to this headline">¶</a></h1>
-<p>In this unit we will learn how to analyze post-flight telemetry data
-which is a crucial skill for debugging when things go wrong or the UAV
-doesn’t behave as expected</p>
+<p>In this unit we will learn how to analyze post-flight telemetry data which is a crucial skill for debugging when things go wrong or the UAV doesn’t behave as expected</p>
 <div class="section" id="Install-Analysis-Tools">
 <h2>Install Analysis Tools<a class="headerlink" href="#Install-Analysis-Tools" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://dev.px4.io/en/log/flight_log_analysis.html">Reference: Dronecode
-Documentation</a></p>
-<p>The above reference list several software tools that can be used to
-analyze flight data from a PX4-based UAV. We will use
-<a class="reference external" href="https://github.com/PX4/FlightPlot">FlightPlot</a> due to it’s intuitive
-interface.</p>
+<p><a class="reference external" href="https://dev.px4.io/en/log/flight_log_analysis.html">Reference: Dronecode Documentation</a></p>
+<p>The above reference list several software tools that can be used to analyze flight data from a PX4-based UAV. We will use <a class="reference external" href="https://github.com/PX4/FlightPlot">FlightPlot</a> due to it’s intuitive interface.</p>
 <ol class="arabic simple">
-<li>Download the most recent version of the flightplot.jar.zip file here:
-<a class="reference external" href="https://github.com/PX4/FlightPlot/releases">https://github.com/PX4/FlightPlot/releases</a> (at time of writing this,
-the most recent version was v0.3.2:
-<a class="reference external" href="https://github.com/PX4/FlightPlot/releases/download/0.3.2/flightplot.jar.zip">https://github.com/PX4/FlightPlot/releases/download/0.3.2/flightplot.jar.zip</a>)</li>
-<li>Go to download and unzip jar file: <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">flightplot.jar.zip</span></code>.</li>
-<li>Move the .jar file to the same directory you plan to keep flight
-logs: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">flightplot.jar</span> <span class="pre">~/&lt;path-to-flight-logs&gt;/</span></code></li>
-<li>Run application: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">flightplot.jar</span></code></li>
+<li><p>Download the most recent version of the flightplot.jar.zip file here: <a class="reference external" href="https://github.com/PX4/FlightPlot/releases">https://github.com/PX4/FlightPlot/releases</a> (at time of writing this, the most recent version was v0.3.2: <a class="reference external" href="https://github.com/PX4/FlightPlot/releases/download/0.3.2/flightplot.jar.zip">https://github.com/PX4/FlightPlot/releases/download/0.3.2/flightplot.jar.zip</a>)</p></li>
+<li><p>Go to download and unzip jar file: <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">flightplot.jar.zip</span></code>.</p></li>
+<li><p>Move the .jar file to the same directory you plan to keep flight logs: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">flightplot.jar</span> <span class="pre">~/&lt;path-to-flight-logs&gt;/</span></code></p></li>
+<li><p>Run application: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">flightplot.jar</span></code></p></li>
 </ol>
 </div>
 <div class="section" id="Analyze-Pre-recorded-Flight">
 <h2>Analyze Pre-recorded Flight<a class="headerlink" href="#Analyze-Pre-recorded-Flight" title="Permalink to this headline">¶</a></h2>
-<p>To practice using FlightPlot we have recorded data from a test flight
-that you will download (i.e.&nbsp;clone from GitHub) and analyze.</p>
+<p>To practice using FlightPlot we have recorded data from a test flight that you will download (i.e. clone from GitHub) and analyze.</p>
 <div class="section" id="Import/Open-Data">
 <h3>Import/Open Data<a class="headerlink" href="#Import/Open-Data" title="Permalink to this headline">¶</a></h3>
-<p>Clone the prerecorded flight data from the <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> repository on
-GitHub. Assuming you haven’t already cloned this repo to your computer,
-run the following</p>
+<p>Clone the prerecorded flight data from the <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> repository on GitHub. Assuming you haven’t already cloned this repo to your computer, run the following</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">BWSI</span><span class="o">-</span><span class="n">UAV</span><span class="o">/</span><span class="n">laboratory</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
-<p>Navigate to where you saved <code class="docutils literal notranslate"><span class="pre">flightplot.jar</span></code> and run it with:
-<code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">flightplot.jar</span></code>. Once started, open
-<code class="docutils literal notranslate"><span class="pre">example_flight_log.ulg</span></code>.</p>
+<p>Navigate to where you saved <code class="docutils literal notranslate"><span class="pre">flightplot.jar</span></code> and run it with: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">flightplot.jar</span></code>. Once started, open <code class="docutils literal notranslate"><span class="pre">example_flight_log.ulg</span></code>.</p>
 </div>
 <div class="section" id="Inspecting-Data">
 <h3>Inspecting Data<a class="headerlink" href="#Inspecting-Data" title="Permalink to this headline">¶</a></h3>
-<p><em>TODO:</em> COMPLETE THIS SECTION. DESCRIBE HOW TO OPEN FIELDS AND WHICH
-FIELDS ARE IMPORTANT TO INSPECT</p>
-<p><em>NOTE:</em> I WAS HAVING PROBLEMS ZOOMING IN ON THIS DATASET, PLOTS WOULD
-DISAPPEAR UNEXPECTEDLY. MAY BE PROBLEM WITH MY COMPUTER</p>
+<p><em>TODO:</em> COMPLETE THIS SECTION. DESCRIBE HOW TO OPEN FIELDS AND WHICH FIELDS ARE IMPORTANT TO INSPECT</p>
+<p><em>NOTE:</em> I WAS HAVING PROBLEMS ZOOMING IN ON THIS DATASET, PLOTS WOULD DISAPPEAR UNEXPECTEDLY. MAY BE PROBLEM WITH MY COMPUTER</p>
 </div>
 <div class="section" id="Problem-Set">
 <h3>Problem Set<a class="headerlink" href="#Problem-Set" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>At what time did the mode switch from Manual to Position Control?</li>
-<li>What was the maximum velocity?</li>
-<li>What was the maximum deviation between the estimate position and the
-target position?</li>
-<li>Can you describe the pattern or shape of the flight path during the
-Position Control portion of the flight?</li>
-<li>What is the maximum acceleration?</li>
-<li>At what time did the drone take off? At what time did it land?</li>
-<li>What is the maximum discrepancy between the estimate z-position and
-the height sensor reading?</li>
+<li><p>At what time did the mode switch from Manual to Position Control?</p></li>
+<li><p>What was the maximum velocity?</p></li>
+<li><p>What was the maximum deviation between the estimate position and the target position?</p></li>
+<li><p>Can you describe the pattern or shape of the flight path during the Position Control portion of the flight?</p></li>
+<li><p>What is the maximum acceleration?</p></li>
+<li><p>At what time did the drone take off? At what time did it land?</p></li>
+<li><p>What is the maximum discrepancy between the estimate z-position and the height sensor reading?</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="Analyze-Your-Flight">
 <h2>Analyze Your Flight<a class="headerlink" href="#Analyze-Your-Flight" title="Permalink to this headline">¶</a></h2>
-<p>Now that you know how to use a flight log analysis tool, take a look at
-one of your flights.</p>
-<p>Your drone stores flight logs onboard in the location:
-<code class="docutils literal notranslate"><span class="pre">/var/lib/mavlink-router/</span></code></p>
-<p>You will need to first copy the flight log from the drone to your
-computer in order to analyze it. To do this, we will use secure copy
-(scp). From your laptop run the following, replacing
-<code class="docutils literal notranslate"><span class="pre">&lt;your-drone-name&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;timestamped-log-file-name&gt;</span></code> with the name
-of your drone and the flight log name, respectively.</p>
+<p>Now that you know how to use a flight log analysis tool, take a look at one of your flights.</p>
+<p>Your drone stores flight logs onboard in the location: <code class="docutils literal notranslate"><span class="pre">/var/lib/mavlink-router/</span></code></p>
+<p>You will need to first copy the flight log from the drone to your computer in order to analyze it. To do this, we will use secure copy (scp). From your laptop run the following, replacing <code class="docutils literal notranslate"><span class="pre">&lt;your-drone-name&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;timestamped-log-file-name&gt;</span></code> with the name of your drone and the flight log name, respectively.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">uav</span><span class="o">@&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">drone</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;.</span><span class="n">beaver</span><span class="o">.</span><span class="n">works</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">mavlink</span><span class="o">-</span><span class="n">router</span><span class="o">/&lt;</span><span class="n">timestamped</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;.</span><span class="n">ulg</span> <span class="o">~/</span><span class="n">laboratory</span><span class="o">/</span><span class="n">flight_log_analysis</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>Once copied, open the log in FlightPlot to review your flight data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -296,7 +486,7 @@ of your drone and the flight log name, respectively.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ross Allen.
+        &copy; Copyright 2018, Ross Allen
 
     </p>
   </div>
@@ -313,33 +503,16 @@ of your drone and the flight log name, respectively.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

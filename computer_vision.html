@@ -17,34 +17,38 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Module 3: Estimation &amp; Control" href="planning_control.html" />
     <link rel="prev" title="Module 1: Hands-On Quadrotors" href="quadrotor_basics.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -212,76 +216,62 @@
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="section" id="Module-2:-Computer-Vision">
 <h1>Module 2: Computer Vision<a class="headerlink" href="#Module-2:-Computer-Vision" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Unit-1:-A-Survey-of-Computer-Vision">
 <h2>Unit 1: A Survey of Computer Vision<a class="headerlink" href="#Unit-1:-A-Survey-of-Computer-Vision" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal</strong>: Understand the motivation and princples of utilizing computer
-vision as a means of perception for autonomous systems. Survey several
-common applications and current research trends in the field of computer
-vision from a robotics perspective.</p>
+<p><strong>Goal</strong>: Understand the motivation and princples of utilizing computer vision as a means of perception for autonomous systems. Survey several common applications and current research trends in the field of computer vision from a robotics perspective.</p>
 </div>
 <div class="section" id="Unit-2:-Kernels,-Edges,-Thresholds">
 <h2>Unit 2: Kernels, Edges, Thresholds<a class="headerlink" href="#Unit-2:-Kernels,-Edges,-Thresholds" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong> This unit introduces the fundamentals of image analysis for
-machine vision. We will treat images and videos as two-dimensional
-signals, allowing us to apply signal processing techniques to detect and
-interpret features in a camera stream on an embedded platform in
-real-time, using <a class="reference external" href="https://opencv.org/">the OpenCV library</a>.</p>
+<p><strong>Goal:</strong> This unit introduces the fundamentals of image analysis for machine vision. We will treat images and videos as two-dimensional signals, allowing us to apply signal processing techniques to detect and interpret features in a camera stream on an embedded platform in real-time, using <a class="reference external" href="https://opencv.org/">the OpenCV library</a>.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/derivatives_and_windows.ipynb">Derivatives</a></li>
-<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/convolutions.ipynb">Convolution</a></li>
-<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/OpenCV.ipynb">OpenCV</a></li>
+<li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/derivatives_and_windows.ipynb">Derivatives</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/convolutions.ipynb">Convolution</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/OpenCV.ipynb">OpenCV</a></p></li>
 </ol>
 </div>
 <div class="section" id="Unit-3:-Regression,-Line-Parameterization">
 <h2>Unit 3: Regression, Line Parameterization<a class="headerlink" href="#Unit-3:-Regression,-Line-Parameterization" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong> Learn how to detect an LED rope present in a camera image by
-applying linear regression on thresholded pixel values, as the first
-step in enabling the drone to follow an LED track.</p>
+<p><strong>Goal:</strong> Learn how to detect an LED rope present in a camera image by applying linear regression on thresholded pixel values, as the first step in enabling the drone to follow an LED track.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/LinearRegression.ipynb">Linear
-Regression</a></li>
-<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/Downward.ipynb">Detecting the LED
-line</a></li>
+<li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/LinearRegression.ipynb">Linear Regression</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/Downward.ipynb">Detecting the LED line</a></p></li>
 </ol>
 </div>
 <div class="section" id="Unit-4:-Color-Segmentation">
 <h2>Unit 4: Color Segmentation<a class="headerlink" href="#Unit-4:-Color-Segmentation" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong> Understand how to detect and segment a specific, narrow range
-of colors within an image.</p>
+<p><strong>Goal:</strong> Understand how to detect and segment a specific, narrow range of colors within an image.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/ColorSegmentation.ipynb">Color Segmentation and Bounding
-Boxes</a></li>
+<li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/ColorSegmentation.ipynb">Color Segmentation and Bounding Boxes</a></p></li>
 </ol>
 </div>
 <div class="section" id="Unit-5:-Integration-with-Quadrotor">
 <h2>Unit 5: Integration with Quadrotor<a class="headerlink" href="#Unit-5:-Integration-with-Quadrotor" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong> In order to utilize computer vision techniques for UAV
-control, we need to be able to pass information between our vision
-processes (i.e.&nbsp;ROS nodes) and our command/control processes in a
-parameterized format. The goal of this unit is to develop such ROS
-messages.</p>
+<p><strong>Goal:</strong> In order to utilize computer vision techniques for UAV control, we need to be able to pass information between our vision processes (i.e. ROS nodes) and our command/control processes in a parameterized format. The goal of this unit is to develop such ROS messages.</p>
 <p><strong>Practicals</strong></p>
 <ol class="arabic simple">
-<li><a class="reference external" href="downward_cam_bag.html">Drone-based ROS Bag Collection</a></li>
-<li><a class="reference external" href="detector.html">Line Param ROS Message</a></li>
+<li><p><a class="reference external" href="downward_cam_bag.html">Drone-based ROS Bag Collection</a></p></li>
+<li><p><a class="reference external" href="detector.html">Line Param ROS Message</a></p></li>
 </ol>
 </div>
 <div class="section" id="Unit-6:-Advanced-Topics">
 <h2>Unit 6: Advanced Topics<a class="headerlink" href="#Unit-6:-Advanced-Topics" title="Permalink to this headline">¶</a></h2>
-<p><strong>Goal:</strong> Understand the theory behind some of the “black box”
-algorithms we have used thus far as well as the frontiers of computer
-vision research</p>
+<p><strong>Goal:</strong> Understand the theory behind some of the “black box” algorithms we have used thus far as well as the frontiers of computer vision research</p>
 <p><strong>Lectures:</strong></p>
 <ol class="arabic simple">
-<li>[AR Tag Theory]</li>
-<li>[Optical Flow Theory]</li>
-<li>[Machine Learning]</li>
+<li><p>[AR Tag Theory]</p></li>
+<li><p>[Optical Flow Theory]</p></li>
+<li><p>[Machine Learning]</p></li>
 </ol>
 </div>
 </div>
@@ -297,7 +287,7 @@ vision research</p>
         <a href="planning_control.html" class="btn btn-neutral float-right" title="Module 3: Estimation &amp; Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quadrotor_basics.html" class="btn btn-neutral" title="Module 1: Hands-On Quadrotors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="quadrotor_basics.html" class="btn btn-neutral float-left" title="Module 1: Hands-On Quadrotors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -306,7 +296,7 @@ vision research</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ross Allen.
+        &copy; Copyright 2018, Ross Allen
 
     </p>
   </div>
@@ -323,33 +313,16 @@ vision research</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

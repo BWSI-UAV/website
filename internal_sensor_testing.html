@@ -285,6 +285,10 @@ optical flow later in the course.)</p>
 the Teraranger USB cable to the drone USB port. Ask an instructor for
 help if need be. * SSH into the drone from the team laptop. Run the
 following commands</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>Alternatively, you can run</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">/</span><span class="n">build</span>
 <span class="n">roscore</span> <span class="o">&amp;</span>
 <span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span> <span class="o">&amp;</span>

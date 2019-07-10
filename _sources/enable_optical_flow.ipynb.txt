@@ -84,8 +84,9 @@
     "\n",
     "If everything in [step 3](#enable_optical_flow-verify_services) appear to be working correctly, you are ready to try a test flight.\n",
     "\n",
-    "- Using the RC, switch to position control before arming\n",
-    "- If that works, switch back to manual control, take off, and once stabilized, switch to position control\n",
+    "- Using the RC, switch to position control before arming. Your ground station should audibly inform you that you are in position control mode\n",
+    "- Arm the drone\n",
+    "- Once armed, slowly increase the throttle. Nothing should happen until the throttle reaches a predefined threshold that causes the drone the take-off in one (abrupt) \"jump\" and hover around 1 meter high.\n",
     "- If the drone seems to ascend slowly while in position control, drop the throttle a small amount (it is registering a throttle above the \"hover in place\" threshold and thinks you want to ascend). If you drop the throttle enough, it will land automatically"
    ]
   },
@@ -106,14 +107,14 @@
   "language_info": {
    "codemirror_mode": {
     "name": "ipython",
-    "version": 2
+    "version": 3
    },
    "file_extension": ".py",
    "mimetype": "text/x-python",
    "name": "python",
    "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython2",
-   "version": "2.7.12"
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
   }
  },
  "nbformat": 4,

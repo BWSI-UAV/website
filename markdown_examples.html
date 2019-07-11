@@ -17,36 +17,32 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
 
+  
+  
     
 
   
+
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -206,66 +202,71 @@
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
 </style>
 <div class="section" id="Markdown-Cells">
 <h1>Markdown Cells<a class="headerlink" href="#Markdown-Cells" title="Permalink to this headline">¶</a></h1>
-<p>Text can be added to Jupyter Notebooks using Markdown cells. You can change the cell type to Markdown by using the <code class="docutils literal notranslate"><span class="pre">Cell</span></code> menu, the toolbar, or the key shortcut <code class="docutils literal notranslate"><span class="pre">m</span></code>. Markdown is a popular markup language that is a superset of HTML. Its specification can be found here:</p>
+<p>Text can be added to Jupyter Notebooks using Markdown cells. You can
+change the cell type to Markdown by using the <code class="docutils literal notranslate"><span class="pre">Cell</span></code> menu, the
+toolbar, or the key shortcut <code class="docutils literal notranslate"><span class="pre">m</span></code>. Markdown is a popular markup
+language that is a superset of HTML. Its specification can be found
+here:</p>
 <p><a class="reference external" href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a></p>
 <div class="section" id="Markdown-basics">
 <h2>Markdown basics<a class="headerlink" href="#Markdown-basics" title="Permalink to this headline">¶</a></h2>
 <p>You can make text <em>italic</em> or <strong>bold</strong>.</p>
 <p>You can build nested itemized or enumerated lists:</p>
 <ul class="simple">
-<li><p>One</p>
-<ul>
-<li><p>Sublist</p>
-<ul>
-<li><p>This</p></li>
+<li>One<ul>
+<li>Sublist<ul>
+<li>This</li>
 </ul>
 </li>
-<li><p>Sublist - That - The other thing</p></li>
+<li>Sublist - That - The other thing</li>
 </ul>
 </li>
-<li><p>Two</p>
-<ul>
-<li><p>Sublist</p></li>
+<li>Two<ul>
+<li>Sublist</li>
 </ul>
 </li>
-<li><p>Three</p>
-<ul>
-<li><p>Sublist</p></li>
+<li>Three<ul>
+<li>Sublist</li>
 </ul>
 </li>
 </ul>
 <p>Now another list:</p>
 <ol class="arabic simple">
-<li><p>Here we go</p>
-<ol class="arabic simple">
-<li><p>Sublist</p></li>
-<li><p>Sublist</p></li>
+<li>Here we go<ol class="arabic">
+<li>Sublist</li>
+<li>Sublist</li>
 </ol>
 </li>
-<li><p>There we go</p></li>
-<li><p>Now this</p></li>
+<li>There we go</li>
+<li>Now this</li>
 </ol>
 <p>You can add horizontal rules:</p>
 <hr class="docutils" />
 <p>Here is a blockquote:</p>
 <blockquote>
-<div><p>Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren’t special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced. In the face of ambiguity, refuse the temptation to guess. There should be one– and preferably only one –obvious way to do it.
-Although that way may not be obvious at first unless you’re Dutch. Now is better than never. Although never is often better than <em>right</em> now. If the implementation is hard to explain, it’s a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea – let’s do more of those!</p>
-</div></blockquote>
+<div>Beautiful is better than ugly. Explicit is better than implicit.
+Simple is better than complex. Complex is better than complicated.
+Flat is better than nested. Sparse is better than dense. Readability
+counts. Special cases aren’t special enough to break the rules.
+Although practicality beats purity. Errors should never pass
+silently. Unless explicitly silenced. In the face of ambiguity,
+refuse the temptation to guess. There should be one– and preferably
+only one –obvious way to do it. Although that way may not be obvious
+at first unless you’re Dutch. Now is better than never. Although
+never is often better than <em>right</em> now. If the implementation is hard
+to explain, it’s a bad idea. If the implementation is easy to
+explain, it may be a good idea. Namespaces are one honking great idea
+– let’s do more of those!</div></blockquote>
 <p>And shorthand for links:</p>
 <p><a class="reference external" href="http://jupyter.org">Jupyter’s website</a></p>
 </div>
 <div class="section" id="Headings">
 <h2>Headings<a class="headerlink" href="#Headings" title="Permalink to this headline">¶</a></h2>
-<p>You can add headings by starting a line with one (or multiple) <code class="docutils literal notranslate"><span class="pre">#</span></code> followed by a space, as in the following example:</p>
+<p>You can add headings by starting a line with one (or multiple) <code class="docutils literal notranslate"><span class="pre">#</span></code>
+followed by a space, as in the following example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Heading 1</span>
 <span class="c1"># Heading 2</span>
 <span class="c1">## Heading 2.1</span>
@@ -275,7 +276,8 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </div>
 <div class="section" id="Embedded-code">
 <h2>Embedded code<a class="headerlink" href="#Embedded-code" title="Permalink to this headline">¶</a></h2>
-<p>You can embed code meant for illustration instead of execution in Python:</p>
+<p>You can embed code meant for illustration instead of execution in
+Python:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;a docstring&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
@@ -291,10 +293,12 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </div>
 <div class="section" id="LaTeX-equations">
 <h2>LaTeX equations<a class="headerlink" href="#LaTeX-equations" title="Permalink to this headline">¶</a></h2>
-<p>Courtesy of MathJax, you can include mathematical expressions both inline: <span class="math notranslate nohighlight">\(e^{i\pi} + 1 = 0\)</span> and displayed:</p>
+<p>Courtesy of MathJax, you can include mathematical expressions both
+inline: <span class="math notranslate nohighlight">\(e^{i\pi} + 1 = 0\)</span> and displayed:</p>
 <div class="math notranslate nohighlight">
 \[e^x=\sum_{i=0}^\infty \frac{1}{i!}x^i\]</div>
-<p>Inline expressions can be added by surrounding the latex code with <code class="docutils literal notranslate"><span class="pre">$</span></code>:</p>
+<p>Inline expressions can be added by surrounding the latex code with
+<code class="docutils literal notranslate"><span class="pre">$</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$e^{i\pi} + 1 = 0$
 </pre></div>
 </div>
@@ -305,7 +309,8 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </div>
 <div class="section" id="GitHub-flavored-markdown">
 <h2>GitHub flavored markdown<a class="headerlink" href="#GitHub-flavored-markdown" title="Permalink to this headline">¶</a></h2>
-<p>The Notebook webapp supports Github flavored markdown meaning that you can use triple backticks for code blocks:</p>
+<p>The Notebook webapp supports Github flavored markdown meaning that you
+can use triple backticks for code blocks:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```python
 print &quot;Hello World&quot;
 ```
@@ -329,26 +334,27 @@ console.log(&quot;Hello World&quot;)
 </pre></div>
 </div>
 <p>A nice HTML Table:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col width="46%" />
+<col width="54%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>This</p></th>
-<th class="head"><p>is</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">This</th>
+<th class="head">is</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>a</p></td>
-<td><p>table</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>a</td>
+<td>table</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="General-HTML">
 <h2>General HTML<a class="headerlink" href="#General-HTML" title="Permalink to this headline">¶</a></h2>
-<p>Because Markdown is a superset of HTML you can even add things like HTML tables:</p>
+<p>Because Markdown is a superset of HTML you can even add things like HTML
+tables:</p>
 <table><tr><th><p>Header 1</p>
 </th><th><p>Header 2</p>
 </th></tr><tr><td><p>row 1, cell 1</p>
@@ -358,7 +364,8 @@ console.log(&quot;Hello World&quot;)
 </td></tr></table></div>
 <div class="section" id="Local-files">
 <h2>Local files<a class="headerlink" href="#Local-files" title="Permalink to this headline">¶</a></h2>
-<p>If you have local files in your Notebook directory, you can refer to these files in Markdown cells directly:</p>
+<p>If you have local files in your Notebook directory, you can refer to
+these files in Markdown cells directly:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">subdirectory</span><span class="o">/</span><span class="p">]</span><span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -370,11 +377,19 @@ console.log(&quot;Hello World&quot;)
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">video</span> <span class="n">controls</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;../images/animation.m4v&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
 </div>
-<video controls src="../images/animation.m4v" /><p>These do not embed the data into the notebook file, and require that the files exist when you are viewing the notebook.</p>
+<video controls src="../images/animation.m4v" /><p>These do not embed the data into the notebook file, and require that the
+files exist when you are viewing the notebook.</p>
 <div class="section" id="Security-of-local-files">
 <h3>Security of local files<a class="headerlink" href="#Security-of-local-files" title="Permalink to this headline">¶</a></h3>
-<p>Note that this means that the Jupyter notebook server also acts as a generic file server for files inside the same tree as your notebooks. Access is not granted outside the notebook folder so you have strict control over what files are visible, but for this reason it is highly recommended that you do not run the notebook server with a notebook directory at a high level in your filesystem (e.g. your home directory).</p>
-<p>When you run the notebook in a password-protected manner, local file access is restricted to authenticated users unless read-only views are active.</p>
+<p>Note that this means that the Jupyter notebook server also acts as a
+generic file server for files inside the same tree as your notebooks.
+Access is not granted outside the notebook folder so you have strict
+control over what files are visible, but for this reason it is highly
+recommended that you do not run the notebook server with a notebook
+directory at a high level in your filesystem (e.g.&nbsp;your home directory).</p>
+<p>When you run the notebook in a password-protected manner, local file
+access is restricted to authenticated users unless read-only views are
+active.</p>
 </div>
 </div>
 </div>
@@ -390,7 +405,7 @@ console.log(&quot;Hello World&quot;)
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ross Allen
+        &copy; Copyright 2018, Ross Allen.
 
     </p>
   </div>
@@ -407,16 +422,33 @@ console.log(&quot;Hello World&quot;)
   
 
 
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

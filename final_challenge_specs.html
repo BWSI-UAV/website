@@ -17,36 +17,32 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
 
+  
+  
     
 
   
+
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -190,204 +186,6 @@
             
   
 <style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -404,20 +202,24 @@ div.rendered_html tbody tr:hover {
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
 </style>
 <div class="section" id="Final-Challenge-Specs:-Vertical-Slalom">
 <h1>Final Challenge Specs: Vertical Slalom<a class="headerlink" href="#Final-Challenge-Specs:-Vertical-Slalom" title="Permalink to this headline">¶</a></h1>
-<p>A full circuit will be illuminated with LEDs. On both sides there will be a series of hurdles which the robot must go over and under. The hurdles will have AR tags taped to thier front. Odd # AR tags will indicate a hurdle that must be flown over, and even # AR tags correspond to hurdles to fly under. Completion requires traveling 3 loops without crashing or interference.</p>
-<p>Rankings will be ordered by the fastest $ time $ out of 3 runs. The team with the lowest time wins.</p>
-<p>Grazing the obstacles, flying around them the wrong way, and interfering with the flight will result in a failed run.</p>
+<p>A full circuit will be illuminated with LEDs. On both sides there will
+be a series of hurdles which the robot must go over and under. The
+hurdles will have AR tags taped to thier front. Odd # AR tags will
+indicate a hurdle that must be flown over, and even # AR tags correspond
+to hurdles to fly under. Completion requires traveling 3 loops without
+crashing or interference.</p>
+<p>Rankings will be ordered by the fastest $ time $ out of 3 runs. The team
+with the lowest time wins.</p>
+<p>Grazing the obstacles, flying around them the wrong way, and interfering
+with the flight will result in a failed run.</p>
 <div class="section" id="LED-Track-Dimensions:">
 <h2>LED Track Dimensions:<a class="headerlink" href="#LED-Track-Dimensions:" title="Permalink to this headline">¶</a></h2>
-<p>Shaped like a track field, with stright segments being 18ft long and curved sections being a half-circle with a diameter of 8ft. Total length is about 10 meters.</p>
+<p>Shaped like a track field, with stright segments being 18ft long and
+curved sections being a half-circle with a diameter of 8ft. Total length
+is about 10 meters.</p>
 </div>
 <div class="section" id="Hurdle-Dimensions">
 <h2>Hurdle Dimensions<a class="headerlink" href="#Hurdle-Dimensions" title="Permalink to this headline">¶</a></h2>
@@ -429,22 +231,22 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Procedure">
 <h2>Procedure<a class="headerlink" href="#Procedure" title="Permalink to this headline">¶</a></h2>
-<p>Upon arriving, students should immediatly start preparing for flight. The first team should be ready to fly by 9:20.</p>
-<p>There will be 2 heats of flights, one at [9:20 - 10:40] and the other at [10:40 - 12:00]. In each heat, every team will get an 18 minute time slot to fly the challenge(s). The order in which the teams fly will be randomized. (same order for both heats)</p>
+<p>Upon arriving, students should immediatly start preparing for flight.
+The first team should be ready to fly by 9:20.</p>
+<p>There will be 2 heats of flights, one at [9:20 - 10:40] and the other at
+[10:40 - 12:00]. In each heat, every team will get an 18 minute time
+slot to fly the challenge(s). The order in which the teams fly will be
+randomized. (same order for both heats)</p>
 <ol class="arabic simple">
-<li><p>Next team up should be ready to arm and fly their drone before they are called to the control station. This means all necessary nodes are allready running.</p></li>
-<li><p>When called to the control station, team will have exactly 16 minutes to perform flights.</p></li>
-<li><p>The team at the control station is responsible for following all saftey regulations as outlined <a class="reference external" href="https://bwsi-uav.github.io/website/safety_checklist.html?highlight=safety">HERE</a></p></li>
+<li>Next team up should be ready to arm and fly their drone before they
+are called to the control station. This means all necessary nodes are
+allready running.</li>
+<li>When called to the control station, team will have exactly 16 minutes
+to perform flights.</li>
+<li>The team at the control station is responsible for following all
+saftey regulations as outlined
+<a class="reference external" href="https://bwsi-uav.github.io/website/safety_checklist.html?highlight=safety">HERE</a></li>
 </ol>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -459,7 +261,7 @@ div.rendered_html tbody tr:hover {
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ross Allen
+        &copy; Copyright 2018, Ross Allen.
 
     </p>
   </div>
@@ -476,16 +278,33 @@ div.rendered_html tbody tr:hover {
   
 
 
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

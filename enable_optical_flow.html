@@ -444,28 +444,28 @@ theory behind optical flow are left for a later module.</p>
 <div class="section" id="Step-2:-Start-Optical-Flow-Services">
 <h2>Step 2: Start Optical Flow Services<a class="headerlink" href="#Step-2:-Start-Optical-Flow-Services" title="Permalink to this headline">¶</a></h2>
 <p>Follow these steps to run the start the optical flow service</p>
-<ul class="simple">
+<ul>
 <li><p>Power on remote control</p></li>
 <li><p>Power on the Intel RTF</p></li>
 <li><p>Connect to UAV via QGroundControl (need to know IP address from previous flights or connect a monitor and run <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code>)</p></li>
 <li><p>SSH into UAV (need to know IP address from previous flights or connect a monitor and run <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code>)</p></li>
-<li><p>Start the teraranger and optical flow services</p></li>
-</ul>
+<li><p>Start the teraranger and optical flow services</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">aero</span><span class="o">-</span><span class="n">teraranger</span><span class="o">.</span><span class="n">service</span>
 <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">.</span><span class="n">service</span>
 </pre></div>
 </div>
+</li>
+</ul>
 </div>
 <div class="section" id="Step-3:-Verify-Services">
 <h2>Step 3: Verify Services<a class="headerlink" href="#Step-3:-Verify-Services" title="Permalink to this headline">¶</a></h2>
 <p>To make sure things are working as expected, run the following steps:</p>
-<ul class="simple">
-<li><p>Check that syslog is not being spammed and at risk of filling the disk. Run the following command and to ensure that this directory is not growing extremely quickly</p></li>
-</ul>
+<ul>
+<li><p>Check that syslog is not being spammed and at risk of filling the disk. Run the following command and to ensure that this directory is not growing extremely quickly</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">du</span> <span class="o">-</span><span class="n">sh</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span>
 </pre></div>
 </div>
-<ul class="simple">
+</li>
 <li><p>Check quality of optical flow in QGroundControl: Widgets -&gt; MAVlink Inspector -&gt; Vehicle 1 -&gt; OPTICAL_FLOW_RAD -&gt; quality should be around 100 or more to be comfortable</p></li>
 <li><p>Check distance sensor is giving reasonable results: QGroundControl: Widgets -&gt; MAVlink Inspector -&gt; Vehicle 1 -&gt; DISTANCE_SENSOR -&gt; current_distance. If drone is sitting on the ground, the value should either be -Inf or equal to min_distance</p></li>
 <li><p>Make sure your local position estimate is reasonable in QGroundControl -&gt; Widgets -&gt; Analyze and check the following values: LOCAL_POSITION_NED.x, LOCAL_POSITION_NED.y, LOCAL_POSITION_NED.z</p></li>

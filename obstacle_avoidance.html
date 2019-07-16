@@ -129,8 +129,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Checkpoints">Checkpoints</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Graphing-“Fly-to-obstacle”-error">Graphing “Fly-to-obstacle” error</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Publishing-“Fly-to-obstacle”-velocities">Publishing “Fly-to-obstacle” velocities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Graphing-&quot;Fly-to-obstacle&quot;-error">Graphing “Fly-to-obstacle” error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Publishing-&quot;Fly-to-obstacle&quot;-velocities">Publishing “Fly-to-obstacle” velocities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Setting-Obstacle-Times/Velocities">Setting Obstacle Times/Velocities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Ring-Avoidance">Ring Avoidance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Hurdle-Avoidance">Hurdle Avoidance</a></li>
@@ -470,7 +470,7 @@ notebook will focus on the hurdle.</p>
 <li><p>Fly to the obstacle, and get in position to pass through/over/under it.</p></li>
 <li><p>Evade the obstacle effectively using pre-determined commands. (this could get fancier if you get it working solidly sans other technical capabilities)</p></li>
 </ol>
-<p>You will also need to issue a proportional (P) control signal in response to AR tag detections. This control signal should be smoothed using a moving average filter (i.e. track the previous <span class="math notranslate nohighlight">\(n\)</span> control signals and average them to create a final control signal).</p>
+<p>You will also need to issue a proportional (P) control signal in response to AR tag detections. This control signal should be smoothed using a moving average filter (i.e. track the previous <span class="math notranslate nohighlight">\(n\)</span> control signals and average them to create a final control signal).</p>
 </div>
 <div class="section" id="Breaking-down-Obstacle-Avoidance">
 <h2>Breaking down Obstacle Avoidance<a class="headerlink" href="#Breaking-down-Obstacle-Avoidance" title="Permalink to this headline">¶</a></h2>
@@ -496,7 +496,7 @@ detected, it is probably unsafe to continue on your current trajectory.</p>
 <div class="section" id="Avoiding-Obstacles">
 <h3>Avoiding Obstacles<a class="headerlink" href="#Avoiding-Obstacles" title="Permalink to this headline">¶</a></h3>
 <p>Before issuing control commands to avoid any given obstacle, consider clearing your running average history.</p>
-<p>You’ll need to use your knowledge of each obstacle to program a series of timed, open-loop control commands that will get the drone through the obstacle without crashing. You will also need to determine how to time your obstacle run (i.e. when do you initialize the time counter for passing through an obstacle?)</p>
+<p>You’ll need to use your knowledge of each obstacle to program a series of timed, open-loop control commands that will get the drone through the obstacle without crashing. You will also need to determine how to time your obstacle run (i.e. when do you initialize the time counter for passing through an obstacle?)</p>
 <p>Example obstacle avoidance (doesn’t correspond to any real obstacle, commands are given in <code class="docutils literal notranslate"><span class="pre">bu</span></code> frame):</p>
 <ul class="simple">
 <li><p>Positive z (0.3 m/s) for 3 seconds</p></li>
@@ -516,12 +516,12 @@ detected, it is probably unsafe to continue on your current trajectory.</p>
 </div>
 <div class="section" id="Checkpoints">
 <h2>Checkpoints<a class="headerlink" href="#Checkpoints" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Graphing-“Fly-to-obstacle”-error">
-<h3>Graphing “Fly-to-obstacle” error<a class="headerlink" href="#Graphing-“Fly-to-obstacle”-error" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Graphing-&quot;Fly-to-obstacle&quot;-error">
+<h3>Graphing “Fly-to-obstacle” error<a class="headerlink" href="#Graphing-"Fly-to-obstacle"-error" title="Permalink to this headline">¶</a></h3>
 <p>Reaching this checkpoint requires publishing your error in x,y,z, and yaw to RQT using a <code class="docutils literal notranslate"><span class="pre">geometry_msgs/Twist</span></code> or similar message. Show us the graph while holding the drone in range of an obstacle AR tag.</p>
 </div>
-<div class="section" id="Publishing-“Fly-to-obstacle”-velocities">
-<h3>Publishing “Fly-to-obstacle” velocities<a class="headerlink" href="#Publishing-“Fly-to-obstacle”-velocities" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Publishing-&quot;Fly-to-obstacle&quot;-velocities">
+<h3>Publishing “Fly-to-obstacle” velocities<a class="headerlink" href="#Publishing-"Fly-to-obstacle"-velocities" title="Permalink to this headline">¶</a></h3>
 <p>Reaching this checkpoint requires successfully publishing velocities to <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel</span></code> when in range of an obstacle AR tag. Show us this topic with <code class="docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span></code> to reach this checkpoint.</p>
 </div>
 <div class="section" id="Setting-Obstacle-Times/Velocities">

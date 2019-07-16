@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Downward Camera Recording + Line Detection &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
+  <title>Downward Camera Analysis + Line Detection &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
   
 
   
@@ -108,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Downward Camera Recording + Line Detection</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Downward Camera Analysis + Line Detection</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Integrating-opencv-and-ROS-images">Integrating <code class="docutils literal notranslate"><span class="pre">opencv</span></code> and ROS images</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Visualization">Visualization</a></li>
 </ul>
@@ -187,7 +187,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Downward Camera Recording + Line Detection</li>
+      <li>Downward Camera Analysis + Line Detection</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -428,45 +428,76 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Downward-Camera-Recording-+-Line-Detection">
-<h1>Downward Camera Recording + Line Detection<a class="headerlink" href="#Downward-Camera-Recording-+-Line-Detection" title="Permalink to this headline">¶</a></h1>
-<p>In this document, you will learn about how to record the output of the downward-facing camera and use it in your code development for line following.</p>
+<div class="section" id="Downward-Camera-Analysis-+-Line-Detection">
+<h1>Downward Camera Analysis + Line Detection<a class="headerlink" href="#Downward-Camera-Analysis-+-Line-Detection" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, you will learn about how to analyze the output of the downward-facing camera and use it in your code development for line following.</p>
 <div class="section" id="Integrating-opencv-and-ROS-images">
 <h2>Integrating <code class="docutils literal notranslate"><span class="pre">opencv</span></code> and ROS images<a class="headerlink" href="#Integrating-opencv-and-ROS-images" title="Permalink to this headline">¶</a></h2>
-<p>You will now learn how to use ROS images with <code class="docutils literal notranslate"><span class="pre">opencv</span></code>. The key package you will be using to do so is <code class="docutils literal notranslate"><span class="pre">cv_bridge</span></code>. If you do not have <code class="docutils literal notranslate"><span class="pre">cv_bridge</span></code> installed (which you can check by opening a python shell in Terminal and typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cv_bridge</span></code>), you can install it using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ros-kinetic-cv-bridge</span></code>. The following code shows an example class that subscribes to the downward camera topic and creates an <code class="docutils literal notranslate"><span class="pre">opencv</span></code> compatible image. It then “processes” the image and
-publishes it on a new ROS topic.</p>
-<p>The following code is a skeleton node that you will need to complete. In your finished program, you should be able to subscribe to the downward camera and publish a processed image that you should be able to see/varify in <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code></p>
+<p>You will now learn how to use ROS images with <code class="docutils literal notranslate"><span class="pre">opencv</span></code>. The key package you will be using to do so is <code class="docutils literal notranslate"><span class="pre">cv_bridge</span></code>.</p>
+<p>The following code is a skeleton node that you will need to complete. In your finished program, you should be able to subscribe to the downward camera and publish a processed image that you should be able to see/verify in <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code></p>
+<p>Copy-paste the following code into a python file and work from there. You will write this program <strong>as a team, on the drone</strong>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">from</span> <span class="nn">cv_bridge</span> <span class="kn">import</span> <span class="n">CvBridge</span><span class="p">,</span> <span class="n">CvBridgeError</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="kn">import</span> <span class="n">Image</span>
 
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Starter code for an image processing node. Subscribes to the downward camera</span>
+<span class="sd">and publishes a processed cv image (i.e. colorized, overlayed with a detected line)</span>
+<span class="sd">This node is not meant to be a full node that you will use in your final line tracking</span>
+<span class="sd">solution, but it will teach you key concepts that you will need for line following</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
-<span class="n">_DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">class</span> <span class="nc">ImageToCV</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">&quot;/aero_downward_camera/image&quot;</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_cb</span><span class="p">)</span>
+        <span class="c1"># A subscriber to the topic &#39;/aero_downward_camera/image&#39;. self.image_sub_cb is called when a message is recieved</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera_sub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">&quot;/aero_downward_camera/image&quot;</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_cb</span><span class="p">)</span>
+
+        <span class="c1"># A publisher which will publish a parametrization of the detected line to the topic &#39;/image_to_cv/processed&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">&quot;/image_to_cv/processed&quot;</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bridge</span> <span class="o">=</span> <span class="n">CvBridge</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">image_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">cv_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bridge</span><span class="o">.</span><span class="n">imgmsg_to_cv2</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;bgr8&quot;</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Callback function which is called when a new message of type Image is recieved by self.camera_sub.</span>
 
+<span class="sd">            Args:</span>
+<span class="sd">                - msg = ROS Image message in 8UC1 format</span>
+
+<span class="sd">            Returns: NA</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cv_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bridge</span><span class="o">.</span><span class="n">imgmsg_to_cv2</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;8UC1&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">cv_image</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">CvBridgeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">cv_image</span><span class="p">)</span>
-
     <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
-        <span class="c1"># cv2 processing goes here</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Takes in an img param and finds the line in it, if it exists</span>
 
-        <span class="k">if</span> <span class="n">_DEBUG</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bridge</span><span class="o">.</span><span class="n">cv2_to_imgmsg</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s2">&quot;bgr8&quot;</span><span class="p">))</span>
+<span class="sd">            Args:</span>
+<span class="sd">                - img : OpenCV Image to process</span>
 
-            <span class="k">except</span> <span class="n">CvBridgeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="sd">            Publishes:</span>
+<span class="sd">                - annotated image to the /image_to_cv/processed topic</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;TODO-START: FILL IN CODE HERE&quot;&quot;&quot;</span>
+        <span class="c1"># Get a colored copy of the image. This will be used solely to provide an annotated version</span>
+        <span class="c1"># of the image for debuging purposes (for you to see in rqt_image_view). See slides for help here</span>
+
+        <span class="c1"># Threshold the image to isolate the line and use it for your linear regression algorithm</span>
+        <span class="c1"># (tip: check size to ensure you are detecting the LED line or a simple blip on the screen)</span>
+
+        <span class="c1"># &quot;Draw&quot; a line if you have found one on the image</span>
+
+        <span class="c1"># Publish your newly annotated, color image</span>
+        <span class="c1"># NOTE: If you do not detect a line, or if you have decided to ignore detected lines of very small</span>
+        <span class="c1">#       size, be sure to still publish the image. Also be sure to have some way to handle the camera</span>
+        <span class="c1">#       seeing multiple &quot;lines&quot; at one time</span>
+
+
+        <span class="sd">&quot;&quot;&quot;TODO-END&quot;&quot;&quot;</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;image_to_cv&quot;</span><span class="p">)</span>
@@ -477,7 +508,20 @@ publishes it on a new ROS topic.</p>
 </div>
 <div class="section" id="Visualization">
 <h3>Visualization<a class="headerlink" href="#Visualization" title="Permalink to this headline">¶</a></h3>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code> to visualize the resulting images on <code class="docutils literal notranslate"><span class="pre">/image_to_cv/processed</span></code>.</p>
+<p>When you have finished writing the program, make sure you make it exectuable (you only need to do this once) using the usual command (<code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+X</span> <span class="pre">filename.py</span></code>). Do the following to launch your code: Terminal 1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roscore</span>
+</pre></div>
+</div>
+<p>Terminal 2 (starts optical flow):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span>
+</pre></div>
+</div>
+<p>Terminal 3 (run your code):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">filename</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Terminal 4:</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code> to visualize the resulting images on <code class="docutils literal notranslate"><span class="pre">/image_to_cv/processed</span></code>. If all goes well, you should see an annotated image when viewing this topic in <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code>, with a contour or a line over where your detected line is. (<em>For reference:</em> your camera feed should look a lot like the images you worked with in the Contour Analysis section of the Downward.ipynb lab.)</p>
 </div>
 </div>
 <div class="section" id="rosbag-Usage">

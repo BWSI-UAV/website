@@ -441,13 +441,20 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Setting-up-for-rosbag">
 <h3>Setting up for <code class="docutils literal notranslate"><span class="pre">rosbag</span></code><a class="headerlink" href="#Setting-up-for-rosbag" title="Permalink to this headline">¶</a></h3>
-<p>SSH into the drone, then:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">/</span><span class="n">build</span>
-<span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="o">./</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span>
-<span class="n">cd</span> <span class="o">~/</span><span class="n">rosbags</span>
+<p>SSH into the drone.</p>
+<p>Terminal 1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roscore</span>
 </pre></div>
 </div>
-<p>(if this doesn’t exist, <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">~/rosbags</span></code> and then <code class="docutils literal notranslate"><span class="pre">cd</span></code>)</p>
+<p>Terminal 2 (starts optical flow):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="n">bwsi</span><span class="o">-</span><span class="n">uav</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span>
+</pre></div>
+</div>
+<p>Terminal 3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">rosbags</span>
+</pre></div>
+</div>
+<p>(if <code class="docutils literal notranslate"><span class="pre">rosbags</span></code> directory doesn’t exist, run <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">~/rosbags</span></code> and then <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/rosbags</span></code>)</p>
 <p>Now, you will record the bag file. Make sure to use <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code> over SSH (<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-Y</span></code> enables this behavior) and <strong>check that the downward camera is on and over the area of interest before you start recording!</strong> Also, bag files can get incredibly large when recording images, so limit recordings to ~30 seconds at a time. <strong>We will enforce this.</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rosbag</span> <span class="n">record</span> <span class="o">-</span><span class="n">O</span> <span class="n">downward</span><span class="o">.</span><span class="n">bag</span> <span class="o">/</span><span class="n">aero_downward_camera</span><span class="o">/</span><span class="n">image</span>
 </pre></div>

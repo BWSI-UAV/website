@@ -106,7 +106,7 @@
     "```\n",
     "Terminal 4:\n",
     "\n",
-    "Use `rqt_image_view` to visualize the resulting images on `/image_to_cv/processed`. If all goes well, you should see an annotated image when viewing this topic in `rqt_image_view`, with a contour or a line over where your detected line is.\n",
+    "> Use `rqt_image_view` to visualize the resulting images on `/image_to_cv/processed`. If all goes well, you should see an annotated image when viewing this topic in `rqt_image_view`, with a contour or a line over where your detected line is.\n",
     "(*For reference:* your camera feed should look a lot like the images you worked with in the Contour Analysis section of the Downward.ipynb lab.)"
    ]
   },
@@ -114,7 +114,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## `rosbag` Usage"
+    "## Intro to `rosbag`s"
    ]
   },
   {
@@ -128,19 +128,18 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Syntax\n",
-    "`rosbag record [options] /<topicname> [/<moretopics>...]`\n",
-    "`[options]` should be replaced with `-O <name>.bag` in most cases.\n",
-    "\n",
-    "Topic of interest for line following: `/aero_downward_camera/image`\n"
+    "### Syntax of rosbag record\n",
+    "`rosbag record [options] /<topicname> [/<moretopics>...]` <br>\n",
+    "- Usually, you should use `-O <name>.bag` for your `[option]`. The `-O` (capital O) flag tells ros that the following argument (formatted `<name>.bag`) is the name we want for our bag file. Otherwise, a default, messy name will be used.\n",
+    "- For this lab's purpose, you should use this topic for `/<topicname>`: `/aero_downward_camera/image`\n"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Setting up for `rosbag`\n",
-    "SSH into the drone.\n",
+    "### Recording a `rosbag`\n",
+    "**SSH into the drone.**\n",
     "\n",
     "Terminal 1:\n",
     "```\n",
@@ -154,32 +153,38 @@
     "```\n",
     "cd ~/rosbags\n",
     "``` \n",
-    "(if `rosbags` directory doesn't exist, run `mkdir ~/rosbags` and then `cd ~/rosbags`)\n",
+    "> (if the `rosbags` directory doesn't exist, run `mkdir ~/rosbags` and then `cd ~/rosbags`)\n",
     "\n",
-    "Now, you will record the bag file. Make sure to use `rqt_image_view` over SSH (`ssh -Y` enables this behavior) and **check that the downward camera is on and over the area of interest before you start recording!** Also, bag files can get incredibly large when recording images, so limit recordings to ~30 seconds at a time. **We will enforce this.**\n",
+    "Now, you will record a bag file. Make sure to use `rqt_image_view` on the drone to see what you are recording as you record it. Keep in mind that you will be recording a lot of data in your bag file, even if you are recording only one topic. We will learn later how to record compressed bags, but for now, just remember to **keep your bag recordings relatively short, around 30 seconds maximum** to avoid filling up your storage.\n",
+    "\n",
+    "Use this command for today's lab:\n",
     "```\n",
     "rosbag record -O downward.bag /aero_downward_camera/image\n",
-    "```"
+    "```\n",
+    "\n",
+    "When you are finished recording, `ctrl-c` in the window you are recording your bag in to stop it."
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Post-bag Clean-up\n",
-    "Check disk usage with `sudo df -h /`. The disk might be super full at this point. \n",
-    "We will now transfer the bag file from the drone to your laptop and delete the bag file from the drone.\n",
+    "## Getting your bag off the drone for analysis\n",
+    "After recording a bag, especially a long one, your drone storage might be relatively full. If you want, check disk usage with `sudo df -h /`.\n",
+    "We will now transfer the bag file from the drone to your laptop and delete the bag file from the drone to free up space.\n",
     "\n",
-    "On your laptop:\n",
+    "**On your laptop:**\n",
     "```\n",
-    "cd ~/Desktop (or other dir)\n",
-    "scp uav@<teamname>.beaver.works:~/rosbags/downward.bag ~/Desktop/.\n",
+    "cd ~/Desktop (or other dir in which you want the bagfile to go)\n",
+    "scp uav@<teamname>.beaver.works:~/rosbags/downward.bag ~/<file/path/on_your_laptop>/.\n",
     "```\n",
-    "On drone (thru SSH):\n",
+    "**On the drone:**\n",
     "```\n",
     "cd ~/rosbags\n",
     "rm downward.bag\n",
-    "```"
+    "```\n",
+    "\n",
+    "Your bag should now be on your laptop and deleted off the drone. "
    ]
   },
   {
@@ -187,20 +192,22 @@
    "metadata": {},
    "source": [
     "## Playing your bag file\n",
-    "We will now use `rosbag play` to play back the images you recorded. \n",
+    "**On your laptop:**\n",
     "\n",
+    "Terminal 1:\n",
+    "```\n",
+    "roscore\n",
+    "```\n",
+    "Terminal 2:\n",
     "\n",
-    "### Syntax\n",
-    "`rosbag play /path/to/<filename>.bag` while `roscore` is running somewhere **ON YOUR  LAPTOP, LOCALLY**. \n",
-    "This will begin to play the images in real time as they were captured on the drone. You can use `rqt_image_view` to visualize them, and you can use them in whatever line detection code you are working on. Distribute as needed among team members so that you can work at night, if so desired. Images will be published on `/aero_downward_camera/image`, as they were on the drone."
+    "> In the folder where you saved your bag file, use `rosbag play <filename>.bag` to \"play\" the bag file.\n",
+    "\n",
+    "Terminal 3:\n",
+    "```\n",
+    "rqt_image_view\n",
+    "```\n",
+    "If you have completed the above code correctly, you should see an annotated image when you select the `/aero_downward_camera/image` in `rqt_image_view`."
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {

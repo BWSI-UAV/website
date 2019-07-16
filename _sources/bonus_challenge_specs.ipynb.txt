@@ -1,0 +1,76 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Bonus Challenges\n",
+    "## Bonus Challenge 1: Orbiting\n",
+    "Full LED loop on, robot must complete a lap while keeping a bright colored object inside its camera view.\n",
+    "Bright object will be on a vertical stick.\n",
+    "\n",
+    "Rankings will be ordered by the lowest $ time $ out of 3 runs. The team with the lowest time wins.\n",
+    "\n",
+    "Letting the object leave the camera's FOV or intervening with the flight will result in a failed run.\n",
+    "\n",
+    "## Bonus Challenge 2: Precision Placement\n",
+    "Robot has object tied to its bottom via string, goal is to place object in a small target area (10x10cm)\n",
+    "String must be at least 6\" and can be tied to any safe location on the drone.\n",
+    "\n",
+    "Rankings will be ordered by the lowest $ time $ out of 3 runs. The team with the lowest time wins.\n",
+    "\n",
+    "Intervening with the flight will result in a failed run.\n",
+    "\n",
+    "## Bonus Challenge 3: Object Recognition\n",
+    "A mapping between a set of objects and an AR tag number will be given, a opaque wall will obscure the other side of the loop.\n",
+    "With the full LED loop on, fly to the other side of the wall, detect the object there,\n",
+    "fly back, and land infront of a corresponding AR tag on the near side.\n",
+    "\n",
+    "Rankings will be ordered by the lowest $ time $ out of 2 runs. The team with the lowest time wins.\n",
+    "\n",
+    "Intervening with the flight or landing in front of the wrong object will result in a failed run.\n",
+    "\n",
+    "## Bonus Challenge 4: Buoy observation\n",
+    "Perform one loop around the LED track in under 30 seconds.\n",
+    "3 vertical sticks with bright tape at the top will be placed inside the loop.\n",
+    "The bouys will be spaced evenly while staying collinear.\n",
+    "\n",
+    "$ score = \\frac{time_a + time_b + time_c}{time} $\n",
+    "\n",
+    "$ time_a, \\space time_b, \\space time_c $: total time spent with buoy a, b, or c in view\n",
+    "\n",
+    "$ time $: total time spent completing loop\n",
+    "\n",
+    "Rankings are ordered by score in descending order."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 2",
+   "language": "python",
+   "name": "python2"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

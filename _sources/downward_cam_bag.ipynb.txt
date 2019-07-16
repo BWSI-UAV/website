@@ -1,0 +1,171 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Downward Camera Recording + Line Detection\n",
+    "In this document, you will learn about how to record the output of the downward-facing camera and use it in your code development for line following.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## `rosbag` Usage"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`rosbag` is an ROS tool that allows you to record the output of any number of ROS topics while the drone is in operation. This tool is useful for code development because it means we can test without having a drone flying around all the time. We will be using it to look at the LED strip you will have to follow in this week's challenge. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Syntax\n",
+    "`rosbag record [options] /<topicname> [/<moretopics>...]`\n",
+    "`[options]` should be replaced with `-O <name>.bag` in most cases.\n",
+    "\n",
+    "Topic of interest for line following: `/aero_downward_camera/image`\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Setting up for `rosbag`\n",
+    "SSH into the drone, then:\n",
+    "```\n",
+    "sudo -E bwsi-uav/catkin_ws/src/aero-optical-flow/build/aero-optical-flow\n",
+    "cd ~/rosbags\n",
+    "``` \n",
+    "The first command will run optical flow\n",
+    "\n",
+    "\n",
+    "(if ~/rosbags doesn't exist, `mkdir ~/rosbags` and then `cd ~/rosbags`)\n",
+    "\n",
+    "Now, you will record the bag file. Make sure to use `rqt_image_view` over SSH (`ssh -Y` enables this behavior) and **check that the downward camera is on and over the area of interest before you start recording!** Also, bag files can get incredibly large when recording images, so limit recordings to ~30 seconds at a time. **We will enforce this.**\n",
+    "```\n",
+    "rosbag record -O downward.bag /aero_downward_camera/image\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Post-bag Clean-up\n",
+    "Check disk usage with `sudo df -h /`. The disk might be pretty full at this point. \n",
+    "We will now transfer the bag file from the drone to your laptop and delete the bag file from the drone.\n",
+    "\n",
+    "On your laptop:\n",
+    "```\n",
+    "cd ~/Desktop (or other dir)\n",
+    "scp uav@<teamname>.beaver.works:~/rosbags/downward.bag ~/Desktop/.\n",
+    "```\n",
+    "On drone (thru SSH):\n",
+    "```\n",
+    "cd ~/rosbags\n",
+    "rm downward.bag\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Playing your bag file\n",
+    "We will now use `rosbag play` to play back the images you recorded. \n",
+    "\n",
+    "\n",
+    "### Syntax\n",
+    "`rosbag play /path/to/<filename>.bag` while `roscore` is running somewhere **ON YOUR  LAPTOP, LOCALLY**. \n",
+    "This will begin to play the images in real time as they were captured on the drone. You can use `rqt_image_view` to visualize them, and you can use them in whatever line detection code you are working on. Distribute as needed among team members so that you can work at night, if so desired. Images will be published on `/aero_downward_camera/image`, as they were on the drone."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Integrating `opencv` and ROS images\n",
+    "You will now learn how to use ROS images, like those captured in your newly minted bag file, with `opencv`. The key package you will be using to do so is `cv_bridge`. If you do not have `cv_bridge` installed (which you can check by opening a python shell in Terminal and typing `import cv_bridge`), you can install it using `sudo apt-get install ros-kinetic-cv-bridge`. The following code shows an example class that subscribes to the downward camera topic and creates an `opencv` compatible image. It then \"processes\" the image and publishes it on a new ROS topic.\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "import cv2 \n",
+    "from cv_bridge import CvBridge, CvBridgeError\n",
+    "import rospy\n",
+    "from sensor_msgs.msg import Image\n",
+    "\n",
+    "\n",
+    "_DEBUG = True\n",
+    "class ImageToCV:\n",
+    "    def __init__(self):\n",
+    "        rospy.Subscriber(\"/aero_downward_camera/image\", Image, self.image_cb)\n",
+    "        self.image_pub = rospy.Publisher(\"/image_to_cv/processed\", Image, queue_size=1)\n",
+    "        self.bridge = CvBridge()\n",
+    "        \n",
+    "    def image_cb(self, msg):\n",
+    "        try:\n",
+    "            cv_image = self.bridge.imgmsg_to_cv2(msg, \"bgr8\")\n",
+    "            \n",
+    "        except CvBridgeError as e:\n",
+    "            print(e)\n",
+    "            \n",
+    "        self.process(cv_image)\n",
+    "        \n",
+    "    def process(self, img):\n",
+    "        # cv2 processing goes here\n",
+    "        \n",
+    "        if _DEBUG:\n",
+    "            try:\n",
+    "                self.image_pub.publish(self.bridge.cv2_to_imgmsg(img, \"bgr8\"))\n",
+    "            \n",
+    "            except CvBridgeError as e:\n",
+    "                print(e)\n",
+    "        \n",
+    "if __name__ == \"__main__\":\n",
+    "    rospy.init_node(\"image_to_cv\")\n",
+    "    a = ImageToCV()\n",
+    "    \n",
+    "    rospy.spin()\n",
+    "```\n",
+    "\n",
+    "### Visualization\n",
+    "You can use `rqt_image_view` to visualize the resulting images on `/image_to_cv/processed`. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

@@ -226,15 +226,10 @@
 <h2>Using VLC to stream over RTSP<a class="headerlink" href="#Using-VLC-to-stream-over-RTSP" title="Permalink to this headline">¶</a></h2>
 <p>The UAVs are running a web service (called <a class="reference external" href="https://github.com/Dronecode/camera-manager">camera-manager</a>) which exposes cameras over <a class="reference external" href="https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol">RTSP</a>, the Real Time Streaming Protocol.</p>
 <p>VLC is a video player application available on all platforms. On your team laptop:</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>Open VLC</p></li>
 <li><p>Go to the main menu, and select <code class="docutils literal notranslate"><span class="pre">Media</span> <span class="pre">-&gt;</span> <span class="pre">Open</span> <span class="pre">Network</span> <span class="pre">Stream</span></code></p></li>
-<li><p>Type in the RTSP URL for the front camera:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rtsp</span><span class="p">:</span><span class="o">//</span><span class="n">TEAMNAME</span><span class="o">.</span><span class="n">beaver</span><span class="o">.</span><span class="n">works</span><span class="p">:</span><span class="mi">8554</span><span class="o">/</span><span class="n">video13</span>
-</pre></div>
-</div>
-<p>This URL is documented on Intel’s <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video#rtsp-streaming-with-the-camera-streaming-daemon">wiki</a>.</p>
-</li>
+<li><p>Type in the RTSP URL for the front camera: <code class="docutils literal notranslate"><span class="pre">rtsp://TEAMNAME.beaver.works:8554/video13</span></code> This URL is documented on Intel’s <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/06-Cameras-and-Video#rtsp-streaming-with-the-camera-streaming-daemon">wiki</a>.</p></li>
 <li><p>Click <strong>Play</strong></p></li>
 </ol>
 </div>
@@ -275,7 +270,7 @@
 <ul class="simple">
 <li><p><a class="reference external" href="http://wiki.ros.org/image_transport">Image Transport</a>, the ROS messaging system for images</p>
 <ul>
-<li><p><strong>`Tutorial on publishing images &lt;http://wiki.ros.org/image_transport/Tutorials/PublishingImages&gt;`__</strong></p></li>
+<li><p><a class="reference external" href="http://wiki.ros.org/image_transport/Tutorials/PublishingImages">Tutorial on publishing images</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="http://wiki.ros.org/rqt_image_view">http://wiki.ros.org/rqt_image_view</a></p></li>

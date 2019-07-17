@@ -453,13 +453,13 @@ div.rendered_html tbody tr:hover {
 <li><p>Calculate <span class="math notranslate nohighlight">\(v_x(t)\)</span> and <span class="math notranslate nohighlight">\(v_y(t)\)</span> using your pre-determined <span class="math notranslate nohighlight">\(K_P\)</span> values.</p></li>
 </ul>
 <p>Diagram:</p>
-<p><img alt="line_diagram.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/line_diagram.jpg?raw=true" /></p>
+<p><a href="#id1"><span class="problematic" id="id2">|line\_diagram.jpg|</span></a></p>
 </div>
 </div>
 <div class="section" id="Preflight-Code-Checkpoint">
 <h2>Preflight Code Checkpoint<a class="headerlink" href="#Preflight-Code-Checkpoint" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Graph error vs. time on the provided <code class="docutils literal notranslate"><span class="pre">rosbag</span></code>. An instructor will check to see that the error graphs are consistent with actual data. You should use RQT’s built in graph mechanism to view the output of your error function (publish a Vector3 on <code class="docutils literal notranslate"><span class="pre">/line/error</span></code>).</p>
+<li><p>Graph error vs. time on the provided <code class="docutils literal notranslate"><span class="pre">rosbag</span></code>. An instructor will check to see that the error graphs are consistent with actual data. You should use RQT’s built in graph mechanism to view the output of your error function (publish a Vector3 on <code class="docutils literal notranslate"><span class="pre">/line/error</span></code>).</p>
 <ul>
 <li><p>You will have to install rqt_common_plugins. Use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ros-kinetic-rqt-common-plugins</span></code> followed by <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">~/.config/ros.org/rqt_gui.ini</span></code></p></li>
 <li><p>Use “Plot” under Visualization</p></li>
@@ -476,7 +476,7 @@ div.rendered_html tbody tr:hover {
 <li><p>Power on remote control</p></li>
 <li><p>Power on the Intel RTF</p></li>
 <li><p>Connect to the UAV via QGroundControl</p></li>
-<li><p>SSH into the UAV (you will need to have at least four terminals SSHed into the UAV). use X-forwarding in order to pass graphics (i.e. stream the camera feed from the drone to your computer). Example replacing <code class="docutils literal notranslate"><span class="pre">&lt;team-drone-name&gt;</span></code> with the name of your drone:</p>
+<li><p>SSH into the UAV (you will need to have at least four terminals SSHed into the UAV). use X-forwarding in order to pass graphics (i.e. stream the camera feed from the drone to your computer). Example replacing <code class="docutils literal notranslate"><span class="pre">&lt;team-drone-name&gt;</span></code> with the name of your drone:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">X</span> <span class="n">uav</span><span class="o">@&lt;</span><span class="n">team</span><span class="o">-</span><span class="n">drone</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;.</span><span class="n">beaver</span><span class="o">.</span><span class="n">works</span>
 </pre></div>
 </div>

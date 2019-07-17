@@ -155,7 +155,6 @@
     "```\n",
     "cd ~/rosbags\n",
     "``` \n",
-    "\n",
     "> (if the `rosbags` directory doesn't exist, run `mkdir ~/rosbags` and then `cd ~/rosbags`)\n",
     "\n",
     "Now, you will record a bag file. Make sure to use `rqt_image_view` on the drone to see what you are recording as you record it. Keep in mind that you will be recording a lot of data in your bag file, even if you are recording only one topic. We will learn later how to record compressed bags, but for now, just remember to **keep your bag recordings relatively short, around 30 seconds maximum** to avoid filling up your storage.\n",
@@ -206,17 +205,10 @@
     "> In the folder where you saved your bag file, use `rosbag play <filename>.bag` to \"play\" the bag file.\n",
     "\n",
     "Terminal 3:\n",
-    "\n",
-    "> run your code. Make sure you have a local copy of the node you wrote above.<br>\n",
-    "```\n",
-    "python <your_filename>.py\n",
-    "```\n",
-    "\n",
-    "Terminal 4:\n",
     "```\n",
     "rqt_image_view\n",
     "```\n",
-    "If you have completed the above code correctly, you should see an annotated image when you select the `/image_to_cv/processed` in `rqt_image_view`, just like if you were running your code on a live downward camera feed."
+    "If you have completed the above code correctly, you should see an annotated image when you select the `/aero_downward_camera/image` in `rqt_image_view`."
    ]
   }
  ],

@@ -91,7 +91,7 @@
     "```\n",
     "\n",
     "### Visualization\n",
-    "When you have finished writing the program, make sure you make it exectuable (you only need to do this once) using the usual command (`chmod +X filename.py`). Do the following to launch your code:\n",
+    "When you have finished writing the program, make sure you make it exectuable (you only need to do this once) using the usual command (`chmod +x filename.py`). Do the following to launch your code:\n",
     "Terminal 1:\n",
     "```\n",
     "roscore\n",

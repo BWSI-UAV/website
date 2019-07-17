@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module 0: UAV Environment Setup &mdash; Autonomous UAV Racing 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Module 1: Hands-On Quadrotors" href="quadrotor_basics.html" />
+    <link rel="prev" title="BWSI’s Autonomous UAV Racing" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Autonomous UAV Racing
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Agenda:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous UAV Racing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module 0: UAV Environment Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Instructional-Content-Access">Instructional Content Access</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#MIT-GitHub-Account">MIT GitHub Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#BWSI-edX-Account">BWSI edX Account</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Intel-RTF-Drone-Setup">Intel RTF Drone Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Step-1:-Initial-Setup">Step 1: Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-2:-Ubuntu-Installation">Step 2: Ubuntu Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Notes:-Install-Ubuntu">Notes: Install Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-3:-Network-Setup">Step 3: Network Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Connecting-with-QGroundControl">Connecting with QGroundControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Connecting-with-SSH">Connecting with SSH</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-4:-PX4-Toolchain">Step 4: PX4 Toolchain</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Toolchain-Installation">Toolchain Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Customizing-Firmware">Customizing Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Building-&amp;-Flashing-Firmware">Building &amp; Flashing Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-5:-Optical-Flow-Libraries">Step 5: Optical Flow Libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Installing-Teraranger-Hardware">Installing Teraranger Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Installing-the-Serial-Library">Installing the Serial Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Installing-the-teraranger-mavlink-driver">Installing the teraranger-mavlink driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Setting-PX4-Parameters">Setting PX4 Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Starting-Optical-Flow-Services">Starting Optical Flow Services</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-6:-ROS-Installation">Step 6: ROS Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Laptop-Setup">Laptop Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Ubunutu-Linux-(Operating-System)">Install Ubunutu Linux (Operating System)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Option-1:-Dual-Boot-Native-Linux">Option 1: Dual Boot Native Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Option-2:-Virtual-Machine-Linux-Guest">Option 2: Virtual Machine Linux Guest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#PX4-Development-Environment-(UAV-Firmware)">PX4 Development Environment (UAV Firmware)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-ROS-(Robot-Middleware)">Install ROS (Robot Middleware)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Gazebo-(Robot-Simulator)">Install Gazebo (Robot Simulator)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Miniconda-&amp;-Jupyter-Notebooks-(Package-Manager-&amp;-Interactive-Coding)">Miniconda &amp; Jupyter Notebooks (Package Manager &amp; Interactive Coding)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Content-Publishing">Content Publishing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Practicals:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Analysis + Line Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Autonomous UAV Racing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Module 0: UAV Environment Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/initial_setup.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Module-0:-UAV-Environment-Setup">
+<h1>Module 0: UAV Environment Setup<a class="headerlink" href="#Module-0:-UAV-Environment-Setup" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="Instructional-Content-Access">
+<h2>Instructional Content Access<a class="headerlink" href="#Instructional-Content-Access" title="Permalink to this headline">¶</a></h2>
+<p>Throughout this course we leverage instructional content from various sources. For better or worse, some of those source require accounts. Please follow the links below for setting up accounts for MIT’s GitHub and BWSI’s edX platforms</p>
+<div class="section" id="MIT-GitHub-Account">
+<h3>MIT GitHub Account<a class="headerlink" href="#MIT-GitHub-Account" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://kb.mit.edu/confluence/display/istcontrib/Creating+a+Touchstone+Collaboration+Account">MIT Touchstone Collaboration Account Instructions</a></p>
+</div>
+<div class="section" id="BWSI-edX-Account">
+<h3>BWSI edX Account<a class="headerlink" href="#BWSI-edX-Account" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://beaverworks.ll.mit.edu/CMS/bw/bwsiapply">Instructions for BWSI’s edX application</a>. Note: You should already have an account having completed the pre-requisite online portion of this course</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Intel-RTF-Drone-Setup">
+<h2>Intel RTF Drone Setup<a class="headerlink" href="#Intel-RTF-Drone-Setup" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this module is to walk you through the entire setup process for the Intel Ready-To-Fly Drone. In spite of its name, the Intel RTF isn’t quite “ready to fly” out of the box; you need to connect some peripheral hardware to install the most recent software. Furthermore we will need to customize some of the software and firmware in order to prepare it for our specific use cases in the UAV Class and Challenge.</p>
+<div class="section" id="Step-1:-Initial-Setup">
+<h3>Step 1: Initial Setup<a class="headerlink" href="#Step-1:-Initial-Setup" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup">Reference: Intel Documentation</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=e9MLnRbMDHo&amp;index=7&amp;list=PLTQSXsG86pGfyZm5ac6-ZtQsEniUJIE9o">Video Walkthrough</a></p>
+<p>Intel has provided a thorough walkthrough for connecting peripheral hardware, installing appropriate operating systems, and “flashing” the needed firmware. The initial setup installs a Linux operating system that has been custom-made by Intel for the Ready-To-Fly Drone using Yocto. It is not important to understand what Yocto is, just that it is in contract to Ubuntu that we will install later.</p>
+<p>In the following steps we’ve copied over many of the instructions directly from Intel’s documentation but we’ve added a few notes of our own. You should be able to walk through the steps on this page but we frequently link to Intel’s documentation in case you want further information.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong></p>
+<p>Both the USB hub and the monitor must be connected to wall power. An unpowered USB hub can lead to sneaky errors with the cameras that can be <em>extremely</em> hard to debug!!</p>
+</div>
+<ol><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup#hardware">Hardware Setup</a></p>
+</li><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup#flashing">OS Installation and Flashing Firmware</a></p>
+</li><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup#calibration">Sensor &amp; Radio Calibration</a></p>
+</ol><div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note: Sensor &amp; Radio Calibration</strong></p>
+<p>When calibrating and configuring the remote control, set Flight Mode 1 to <code class="docutils literal notranslate"><span class="pre">Manual</span></code>, Flight Mode 4 to <code class="docutils literal notranslate"><span class="pre">Position</span></code>, and Flight Mode 6 to <code class="docutils literal notranslate"><span class="pre">Offboard</span></code></p>
+</div>
+</div>
+<div class="section" id="Step-2:-Ubuntu-Installation">
+<h3>Step 2: Ubuntu Installation<a class="headerlink" href="#Step-2:-Ubuntu-Installation" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation">Reference: Intel Documentation</a></p>
+<p>Due to the wide range of robotics and computer vision libraries we will use on the drone, we need to overwrite the the default, Yocto-based operating system based that we just installed.</p>
+<div class="admonition note">
+<p><strong>Note:</strong> Do not skip the Yocto installation and try to jump directly to Ubuntu! You need to install Yocto first to ensure BIOS and FPGA is properly installed</p>
+</div>
+<p>Intel’s documentation, link given above, is very thorough but you don’t want to make a few modifications. Follow these steps, taking note of the modifications we propose:</p>
+<ol><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#upgrade-yocto-first">Install Yocto First</a></p>
+</li><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#os">Install Ubuntu</a> — <strong>NOTE:</strong> See additional instructions <a class="reference external" href="#install_ubuntu_notes">here</a></p>
+</li><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-aero-repository">Intel Aero Repo</a></p>
+</li><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-aero-maintenance-tools">Maintenance Tools</a> — <strong>NOTE:</strong> Skip the QGroundControl section. creating the file <code class="docutils literal notranslate"><span class="pre">/etc/mavlink-router/config.d/qgc.conf</span></code> seemed to cause problems with the drone accessing wifi and the internet. Since we plan to use our drones indoors within range of a wifi router, it is recommended that instead of creating the <code class="docutils literal notranslate"><span class="pre">qgc.conf</span></code> file, you connect the drone to wifi and then
+connect QGroundControl to drone using the drone’s IP address. See <a class="reference external" href="#network_setup">Network Setup</a> for more information</p>
+</li><li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-realsense-sdk">RealSense SDK</a></p>
+</li></ol><div class="section" id="Notes:-Install-Ubuntu">
+<h4>Notes: Install Ubuntu<a class="headerlink" href="#Notes:-Install-Ubuntu" title="Permalink to this headline">¶</a></h4>
+<p>Go through the Ubuntu setup instructions as you would on a computer.</p>
+<ul class="simple">
+<li><p>Select English</p></li>
+<li><p>Select “I don’t want to connect to a wifi-network right now”</p></li>
+<li><p>Do NOT select “Istall third-party software for graphecs and Wi-Fi hardwar, Flash, MP3 and other media”</p></li>
+<li><p>Select “Erase disk and install Ubuntu”. Note: Selecting this option will prompt a warning message. This is okay.</p></li>
+<li><p>Select New York</p></li>
+<li><p>Select English</p></li>
+</ul>
+<p>In the section “Who are you?”, enter the following information if you setting up a drone as part of a class:</p>
+<ul class="simple">
+<li><p>Your name: UAV</p></li>
+<li><p>Your computer’s name: [ROBOT NAME] (names should be entered in lowercase with a ‘-’ between words)</p></li>
+<li><p>Pick a username: uav</p></li>
+<li><p>Password: (contact instructor about appropriate passwords)</p></li>
+</ul>
+<div class="admonition note">
+<p><strong>Note:</strong> Whenever you start up the drone you need to boot Aero Compute into Advanced options for Ubuntu (which is set as the default), NOT normal ubuntu. Booting into normal Ubuntu can cause connection problems like QGroundControl not being able to connect with the drone (e.g. ‘Error on socket: Connection refused’)</p>
+</div>
+</div>
+</div>
+<div class="section" id="Step-3:-Network-Setup">
+<h3>Step 3: Network Setup<a class="headerlink" href="#Step-3:-Network-Setup" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/08-Aero-Network-and-System-Administration">Reference: Intel Documentation</a></p>
+<p>Since we plan to fly mostly/entirely indoors within range of a wireless router, our normal operating procedure will be to have the drone in “client” mode as opposed to “access point” mode. In client mode we can connect the drone to the internet and we can connect our groundstation (i.e. laptop) to the drone and the internet via the router. In contrast, while in “access point” mode, we can wirelessly connect our groundstation to the drone directly, without a router, but then neither drone nor
+groundstation can connect to the internet. <a class="reference external" href="https://www.youtube.com/watch?v=5w6A0IIXnto">This video gives more detail and instructions</a></p>
+<p>Starting your drone with a monitor, mouse, and keyboard attached (i.e. “desktop configuration”), you should be able to connect to the internet just like you would on any other Linux computer using the wifi menu in upper right corner. If you are unable to connect to the internet, follow <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/08-Aero-Network-and-System-Administration#networking-wifi">these instructions</a> to ensure the drone is in wifi “client” mode. In brief, you can run the
+following commands on the drone:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">c</span> <span class="n">down</span> <span class="n">hotspot</span>
+<span class="n">nmcli</span> <span class="n">c</span> <span class="n">modify</span> <span class="n">hotspot</span> <span class="n">connection</span><span class="o">.</span><span class="n">autoconnect</span> <span class="n">no</span>
+<span class="c1"># scan wifi networks</span>
+<span class="n">nmcli</span> <span class="n">dev</span> <span class="n">wifi</span>
+<span class="c1"># connect</span>
+<span class="n">nmcli</span> <span class="n">dev</span> <span class="n">wifi</span> <span class="n">connect</span> <span class="o">&lt;</span><span class="n">network</span> <span class="n">name</span><span class="o">&gt;</span> <span class="n">password</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="Connecting-with-QGroundControl">
+<h4>Connecting with QGroundControl<a class="headerlink" href="#Connecting-with-QGroundControl" title="Permalink to this headline">¶</a></h4>
+<p>In order to connect the groundstation software (i.e. QGroundControl) to the drone via a router:</p>
+<p>On the drone:</p>
+<ul><li><p>Open a terminal and run <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code></p>
+</li><li><p>Get the IP address of the drone which is labeled <code class="docutils literal notranslate"><span class="pre">inet</span> <span class="pre">addr</span></code> under the <code class="docutils literal notranslate"><span class="pre">wlp1s0</span></code> heading</p>
+</li></ul><p>On the groundstation:</p>
+<ul><li><p>Open QGroundControl</p>
+</li><li><p>In the top left click on the “Q”</p>
+</li><li><p>Select the “Comm Links” tap</p>
+</li><li><p>Select “Add”</p>
+</li><ul><li><p>Set the “Type” to TCP</p>
+</li><li><p>Set “Serial Port” to the IP address of the drone</p>
+</li><li><p>Set “TCP Port” to 5760</p>
+</li><li><p>Select “OK”</p>
+</li></ul><li><p>Select the new link and press “Connect”. This will connect QGroundControl to the drone</p>
+</li></ul></div>
+<div class="section" id="Connecting-with-SSH">
+<h4>Connecting with SSH<a class="headerlink" href="#Connecting-with-SSH" title="Permalink to this headline">¶</a></h4>
+<p>Another common technique for interacting with the drone is to connect via ssh. With the drone in “desktop configuration” (i.e. monitor, mouse, keyboard attached), run the following command on the drone to get the ssh client</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">openssh</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">openssh-server</span></code> is installed, from your laptop you should be able to connect with the drone by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;@&lt;</span><span class="n">ip</span> <span class="n">address</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;ip</span> <span class="pre">address&gt;</span></code> are substituted with the username you created during the Ubuntu setup and ip address is what you found from running <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> on the drone.</p>
+<p>Once connected via your laptop, you should be able to navigate the the file system of the Ubuntu machine on your drone just as if you were navigating it with a keyboard and monitor directly plugged in. Note: graphics-based programs will not work, only command line</p>
+<div class="admonition note">
+<p><strong>Note:</strong> When you get this far, it might be a good time to try a manual flight test of the drone. <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/03-First-flight">See instructions here</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="Step-4:-PX4-Toolchain">
+<h3>Step 4: PX4 Toolchain<a class="headerlink" href="#Step-4:-PX4-Toolchain" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://dev.px4.io/en/setup/dev_env_linux.html">Dronecode Documentation</a></p>
+<p>We need the ability to modify, build, and flash the PX4 firmware being flown on the AeroFC flight controller; these instructions walk you through those steps</p>
+<div class="section" id="Toolchain-Installation">
+<h4>Toolchain Installation<a class="headerlink" href="#Toolchain-Installation" title="Permalink to this headline">¶</a></h4>
+<p>Before you can build custom firmware, you need the proper toolchain setup on the drone. On your drone (as opposed to on your laptop/groundstation) follow the instructions under <em>Development Toolchain</em> and <em>Pixhawk/NuttX (and jMAVSim)</em> sections from the following tutorial:</p>
+<p><a class="reference external" href="https://dev.px4.io/en/setup/dev_env_linux.html">Toolchain Install Tutorial</a> - NOTE: only follow the steps in the <strong>Development Toolchain</strong> and <strong>Pixhawk/NuttX (and jMAVSim)</strong> sections</p>
+</div>
+<div class="section" id="Customizing-Firmware">
+<h4>Customizing Firmware<a class="headerlink" href="#Customizing-Firmware" title="Permalink to this headline">¶</a></h4>
+<p>In order to fly the drone indoors, we need to implement utilize <em>optical flow</em> capabilities. Without going into the details of what optical flow is, we need to update the firmware on the flight controller to prepare for this.</p>
+<p>First clone the an existing stable branch of the PX4 firmware</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">branch</span> <span class="n">v1</span><span class="o">.</span><span class="mf">8.0</span><span class="o">-</span><span class="n">beta1</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">PX4</span><span class="o">/</span><span class="n">Firmware</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">Firmware</span>
+</pre></div>
+</div>
+<p>Then you need to make one small change in the file <code class="docutils literal notranslate"><span class="pre">Firmware/src/modules/ekf2/ekf2_main.cpp</span></code>. Look for the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_ekf</span><span class="o">.</span><span class="n">setRangeData</span><span class="p">(</span><span class="n">range_finder</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">range_finder</span><span class="o">.</span><span class="n">current_distance</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and change it to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_ekf</span><span class="o">.</span><span class="n">setRangeData</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">range_finder</span><span class="o">.</span><span class="n">current_distance</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Building-&amp;-Flashing-Firmware">
+<h4>Building &amp; Flashing Firmware<a class="headerlink" href="#Building-&-Flashing-Firmware" title="Permalink to this headline">¶</a></h4>
+<p>Now that the firmware has been updated to suit our needs, let’s build it (<strong>note</strong> these commands will likely take several minutes to complete</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">Firmware</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">aerofc</span><span class="o">-</span><span class="n">v1_default</span>
+</pre></div>
+</div>
+<p>Once the make has succeeded, it needs to be <em>flashed</em> to the AeroFC board in order to be utilized by the flight controller.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">Firmware</span>
+<span class="n">sudo</span> <span class="n">aerofc_update</span><span class="o">.</span><span class="n">sh</span> <span class="n">build</span><span class="o">/</span><span class="n">aerofc</span><span class="o">-</span><span class="n">v1_default</span><span class="o">/</span><span class="n">aerofc</span><span class="o">-</span><span class="n">v1_default</span><span class="o">.</span><span class="n">px4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Step-5:-Optical-Flow-Libraries">
+<h3>Step 5: Optical Flow Libraries<a class="headerlink" href="#Step-5:-Optical-Flow-Libraries" title="Permalink to this headline">¶</a></h3>
+<p>Flying with optical-flow requires a distance sensor. This project uses TeraBee’s <a class="reference external" href="https://www.terabee.com/portfolio-item/teraranger-one/">Teraranger One</a>. This sensor is connected to the drone’s compute board via USB port which requires this driver.</p>
+<div class="section" id="Installing-Teraranger-Hardware">
+<h4>Installing Teraranger Hardware<a class="headerlink" href="#Installing-Teraranger-Hardware" title="Permalink to this headline">¶</a></h4>
+<p>The Teraranger distance sensor and USB adapter need to be integrated to the Intel RTF Drone using zip ties and/or velcro straps as shown in the following pictures. Note that the exact position of the Teraranger is not particularly important, but it does need to be point straight down.</p>
+<p><img alt="teraranger_install_1.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/teraranger_install_1.jpg?raw=true" /></p>
+<p><img alt="teraranger_install_2.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/teraranger_install_2.jpg?raw=true" /></p>
+</div>
+<div class="section" id="Installing-the-Serial-Library">
+<h4>Installing the Serial Library<a class="headerlink" href="#Installing-the-Serial-Library" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p><strong>Note:</strong> The following steps require cloning from github.mit.edu repo onto the drone. Since the drones are connected to a single user, they don’t have an rsa token in to give permission to the drone in order to perform the clone. Until we move these directories to a public GitHub account or add appropriate deploy keys to the drone, it is necessary to clone the directories to your computer and then copy them over to the drone</p>
+</div>
+<p>The drivers require the SerialLib from <a class="reference external" href="https://github.com/wjwwood/serial.git">WjwWood</a> with a slight modification installed. Please clone the Lib from <a class="reference external" href="https://github.mit.edu/RSS-DRONE/serial">RSS_DRONE/serial</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">mit</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="n">RSS</span><span class="o">-</span><span class="n">DRONE</span><span class="o">/</span><span class="n">serial</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p><em>If you clone the above directory to your laptop/groundstation:</em> copy it to the drone before proceeding with <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-rp</span> <span class="pre">serial/</span> <span class="pre">uav&#64;&lt;DRONENAME&gt;.beaver.works:~/</span></code></p>
+<p>Then on the drone, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">serial</span>
+<span class="n">make</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Installing-the-teraranger-mavlink-driver">
+<h4>Installing the teraranger-mavlink driver<a class="headerlink" href="#Installing-the-teraranger-mavlink-driver" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">mit</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="n">RSS</span><span class="o">-</span><span class="n">DRONE</span><span class="o">/</span><span class="n">intel_tera_mavlink</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p><em>If you clone the above directory to your laptop/groundstation:</em> copy it to the drone before proceeding with <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-rp</span> <span class="pre">intel_tera_mavlink/</span> <span class="pre">uav&#64;&lt;DRONENAME&gt;.beaver.works:~/</span></code></p>
+<p>Then on the drone run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">intel_tera_mavlink</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span> <span class="o">--</span><span class="n">init</span> <span class="o">--</span><span class="n">recursive</span>
+<span class="n">mkdir</span> <span class="n">build</span>
+<span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">..</span>
+<span class="n">make</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">sudo</span> <span class="n">cp</span> <span class="n">aero</span><span class="o">-</span><span class="n">teraranger</span><span class="o">.</span><span class="n">service</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span>
+<span class="n">sudo</span> <span class="n">cp</span> <span class="n">intel_tera_mavlink</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Setting-PX4-Parameters">
+<h4>Setting PX4 Parameters<a class="headerlink" href="#Setting-PX4-Parameters" title="Permalink to this headline">¶</a></h4>
+<p>The estimators on PX4 have to be reconfigured in order to utilize optical flow. From you laptop/ground station, connect to the drone with QGroundControl, click on the “gears” menu, click on Parameters menu, and set</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EKF2_AID_MASK</span><span class="p">:</span> <span class="mi">2</span>
+
+<span class="n">EKF2_HGT_MODE</span><span class="p">:</span> <span class="mi">2</span>
+
+<span class="n">COM_POS_FS_EPH</span><span class="p">:</span> <span class="mi">50000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Starting-Optical-Flow-Services">
+<h4>Starting Optical Flow Services<a class="headerlink" href="#Starting-Optical-Flow-Services" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong></p>
+<p>At the time of this writing there was an unresolved, intermittent bug associated with the following commands that could cause error messages to spam <code class="docutils literal notranslate"><span class="pre">/var/log/syslog</span></code> so badly that it threatens to overfill the entire hard drive on the drone. To ensure this does not happen, check the size of that directory with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">du</span> <span class="o">-</span><span class="n">sh</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span>
+</pre></div>
+</div>
+<p>If at any time in this process that directory it is growing at a more than a MB every few seconds, shut down the drone and try restarting this process</p>
+</div>
+<p>These steps setup install the necessary libraries for optical flow, but they don’t enable it to run automatically. To start the services for optical flow you must run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">aero</span><span class="o">-</span><span class="n">teraranger</span><span class="o">.</span><span class="n">service</span>
+<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">aero</span><span class="o">-</span><span class="n">optical</span><span class="o">-</span><span class="n">flow</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Step-6:-ROS-Installation">
+<h3>Step 6: ROS Installation<a class="headerlink" href="#Step-6:-ROS-Installation" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS">Intel Documentation</a></p>
+<p>All the high level, onboard control of the drone will be performed on the Aero Compute Board using ROS (as opposed to the AeroFC that is responsible for low level control using PX4). We therefore need to install ROS onboard the drone. Follow the instructions <a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS">here</a> under the sections; specifically:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#why-ros">https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#why-ros</a></p></li>
+<li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#installation">https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#installation</a></p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Laptop-Setup">
+<h2>Laptop Setup<a class="headerlink" href="#Laptop-Setup" title="Permalink to this headline">¶</a></h2>
+<p>In short, when working with the embedded systems involved with robotics, you need a Linux environment on your laptop or desktop. <strong>Period</strong>.</p>
+<p>There are plenty of hacks and tricks for trying to get Windows or MacOS to play nicely with the software tools and libraries used in robotics, but in the end you will waste more time—and endure more frustration—trying to get those tools working than you would if you just commit to working in Linux from the beginning. In short, this class is designed around a Linux operating system and we do not have the bandwidth to provide equivalent instruction for other operating systems.</p>
+<p>Below we layout the steps necessary to get you laptop or desktop setup to develop the Intel Ready-To-Fly Drone</p>
+<div class="section" id="Install-Ubunutu-Linux-(Operating-System)">
+<h3>Install Ubunutu Linux (Operating System)<a class="headerlink" href="#Install-Ubunutu-Linux-(Operating-System)" title="Permalink to this headline">¶</a></h3>
+<p>There are many “flavors” of Linux; this course will utilize the most popular (arguably) version known as <a class="reference external" href="https://www.ubuntu.com/">Ubuntu</a>.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTE:</strong></p>
+<p>As of the Summer of 2019, we are still using Ubuntu 16.04 LTS for this course. Please select this version of Ubuntu while installing using one of the following options.</p>
+</div>
+<div class="section" id="Option-1:-Dual-Boot-Native-Linux">
+<h4>Option 1: Dual Boot Native Linux<a class="headerlink" href="#Option-1:-Dual-Boot-Native-Linux" title="Permalink to this headline">¶</a></h4>
+<p><em>This option tends to be preferred by full-time Linux users. It’s how I set up my personal computers</em></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Multi-booting">Dual booting</a> is kinda like creating a separate computer inside your computer. Think of it like your computer having a split personality: any time you turn on your computer it can either be a Windows computer or a Linux computer, depending on what option you pick during startup. This is different from <a class="reference external" href="https://en.wikipedia.org/wiki/Virtual_machine">Virtual Machine</a> which is more like one computer running a <em>simulation</em> of another computer.</p>
+<p>There are many tutorials online that describe how to create a dual boot Windows/Linux computer; I find Ubuntu’s tutorial the most refined. Please follow instructions below</p>
+<p><a class="reference external" href="https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-desktop#0">https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-desktop#0</a></p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>DISCLAIMER 1:</strong></p>
+<p>Dual booting requires <em>partitioning</em> your hard drive which poses risk of losing data on your computer if done incorrectly. It is strongly recommended to backup your hard drive before proceeding.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>DISCLAIMER 2:</strong></p>
+<p>This process may take roughly an hour for someone who knows what they are doing, but several hours for someone who is doing it for the first time. Plan accordingly.</p>
+</div>
+<p>We argue that, in the long term, the power and flexibility of Linux is worth the risk and effort. <em>It’s almost impossible to be an effective roboticist without it!</em></p>
+</div>
+<div class="section" id="Option-2:-Virtual-Machine-Linux-Guest">
+<h4>Option 2: Virtual Machine Linux Guest<a class="headerlink" href="#Option-2:-Virtual-Machine-Linux-Guest" title="Permalink to this headline">¶</a></h4>
+<p><em>This option can be good when getting started with Linux as it requires less “surgery” on your computer, but it will eventually hit roadblocks/difficulties that a dual-boot avoids</em></p>
+<p>An alternative to dual booting is the create a virtual machine to run a “guest” Linux machine as a program within you native operating system. You should have already done this as part of the <a class="reference external" href="https://bwsix.mit.edu">online pre-requisite course</a>.</p>
+<p>As with Dual Booting, there are many online tutorials to follow for creating a Ubuntu Linux virtual machine. Here is a link to one tutorial that uses <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a>:</p>
+<p><a class="reference external" href="https://medium.com/&#64;tushar0618/install-ubuntu-16-04-lts-on-virtual-box-desktop-version-30dc6f1958d0">Medium Article on Linux VM Install</a></p>
+</div>
+</div>
+<div class="section" id="PX4-Development-Environment-(UAV-Firmware)">
+<h3>PX4 Development Environment (UAV Firmware)<a class="headerlink" href="#PX4-Development-Environment-(UAV-Firmware)" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://dev.px4.io/en/setup/dev_env_linux.html">https://dev.px4.io/en/setup/dev_env_linux.html</a></p>
+</div>
+<div class="section" id="Install-ROS-(Robot-Middleware)">
+<h3>Install ROS (Robot Middleware)<a class="headerlink" href="#Install-ROS-(Robot-Middleware)" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://wiki.ros.org/kinetic/Installation/Ubuntu">http://wiki.ros.org/kinetic/Installation/Ubuntu</a></p>
+</div>
+<div class="section" id="Install-Gazebo-(Robot-Simulator)">
+<h3>Install Gazebo (Robot Simulator)<a class="headerlink" href="#Install-Gazebo-(Robot-Simulator)" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://gazebosim.org/tutorials?tut=ros_wrapper_versions#Kinetic">http://gazebosim.org/tutorials?tut=ros_wrapper_versions#Kinetic</a></p>
+</div>
+<div class="section" id="Miniconda-&amp;-Jupyter-Notebooks-(Package-Manager-&amp;-Interactive-Coding)">
+<h3>Miniconda &amp; Jupyter Notebooks (Package Manager &amp; Interactive Coding)<a class="headerlink" href="#Miniconda-&-Jupyter-Notebooks-(Package-Manager-&-Interactive-Coding)" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Content-Publishing">
+<h3>Content Publishing<a class="headerlink" href="#Content-Publishing" title="Permalink to this headline">¶</a></h3>
+<p>To publish content we need to make use of <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebooks</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></p>
+<p>Instructions: + <a class="reference external" href="https://nbsphinx.readthedocs.io/en/0.3.3/installation.html">https://nbsphinx.readthedocs.io/en/0.3.3/installation.html</a> + <a class="reference external" href="https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html">https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html</a></p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>There appears to be a conflict between ROS and Sphinx that presents with the error</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Could</span> <span class="ow">not</span> <span class="kn">import</span> <span class="nn">extension</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">builders</span><span class="o">.</span><span class="n">latex</span> <span class="p">(</span><span class="n">exception</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">roman</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To resolve this we have a <a class="reference external" href="https://github.com/BWSI-UAV/website/blob/master/environment.yaml">conda environment</a> dedicated to publishing</p>
+</div>
+<p>Spell checker (<strong>NOTE:</strong> Need to ensure this doesn’t spell check in the cloud) + <a class="reference external" href="http://www.simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">http://www.simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</a></p>
+</div>
+</div>
+<div class="section" id="Troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#Troubleshooting" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quadrotor_basics.html" class="btn btn-neutral float-right" title="Module 1: Hands-On Quadrotors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral float-left" title="BWSI’s Autonomous UAV Racing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ross Allen
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

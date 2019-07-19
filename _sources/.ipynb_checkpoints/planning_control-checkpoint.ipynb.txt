@@ -47,6 +47,8 @@
     "\n",
     "![bw_long_exposure_photo](images/sky_write3.jpg)\n",
     "\n",
+    "![MIT Mascot Skywriting](images/skywriting_mit_beaver.jpg)\n",
+    "\n",
     "Now let's get creative! Building on the basic challenge, can you make more elaborate aerial trajectories? Perhaps you could try to trace out \"BW\" in the sky for \"Beaver Works\"! It's up to you to decide and encode the most creative path for your drone. Again a long-exposure photo of the flight will be used for scoring with the most interesting aerial trace winning. Note: any flight that collides with the safety netting is disqualified, so make sure you know what your drone is going to do before it does it!\n",
     "\n",
     "__Assignments:__\n",

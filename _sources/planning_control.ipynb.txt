@@ -45,7 +45,7 @@
     "\n",
     "### Advanced Challenge: Freeform Sky Writing\n",
     "\n",
-    "![bw_long_exposure_photo](images/sky_write3.jpg)\n",
+    "![BW Skywriting](images/sky_write3.jpg)\n",
     "\n",
     "![MIT Mascot Skywriting](images/skywriting_mit_beaver.jpg)\n",
     "\n",

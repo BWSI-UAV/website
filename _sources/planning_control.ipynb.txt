@@ -77,7 +77,7 @@
     "\n",
     " 1. [In-Depth: Kalman Filters](https://github.com/AtsushiSakai/PythonRobotics#extended-kalman-filter-localization)\n",
     " 2. [Double Integrator Kalman Filter](https://github.com/BWSI-UAV/laboratory/blob/master/control/linear_estimation_and_control.ipynb)\n",
-    " 3. [Underactuation and Differential Flatness]\n"
+    " 3. [Differential Flatness](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5980409)\n"
    ]
   },
   {

@@ -9,8 +9,11 @@ This repo's primary purpose is to host the [instructional website](https://bwsi-
 + make sure conda is installed
 + clone the website repository locally
 + in the docs folder, create a conda environment in which you will run the website:
-  `conda env create -f environment.yml`
-  `conda activate uav_publisher`
+
+```bash
+conda env create -f environment.yml
+conda activate uav_publisher
+```
 
 ## Making changes
 + enter your conda environment: `conda activate uav_publisher`
@@ -20,6 +23,10 @@ This repo's primary purpose is to host the [instructional website](https://bwsi-
 + to test run your site to make sure it won't crash, run `sphinx-build /docs ~/<folder_to_save_site_in`
   + this should build your site
 + cd into the folder in which you saved your site, and run `open index.html`
-+ when you are satisfied with your changes, commit them to github (and push, though this is not necessary)
-+ in your website directory, run `sh publish.sh`
++ when you are satisfied with your changes, commit and push your changes to github
++ in the `website/docs` directory, run `sh publish.sh`
 + if all goes well, your site should reflect the changes in a minute or two
+
+## Live reloading (optional)
++ If you would like to see changes in your local copy of the website update automoatically after every file-save in jupyter, you can use `sphinx-autobuild` instead of `sphinx-build`
++ more details: https://nbsphinx-test.readthedocs.io/en/latest/usage.html#Watching-for-Changes-with-sphinx-autobuild

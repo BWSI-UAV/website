@@ -355,23 +355,56 @@
 <h2>Connecting to the drone with VSCode<a class="headerlink" href="#Connecting-to-the-drone-with-VSCode" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Install VSCode onto your computer (not the drone), <a class="reference external" href="https://code.visualstudio.com/Download">here</a></p></li>
-<li><p>Open a terminal window on your computer:</p></li>
+<li><p>Open a terminal window on your computer and run:</p></li>
 </ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/.</span><span class="n">ssh</span>
+<span class="n">ls</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Enter the command <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/.ssh</span></code>, then run <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
-<li><p>If you do not see <code class="docutils literal notranslate"><span class="pre">id_rsa</span></code> and <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code>, enter this command: <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">rsa</span> <span class="pre">-b</span> <span class="pre">4096</span> <span class="pre">-C</span> <span class="pre">&quot;your_email&#64;example.com&quot;</span></code></p>
-<ul>
-<li><p><em>Do not enter a username and password, just press ``return`` when asked for those fields</em></p></li>
+<li><p>If you do not see <code class="docutils literal notranslate"><span class="pre">id_rsa</span></code> and <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code>, enter this command:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">b</span> <span class="mi">4096</span> <span class="o">-</span><span class="n">C</span> <span class="s2">&quot;your_email@example.com&quot;</span>
+</pre></div>
+</div>
+<p><em>Do not enter a filepath, username, or password, just press ``return`` when asked for those fields</em></p>
+<ul class="simple">
+<li><p>Enter <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">id_rsa.pub</span></code> and copy the whole ssh key that is printed to your terminal</p></li>
+</ul>
+<ol class="arabic" start="3">
+<li><p>Open a terminal window that is SSH’d into your drone:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/.</span><span class="n">ssh</span>
+<span class="n">ls</span>
+<span class="n">vim</span> <span class="n">authorized_keys</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Navigate the bottom of the file, press <code class="docutils literal notranslate"><span class="pre">i</span></code> to enter <code class="docutils literal notranslate"><span class="pre">insert</span></code> mode, and paste your id_rsa.pub key. Then save and quit (press <code class="docutils literal notranslate"><span class="pre">esc</span></code>, then <code class="docutils literal notranslate"><span class="pre">:wq</span></code>)</p></li>
 </ul>
 </li>
-<li><p>Enter <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">id_rsa.pub</span></code> and copy the whole ssh key is printed to your terminal</p></li>
-</ul>
-<ol class="arabic simple" start="3">
-<li><p>Open a terminal window that is SSH’d into your drone:</p></li>
+<li><p>In your computer’s terminal (in the ~/.ssh folder) type:</p></li>
 </ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="n">config</span>
+</pre></div>
+</div>
+<p>Add the following block (4 spaces, not tabs):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="o">&lt;</span><span class="n">teamname</span><span class="o">&gt;</span>
+    <span class="n">User</span> <span class="n">uav</span>
+    <span class="n">HostName</span> <span class="o">&lt;</span><span class="n">teamname</span><span class="o">&gt;.</span><span class="n">beaver</span><span class="o">.</span><span class="n">works</span>
+    <span class="n">ForwardX11</span> <span class="n">yes</span>
+    <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Try SSH’ing into the drone in a new terminal. You should be able to use simply <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">&lt;teamname&gt;</span></code>. You also should not have to enter the drone password anymore</p></li>
+<li><p>If this works, go to VSCode:</p>
 <ul class="simple">
-<li><p>run: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/.ssh</span></code> Then run <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p>Click the square icon in the sidebar under the debug icon</p></li>
+<li><p>Search for SSH and install the “Remote-SSH” plugin made by Microsoft</p></li>
+<li><p>Select the monitor icon that appears in the sidebar, then click the window icon that appears when you hovor over your teamname option under <code class="docutils literal notranslate"><span class="pre">Connections</span></code></p></li>
 </ul>
+</li>
+</ol>
 </div>
 </div>
 

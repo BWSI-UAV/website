@@ -234,7 +234,7 @@
 <p><strong>Example: PX4 SITL in a simple Gazebo environment:</strong></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sEKJBQGInx8?start=21" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="section" id="Challenge-Phases">
 <h2>Challenge Phases<a class="headerlink" href="#Challenge-Phases" title="Permalink to this headline">¶</a></h2>
-<div class="admonition warning">
+<div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
 <p>This challenge entails an important <em>technical writing</em> component - as you complete each phase of the challenge, you must document all steps (including code comments) necessary to set up and replicate your simulated environment from scratch, in a similar style to the instructions on this website. Someone on another team should be able to reproduce your simulation environment following only the documentation and code provided, without any verbal instructions.</p>
 </div>
@@ -246,9 +246,12 @@
 <li><p>Use an X-configuration quadrotor airframe and specify <code class="docutils literal notranslate"><span class="pre">EKF2</span></code> for the <code class="docutils literal notranslate"><span class="pre">PX4_ESTIMATOR</span></code>.</p></li>
 <li><p>Command the drone to arm, and to take off by publishing commands to <code class="docutils literal notranslate"><span class="pre">MAVROS</span></code> from the terminal, e.g., <code class="docutils literal notranslate"><span class="pre">rosservice</span> <span class="pre">call</span> <span class="pre">/mavros/cmd/takeoff</span> <span class="pre">&quot;{TODO}&quot;</span></code>.</p></li>
 </ul>
-<div class="alert alert-danger"><p><strong>Warning:</strong></p>
-<p>Turn off Wi-Fi on your laptop before testing any <code class="docutils literal notranslate"><span class="pre">MAVROS</span></code> commands for the first time. Ensure QGroundControl and your laptop are <strong>never connected</strong> to your physical drone when testing your simulation environment. Never use <code class="docutils literal notranslate"><span class="pre">rosservice</span> <span class="pre">call</span> <span class="pre">/mavros/cmd/</span></code> with your physical drones.</p>
-</div><p><strong>Document all steps in this phase and all following phases. Your results should be reproducible by another team solely from following the technical guide you author in each phase.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong></p>
+<p><strong>Turn off Wi-Fi on your laptop</strong> before publishing any MAVROS commands for the first time, e.g., with <code class="docutils literal notranslate"><span class="pre">rosservice</span> <span class="pre">call</span> <span class="pre">/mavros/cmd/</span></code>.</p>
+<p>Ensure QGroundControl and your laptop are <strong>never connected</strong> to your physical drone when testing your simulation environment. Never use <code class="docutils literal notranslate"><span class="pre">rosservice</span> <span class="pre">call</span> <span class="pre">/mavros/cmd/</span></code> with your physical drones.</p>
+</div>
+<p><strong>Document all steps in this phase and all following phases. Your results should be reproducible by another team solely from following the technical guide you author in each phase.</strong></p>
 </div>
 <div class="section" id="Phase-2">
 <h3>Phase 2<a class="headerlink" href="#Phase-2" title="Permalink to this headline">¶</a></h3>

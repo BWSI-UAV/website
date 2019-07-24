@@ -147,6 +147,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting_with_VSCode.html">Connecting to the drone with VSCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 </ul>
 
@@ -295,7 +296,7 @@
 </div>
 <div class="section" id="Code-overview">
 <h2>Code overview<a class="headerlink" href="#Code-overview" title="Permalink to this headline">¶</a></h2>
-<p>We recommend you start by copying code (and a launch file) from your open loop controller, as we are not providing skeleton code. Here is an overview of what your controller needs to do:</p>
+<p>We recommend you start by copying code from your open loop controller, as we are not providing skeleton code. Here is an overview of what your controller needs to do:</p>
 <ol class="arabic simple">
 <li><p>Cruise forward until you are close enough to an AR tag, using P control to control your height</p>
 <ul class="simple">
@@ -303,7 +304,7 @@
 <li><p>In the streaming thread, calculate vertical velocities using current height and height setpoint using a proportional controller.</p></li>
 </ul>
 </li>
-<li><p>Calculate the AR tag’s height using the drone’s pose (accessible in <code class="docutils literal notranslate"><span class="pre">/mavros/local_position/pose</span></code>) and the pose of the AR tag relative to the drone.</p></li>
+<li><p>Calculate the AR tag’s height using the drone’s pose and the pose of the AR tag relative to the drone. Look at the AR tag localization lab for ideas.</p></li>
 <li><p>Decide based on the height of the drone whether to go up or down.</p>
 <ul class="simple">
 <li><p>Change the height setpoint</p></li>
@@ -312,7 +313,7 @@
 </li>
 <li><p>After a certain length of time, return to the default height</p>
 <ul class="simple">
-<li><p>Use rospy.sleep(dur), NOT time.sleep(dur)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">rospy.sleep(dur)</span></code>, NOT <code class="docutils literal notranslate"><span class="pre">time.sleep(dur)</span></code></p></li>
 <li><p>Reset the height setpoint to the default height</p></li>
 </ul>
 </li>

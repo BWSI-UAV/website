@@ -1,0 +1,162 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Simulation Challenge\n",
+    "\n",
+    "[**Reference: PX4 Simulation Documentation**](https://dev.px4.io/v1.9.0/en/simulation/index.html)\n",
+    "\n",
+    "This advanced challenge poses the task of creating a simulation environment for the race course. You will run PX4 flight code on your computer to emulate a virtual drone, which can be connected to using your team's RC controller and QGroundControl. This leverages PX4's support of *Software In the Loop (SITL)* simulation, where the PX4 toolchain runs on your computer instead of on the drone's flight controller."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Example: PX4 SITL in a simple Gazebo environment:**"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/sEKJBQGInx8?start=21\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Challenge Phases"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Note:** \n",
+    "\n",
+    "This challenge entails an important *technical writing* component - as you complete each phase of the challenge, you must document all steps (including code comments) necessary to set up and replicate your simulated environment from scratch, in a similar style to the instructions on this website. Someone on another team should be able to reproduce your simulation environment following only the documentation and code provided, without any verbal instructions.\n",
+    "\n",
+    "</div>\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Phase 1\n",
+    "\n",
+    "Create a simple drone simulation environment in Gazebo utilizing PX4 SITL. The PX4 website has a useful getting started guide:\n",
+    "\n",
+    "https://dev.px4.io/v1.9.0/en/simulation/gazebo.html\n",
+    "\n",
+    "* Use an X-configuration quadrotor airframe and specify `EKF2` for the `PX4_ESTIMATOR`. \n",
+    "* Command the drone to arm, and to take off by publishing commands to `MAVROS` from the terminal, e.g., `rosservice call /mavros/cmd/takeoff \"{TODO}\"`.  \n",
+    "\n",
+    "<div class=\"alert alert-danger\">\n",
+    "\n",
+    "**Warning:** \n",
+    "\n",
+    "Turn off Wi-Fi on your laptop before testing any `MAVROS` commands for the first time. Ensure QGroundControl and your laptop are **never connected** to your physical drone when testing your simulation environment. Never use `rosservice call /mavros/cmd/` with your physical drones. \n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "**Document all steps in this phase and all following phases. Your results should be reproducible by another team solely from following the technical guide you author in each phase.**\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Phase 2\n",
+    "\n",
+    "* Demonstrate the ability to command open-loop velocities as well as a setpoint position to the drone. \n",
+    "* Run your skywriting challenge code in simulation.\n",
+    "* Document any changes necessary to reproduce your results."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Phase 3\n",
+    "\n",
+    "* Add an LED rope to the Gazebo environment and a downward camera stream to enable line-following\n",
+    "* Document all steps to reproduce your changes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Phase 4\n",
+    "\n",
+    "* Add gate obstacles and AR Tags for your drone to test obstacle avoidance in simulation.\n",
+    "* Document all steps to reproduce your changes. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Phase 5\n",
+    "\n",
+    "* Enable optical flow and a downward distance sensor. You may need to add additional texture to your simulated environment.\n",
+    "* Disable GPS. \n",
+    "    * Can you still follow the line from Phase 3 and fly the obstacle course from Phase 4?\n",
+    "* Document all steps."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Phase 6\n",
+    "\n",
+    "* Port your simulated environment to Microsoft AirSim.\n",
+    "* [**Reference: PX4 support for AirSim**](https://github.com/Microsoft/AirSim/blob/master/docs/px4_setup.md)\n",
+    "* Document all steps to reproduce your changes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Microsoft AirSim:**"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-WfTr1-OBGQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

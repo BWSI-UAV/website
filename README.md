@@ -7,7 +7,6 @@ This repo's primary purpose is to host the [instructional website](https://bwsi-
 
 ## Initial set up
 + make sure conda is installed
-+ make sure pandoc is installed (you should be able to use `conda install pandoc`)
 + clone the website repository locally
 + in the docs folder, create a conda environment in which you will run the website:
 
@@ -15,6 +14,7 @@ This repo's primary purpose is to host the [instructional website](https://bwsi-
 conda env create -f environment.yml
 conda activate uav_publisher
 ```
++ make sure pandoc is installed (you should be able to use `conda install pandoc`)
 
 ## Making changes
 + enter your conda environment: `conda activate uav_publisher`

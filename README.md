@@ -14,13 +14,14 @@ This repo's primary purpose is to host the [instructional website](https://bwsi-
 conda env create -f environment.yml
 conda activate uav_publisher
 ```
++ make sure pandoc is installed (you should be able to use `conda install pandoc`)
 
 ## Making changes
 + enter your conda environment: `conda activate uav_publisher`
 + cd into your local website directory
 + run `jupyter-notebook` to open the server
 + make any edits and save
-+ to test run your site to make sure it won't crash, run `sphinx-build /docs ~/<folder_to_save_site_in`
++ to test run your site to make sure it won't crash, run `sphinx-build docs ~/<folder_to_save_site_in`
   + this should build your site
 + cd into the folder in which you saved your site, and run `open index.html`
 + when you are satisfied with your changes, commit and push your changes to github

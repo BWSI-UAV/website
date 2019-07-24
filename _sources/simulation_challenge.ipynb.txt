@@ -4,11 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Simulation Challenge\n",
-    "\n",
-    "[**Reference: PX4 Simulation Documentation**](https://dev.px4.io/v1.9.0/en/simulation/index.html)\n",
-    "\n",
-    "This advanced challenge poses the task of creating a simulation environment for the race course. You will run PX4 flight code on your computer to emulate a virtual drone, which can be connected to using your team's RC controller and QGroundControl. This leverages PX4's support of *Software In the Loop (SITL)* simulation, where the PX4 toolchain runs on your computer instead of on the drone's flight controller."
+    "# Simulation Challenge"
    ]
   },
   {
@@ -23,6 +19,17 @@
    "metadata": {},
    "source": [
     "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/sEKJBQGInx8?start=21\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Challenge Description\n",
+    "\n",
+    "This advanced challenge poses the task of creating a simulation environment for the race course. You will run PX4 flight code on your computer to emulate a virtual drone, which can be connected to using your team's RC controller and QGroundControl. This leverages PX4's support of *Software In the Loop (SITL)* simulation, where the PX4 toolchain runs on your computer instead of on the drone's flight controller.\n",
+    "\n",
+    "[**Reference: PX4 Simulation Documentation**](https://dev.px4.io/v1.9.0/en/simulation/index.html)"
    ]
   },
   {

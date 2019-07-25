@@ -142,7 +142,6 @@
 <li class="toctree-l1"><a class="reference internal" href="vim_tutorial.html">Vim Text Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kalman_filters.html">Kalman Filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simulation_challenge.html">Simulation Challenge</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Supplemental Material:</span></p>
 <ul>
@@ -285,10 +284,10 @@
 </div>
 <div class="section" id="Launching-Obstacle-Avoidance">
 <h2>Launching Obstacle Avoidance<a class="headerlink" href="#Launching-Obstacle-Avoidance" title="Permalink to this headline">¶</a></h2>
-<p>You will be using a launch file to execute obstacle avoidance code called <code class="docutils literal notranslate"><span class="pre">ar_obstacle.launch</span></code>. This launch file will be provided to you in <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> upstream for you to use with your obstacle avoidance code.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ar_obstacle.launch</span></code> does a few things:</p>
+<p>You will be using a launch file to execute obstacle avoidance code called <code class="docutils literal notranslate"><span class="pre">obstacle_avoid.launch</span></code>. This launch file will be provided to you in <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> upstream for you to use with your obstacle avoidance code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">obstacle_avoid.launch</span></code> does a few things:</p>
 <ul class="simple">
-<li><p>Starts <code class="docutils literal notranslate"><span class="pre">obstacle_avoid.py</span></code>, a transformation node</p></li>
+<li><p>Starts <code class="docutils literal notranslate"><span class="pre">obstacle_avoid.py</span></code>, your avoidance code. Don’t forget to make it executable with <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>.</p></li>
 <li><p>Starts MAVROS</p></li>
 <li><p>Starts the Intel RealSense Camera</p></li>
 <li><p>Starts <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code></p></li>
@@ -356,8 +355,9 @@
 </div>
 <div class="section" id="rqt_plot">
 <h3><code class="docutils literal notranslate"><span class="pre">rqt_plot</span></code><a class="headerlink" href="#rqt_plot" title="Permalink to this headline">¶</a></h3>
-<p>Like <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code>, this is a graphical tool (and can be very slow). Accordingly, you must have run <code class="docutils literal notranslate"><span class="pre">ssh</span></code> with the <code class="docutils literal notranslate"><span class="pre">-X</span></code> or <code class="docutils literal notranslate"><span class="pre">-Y</span></code> flags to be able to use it. You can either add the correct ROS topics in the GUI (not recommended) or add them via the command line: ex. <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code>. This will plot all 6 components of the message (linear and angular) - you may want to narrow it down to only the linear or angular components (or even further,
-to the x, y, or z components). You can pass multiple topics too: simply add them one after another: <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span> <span class="pre">/some_fake_topic</span></code></p>
+<p>Like <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code>, this is a graphical tool (and can be very slow). Accordingly, you must have run <code class="docutils literal notranslate"><span class="pre">ssh</span></code> with the <code class="docutils literal notranslate"><span class="pre">-X</span></code> or <code class="docutils literal notranslate"><span class="pre">-Y</span></code> flags to be able to use it. You can either add the correct ROS topics in the GUI (not recommended) or add them via the command line: ex. <code class="docutils literal notranslate"><span class="pre">rqt_plot</span> <span class="pre">/topic_name</span></code>. Note that this only plots vectors and scalars: if you try to do <code class="docutils literal notranslate"><span class="pre">rqt_plot</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code> it will plot nothing. You need to tell <code class="docutils literal notranslate"><span class="pre">rqt_plot</span></code> to plot only a vector or
+a scalar component of the message (such as the <code class="docutils literal notranslate"><span class="pre">angular</span></code> or <code class="docutils literal notranslate"><span class="pre">linear</span></code> components of <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code>.</p>
+<p>You can pass multiple topics too: simply add them one after another: <code class="docutils literal notranslate"><span class="pre">rqt_plot</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span> <span class="pre">/some_fake_topic</span></code></p>
 <p>Be careful: topics with <code class="docutils literal notranslate"><span class="pre">/</span></code> at the end are NOT the same as topics without the <code class="docutils literal notranslate"><span class="pre">/</span></code>: <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code> is not the same as <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped/</span></code></p>
 </div>
 </div>

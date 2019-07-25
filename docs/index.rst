@@ -45,6 +45,7 @@ Welcome to UAV Racing's documentation!
    vim_tutorial.ipynb
    exploring_px4_firmware.ipynb
    kalman_filters.ipynb
+   simulation_challenge.ipynb
 
 .. toctree::
    :maxdepth: 2

@@ -243,7 +243,7 @@
 <h3>Challenge Rules<a class="headerlink" href="#Challenge-Rules" title="Permalink to this headline">¶</a></h3>
 <p><strong>Note:</strong> These rules are made to keep your team and drone safe. <strong>If any team is found to be violating these rules, you will lose flight time and potentially be disqualified.</strong></p>
 <ul class="simple">
-<li><p>We are implementing a staff-made safety controller to prevent the drone from going too quickly or too high. We will do this by having all teams publish velocity commands to a specific safety controller topic, not directly to mavros. If <em>any</em> changes are made to this node, or any attempts are made to bypass it, your team will be disqualified.</p></li>
+<li><p>We are implementing a staff-made safety controller to prevent the drone from going too quickly or too high. If <em>any</em> changes are made to this node, or any attempts are made to bypass it, your team will be disqualified.</p></li>
 <li><p>An Instructor will be handling the RC during the final challenge in case of bugs or crashes, not a member of the drone’s team.</p></li>
 <li><p>All the normal safety procedures are in play, and will be more strictly enforced because we don’t have a net seperating us from the drones.</p></li>
 <li><p>Get hype to see all your work come together in front of sponsors, family, and other teams!</p></li>
@@ -269,7 +269,7 @@ speed and can explain your plan well, or you won’t get checked off.</p>
 <ul class="simple">
 <li><p>You do not have to keep following the line while going over/under the gate, but you will have to decide how you will have to figure out how you will switch the drone from line follower mode to obstacle avoidance (which node is publishing velocity commands? Will that change? How?)</p></li>
 <li><p>While you are switching between nodes and potentially suspending the functionality of one or the other, remember that you cannot use a sleep command (even rospy’s) in the callback function. It can be elsewhere in your code, but it will crash your program if you put it in the callback.</p></li>
-<li><p>It was pretty easy in the last challenge to create an open-loop obstacle avoidance strategy using time, but for the final challenge, this solution will not be quite so robust. <strong>Try to integrate distance closed-loop obstacle avoidance</strong> for the final (so go forward X meters rather than X seconds).</p></li>
+<li><p>It was pretty easy in the last challenge to create an open-loop obstacle avoidance strategy using time, but for the final challenge, this solution will not be quite so robust. <strong>Try to integrate distance-based, closed loop obstacle avoidance</strong> for the final (so go forward X meters rather than X seconds).</p></li>
 </ul>
 </div>
 <div class="section" id="Criteria">

@@ -253,8 +253,8 @@
 <h3>Specs<a class="headerlink" href="#Specs" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>We will not have a net around our flight space. Any careening, uncontrolled drones will therefore hit a solid wall, not a net. Keep this in mind and try to make your code as robust as possible. We do not have replacement drones if yours breaks.</p></li>
-<li><p>Your base flying height should be <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">m</span></code>, so any obstacles above that height should be avoided by going down, and any above that height should be flown over. This height may change based on our final setup, so we <em>highly</em> recommend making this a global variable that won’t be a hassle to adjust.</p></li>
-<li><p>The displacement height (how far above or below your base height you should fly to avoid obstacles) should be similarly adjustable, but for now aim for a <code class="docutils literal notranslate"><span class="pre">0.5</span> <span class="pre">m</span></code> displacement.</p></li>
+<li><p>Your base flying height (FOR THE FINAL, NOT TESTING IN THE CLASSROOM) should be <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">m</span></code>, so any obstacles above that height should be avoided by going down, and any above that height should be flown over. This height may change based on our final setup, so we <em>highly</em> recommend making this a global variable that won’t be a hassle to adjust.</p></li>
+<li><p>The displacement height (how far above or below your base height you should fly to avoid obstacles) should be similarly adjustable, but for now aim for a <code class="docutils literal notranslate"><span class="pre">0.5</span> <span class="pre">m</span></code> displacement (FOR THE FINAL, NOT IN THE CLASSROOM).</p></li>
 <li><p>You may decide as a team how far away from the AR tag you want to begin avoiding at, but we recommend a distance of no less than <code class="docutils literal notranslate"><span class="pre">0.6</span> <span class="pre">m</span></code> and no more than <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">m</span></code>.</p></li>
 <li><p>We will be placing gates only on straight-aways, so you will not have to worry about avoiding obstacles while also making sure you don’t lose the line (in other words, going straight over/under obstacles will be a safe option).</p></li>
 </ul>
@@ -269,6 +269,7 @@ speed and can explain your plan well, or you won’t get checked off.</p>
 <ul class="simple">
 <li><p>You do not have to keep following the line while going over/under the gate, but you will have to decide how you will have to figure out how you will switch the drone from line follower mode to obstacle avoidance (which node is publishing velocity commands? Will that change? How?)</p></li>
 <li><p>While you are switching between nodes and potentially suspending the functionality of one or the other, remember that you cannot use a sleep command (even rospy’s) in the callback function. It can be elsewhere in your code, but it will crash your program if you put it in the callback.</p></li>
+<li><p>It was pretty easy in the last challenge to create an open-loop obstacle avoidance strategy using time, but for the final challenge, this solution will not be quite so robust. <strong>Try to integrate distance closed-loop obstacle avoidance</strong> for the final (so go forward X meters rather than X seconds).</p></li>
 </ul>
 </div>
 <div class="section" id="Criteria">

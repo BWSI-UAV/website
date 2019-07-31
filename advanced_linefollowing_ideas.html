@@ -232,10 +232,11 @@
 <p>All of the ideas on this page assume you have implemented and are very familiar with the <a class="reference external" href="line_following.html">basic line follower</a>. That must be completed before any of the improvements suggested here are attempted.</p>
 <div class="section" id="Convert-P-controller-errors-to-meters">
 <h2>Convert P controller errors to meters<a class="headerlink" href="#Convert-P-controller-errors-to-meters" title="Permalink to this headline">¶</a></h2>
+<p>This is probably the easiest idea to implement.</p>
 <p>In the basic line follower written in this class we perform linear regression on the line and calculate an extension to the line to place a target point in front of the drone. We then feed that point into a P controller designed to make the drone fly to that (continually-shifting) point.</p>
 <p>However, all of the error calculations are done in pixel space, while the output velocities are in meters per second. Since the downward camera’s field of view increases as the drone’s altitude increases, this means that for the drone to have the same error in pixel space (and cause the same P controller response) at a low altitude and a high one requires a much bigger error in meters at the high altitude. This means that the P controller will be much more aggressive at low altitudes than at
 high ones.</p>
-<p>This could be prevented by using the drone’s altitude to convert all the P gains to meters (or any other altitude-invariant unit).</p>
+<p>This could be prevented by using the drone’s altitude to convert all the P gains to meters (or any other altitude-invariant unit). This was tested briefly by the TAs with encouraging results: it dramatically reduced oscillation when going under the obstacle, which enabled more aggressive gains at normal altitudes.</p>
 </div>
 <div class="section" id="Add-a-D-gain">
 <h2>Add a D gain<a class="headerlink" href="#Add-a-D-gain" title="Permalink to this headline">¶</a></h2>

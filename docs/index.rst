@@ -46,6 +46,7 @@ Welcome to UAV Racing's documentation!
    exploring_px4_firmware.ipynb
    kalman_filters.ipynb
    simulation_challenge.ipynb
+   advanced_linefollowing_ideas.ipynb
 
 .. toctree::
    :maxdepth: 2

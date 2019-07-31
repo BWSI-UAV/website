@@ -95,7 +95,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Autonomous UAV Racing'
-copyright = '2018, Ross Allen'
+copyright = '2019, Ross Allen'
 author = 'Ross Allen'
 
 # ghissue config

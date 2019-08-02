@@ -55,6 +55,7 @@ Welcome to UAV Racing's documentation!
    team_roles.ipynb
    safety_checklist.ipynb
    connecting_with_VSCode.ipynb
+   ar_tag_generation.ipynb
    Glossary.ipynb
 
 

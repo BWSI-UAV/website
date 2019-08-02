@@ -123,6 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="simulation_challenge.html">Simulation Challenge</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced linefollowing ideas</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Convert-P-controller-errors-to-meters">Convert P controller errors to meters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Increase-speed-if-the-track-is-straight">Increase speed if the track is straight</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Add-a-D-gain">Add a D gain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Linear-regression-problems">Linear regression problems</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Ignoring-the-lower-half-of-the-line">Ignoring the lower half of the line</a></li>
@@ -238,6 +239,11 @@
 <p>However, all of the error calculations are done in pixel space, while the output velocities are in meters per second. Since the downward camera’s field of view increases as the drone’s altitude increases, this means that for the drone to have the same error in pixel space (and cause the same P controller response) at a low altitude and a high one requires a much bigger error in meters at the high altitude. This means that the P controller will be much more aggressive at low altitudes than at
 high ones.</p>
 <p>This could be prevented by using the drone’s altitude to convert all the P gains to meters (or any other altitude-invariant unit). This was tested briefly by the TAs with encouraging results: it dramatically reduced oscillation when going under the obstacle, which enabled more aggressive gains at normal altitudes.</p>
+</div>
+<div class="section" id="Increase-speed-if-the-track-is-straight">
+<h2>Increase speed if the track is straight<a class="headerlink" href="#Increase-speed-if-the-track-is-straight" title="Permalink to this headline">¶</a></h2>
+<p>The big obstacle to going faster is that either the drone oscillates over the line if its gains are too high, or drifts off the line on curves if its <code class="docutils literal notranslate"><span class="pre">EXTEND</span></code> is too high. However, on straight sections, neither of these pose problems. So, one idea to go faster is to automatically increase either the gains or <code class="docutils literal notranslate"><span class="pre">EXTEND</span></code> if the drone is on a straight line.</p>
+<p>This idea was tried by the 2018 Phantom team with considerable success.</p>
 </div>
 <div class="section" id="Add-a-D-gain">
 <h2>Add a D gain<a class="headerlink" href="#Add-a-D-gain" title="Permalink to this headline">¶</a></h2>

@@ -94,9 +94,9 @@ source_parsers = {
 master_doc = 'index'
 
 # General information about the project.
-project = 'Autonomous UAV Racing'
-copyright = '2019, Ross Allen'
-author = 'Ross Allen'
+project = 'Autonomous Air Vehicle Racing'
+copyright = '2020, Beaver Works Summer Institute, Ross Allen, Mark Mazumder'
+author = 'Beaver Works Summer Institute, Ross Allen, Mark Mazumder'
 
 # ghissue config
 # github_project_url = "https://github.com/BWSI-UAV/website"

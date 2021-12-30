@@ -99,7 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Unit-3---Tello-Control">Unit 3 - Tello Control</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Fly-in-a-Perfect-Circle">Fly in a Perfect Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Yaw-ArUco-Marker-Tracker">Yaw ArUco Marker Tracker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Stationary-Aruco-Marker-Tracker">Stationary Aruco Marker Tracker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Stationary-ArUco-Marker-Tracker">Stationary ArUco Marker Tracker</a></li>
 </ul>
 </li>
 </ul>
@@ -211,7 +211,7 @@
 <section id="Detect-ArUco-Markers">
 <h3>Detect ArUco Markers<a class="headerlink" href="#Detect-ArUco-Markers" title="Permalink to this headline"></a></h3>
 <p>Write a simple script in your IDE of choice to stream video from your Tello’s camera and display via OpenCV. Hint: Don’t forget to use the <code class="docutils literal notranslate"><span class="pre">streamon()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_frame_read()</span></code> functions from the <code class="docutils literal notranslate"><span class="pre">djitellopy</span></code> package! When done, take a screenshot of the opencv window with the Tello camera pointing at your face with your face shields on and paste the screenshot on the next slide to show us that you’ve completed the challenge!</p>
-<p>Generate your own Aruco Markers via this <a class="reference external" href="https://chev.me/arucogen/">link</a></p>
+<p>Generate your own ArUco Markers via this <a class="reference external" href="https://chev.me/arucogen/">link</a></p>
 <p>Standard Parameters: Dictionary - 5 x 5 Marker size, mm - 150</p>
 <p>Feel free to modify the Marker ID. You might need multiple ArUco tags for future project work!</p>
 <p>Now use the aruco module from the opencv-contrib-python package to detect aruco markers from your Tello’s live camera feed. The goal is to detect ID numbers and be able to return the pixel locations of the four corners of the aruco markers that appear in your video stream.</p>
@@ -257,8 +257,8 @@ these values as object attributes that can be referenced when scanning markers i
 <p>This may necessitate the implementation of a PID controller. Think of how you can utilize the code you wrote in Unit 2 to help you determine a way to calculate error to help with PID implementation. When completed, film a video of you walking around your drone with an aruco marker in hand while your drone autonomously tracks the marker and adjusts its yaw to face the marker.</p>
 </div>
 </section>
-<section id="Stationary-Aruco-Marker-Tracker">
-<h3>Stationary Aruco Marker Tracker<a class="headerlink" href="#Stationary-Aruco-Marker-Tracker" title="Permalink to this headline"></a></h3>
+<section id="Stationary-ArUco-Marker-Tracker">
+<h3>Stationary ArUco Marker Tracker<a class="headerlink" href="#Stationary-ArUco-Marker-Tracker" title="Permalink to this headline"></a></h3>
 <p>Tape your marker on the wall. Then write a script to have the drone take off, locate the marker, and autonomously adjust all four parameters of the <code class="docutils literal notranslate"><span class="pre">send_rc_control()</span></code> function to command the drone to be flying right in front of the marker at a predetermined distance. This distance is up to you to determine. The goal is to implement PID controls for all four parameters such that if the drone were to be nudged/pulled/pushed during flight, it would quickly correct and return to the set point.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Challenge Warning:</strong></p>

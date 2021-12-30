@@ -80,7 +80,7 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 # source_suffix = ['.rst', '.md']
-source_suffix = ['.rst', '.ipynb', '.md']
+source_suffix = ['.rst', '.md']
 
 source_parsers = {
    '.md': 'recommonmark.parser.CommonMarkParser',
@@ -95,8 +95,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Autonomous Air Vehicle Racing'
-copyright = '2020, Beaver Works Summer Institute, Ross Allen, Mark Mazumder'
-author = 'Beaver Works Summer Institute, Ross Allen, Mark Mazumder'
+copyright = '2021, Beaver Works Summer Institute, Nathaniel Hanson, Kendrick Cancio, Ross Allen, Mark Mazumder'
+author = 'Beaver Works Summer Institute, Nathaniel Hanson, Kendrick Cancio, Ross Allen, Mark Mazumder'
 
 # ghissue config
 # github_project_url = "https://github.com/BWSI-UAV/website"

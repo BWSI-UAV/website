@@ -11,6 +11,7 @@ Welcome to BWSI Autonomous Air Vehicle Racing's documentation!
    :caption: Course Agenda:
 
    intro.ipynb
+   Syllabus.ipynb
    initial_setup.ipynb
    quadrotor_basics.ipynb
    computer_vision.ipynb
@@ -19,9 +20,17 @@ Welcome to BWSI Autonomous Air Vehicle Racing's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: BWSI @ Home:
+
+   tello_intro.ipynb
+
+
+.. toctree::
+   :maxdepth: 2
    :caption: Practicals:
 
    project_workflow.ipynb
+   code_debugging.ipynb
    student_drone_setup.ipynb
    calibration.ipynb
    flight_log_analysis.ipynb
@@ -38,6 +47,8 @@ Welcome to BWSI Autonomous Air Vehicle Racing's documentation!
    yaw_color_tracker.ipynb
    line_following.ipynb
    obstacle_avoidance.ipynb
+   tello_passport.ipynb
+   
 .. toctree::
    :maxdepth: 2
    :caption: Advanced Topics:

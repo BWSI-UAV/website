@@ -1,0 +1,98 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Advanced linefollowing ideas\n",
+    "Note that all the ideas on this page remain untested and unsupported by the instructors. It is up to you to use your judgement about which ones (if any) you think will be helpful, and up to you to figure out how to implement them.\n",
+    "\n",
+    "All of the ideas on this page assume you have implemented and are very familiar with the [basic line follower](line_following.html). That must be completed before any of the improvements suggested here are attempted."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Convert P controller errors to meters\n",
+    "This is probably the easiest idea to implement.\n",
+    "\n",
+    "In the basic line follower written in this class we perform linear regression on the line and calculate an extension to the line to place a target point in front of the drone. We then feed that point into a P controller designed to make the drone fly to that (continually-shifting) point.\n",
+    "\n",
+    "However, all of the error calculations are done in pixel space, while the output velocities are in meters per second. Since the downward camera's field of view increases as the drone's altitude increases, this means that for the drone to have the same error in pixel space (and cause the same P controller response) at a low altitude and a high one requires a much bigger error in meters at the high altitude. This means that the P controller will be much more aggressive at low altitudes than at high ones.\n",
+    "\n",
+    "This could be prevented by using the drone's altitude to convert all the P gains to meters (or any other altitude-invariant unit). This was tested briefly by the TAs with encouraging results: it dramatically reduced oscillation when going under the obstacle, which enabled more aggressive gains at normal altitudes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Increase speed if the track is straight\n",
+    "The big obstacle to going faster is that either the drone oscillates over the line if its gains are too high, or drifts off the line on curves if its `EXTEND` is too high. However, on straight sections, neither of these pose problems. So, one idea to go faster is to automatically increase either the gains or `EXTEND` if the drone is on a straight line.\n",
+    "\n",
+    "This idea was tried by the 2018 Phantom team with considerable success."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Add a D gain\n",
+    "As the P gain of the line follower is increased, the line follower becomes more and more aggressive until it begins oscillating. The solution to this oscillation is adding in a D term, which acts on the derivative of the error. This will act like a viscous drag force, damping the line follower's oscillations (if the error is getting smaller rapidly, the D term will reduce the speed command, preventing the drone from overshooting and oscillating).\n",
+    "\n",
+    "However, this makes the already-difficult tuning problem much worse, as now there is an extra gain to work with. There are many strategies and rules to do this, but none are straightforward.\n",
+    "\n",
+    "The D gain also acts as a noise amplifier. For example, if the error has +/- 1 cm of random noise in it each loop, and the control loops runs 100 times per second, that translates to +/- 1m/s of random noise in the derivative term. This can be mitigated with filtering, but tuning the filter adds another term to the tuning problem."
+   ]
+  },
+  {
+   "attachments": {
+    "extend_problem.png": {
+     "image/png": "iVBORw0KGgoAAAANSUhEUgAAAPAAAAE8CAYAAAD+CDzpAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAB7CAAAewgFu0HU+AAAAB3RJTUUH4wcfEh8IOn2p5wAAEKtJREFUeNrtnX2wVPV9h5/lCoi8iQRBUXkxqChBrIkxScWI0UhTGmyMrZZUx4mWUfNihyTjaGzUptaY1LGJIY2JVaqpQeOo4+jYqrFGiybUaiQWCRUJSgwWJBcRVODbP/ZHci+Dw8uePbu/s8/DMDvjsHvc757nfj6/83IXiiB+93gowbcJlhC8QfBbgmcIriIYhoi0Gb+X9xZih38u7fUcEWkLeRfthLxb/9zq4ETaR+KbdkHerX9mOziRVqdvMG435A2CLQ5QpHH67PYzawB8brefHcxyLSzSKoHrfKyh59b8AERaKfBBDTx3jOMXaa3AG1v0XBEpQOClLXquiBQg8I8aeO7tHsQSaSVBv908jfSywxNpD4ln74bAx5i+Iu0j8bW7IO9fODCR9pF36+PpBOt3IO+6Xs8RkYaoNUHomcAM6ud536Z+tPlH1HiEYCNwGzXOdvQi7ZzI2/63+t/proFF8hb8PoJXrdIiOaZzMCCl8DUORCRPkc9OEk8whUXylPhJwsspRXKt0u9KKfxFByKSp8hzksQjrNIieUr8PMFCByGSZ5U+OKXwOQ5EJE+Rr04SD7BKi+SWwvXHVQQPOBCRPKv0H6QUnuFARPIU+UaCN3937bSIZFelNxDc4kBE8qzSJ6Uq/QFTWCRPke8lWN0rmUUkmxTun1L4WgcikqfIs5LEh5jCInlK/J8EyxyESJ5Vep+Uwhc7EJE8Rb4oSTzSKi2Sp8SLCZ52ECJ5VumxKYU/7UBE8hT5qiTxQKu0SJ4Sv0LwoIMQybNKT0kp/HEHIpKnyDcQvEXQZZUWyS2F64/rCX7gQETyrNLTUpX+Q1NYJE+R7yJY0yuZRSSbFO5HsIXgOgcikqfIZ6QqfbgpLJKnxD8hWO4gRPKs0sNSCl/qQETyFPmzSeL9rNIieUr8HMEzDkIkzyp9UErh2Q5EJE+Rr0wSD7JKi+Qp8UqCRxyESJ5VenJK4T91ICJ5ijyXYJN3LInkmML1x9cJ5jsQkTyr9PGpSk81hUXyFPlOgrW9kllEsknhvgSbCa53ICJ5inx6qtKTTGGRPCV+lGCFgxDJs0oPTSl8mQMRyVPk85PEo63SInlKvIhgkYMQybNKH5BS+HwHIpKnyJcniYdYpUXylPglgp84CJE8q/QRKYU/6UBE8hT5+iSxdyyJZJfC9cdugjsciEieVXpqSuFpprBIniLPJ+julcwikk0K90l3LM11IJIbNeA9HT+Fe5nOx7iaf+RULuJ/2eKOIfkIbHEEeBgYD4x1FJIPfRxBYiYwBrjCUYgJ3BCfAuYBLwCLgaXAz4FngaeATc3a8GxgLnAQePew5ChwAD8Gulr9P3YgMCX9PRK6JsCosbDfEBj4BvBT4AmIZ2DlY7D8JVgD9Af6NbDZ4EWOZCNDOYyHGnwtkaLZDJyQvO0l7da/m3J4FwEHBHwi4JqAxwMi4O2AuwLODzisgRcfmc4Nn+f+Im3Ipm2czU9gttP7A0YFzAr4l4DXktQPBXwm6qvb7T7vHV78y0nioR7iEwVugdQBgwPODJjfI6H/KWDqTskc/IrgcfcXUeD2EHpiwBUBy5PQdwScvF2Z69OYmFL4z9xnRIHbS+x3BcwJeDbJPC/gg9v5h9cliftapUWB21fmywK6AzYGXBkwrMc/WEtwl/uNKHD7y3x4wI0plRdsqXFKj68rPdEUFgXOZ818bsCygA3THmIFwesAf/8l9yBR4JykPmpzH+4Z3E2876c8FjBiW9lFFLjNU3lwN6cRxNNHEumCkbGKLAqcl80PErwUcHFaJ/97wKGKLK0S2LuRdi2KZwKja8Fetfr1qA8AiwPuI13tpcjSil3TBN75aZ2Xjkr3vDzz0pTI8wP2VmSxQre3xP9N8Px2fgp+LYn8NYckCty+fWVUSuHP927YEDAs4IdJ5NmmsShwe4p8SZJ4WE9De4h8eMDSdO31kYosCtx+Er9IsOCdgjo9npXS+F8D9nBoosDtU6UPSSk8awf/tBbw/STyn5vGosDtI/K1SeJ+72RljzSeErA64ImtR6tFFLiVKVx/XENwz87/cy5PafxXprEocOur9AdSCp+yszYGjA/4dUrjwQ5SFLi1It9CsJ6djNQeafzVlMYzTGNR4NalcI3gLYLv78bTJ6VfJnC7EosCt07kGalKH70rFvZI4zsDXo/6l7yIKHALJL6f4Dc7W6W3I/GZqVKfaxqLApdfpQemFL66gZc5MGBtwN1KLApcvsjnJInH7Y59PdL4nnTeeLhDFQUuV+KFBL9sJMzT44WpUn/YoYoCl1el900pPKeAl3t/kvhiK7UCK3B5In8pSTy8EevShzMsYFXAbUqswApcnsQvEPysiFBPjwsCfhHQpcQKrMDNr9LvTin8lwVK/N2AdSmVRYEVuMkifyNJ3L/R7rudg1sTHLACK3AzU7j+uJrgvoJf+k+SxMc5aAVW4OZW6femFJ5e8EtPSRLPdNAKrMDNFXkewYZeyVyMxON7Xn4pCizNq9IbCW4qPuAZmST269cUWJpYpaenKn1MwSlcCxgU8EbAFQ5bgaV5It9H8GoTqjQBAwJ+G/B3Bb+8KLCkSQ9IKXxNc16ePdPdTF934AoszRH57CTxhKJjMn2Y/QPWBHzVYSuwNEfiJwmWNi/o2TP9ho9LHLYCS/GGjUgp/MUmSjww4O2Azzl0BZbiLZuTJB7RjCNO6ej0sHSK6VMOXIGleMuWECxsbtgzOkk83YErsBRr18Ephc9pssSHJYnf7+AVWIo17Ook8YBmnrwN+FCSeIzniBVYiorH+uMqggdK2NxpSeJBSqzAUlzHPTql8IwSNndJwP8FXq2lwFKkWTemGx6ablbAvICnUGIFlkKr9AaCW8rZFAsDbnb4CizFVemTU5U+tskHtLY+rgn4jMNXYCnOrnsJVtPkfps++BHpoNbxDl6BpRir9kwpfG05m+N9SeIRrocVWIoxa1aS+JAyjjIFXBDUU1+JFViKsWoBwbISw//2gIcdvAJLMd12eErhi8vYXHpc4e/WUmApzqyLksQjSzg3TI+7l95rlVZgKcasxQRPlxj+H0kS91diBZbGY3FsSuFPl7jZfwh4xg9AgaUYo65KEg8so0qnx18EfMXhK7AUY9ZvCB4sL/gZkqr0UVZpBZbGjZqSUvjjJW72jwI2B/RRYgWWxo36HsFbBH3KuuIi4J8D/s3hK7AUszhdT3BruZtkbcCZfggKLI1X6WmpSn+opMssCZiQ1sN7W6UVWBq36i6CNb1isvkifzlgkcNXYGk8EvsRbCG4ruRN/zLgIj8EBZbGbTojVekjSqzSo1KVHmmVVmBp3KrHCF4sOYXnBCx2+AosjUfisJTCl5a86SUBn/dDUGBp3KbPJon3K7FKb/26ln2s0gosjVv1HFHuzQcBXwl40uErsDQeiQelFJ5d8qZXB5zuh6DA0rhNVyaJB5VYpY9KVdprpRVYCrBqJcGPS07hmwPmOXwFlsYjcXJK4VPL2yR9UgpPMoUVWBq36jsEbxN0lXiZ5VkBv3L4CiyNRmL9cR3BD0ve9PNBuQfRFFiBq1qlP5yq9HElHtB6d6rSXVZpBZbGrbqTYG2vZG6+yDcF3ODwFVgaj8S+BJsJri9vk/RLKTzGFFZgadyq01OVnlRiCv91wEKHr8BSjFGPEqwouQCsCzjZFFZgabzXDk0pfFmJVfqPt37boSiwNG7VhUni0SVW6ecCznP4CizFGLWIKOd3WqWdanL4dcMKLIUZdUBK4fNL3Oz9AX/jB6DAUoxRlyeJh5T0daWjvbhDgaVYs14m+I8SU/gHAd9w8AosxcTiESmFP1nSWniflMJ7mcIKLMWY9e30e6W7SrpWem7Adx28AksRsVh/7Ca4o6QU3iul8GBTWIGlGKumpip9QkkpfL03OiiwFGvVfILuXsncvBQeaAorsBRr1R7pjqW5JW3StbACS8FWfSJV6cklpPCglMIDTGEFluLsepjg5ZJS+OaArzt0BZbionFISuG/bf6m2DelcM3h777AfZyHAHWNanQDFwJjm78pVgF3Q7lfyFbdn70msGy7VzR/pzvYO5Ws0JL3z4kFAec6CQWWPKvf8UH6rZmiwJKlyL8OmG6XVmDJM4VnBTztNBRY8hU5AiaYwgoseQp8RcCtTkKBJU+Bt95q2Ndp7LzAXsghbUEN3gDuBL7gNHbrOIIJLC3fCaeE+6AVWrIW+aWAj3owS4ElT4HPC3jESSiw5CtxpN9iKTsQ2INY0o7cCHzB+wx36fiBCSxtszNO9C4lK7TkLfKKgI9osQJLngJfEHC/k1BgyVPgrnQwq5/TeGeBPYglbUkNNgP3QHlfg5r5cQMTWNpupzwpYLnTsEJLviJHwDgPZlmhJU++BVzgOWErtOS5Y3pO2AotmYv8asAHtdgKLXnyTeBca7QVWvLcQfe3RluhJW+JXww4UYut0JIn37JGW6El3510uDXaCi15S7zMGm2Flny5ATjLGm2Fljx31NHWaCu05C3xKx1+UYcVWrLme8CZ1mgrtOS5s06O+rc4mMBWaMlU4ggYr8BWaMmTm4AzHIMVWvLcWT8a8D8msBVa8q7RfTtdYCu05MoC4NROPymswJIrtwGneTrJCi157rQHdOhVWa6BpTISrw+Y5BpYJN8aPcMfZCaw5LnTzgz4mRVagSVPiffowHWwFVqqQa2+My8LOL5TTycpsOTOHcCMTj6dZIWWnHfcEwKWuAZWYMlX5OhUga3QUgWWBEzrxHWwAksVuBs4pVPXwVZoyX3nPbGDbi90DSyug10Di7QXKwOOcQ0skif3A9MUWCTDdTDwEHBSBx8HcA0sWe/E+3bIOtiDWFJZiSNg/04S2AotVeIR4LhOuqBDgaVKPAxM7bQLOqzQUpUd+YQOuKDDNbBUVuCuDjiQ5RpYqkkNNgPrAg5zDSySJ48Cx4YCi2TJ48CxNQUWyZIngeM6bO3vQSypzM48oOIHsjyIJdWlBhuoX5F1oBVaJE8WAEeHAotkyRPA0TUFFsluDQzwX3TQzf0exJKq7dCHBnRX9O15KaV0hMTRCQJboaWqrA2Y6BpYJE+eAiaHAotkK/B7agoskt36F+DnwFGd8n49iCVV26mnBLxSwbfmUWjpCIGrenO/R6Gl+qSb+wkY7hpYJE+WUPFTSQosVeZZYGIosEiWLAIm1hRYJEsWA5Os0CJ5shQ4tOpv0tNIUtUde+8KnkryPLB0lMQRUKuqwFZoqTrrgAmugUXyZDFwsAKL5MlSYFwosEiWvACMqSmwSF6k1F0OjLNCi2RG7fcCuwYWyZTlwPiqNw3PA0tVd+6qfVeS54Glo2r0hiq/PwWWjgjigP0UWCRPVgD7K7CIAiuwSAsEHq3AInmyEhipwCKZkc4frQL2VWCRzEhXY70KjFJgkTxRYJGMWaXAInknsAexRDLlNWBgVd+cNzNIpUk7d1VuaPBmBuks/GYGkWok8WAFFsmTN4FhCiySJ68BQxVYJE/WUcEj0QosnSTwIAUWyVdgD2KJZEq3CSyiwAos0gI2AHsqsEiebFRgkbwF7q/AIgqswCJlkW5DetMKLZIhNQUWyZ7NQJcCiyiwAososAKL7CxbFFgkX2rAXlV8Y/5SO6k8AXtHNb7gbNM2ziqwSK4CW6FFMl8XxHYW+zVHI9KWy90+OxJYRDLBCi2iwCLSCv4fZQEpieBs+54AAAAASUVORK5CYII="
+    }
+   },
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Linear regression problems\n",
+    "Ideally, when we set the target point we pass to our P controller, we would like to go to the furthest point possible on the line itself. Our current method of doing so treats the line as a mathematical line, finds the centerpoint, and then extends from the centerpoint in the directon of the line a set number of pixels. This works well enough for straight lines, but on curved lines, this encounters problems:\n",
+    "\n",
+    "![extend_problem.png](attachment:extend_problem.png)\n",
+    "\n",
+    "As seen in the image, the green dot which is the target point is outside of the red curved line (which represents the LED strip visible in the downward camera frame). Clearly, the drone is not being told to go to where the line is going, which could cause it to fly off the line. Additionally, if the drone's target angle is that of the green line, the drone will not be pointing in the direction of the red line eithe, which could cause it to miss seeing some obstacles.\n",
+    "\n",
+    "### Ignoring the lower half of the line\n",
+    "Another solution would be to ignore the lower half of the line for linear regression purposes. Doing linear regression on only the top part of the line would give a better estimate both of where the line was pointing and its angle.\n",
+    "\n",
+    "In 2019, this was given a brief try by the TAs and abandonded because the naive impelmentation (just throw away the botton half of the image) causes the drone to lose the line on turns, as it ignores the line if it is only visible in the lower half of the image.\n",
+    "\n",
+    "### Polynomial regression\n",
+    "Using low-order polynomial regression instead of linear regression has the potential to solve both of those problems. A parabola is not a perfect fit to the above curve, but it is much closer. Extending the parabola would result in a target point much closer to where the line is actually going. Also, finding the angle of the parabola near its end would be much closer to the line's angle than the angle derived from linear regression.\n",
+    "\n",
+    "However, this technique is much more vulnerable to outliers. It is also much harder to implement than the simple linear regression solution. There is no known nice function to fit a polynomial to an image. `np.polyfit` can fit the polynomial, but it needs a list of points, not an image (which could be generated by `np.argwhere`). Additionally, there is no easy way to implement the polynomial analog of extend, and how to find the angle the drone should turn to needs careful thought."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.15+"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 4: Racing Challenges &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../planning_control.html">Module 3: Estimation &amp; Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_intro.html">Course Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_intro.html#Final-Project">Final Project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../project_workflow.html">Project Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_debugging.html">Bugged Zip Sims Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../student_drone_setup.html">Student Drone Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibration.html">Calibrating Intel RTF Drones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../flight_log_analysis.html">Flight Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../intel_rtf_architecture.html">Architecture Concept Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_introduction.html">Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../communication_pipeline.html">Communication Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accessing_video_streams.html">Accessing Video Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../enable_optical_flow.html">Hovering with Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coordinate_transforms.html">Coordinate Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../downward_cam_bag.html">Downward Camera Analysis + Line Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../detector.html">Custom ROS Message for Line Params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../line_following.html">Line Following</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_passport.html">Tello Passport</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../kalman_filters.html">Kalman Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../simulation_challenge.html">Simulation Challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced_linefollowing_ideas.html">Advanced linefollowing ideas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connecting_with_VSCode.html">Connecting to the drone with VSCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ar_tag_generation.html">AR tag generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Autonomous Air Vehicle Racing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Module 4: Racing Challenges</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/build/.doctrees/nbsphinx/racing_challenges.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Module-4:-Racing-Challenges">
+<h1>Module 4: Racing Challenges<a class="headerlink" href="#Module-4:-Racing-Challenges" title="Permalink to this headline"></a></h1>
+<p><strong>Goal:</strong> To take your line following and obstacle avoidance code and link them to create a final challenge solution</p>
+<section id="Final-Challenge-Details">
+<h2>Final Challenge Details<a class="headerlink" href="#Final-Challenge-Details" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Our Final Challenge this year will take place in a space the size of a basketball court, so plan on having a lot of space and a lot of gates. Although the space was much smaller last year, you can see a video of last year’s challenge <a class="reference external" href="https://drive.google.com/open?id=1HsiDlrG2ZOzvFGZi6J3fCFllCGCw0ZoB">here</a> to get an idea of what the final will be like.</p></li>
+<li><p>We may have some stretch challenges that, if completed well, will give teams an opportunity to take a “short cut” through a part of the course. Based on how the class progresses, we will introduce these later.</p></li>
+</ul>
+<img alt="Simplified version of our challenge" src="build/.doctrees/nbsphinx/images/course_diagram.png" />
+<section id="Challenge-Rules">
+<h3>Challenge Rules<a class="headerlink" href="#Challenge-Rules" title="Permalink to this headline"></a></h3>
+<p><strong>Note:</strong> These rules are made to keep your team and drone safe. <strong>If any team is found to be violating these rules, you will lose flight time and potentially be disqualified.</strong></p>
+<ul class="simple">
+<li><p>We are implementing a staff-made safety controller to prevent the drone from going too quickly or too high. If <em>any</em> changes are made to this node, or any attempts are made to bypass it, your team will be disqualified.</p></li>
+<li><p>An Instructor will be handling the RC during the final challenge in case of bugs or crashes, not a member of the drone’s team.</p></li>
+<li><p>All the normal safety procedures are in play, and will be more strictly enforced because we don’t have a net seperating us from the drones.</p></li>
+<li><p>Get hype to see all your work come together in front of sponsors, family, and other teams!</p></li>
+</ul>
+</section>
+<section id="Specs">
+<h3>Specs<a class="headerlink" href="#Specs" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>We will not have a net around our flight space. Any careening, uncontrolled drones will therefore hit a solid wall, not a net. Keep this in mind and try to make your code as robust as possible. We do not have replacement drones if yours breaks.</p></li>
+<li><p>Your base flying height (FOR THE FINAL, NOT TESTING IN THE CLASSROOM) should be <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">m</span></code>, so any obstacles above that height should be avoided by going down, and any above that height should be flown over. This height may change based on our final setup, so we <em>highly</em> recommend making this a global variable that won’t be a hassle to adjust.</p></li>
+<li><p>The displacement height (how far above or below your base height you should fly to avoid obstacles) should be similarly adjustable, but for now aim for a <code class="docutils literal notranslate"><span class="pre">0.5</span> <span class="pre">m</span></code> displacement (FOR THE FINAL, NOT IN THE CLASSROOM).</p></li>
+<li><p>You may decide as a team how far away from the AR tag you want to begin avoiding at, but we recommend a distance of no less than <code class="docutils literal notranslate"><span class="pre">0.6</span> <span class="pre">m</span></code> and no more than <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">m</span></code>.</p></li>
+<li><p>We will be placing gates only on straight-aways, so you will not have to worry about avoiding obstacles while also making sure you don’t lose the line (in other words, going straight over/under obstacles will be a safe option).</p></li>
+</ul>
+</section>
+</section>
+<section id="Unit-1:-Planning">
+<h2>Unit 1: Planning<a class="headerlink" href="#Unit-1:-Planning" title="Permalink to this headline"></a></h2>
+<p>An important point to keep in mind for this module is to be careful not to oversimplify this process. Joining line following and obstacle avoidance into one coherent set of code is more difficult than you might think. So, <strong>in order to get flight time or any testing materials, like an LED strip, AR tags, or test gates, you must get your plan checked with a TA.</strong> Another thing to keep in mind is that we will ask specific members of your team to explain your plan, so make sure everyone is up to
+speed and can explain your plan well, or you won’t get checked off.</p>
+<section id="Some-Potential-Problems-to-Keep-in-Mind">
+<h3>Some Potential Problems to Keep in Mind<a class="headerlink" href="#Some-Potential-Problems-to-Keep-in-Mind" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>You do not have to keep following the line while going over/under the gate, but you will have to decide how you will have to figure out how you will switch the drone from line follower mode to obstacle avoidance (which node is publishing velocity commands? Will that change? How?)</p></li>
+<li><p>While you are switching between nodes and potentially suspending the functionality of one or the other, remember that you cannot use a sleep command (even rospy’s) in the callback function. It can be elsewhere in your code, but it will crash your program if you put it in the callback.</p></li>
+<li><p>It was pretty easy in the last challenge to create an open-loop obstacle avoidance strategy using time, but for the final challenge, this solution will not be quite so robust. <strong>Try to integrate distance-based, closed loop obstacle avoidance</strong> for the final (so go forward X meters rather than X seconds).</p></li>
+</ul>
+</section>
+<section id="Criteria">
+<h3>Criteria<a class="headerlink" href="#Criteria" title="Permalink to this headline"></a></h3>
+<p>Checklist: <a class="reference external" href="https://docs.google.com/spreadsheets/d/1gevuUerhb-eqxhGC-m3yfh8lFIyp5s9a5-gvxYRpvYg/edit?usp=sharing">link</a></p>
+<p><strong>Note:</strong> This stage of software development is incredibly important, and a solid plan will save you time and give you more time to be optimizing your solution (faster debugging means more time to get your drone going fast in a robust way, and to work on stretch challenges). This is also a practice that will help you in computer science/engineering classes as well as in professional settings.</p>
+</section>
+</section>
+<section id="Unit-2:-Writing-the-Final-Challenge">
+<h2>Unit 2: Writing the Final Challenge<a class="headerlink" href="#Unit-2:-Writing-the-Final-Challenge" title="Permalink to this headline"></a></h2>
+<p>Unit 2 rubric: <a class="reference external" href="https://docs.google.com/spreadsheets/d/1YDEE2vzzTqYOW1iz0X4E2KJj4d_mmkjDXbiVQw1V3gk/edit?usp=sharing">link</a></p>
+<p>A lot of this part is up to you and your team, based on the plan you made in Unit 1. We want to give you as much freedom as possible to use what you have learned in Modules 1 through 3. That said, <strong>we also ask that you stick to solutions that progress through the rubric above.</strong> If you do not, we will not penalize you, but the TAs and instructors will have a much harder time helping you. If you are too far from what we are expecting, we might not be able to help much at all.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Beaver Works Summer Institute, Nathaniel Hanson, Kendrick Cancio, Ross Allen, Mark Mazumder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

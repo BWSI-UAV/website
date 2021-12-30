@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 1: Hands-On Quadrotors &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../planning_control.html">Module 3: Estimation &amp; Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../racing_challenges.html">Module 4: Racing Challenges</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_intro.html">Course Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_intro.html#Final-Project">Final Project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../project_workflow.html">Project Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_debugging.html">Bugged Zip Sims Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../student_drone_setup.html">Student Drone Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibration.html">Calibrating Intel RTF Drones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../flight_log_analysis.html">Flight Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../intel_rtf_architecture.html">Architecture Concept Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_introduction.html">Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../communication_pipeline.html">Communication Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accessing_video_streams.html">Accessing Video Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../enable_optical_flow.html">Hovering with Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coordinate_transforms.html">Coordinate Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../downward_cam_bag.html">Downward Camera Analysis + Line Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../detector.html">Custom ROS Message for Line Params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../line_following.html">Line Following</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tello_passport.html">Tello Passport</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../kalman_filters.html">Kalman Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../simulation_challenge.html">Simulation Challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced_linefollowing_ideas.html">Advanced linefollowing ideas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety_checklist.html">Safety Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connecting_with_VSCode.html">Connecting to the drone with VSCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ar_tag_generation.html">AR tag generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Autonomous Air Vehicle Racing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Module 1: Hands-On Quadrotors</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/build/.doctrees/nbsphinx/quadrotor_basics.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Module-1:-Hands-On-Quadrotors">
+<h1>Module 1: Hands-On Quadrotors<a class="headerlink" href="#Module-1:-Hands-On-Quadrotors" title="Permalink to this headline"></a></h1>
+<section id="Unit-0:-Introductions">
+<h2>Unit 0: Introductions<a class="headerlink" href="#Unit-0:-Introductions" title="Permalink to this headline"></a></h2>
+<p><strong>Goal:</strong> Introduce instructors &amp; students, objectives for the course, assign teams, and understand individual responsibilities</p>
+<p><strong>Lectures:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1Gfr472InI9QH1eIWXN7DdQv2LDH1NdkR0HbT7idqoF8/edit?usp=sharing">Course Introduction</a></p></li>
+<li><p><a class="reference external" href="https://bwsi-uav.github.io/website/team_roles.html">Team Roles and Responsibilities</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1oHvgSuEw-JCodptHiPUNJVaFFAIavAKGWx73SvviHc4/edit?usp=sharing">Intro to Unix/Bash</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1M-5IOTDlP4XkRy8c_6W5KSo7d45keXrfQQf4F43HNbc/edit?usp=sharing">Intro to Version Control</a></p></li>
+</ol>
+<p><strong>Practicals:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="project_workflow.html">Project Workflow</a></p></li>
+</ol>
+<p><strong>Advanced Topics:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://ryanstutorials.net/linuxtutorial/">In-Depth: Linux &amp; Bash</a></p></li>
+<li><p><a class="reference external" href="vim_tutorial.html">In-Depth: Vim</a></p></li>
+<li><p><a class="reference external" href="https://bwsix.mit.edu/courses/course-v1:BWSI+BWSI220+Winter_2019/about">In-Depth: git &amp; GitHub</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1lQbGswr5zfgNSDWEZrB0XDS2OhUR0DQDh_ea32vMGyg/edit#slide=id.p3">Accelerating your workflow</a> - A tutorial on SSH multiplexing, <code class="docutils literal notranslate"><span class="pre">tmux</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code>, and VSCode Remote usage</p></li>
+</ol>
+</section>
+<section id="Unit-1:-Quadrotor-Hands-On">
+<h2>Unit 1: Quadrotor Hands-On<a class="headerlink" href="#Unit-1:-Quadrotor-Hands-On" title="Permalink to this headline"></a></h2>
+<p><strong>Goal:</strong> Understand the constituent hardware components of a quadrotor by constructing an Intel Ready To Fly Drone (Intel RTF) from parts and perform RC-controlled flight</p>
+<p><strong>Practicals:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="student_drone_setup.html">Drone Setup</a></p></li>
+<li><p><a class="reference external" href="calibration.html">Sensor Calibration</a></p></li>
+<li><p><a class="reference external" href="safety_checklist.html#Flight-Prep">Preflight Safety</a></p></li>
+<li><p><a class="reference external" href="safety_checklist.html#Manual-Flight">Manual Flight Demo</a></p></li>
+<li><p><a class="reference external" href="safety_checklist.html#Battery-Handling-&amp;-Charging">Battery Charging</a></p></li>
+<li><p><a class="reference external" href="flight_log_analysis.html">Flight Log Data Review</a></p></li>
+</ol>
+<p><strong>Advanced Topics:</strong></p>
+<ol class="arabic simple">
+<li><p>[ACRO Flight Mode]</p></li>
+</ol>
+</section>
+<section id="Unit-2:-Embedded-Drone-Architecture">
+<h2>Unit 2: Embedded Drone Architecture<a class="headerlink" href="#Unit-2:-Embedded-Drone-Architecture" title="Permalink to this headline"></a></h2>
+<p><strong>Goal:</strong> Each student will have high-level, cursory understanding of the hardware and software involved with communication, sensing, flight control, high-level processing and how these components interact. We will understand how communication is passed between processes running on the drone by practicing use of ROS and MAVROS messages. We will see how to access and inspect streams of information from the embedded cameras and sensors.</p>
+<p><strong>Lectures:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1NM_zhKeS3VZPtb2EkU6StyMRoMKa0-0_welNjtJ7g70/edit?usp=sharing">Embedded Architecture</a></p></li>
+<li><p><a class="reference external" href="ros_introduction.html">Intro to ROS</a></p></li>
+</ol>
+<p><strong>Practicals:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="intel_rtf_architecture.html">Intel RTF Drone Architecture Review</a></p></li>
+<li><p><a class="reference external" href="communication_pipeline.html">Communication Pipeline</a></p></li>
+<li><p><a class="reference external" href="accessing_video_streams.html">Accessing Video Streams</a></p></li>
+<li><p><a class="reference external" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></p></li>
+</ol>
+<p><strong>Advanced Topics:</strong></p>
+<ol class="arabic simple">
+<li><p>[In-Depth: Robot Operating System (ROS)]</p></li>
+<li><p><a class="reference external" href="exploring_px4_firmware.html">Exploring PX4 Firmware</a></p></li>
+<li><p>[3D Imaging with RealSense]</p></li>
+</ol>
+</section>
+<section id="Unit-3:-Localization">
+<h2>Unit 3: Localization<a class="headerlink" href="#Unit-3:-Localization" title="Permalink to this headline"></a></h2>
+<p><strong>Goal:</strong> Understand the various localization strategies that autonomous systems can employ to estimate their position in the world: GPS, SLAM, visual fiducials. Get hands-on experience with localization by developing a rosnode that uses an AR tag to estimate pose of quadrotor relative to the tag.</p>
+<p><strong>Lectures:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://drive.google.com/open?id=1rK3u_lXTh7Ll2Ary081B60LEh27l5DQsIuK4U0Yw1JM">Localization &amp; Reference Frames</a></p></li>
+</ol>
+<p><strong>Practicals:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://bwsi-uav.github.io/website/enable_optical_flow.html">Hovering with Optical Flow</a></p></li>
+<li><p><a class="reference external" href="ar_localization.html">ARTag Localization</a></p></li>
+</ol>
+</section>
+<section id="Challenge-1:-Position-Control-Navigation">
+<h2><em>Challenge 1:</em> Position Control Navigation<a class="headerlink" href="#Challenge-1:-Position-Control-Navigation" title="Permalink to this headline"></a></h2>
+<section id="Basic-Challenge:-Flight-Operations-Race">
+<h3><em>Basic Challenge:</em> Flight Operations Race<a class="headerlink" href="#Basic-Challenge:-Flight-Operations-Race" title="Permalink to this headline"></a></h3>
+<p><strong>Goal:</strong> Develop the fastest, most efficient set of team operations for conducting test flights. Each team will be timed while performing a flight test that involves the following:</p>
+<ol class="arabic simple">
+<li><p>Start from the classroom area with drone powered off and laptops shut</p></li>
+<li><p>Enter the flight space, observing all safety requirements, and prep your drone for position control flight</p></li>
+<li><p>Execute a position-controlled loop around the flight space and perform a soft landing.</p></li>
+<li><p>Safely extract the UAV from the flight space</p></li>
+<li><p>Generate plots from the flight log</p></li>
+</ol>
+<p>Any team running, “scrambling”, or using other unsafe practices will be disqualified. This race tests organization, not simply moving fast.</p>
+</section>
+<section id="Intermediate-Challenge:-ARTag-Sequence-Race">
+<h3><em>Intermediate Challenge:</em> ARTag Sequence Race<a class="headerlink" href="#Intermediate-Challenge:-ARTag-Sequence-Race" title="Permalink to this headline"></a></h3>
+<p><strong>Goal:</strong> All teams’ UAVs are capable of a stable, autonomous hover using optical flow, even when disturbed by a bump or wind. With this capability, teams will compete to see who can execute a small circuit as quickly and accurately as possible while remotely operating the drone in position control mode.</p>
+<p>The circuit will consist of a set of AR tags on the walls that must be visited in a certain order. A tag is considered visited once a ROS message is passed that contains the tag ID. Score is a weighted combination of time to visit all tags and accuracy of passing directly in front of the marker at a specified distance</p>
+<p><strong>Assignments:</strong></p>
+<ol class="arabic simple">
+<li><p>Challenge Report: Create 2-3 slides describing what your team did for the challenge. Highlight your sequence of operations and any challenges/roadblocks you encountered</p></li>
+</ol>
+</section>
+<section id="Advanced-Challenge:-Traveling-ARTag-Salesmen">
+<h3><em>Advanced Challenge:</em> Traveling ARTag Salesmen<a class="headerlink" href="#Advanced-Challenge:-Traveling-ARTag-Salesmen" title="Permalink to this headline"></a></h3>
+<p><strong>Goal:</strong> A quasi-random array of ARTags will be assembled along one wall of the flight space. The challenge consists of</p>
+<ol class="arabic simple">
+<li><p>Taking off and observing the tag array</p></li>
+<li><p>Calculate the shortest route through all tags that does not revisit any tag (Note: this is a 2D path)</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> mode approach the first tag of the calculated route and hold at the desired offset distance</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> mode, pilot the calculated route as fast as possible. Failure if you crash or if you observe a previously visited tag</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Beaver Works Summer Institute, Nathaniel Hanson, Kendrick Cancio, Ross Allen, Mark Mazumder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

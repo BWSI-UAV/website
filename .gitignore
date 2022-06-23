@@ -1,8 +1,8 @@
-docs/_build/*
-docs/build/*
-docs/.ipynb_checkpoints/*
-*.aux
-*.log
-*.out
-*.gz
-*.fuse_hidden*
+*.gem
+.bundle
+.ruby-version
+.jekyll-cache
+.sass-cache
+_site
+Gemfile.lock
+node_modules

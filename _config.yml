@@ -1,0 +1,37 @@
+title: "Autonomous Air Vehicle Racing"
+description: TODO - fill
+theme: "just-the-docs"
+color_scheme: grey
+# color_scheme: dark
+search_enabled: true
+
+# allows links without .html extension
+permalink: pretty
+
+logo: "/assets/images/expanded-logo.png"
+
+# Aux links for the upper right navigation
+aux_links:
+  "View On GitHub":
+    - "//github.com/BWSI-UAV"
+
+# Makes Aux links open in a new tab. Default is false
+aux_links_new_tab: true
+
+# Heading anchor links appear on hover over h1-h6 tags in page content
+# allowing users to deep link to a particular heading on a page.
+#
+# Supports true (default) or false
+heading_anchors: true
+
+# Footer content
+# appears at the bottom of every page's main content
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+
+footer_content: "&copy; Copyright 2022 Beaver Works Summer Institute, Nathaniel Hanson, Kendrick Cancio, Ross Allen, Mark Mazumder."
+
+plugins:
+  - jekyll-seo-tag

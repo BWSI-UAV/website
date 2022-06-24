@@ -1,14 +1,12 @@
 title: "Autonomous Air Vehicle Racing"
-description: TODO - fill
-theme: "just-the-docs"
-color_scheme: grey
-# color_scheme: dark
+description: Documentation for the MIT Beaver Works Summer Institute (BWSI) Autonomous Air Vehicle Racing Course.
+remote_theme: pdmosses/just-the-docs@light-switch
+# theme: "just-the-docs"
+color_scheme: light-or-dark
 search_enabled: true
 
-# allows links without .html extension
-permalink: pretty
-
-logo: "/assets/images/expanded-logo.png"
+permalink: pretty # allows links without .html extension
+logo: "/assets/images/expanded-logo.png" # logo at top left corner
 
 # Aux links for the upper right navigation
 aux_links:

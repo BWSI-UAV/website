@@ -22,7 +22,7 @@ Learn more about the program structure.
 ## Instructors
 
 1. Nathaniel Hanson, [nathaniel.hanson@ll.mit.edu](mailto:nathaniel.hanson@ll.mit.edu)
-2. Ayrk Ledet, [Aryk.Ledet@ll.mit.edu](mailto:Aryk.Ledet@ll.mit.edu)
+2. Aryk Ledet, [Aryk.Ledet@ll.mit.edu](mailto:Aryk.Ledet@ll.mit.edu)
 
 ## Teaching Assistants (TAs)
 

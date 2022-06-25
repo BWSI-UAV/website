@@ -1,13 +1,13 @@
 ---
-title: "Past Course Offerings"
+title: "Past Courses"
 has_children: false
 nav_order: 15
 ---
 
-# Past Course Offerings
+# Past Courses
 {: .no_toc }
 
-Documentation for the course at MIT Beaver Works Summer Institute (BWSI) offered to high school students in the summer of 2022.
+See previous offerings of the Air Vehicle Racing Course.
 {: .fs-6 .fw-300 }
 
 <details open markdown="block">
@@ -20,3 +20,11 @@ Documentation for the course at MIT Beaver Works Summer Institute (BWSI) offered
 </details>
 
 ---
+
+## 2018 & 2019
+
+See [this website](https://bwsi-uav.github.io/website/index.html), taught by Ross Allen & Mark Mazumder. The course was offered in person.
+
+## 2021 & 2022
+
+This website, offered to students remotely.

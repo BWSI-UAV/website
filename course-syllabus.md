@@ -19,14 +19,20 @@ Learn more about the program structure.
 {:toc}
 </details>
 
-## Instructors
+## Lead Instructors
 
 1. Nathaniel Hanson, [nathaniel.hanson@ll.mit.edu](mailto:nathaniel.hanson@ll.mit.edu)
 2. Aryk Ledet, [Aryk.Ledet@ll.mit.edu](mailto:Aryk.Ledet@ll.mit.edu)
 
-## Teaching Assistants (TAs)
+## Associate Instructor
 
-<!-- TODO: Should there be a mailing list for TAs + Instructors? -->
+1. Matthew Boyd, [mcboyd@bu.edu](mailto:mcboyd@bu.edu)
+
+## Teaching Assistants
+
+1. Rumaisa Abdulhai, [rumaisa@mit.edu](mailto:rumaisa@mit.edu)
+2. Matthew Schofield, [mschof@mit.edu](mailto:mschof@mit.edu)
+
 Please contact our TAs via the official Discord server. If you don't have access, please reach out to the instructors.
 
 ## DJI Tello & Passport Curriculum
@@ -37,21 +43,21 @@ To manage remote learning, practicals here are called passports. Each student up
 
 ---
 
-## Week 1: Quadcopter Basics (7/5)
+## Week 1: Quadcopter Basics (7/11)
 
 **Goal:** We will learn about drones and examples of cutting edge UAV research, review BASH and Version Control using Git, and understand the architecture of drones that will culminate in our first challenge of the program.
 
 - **Monday:** BWSI Kickoff
 
-- **Tuesday:** Introduction & Setup, Intro to Unix, PEP8 Standard, Git, & Debugging
+- **Tuesday:** Introduction & Setup, Intro to Unix, Git, & Debugging
 
-- **Wednesday:** Hardware, Intro to BASH, Review of ROS
+- **Wednesday:** Hardware, Review of ROS
 
 - **Thursday:** Embedded Architecture
 
 - **Friday:** Localization & Reference Frames, Challenge 1
 
-## Week 2: Computer Vision & Machine Learning (ML) (7/12)
+## Week 2: Computer Vision & Machine Learning (ML) (7/18)
 
 **Goal:** We will review Linear Algebra concepts, learn about tools that enable autonomous agents to understand their surroundings using RGB images, and grasp how convolutional neural networks work.
 
@@ -65,7 +71,7 @@ To manage remote learning, practicals here are called passports. Each student up
 
 - **Friday:** Advanced ML Topics in Computer Vision, Intro to Neural Networks, Intro to Tello
 
-## Week 3: Planning and Control (7/19)
+## Week 3: Planning and Control (7/25)
 
 **Goal:** We will understand how autonomous systems make decision and execute tasks with precision.
 
@@ -79,7 +85,7 @@ To manage remote learning, practicals here are called passports. Each student up
 
 - **Friday:** Practicals & Intro to Final Challenge
 
-## Week 4: Final Project (7/26)
+## Week 4: Final Project (8/1)
 
 **Goal:** We will spend the whole week working on the Final Projects in teams.
 

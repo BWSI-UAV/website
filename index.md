@@ -13,7 +13,6 @@ permalink: /
 Documentation for the course at MIT Beaver Works Summer Institute (BWSI) offered to high school students in the summer of 2022.<br>
 {: .fs-6 .fw-300 }
 
-<!-- TODO: Give students password privately -->
 [Join Zoom Meeting](){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Add to Calendar](){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
@@ -48,10 +47,6 @@ In 2021, the program was offered remotely. Below are the final student presentat
     <img src="/assets/images/bwsi_virtual.png" alt="Cover Photo" width="560"/>
   </a> 
 </div>
-
-<!-- <div align="center"> 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/Z96mSpiJN-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div> -->
 
 ## Beaver Works Summer Institute
 

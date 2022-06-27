@@ -2,7 +2,7 @@
 title: "Tello Passport"
 has_children: false
 nav_order: 1
-parent: "Module 3: Planning & Control"
+parent: "Module 1: Quadcopter Basics"
 ---
 
 # Tello Passport
@@ -25,7 +25,7 @@ This set of practicals for the virtual BWSI @ Home utilize the DJI Tello Drone a
 
 SDK documentation for the `djitellopy` library is available [here](https://github.com/damiafuentes/DJITelloPy). As of December 2021, this repository is more actively maintained than DJI’s official [repository](https://github.com/dji-sdk/Tello-Python). There are also lots of great YouTube tutorials if you get stuck.
 
-The content on this page is adapted from the PowerPoint [slide deck](https://docs.google.com/presentation/d/1SC3_OhWSF_d4qqDmIjC6JQNsKg4HjwY8/edit?usp=sharing&ouid=114346723619000512750&rtpof=true&sd=true) used to track student progress. As this page is a work in progress, suggestions are welcome.
+The content on this page is adapted from the [slide deck](https://docs.google.com/presentation/d/1Ims2b5a_DzUD3b-be4ckeH0wZR0W3Hx9ogS0RFHURTo/edit?usp=sharing) used to track student progress.
 
 ## Unit 1 - Connection & Position Control
 In this unit you will write code to connect to, receive telemetry from, and send commands to your Tello drone to allow you to fly in position control.

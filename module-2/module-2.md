@@ -2,6 +2,7 @@
 title: "Module 2: Computer Vision & Machine Learning"
 has_children: true
 nav_order: 6
+permalink: /module-2
 ---
 
 # Module 2: Computer Vision & Machine Learning

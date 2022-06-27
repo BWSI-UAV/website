@@ -2,6 +2,7 @@
 title: "Module 3: Planning & Control"
 has_children: true
 nav_order: 7
+permalink: /module-3
 ---
 
 # Module 3: Planning & Control

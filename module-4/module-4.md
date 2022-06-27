@@ -2,6 +2,7 @@
 title: "Module 4: Final Project"
 has_children: true
 nav_order: 8
+permalink: /module-4
 ---
 
 # Module 4: Final Project

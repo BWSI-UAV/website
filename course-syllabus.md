@@ -19,16 +19,21 @@ Learn more about the program structure.
 {:toc}
 </details>
 
-## Lead Instructors
+## Instructors
+
+### Lead Instructors
+{: .no_toc }
 
 1. Nathaniel Hanson, [nathaniel.hanson@ll.mit.edu](mailto:nathaniel.hanson@ll.mit.edu)
 2. Aryk Ledet, [Aryk.Ledet@ll.mit.edu](mailto:Aryk.Ledet@ll.mit.edu)
 
-## Associate Instructor
+### Associate Instructor
+{: .no_toc }
 
 1. Matthew Boyd, [mcboyd@bu.edu](mailto:mcboyd@bu.edu)
 
-## Teaching Assistants
+### Teaching Assistants
+{: .no_toc }
 
 1. Rumaisa Abdulhai, [rumaisa@mit.edu](mailto:rumaisa@mit.edu)
 2. Matthew Schofield, [mschof@mit.edu](mailto:mschof@mit.edu)

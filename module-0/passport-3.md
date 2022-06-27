@@ -1,11 +1,11 @@
 ---
-title: "Passport 3: Bugged Zip Sims Repo"
+title: "Practical 2: Bugged Zip Sims Repo"
 has_children: false
-nav_order: 5
+nav_order: 3
 parent: "Module 0: Introduction & Setup"
 ---
 
-# Passport 3: Bugged Zip Sims Repo
+# Practical 2: Bugged Zip Sims Repo
 {: .no_toc }
 
 <details open markdown="block">

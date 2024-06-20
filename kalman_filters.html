@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kalman Filters &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,18 +54,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul>
@@ -111,8 +113,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Kalman Filters</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Kalman Filters</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/kalman_filters.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -332,7 +334,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -393,7 +395,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Kalman-Filters">
-<h1>Kalman Filters<a class="headerlink" href="#Kalman-Filters" title="Permalink to this headline"></a></h1>
+<h1>Kalman Filters<a class="headerlink" href="#Kalman-Filters" title="Permalink to this heading"></a></h1>
 <p>Kalman filters are used extensively in autonomous systems and robotics. The PX4 firmware that does the low-level control on the Intel Aero RTF drone uses a type of Kalman filter to fuse information from different sensors in order estimate the drones position, velocity, orientation, and angular rates.</p>
 <p>While we don’t have time to really dive into Kalman filters in this class, we’ve provided a set of advanced tutorials for people to work through if they want to learn more about this very important topic</p>
 <ol class="arabic simple">
@@ -405,8 +407,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

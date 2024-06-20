@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARTag Localization &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -28,14 +32,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -44,18 +52,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul>
@@ -109,8 +111,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>ARTag Localization</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ARTag Localization</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/ar_localization.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -145,20 +147,20 @@
 }
 </style>
 <section id="ARTag-Localization">
-<h1>ARTag Localization<a class="headerlink" href="#ARTag-Localization" title="Permalink to this headline"></a></h1>
+<h1>ARTag Localization<a class="headerlink" href="#ARTag-Localization" title="Permalink to this heading"></a></h1>
 <p>In this tutorial we will continue to explore how the various sensors on board the Intel Aero Drone can provide information on where the drone is in the world (i.e. localizations), which is a critical first step to autonomous navigation. Here we will explore the use of visual fiducial known as an <a class="reference external" href="https://en.wikipedia.org/wiki/ARTag">ARTag</a>. See below for an example.</p>
-<img alt="Source: http://wiki.ros.org/ar_track_alvar" src="http://wiki.ros.org/ar_track_alvar?action=AttachFile&amp;do=get&amp;target=artags.png" />
+<p><img alt="Source: http://wiki.ros.org/ar_track_alvar" src="http://wiki.ros.org/ar_track_alvar?action=AttachFile&amp;do=get&amp;target=artags.png" /></p>
 <p>In the <a class="reference external" href="enable_optical_flow.html">optical flow</a> tutorial, we saw how the combination of the TeraRanger distance sensor, downward facing camera, and “black box” service/software <code class="docutils literal notranslate"><span class="pre">aero-optical-flow</span></code> enabled the new flight mode of <code class="docutils literal notranslate"><span class="pre">POSITION</span> <span class="pre">CONTROL</span></code> which was significantly easier to pilot than <code class="docutils literal notranslate"><span class="pre">MANUAL</span></code>.</p>
 <p>This tutorial will similarly use an onboard camera and pre-compiled libraries/software to provide a form of positioning information. In contrast to the optical flow tutorial, we will be using the front-facing <a class="reference external" href="https://en.wikipedia.org/wiki/Intel_RealSense">RealSense</a> camera suite and the <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code> ROS package (see <a class="reference external" href="http://wiki.ros.org/ar_track_alvar">here</a> for more details).</p>
 <section id="Launching-RealSense-&amp;-ar_track_alvar">
-<h2>Launching RealSense &amp; <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code><a class="headerlink" href="#Launching-RealSense-&-ar_track_alvar" title="Permalink to this headline"></a></h2>
+<h2>Launching RealSense &amp; <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code><a class="headerlink" href="#Launching-RealSense-&-ar_track_alvar" title="Permalink to this heading"></a></h2>
 <p>To launch both the forward-facing camera and <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code>, you will need to use ROS’s built in <code class="docutils literal notranslate"><span class="pre">roslaunch</span></code> tool. We have already set up a launch file that does both of these for you.</p>
 <section id="roslaunch">
-<h3>roslaunch<a class="headerlink" href="#roslaunch" title="Permalink to this headline"></a></h3>
+<h3>roslaunch<a class="headerlink" href="#roslaunch" title="Permalink to this heading"></a></h3>
 <p>Syntax: <code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">&lt;package</span> <span class="pre">name&gt;</span> <span class="pre">&lt;launchfile&gt;.launch</span> <span class="pre">[&lt;args&gt;]</span></code> In this case, the package will be <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> and the launch file will be <code class="docutils literal notranslate"><span class="pre">ar_visualization.launch</span></code>. Go ahead and run <code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">aero_control</span> <span class="pre">ar_visualization.launch</span></code>. This should start both the camera and <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code>.</p>
 </section>
 <section id="ar_track_alvar-topics">
-<h3><code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code> topics<a class="headerlink" href="#ar_track_alvar-topics" title="Permalink to this headline"></a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code> topics<a class="headerlink" href="#ar_track_alvar-topics" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code> publishes the following topics:</p>
 <ul class="simple">
 <li><p>/visualization_marker</p></li>
@@ -168,12 +170,12 @@
 </section>
 </section>
 <section id="Visualizing-with-rviz">
-<h2>Visualizing with rviz<a class="headerlink" href="#Visualizing-with-rviz" title="Permalink to this headline"></a></h2>
+<h2>Visualizing with rviz<a class="headerlink" href="#Visualizing-with-rviz" title="Permalink to this heading"></a></h2>
 <p>On the drone in desktop mode, type <code class="docutils literal notranslate"><span class="pre">rviz</span></code> in an open Terminal window. The ROS visualization software will then open. You will need to select certain options to make <code class="docutils literal notranslate"><span class="pre">rviz</span></code> work properly. 1. Select Fixed Frame in the top left corner of rviz and change it from <code class="docutils literal notranslate"><span class="pre">map</span></code> to <code class="docutils literal notranslate"><span class="pre">camera_rgb_optical_frame</span></code> <img alt="frame-select.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/frame-select.png?raw=true" /> 2. Click Add in the lower left corner of rviz. <img alt="add-rviz.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/add-rviz.png?raw=true" /> 3. Add a Camera Display from <code class="docutils literal notranslate"><span class="pre">/camera/rgb/image_color</span></code>. <img alt="add-camera-rviz.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/add-camera-rviz.png?raw=true" /> 4. Add a TF display.
 <img alt="add-tf-rviz.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/add-tf-rviz.png?raw=true" /> 5. Deselect “All Enabled” under “Frames” in the TF display options. (You can also resize/move your Camera Display to be more visible) <img alt="disable-frame-rviz.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/disable-frame-rviz.png?raw=true" /> 6. Move an AR tag into frame and watch the label/axes change as you move it around/twist it.</p>
 </section>
 <section id="Processing-Marker">
-<h2>Processing Marker<a class="headerlink" href="#Processing-Marker" title="Permalink to this headline"></a></h2>
+<h2>Processing Marker<a class="headerlink" href="#Processing-Marker" title="Permalink to this heading"></a></h2>
 <p>In preparation for this week’s challenge, you will need to write your own ROS node that subscribes to the appropriate ARTag topics, parses important information from messages, and displays instructions to the <a class="reference external" href="team_roles.html#Ground-Commander">Ground Commander</a> to aid in flight maneuvers.</p>
 <p>First let’s make sure you have the required libraries installed on your drone/computer:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-kinetic-ar-track-alvar
@@ -184,7 +186,7 @@ position, directions on getting to the proper position using the information fro
 <p>You will be able to test your <code class="docutils literal notranslate"><span class="pre">ar_checker.py</span></code> using <code class="docutils literal notranslate"><span class="pre">ar_checker.launch</span></code>, also in your <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> directory. When roslaunching, you can use <code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">aero_control</span> <span class="pre">ar_checker.launch</span> <span class="pre">2&gt;/dev/null</span></code> to get rid of the error stream that MAVROS puts out.</p>
 </section>
 <section id="Testing-with-bag-files">
-<h2>Testing with bag files<a class="headerlink" href="#Testing-with-bag-files" title="Permalink to this headline"></a></h2>
+<h2>Testing with bag files<a class="headerlink" href="#Testing-with-bag-files" title="Permalink to this heading"></a></h2>
 <p>We can test the <code class="docutils literal notranslate"><span class="pre">ar_checker.py</span></code> using a ROS bag file (indicated by a <code class="docutils literal notranslate"><span class="pre">.bag</span></code> extension). Syntax for rosbag: <code class="docutils literal notranslate"><span class="pre">rosbag</span> <span class="pre">play</span> <span class="pre">&lt;file&gt;.bag</span></code>.</p>
 <p>Link for <code class="docutils literal notranslate"><span class="pre">ar_checker.bag</span></code>: <a class="reference external" href="https://goo.gl/uDMUxz">https://goo.gl/uDMUxz</a></p>
 <p>Testing procedure for rosbag:</p>

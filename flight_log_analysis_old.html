@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flight Log Analysis &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -28,14 +32,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -44,18 +52,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul>
@@ -109,8 +111,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Flight Log Analysis</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Flight Log Analysis</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/flight_log_analysis_old.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -330,7 +332,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -391,10 +393,10 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Flight-Log-Analysis">
-<h1>Flight Log Analysis<a class="headerlink" href="#Flight-Log-Analysis" title="Permalink to this headline"></a></h1>
+<h1>Flight Log Analysis<a class="headerlink" href="#Flight-Log-Analysis" title="Permalink to this heading"></a></h1>
 <p>In this unit we will learn how to analyze post-flight telemetry data which is a crucial skill for debugging when things go wrong or the UAV doesn’t behave as expected</p>
 <section id="Install-Analysis-Tools">
-<h2>Install Analysis Tools<a class="headerlink" href="#Install-Analysis-Tools" title="Permalink to this headline"></a></h2>
+<h2>Install Analysis Tools<a class="headerlink" href="#Install-Analysis-Tools" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://dev.px4.io/en/log/flight_log_analysis.html">Reference: Dronecode Documentation</a></p>
 <p>The above reference list several software tools that can be used to analyze flight data from a PX4-based UAV. We will use <a class="reference external" href="https://github.com/PX4/FlightPlot">FlightPlot</a> due to it’s intuitive interface.</p>
 <ol class="arabic simple">
@@ -405,10 +407,10 @@ div.rendered_html tbody tr:hover {
 </ol>
 </section>
 <section id="Analyze-Pre-recorded-Flight">
-<h2>Analyze Pre-recorded Flight<a class="headerlink" href="#Analyze-Pre-recorded-Flight" title="Permalink to this headline"></a></h2>
+<h2>Analyze Pre-recorded Flight<a class="headerlink" href="#Analyze-Pre-recorded-Flight" title="Permalink to this heading"></a></h2>
 <p>To practice using FlightPlot we have recorded data from a test flight that you will download (i.e. clone from GitHub) and analyze.</p>
 <section id="Import/Open-Data">
-<h3>Import/Open Data<a class="headerlink" href="#Import/Open-Data" title="Permalink to this headline"></a></h3>
+<h3>Import/Open Data<a class="headerlink" href="#Import/Open-Data" title="Permalink to this heading"></a></h3>
 <p>Clone the prerecorded flight data from the <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> repository on GitHub. Assuming you haven’t already cloned this repo to your computer, run the following</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/
 git clone https://github.com/BWSI-UAV/laboratory.git
@@ -417,12 +419,12 @@ git clone https://github.com/BWSI-UAV/laboratory.git
 <p>Navigate to where you saved <code class="docutils literal notranslate"><span class="pre">flightplot.jar</span></code> and run it with: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">flightplot.jar</span></code>. Once started, open <code class="docutils literal notranslate"><span class="pre">example_flight_log.ulg</span></code>.</p>
 </section>
 <section id="Inspecting-Data">
-<h3>Inspecting Data<a class="headerlink" href="#Inspecting-Data" title="Permalink to this headline"></a></h3>
+<h3>Inspecting Data<a class="headerlink" href="#Inspecting-Data" title="Permalink to this heading"></a></h3>
 <p><em>TODO:</em> COMPLETE THIS SECTION. DESCRIBE HOW TO OPEN FIELDS AND WHICH FIELDS ARE IMPORTANT TO INSPECT</p>
 <p><em>NOTE:</em> I WAS HAVING PROBLEMS ZOOMING IN ON THIS DATASET, PLOTS WOULD DISAPPEAR UNEXPECTEDLY. MAY BE PROBLEM WITH MY COMPUTER</p>
 </section>
 <section id="Problem-Set">
-<h3>Problem Set<a class="headerlink" href="#Problem-Set" title="Permalink to this headline"></a></h3>
+<h3>Problem Set<a class="headerlink" href="#Problem-Set" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>At what time did the mode switch from Manual to Position Control?</p></li>
 <li><p>What was the maximum velocity?</p></li>
@@ -435,7 +437,7 @@ git clone https://github.com/BWSI-UAV/laboratory.git
 </section>
 </section>
 <section id="Analyze-Your-Flight">
-<h2>Analyze Your Flight<a class="headerlink" href="#Analyze-Your-Flight" title="Permalink to this headline"></a></h2>
+<h2>Analyze Your Flight<a class="headerlink" href="#Analyze-Your-Flight" title="Permalink to this heading"></a></h2>
 <p>Now that you know how to use a flight log analysis tool, take a look at one of your flights.</p>
 <p>Your drone stores flight logs onboard in the location: <code class="docutils literal notranslate"><span class="pre">/var/lib/mavlink-router/</span></code></p>
 <p>You will need to first copy the flight log from the drone to your computer in order to analyze it. To do this, we will use secure copy (scp). From your laptop run the following, replacing <code class="docutils literal notranslate"><span class="pre">&lt;your-drone-name&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;timestamped-log-file-name&gt;</span></code> with the name of your drone and the flight log name, respectively.</p>
@@ -447,8 +449,7 @@ git clone https://github.com/BWSI-UAV/laboratory.git
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

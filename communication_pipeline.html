@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Communication Pipeline &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,18 +54,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul class="current">
@@ -145,8 +147,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Communication Pipeline</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Communication Pipeline</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/communication_pipeline.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -366,7 +368,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -427,7 +429,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Communication-Pipeline">
-<h1>Communication Pipeline<a class="headerlink" href="#Communication-Pipeline" title="Permalink to this headline"></a></h1>
+<h1>Communication Pipeline<a class="headerlink" href="#Communication-Pipeline" title="Permalink to this heading"></a></h1>
 <p>In this unit we will gain understanding and practice on how information is passed between different components of the drone such as the onboard computer (Aero Compute Board) and the flight controller (AeroFC).</p>
 <p>You should have already been exposed to the basic concepts of the Robot Operating System (ROS) during the online portion of this class. These concepts including things like nodes, topics, messages, services, etc. If you are unsure/uncomfortable with what these concepts imply, there are great tutorials online for walking you through the basics of ROS. Please see:</p>
 <ul class="simple">
@@ -436,7 +438,7 @@ div.rendered_html tbody tr:hover {
 <li><p><a class="reference external" href="http://wiki.ros.org/ROS/Tutorials">http://wiki.ros.org/ROS/Tutorials</a></p></li>
 </ul>
 <section id="Talker---Listener">
-<h2>Talker - Listener<a class="headerlink" href="#Talker---Listener" title="Permalink to this headline"></a></h2>
+<h2>Talker - Listener<a class="headerlink" href="#Talker---Listener" title="Permalink to this heading"></a></h2>
 <p>We are going to put some of basic tools of ROS into practice on the Intel RTF Drone. We are going to start by creating and sending a simple message in one ROS node (i.e. talker) and receiving it in another. This portion relates to <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29">this ROS tutorial</a>, but adapted to our needs.</p>
 <p>First make sure you have the most recent codebase on the drone.</p>
 <p><em>On drone:</em></p>
@@ -448,7 +450,7 @@ cd ~/bwsi-uav/catkin_ws/src/aero_control/communication_pipeline
 <p>If you try to run <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and or <code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> you will receive an error stating</p>
 <p><code class="docutils literal notranslate"><span class="pre">Exception:</span> <span class="pre">CODE</span> <span class="pre">INCOMPLETE!</span> <span class="pre">Delete</span> <span class="pre">this</span> <span class="pre">exception</span> <span class="pre">and</span> <span class="pre">replace</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">own</span> <span class="pre">code</span></code></p>
 <section id="Step-1:-Complete-Talker">
-<h3>Step 1: Complete Talker<a class="headerlink" href="#Step-1:-Complete-Talker" title="Permalink to this headline"></a></h3>
+<h3>Step 1: Complete Talker<a class="headerlink" href="#Step-1:-Complete-Talker" title="Permalink to this heading"></a></h3>
 <p>In your preferred text editor, open <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and replace/fill in the following code block with your own code:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;&#39;&#39;TODO-START: FILL IN CODE HERE
 * create a string message that contains &quot;Hello World&quot; and the iteration number i
@@ -468,7 +470,7 @@ raise Exception(&quot;CODE INCOMPLETE! Delete this exception and replace with yo
 </div>
 <p>After answering the following questions, you can kill the processes by hitting <code class="docutils literal notranslate"><span class="pre">Ctrl-c</span></code> in each terminal</p>
 <section id="Questions-Set-1:">
-<h4>Questions Set 1:<a class="headerlink" href="#Questions-Set-1:" title="Permalink to this headline"></a></h4>
+<h4>Questions Set 1:<a class="headerlink" href="#Questions-Set-1:" title="Permalink to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>List all rosnodes that exist after running talker.py</p></li>
 <li><p>List all rostopics that are being present after running talker.py</p></li>
@@ -478,7 +480,7 @@ raise Exception(&quot;CODE INCOMPLETE! Delete this exception and replace with yo
 </section>
 </section>
 <section id="Step-2:-Complete-Listener">
-<h3>Step 2: Complete Listener<a class="headerlink" href="#Step-2:-Complete-Listener" title="Permalink to this headline"></a></h3>
+<h3>Step 2: Complete Listener<a class="headerlink" href="#Step-2:-Complete-Listener" title="Permalink to this heading"></a></h3>
 <p>Now we will incorporate a second rosnode to subscribe to the topic created by <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and listen to the messages passed. Open <code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> and replace/fill in the appropriate code block.</p>
 <p>Once complete, you can run the talker and listener nodes</p>
 <p><em>Terminal 1:</em></p>
@@ -500,7 +502,7 @@ git commit -m &quot;filling in code for talker and listener&quot;
 </pre></div>
 </div>
 <section id="Questions-Set-2:">
-<h4>Questions Set 2:<a class="headerlink" href="#Questions-Set-2:" title="Permalink to this headline"></a></h4>
+<h4>Questions Set 2:<a class="headerlink" href="#Questions-Set-2:" title="Permalink to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>List all rosnodes that exist after running simple_talker.py and simple_listener.py</p></li>
 <li><p>List all rostopics that are being present after running simple_talker.py and simple_listener.py</p></li>
@@ -509,10 +511,10 @@ git commit -m &quot;filling in code for talker and listener&quot;
 </section>
 </section>
 <section id="Step-3:-Launch-Talker-and-Listener">
-<h3>Step 3: Launch Talker and Listener<a class="headerlink" href="#Step-3:-Launch-Talker-and-Listener" title="Permalink to this headline"></a></h3>
+<h3>Step 3: Launch Talker and Listener<a class="headerlink" href="#Step-3:-Launch-Talker-and-Listener" title="Permalink to this heading"></a></h3>
 <p>It’s a cumbersome to be opening a different terminal for every different rosnode you want to start. Instead of doing this, we can use launch files.</p>
 <section id="Create-Package">
-<h4>Create Package<a class="headerlink" href="#Create-Package" title="Permalink to this headline"></a></h4>
+<h4>Create Package<a class="headerlink" href="#Create-Package" title="Permalink to this heading"></a></h4>
 <p>Before we make a launch file, we need to more properly set up our catkin workspace by turning <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> into a ROS Package and indicate it’s dependencies on <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code> and <code class="docutils literal notranslate"><span class="pre">rospy</span></code></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/bwsi-uav/catkin_ws/src
 catkin_create_pkg aero_control std_msgs rospy
@@ -530,7 +532,7 @@ git commit -m &quot;starting aero_control as a package&quot;
 </div>
 </section>
 <section id="Make-Executables">
-<h4>Make Executables<a class="headerlink" href="#Make-Executables" title="Permalink to this headline"></a></h4>
+<h4>Make Executables<a class="headerlink" href="#Make-Executables" title="Permalink to this heading"></a></h4>
 <p>Next you need to make sure that <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> are <em>executable</em> in order for the launch file to properly access them. This can be done as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/bwsi-uav/catkin_ws/src/aero_control/communication_pipeline/src/
 chmod +x simple_talker.py
@@ -539,7 +541,7 @@ chmod +x simple_listener.py
 </div>
 </section>
 <section id="Launch-File">
-<h4>Launch File<a class="headerlink" href="#Launch-File" title="Permalink to this headline"></a></h4>
+<h4>Launch File<a class="headerlink" href="#Launch-File" title="Permalink to this heading"></a></h4>
 <p>Now you are almost ready to run the launch file that starts <code class="docutils literal notranslate"><span class="pre">roscore</span></code>, <code class="docutils literal notranslate"><span class="pre">simple_talker.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">simple_listener.py</span></code> simultaneously. We’ve given you part of the launch file in <code class="docutils literal notranslate"><span class="pre">aero_control/communication_pipeline/launch/simnple_talk_listen.launch</span></code>, but it’s incomplete. Can you figure out what is missing and add it yourself?</p>
 <p>Once you’ve filled in the missing part of the launch file, follow these steps to run it</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/bwsi-uav/catkin_ws/
@@ -555,7 +557,7 @@ roslaunch aero_control simple_talk_listen.launch
 </div>
 </section>
 <section id="Question-Set-3:">
-<h4>Question Set 3:<a class="headerlink" href="#Question-Set-3:" title="Permalink to this headline"></a></h4>
+<h4>Question Set 3:<a class="headerlink" href="#Question-Set-3:" title="Permalink to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>What needed to be added the launch file?</p></li>
 <li><p>With <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code> open, use the button in upper right corner to save an image of the graph and include it in this report. Which components in the graph indicates rosnodes and which indicate rostopics?</p></li>
@@ -565,7 +567,7 @@ roslaunch aero_control simple_talk_listen.launch
 </section>
 </section>
 <section id="Step-4:-Document-and-Push">
-<h3>Step 4: Document and Push<a class="headerlink" href="#Step-4:-Document-and-Push" title="Permalink to this headline"></a></h3>
+<h3>Step 4: Document and Push<a class="headerlink" href="#Step-4:-Document-and-Push" title="Permalink to this heading"></a></h3>
 <p>Congratulations! You have implemented one of the basic building blocks of ROS! Now that you have this demo complete, you will want to push your code changes to your team’s MIT GitHub.</p>
 <p>First double check that the repository you are working with on your drone or laptop points to the correct remote repository.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/bwsi-uav/catkin_ws/src/aero_control
@@ -581,12 +583,12 @@ git remote -v
 </section>
 </section>
 <section id="MAVROS">
-<h2>MAVROS<a class="headerlink" href="#MAVROS" title="Permalink to this headline"></a></h2>
+<h2>MAVROS<a class="headerlink" href="#MAVROS" title="Permalink to this heading"></a></h2>
 <p>In the last section we passed basic messages between two nodes in ROS. This was done entirely in Ubuntu on the Aero Compute Board (or perhaps your laptop); it had no direct communication with the NuttX operating system that was running PX4 firmware on the Aero Flight Controller hardware. It we want our drones to fly autonomously, we need to be able to send commands to and receive sensor information from the flight controller.</p>
 <p>Communication with the PX4 Firmware running on the AeroFC board is managed with a service called <a class="reference external" href="https://mavlink.io/en/">MAVLink</a>. Similar to how ROS messages pass information between nodes on Ubuntu, MAVLink messages pass information between ROS/Ubuntu/Aero Compute Board and PX4/NuttX/AeroFC.</p>
 <p>The MAVLink protocol is low-level, which makes it powerful, extensible, but also complicated to use. To simplify our lives we will make use of <a class="reference external" href="https://github.com/mavlink/mavros/tree/master/mavros">MAVROS</a>. MAVROS can be thought of as a “wrapper” for MAVLink that simplifies the communication with ROS.</p>
 <section id="Step-1:-Running-MAVROS">
-<h3>Step 1: Running MAVROS<a class="headerlink" href="#Step-1:-Running-MAVROS" title="Permalink to this headline"></a></h3>
+<h3>Step 1: Running MAVROS<a class="headerlink" href="#Step-1:-Running-MAVROS" title="Permalink to this heading"></a></h3>
 <p>Let’s start by getting MAVROS running. On the drone, use multiple terminals to run the following commands:</p>
 <p><em>Terminal 1:</em></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>roscore
@@ -598,7 +600,7 @@ git remote -v
 </div>
 <p>After answering the following questions you can kill these processes with <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code></p>
 <section id="Question-Set-1:">
-<h4>Question Set 1:<a class="headerlink" href="#Question-Set-1:" title="Permalink to this headline"></a></h4>
+<h4>Question Set 1:<a class="headerlink" href="#Question-Set-1:" title="Permalink to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>What rosnodes are running?</p></li>
 <li><p>In a separate terminal run <code class="docutils literal notranslate"><span class="pre">rosnode</span> <span class="pre">info</span> <span class="pre">mavros</span></code>. Look through the list of <code class="docutils literal notranslate"><span class="pre">mavros</span></code> Subscriptions and Publications. Can you guess which topics could be used to send commands that control the drone? Which ones?</p></li>
@@ -608,7 +610,7 @@ git remote -v
 </section>
 </section>
 <section id="Step-2.-Sending-Commands">
-<h3>Step 2. Sending Commands<a class="headerlink" href="#Step-2.-Sending-Commands" title="Permalink to this headline"></a></h3>
+<h3>Step 2. Sending Commands<a class="headerlink" href="#Step-2.-Sending-Commands" title="Permalink to this heading"></a></h3>
 <p>Next we are going to use the <code class="docutils literal notranslate"><span class="pre">mavros</span></code> node to send commands to PX4 and receive information about the state of the quadrotor. Since we are only learning the communication structure of the drone, we won’t actually be flying it with these commands, just observing that they get passed correctly.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">aero_control/communication_pipeline/src</span></code> you should find two other files <code class="docutils literal notranslate"><span class="pre">dispatcher.py</span></code> and <code class="docutils literal notranslate"><span class="pre">command_generator.py</span></code>. As with the previous section, these files are missing a block of code that you need to fill in; see the code for instructions on what needs to be completed.</p>
 <p>Once you have completed writing your code, let’s test it out. On the drone in multiple terminals run:</p>
@@ -632,7 +634,7 @@ python command_generator.py
 </div>
 <p>Assuming you got no errors, answer the following questions (if you did get errors, are you able to debug them?)</p>
 <section id="Question-Set-2:">
-<h4>Question Set 2:<a class="headerlink" href="#Question-Set-2:" title="Permalink to this headline"></a></h4>
+<h4>Question Set 2:<a class="headerlink" href="#Question-Set-2:" title="Permalink to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>What new nodes and topics were created by running dispatcher.py and command_generator.py that weren’t present when just running mavros?</p></li>
 <li><p>Inspect the messages being sent on <code class="docutils literal notranslate"><span class="pre">/velocity_command</span></code> and <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code>. Do they appear to be the same? Are the being passed at roughly the same rate? Which one is actually being sent to the PX4/AeroFC?</p></li>
@@ -643,12 +645,12 @@ python command_generator.py
 </section>
 </section>
 <section id="Step-3:-Document-and-Push">
-<h3>Step 3: Document and Push<a class="headerlink" href="#Step-3:-Document-and-Push" title="Permalink to this headline"></a></h3>
+<h3>Step 3: Document and Push<a class="headerlink" href="#Step-3:-Document-and-Push" title="Permalink to this heading"></a></h3>
 <p>As before, document the answers to the preceeding question sets and push them to your team’s <code class="docutils literal notranslate"><span class="pre">documents</span></code> repository</p>
 </section>
 </section>
 <section id="Advanced-Topics:-uORB">
-<h2>Advanced Topics: uORB<a class="headerlink" href="#Advanced-Topics:-uORB" title="Permalink to this headline"></a></h2>
+<h2>Advanced Topics: uORB<a class="headerlink" href="#Advanced-Topics:-uORB" title="Permalink to this heading"></a></h2>
 <p>So far we have only seen communication on the Aero Compute Board and how to pass messages to the Aero Flight Controller. We haven’t actually looked at message passing that occurs onboard the Aero Flight Controller in the PX4 firmware. The Aero Flight Controller uses a different system known as “uORB”. We will cover this in a later lecture but you can learn more uORB in the link below:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://dev.px4.io/en/middleware/">uORB Messaging</a></p></li>
@@ -657,8 +659,7 @@ python command_generator.py
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tello Passport &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,18 +54,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul class="current">
@@ -135,8 +137,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tello Passport</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tello Passport</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tello_passport.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -171,13 +173,13 @@
 }
 </style>
 <section id="Tello-Passport">
-<h1>Tello Passport<a class="headerlink" href="#Tello-Passport" title="Permalink to this headline"></a></h1>
-<img alt="DJI Tello" src="_images/dji_tello.jpg" />
+<h1>Tello Passport<a class="headerlink" href="#Tello-Passport" title="Permalink to this heading"></a></h1>
+<p><img alt="DJI Tello" src="_images/dji_tello.jpg" /></p>
 <p>This set of practicals for the virtual BWSI &#64; Home utilize the DJI Tello Drone and its Python SDK. All the challenges should be completed using Python &gt;= 3.6.</p>
 <p>SDK documentation for the <code class="docutils literal notranslate"><span class="pre">djitellopy</span></code> library is available <a class="reference external" href="https://github.com/damiafuentes/DJITelloPy">here</a>. As of December 2021, this repository is more actively maintained than DJI’s <a class="reference external" href="https://github.com/dji-sdk/Tello-Python">official repository</a> There are also lots of great YouTube tutorials if you get stuck.</p>
 <p>The content on this page is adapted from the PowerPoint <a class="reference external" href="https://docs.google.com/presentation/d/1SC3_OhWSF_d4qqDmIjC6JQNsKg4HjwY8/edit?usp=sharing&amp;ouid=114346723619000512750&amp;rtpof=true&amp;sd=true">slide deck</a> used to track student progress. As this page is a work in progress, suggestions are welcome.</p>
 <section id="Unit-1---Connection-and-Position-Control">
-<h2>Unit 1 - Connection and Position Control<a class="headerlink" href="#Unit-1---Connection-and-Position-Control" title="Permalink to this headline"></a></h2>
+<h2>Unit 1 - Connection and Position Control<a class="headerlink" href="#Unit-1---Connection-and-Position-Control" title="Permalink to this heading"></a></h2>
 <p>In this unit you will write code to connect to, receive telemetry from, and send commands to your Tello drone to allow you to fly in position control.</p>
 <p>Challenges include:</p>
 <ul class="simple">
@@ -188,28 +190,28 @@
 </ul>
 <p>If you get stuck, refer to the resources page and reach out to other students and your instructors for help!</p>
 <section id="Connect-to-Drone">
-<h3>Connect to Drone<a class="headerlink" href="#Connect-to-Drone" title="Permalink to this headline"></a></h3>
+<h3>Connect to Drone<a class="headerlink" href="#Connect-to-Drone" title="Permalink to this heading"></a></h3>
 <p>Write a simple script in your IDE of choice to initialize your Tello, connect to it over Wi-Fi, and display some basic information about the drone (e.g. battery percentage) to confirm that you have successfully connected. When done, take a screenshot of your python output where you printed your drone information and show it to your instructors. You may run into seem errors establishing a socket connection through the SDK. Make sure you read the documentation FAQs before asking for help.</p>
 </section>
 <section id="Take-Off-and-Hover">
-<h3>Take Off and Hover<a class="headerlink" href="#Take-Off-and-Hover" title="Permalink to this headline"></a></h3>
+<h3>Take Off and Hover<a class="headerlink" href="#Take-Off-and-Hover" title="Permalink to this heading"></a></h3>
 <p>Write a script to connect to your Tello the same way you did in the previous challenge, but now, have the drone takeoff, hover for a certain period of time (e.g. 3 seconds), then land. Hint: use the <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">time</span></code> package to have the drone hover before it lands. When done, take a picture of your Tello with your phone while it’s hovering.</p>
 </section>
 <section id="Controlled-Flight">
-<h3>Controlled Flight<a class="headerlink" href="#Controlled-Flight" title="Permalink to this headline"></a></h3>
+<h3>Controlled Flight<a class="headerlink" href="#Controlled-Flight" title="Permalink to this heading"></a></h3>
 <p>Write a script to fly around your room via commands that tell the drone to move a specific distance. (e.g. make your drone fly in a square) Hint: The <code class="docutils literal notranslate"><span class="pre">move()</span></code> and <code class="docutils literal notranslate"><span class="pre">rotate_clockwise()</span></code> functions will help a lot! Take a video on your phone and embed the link on the next slide. YouTube unlisted might be a good way to do this if you have an account.</p>
 </section>
 <section id="Fly-Around-an-Object">
-<h3>Fly Around an Object<a class="headerlink" href="#Fly-Around-an-Object" title="Permalink to this headline"></a></h3>
+<h3>Fly Around an Object<a class="headerlink" href="#Fly-Around-an-Object" title="Permalink to this heading"></a></h3>
 <p>Write a script to fly around a specific object in your room via commands that tell the drone to move a specific distance. (e.g. fly around a chair) <strong>Get creative!!</strong></p>
 <p>Take a video on your phone and upload to an unlisted YouTube video. Think - where is programming a predefined series of instructions like this likely to be useful, and where will it fail?</p>
 </section>
 </section>
 <section id="Unit-2---Tello-Computer-Vision">
-<h2>Unit 2 - Tello Computer Vision<a class="headerlink" href="#Unit-2---Tello-Computer-Vision" title="Permalink to this headline"></a></h2>
+<h2>Unit 2 - Tello Computer Vision<a class="headerlink" href="#Unit-2---Tello-Computer-Vision" title="Permalink to this heading"></a></h2>
 <p>In this unit you will write code that allows you to stream video being taken by your Tello camera drone via python’s open source computer vision library (Open CV).</p>
 <section id="Detect-ArUco-Markers">
-<h3>Detect ArUco Markers<a class="headerlink" href="#Detect-ArUco-Markers" title="Permalink to this headline"></a></h3>
+<h3>Detect ArUco Markers<a class="headerlink" href="#Detect-ArUco-Markers" title="Permalink to this heading"></a></h3>
 <p>Write a simple script in your IDE of choice to stream video from your Tello’s camera and display via OpenCV. Hint: Don’t forget to use the <code class="docutils literal notranslate"><span class="pre">streamon()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_frame_read()</span></code> functions from the <code class="docutils literal notranslate"><span class="pre">djitellopy</span></code> package! When done, take a screenshot of the opencv window with the Tello camera pointing at your face with your face shields on and paste the screenshot on the next slide to show us that you’ve completed the challenge!</p>
 <p>Generate your own ArUco Markers via this <a class="reference external" href="https://chev.me/arucogen/">link</a></p>
 <p>Standard Parameters: Dictionary - 5 x 5 Marker size, mm - 150</p>
@@ -220,18 +222,18 @@
 <p>You may need to do a significant amount of research on your own for this challenge but do not be afraid to reach out to your peers and instructors for help. When done, take a screenshot of the opencv window that pops up with the aruco marker detected by the script your wrote.</p>
 </div>
 <section id="Why-do-we-use-ArUco-Tags?">
-<h4>Why do we use ArUco Tags?<a class="headerlink" href="#Why-do-we-use-ArUco-Tags?" title="Permalink to this headline"></a></h4>
+<h4>Why do we use ArUco Tags?<a class="headerlink" href="#Why-do-we-use-ArUco-Tags?" title="Permalink to this heading"></a></h4>
 <p>AR tags, or more specifically, aruco markers are helpful features that we can utilize when attempting autonomous flight because they are easily recognizable by computer vision algorithms that we write, can convey information based on their ID numbers, and can tell us about our drone’s relative distance and orientation from the markers</p>
 <p>When flying autonomously, your drone will need to know it’s relative distance and orientation to the aruco marker that it detects. To know this information, you will need to extract properties of the aruco marker that that are not given to you by default by the function used in the previous section.</p>
 </section>
 </section>
 <section id="Finding-Center-of-Tags">
-<h3>Finding Center of Tags<a class="headerlink" href="#Finding-Center-of-Tags" title="Permalink to this headline"></a></h3>
+<h3>Finding Center of Tags<a class="headerlink" href="#Finding-Center-of-Tags" title="Permalink to this heading"></a></h3>
 <p>Since you are given corners, you can create a function that finds the average side length of the aruco marker and another that sets a target for the drone to follow at the center (centroid) of the aruco marker. Write a python class called Marker with a constructor that takes in the ID and the four corner values of the aruco marker. When the constructor is called to create an object, call functions (that you will write as well) to calculate the marker’s average side length and centroid and store
 these values as object attributes that can be referenced when scanning markers in your autonomous flight scripts.</p>
 </section>
 <section id="Calculating-Distance-and-Orientation">
-<h3>Calculating Distance and Orientation<a class="headerlink" href="#Calculating-Distance-and-Orientation" title="Permalink to this headline"></a></h3>
+<h3>Calculating Distance and Orientation<a class="headerlink" href="#Calculating-Distance-and-Orientation" title="Permalink to this heading"></a></h3>
 <p>Now we have information about how far our drone is from the aruco marker. (average slide length, more pixels = closer, less pixels = farther) We also know which direction the drone is pointing relative to the marker based on the location of the centroid to the middle of the video stream output (a little to the left, a little above, etc.). This is great information, but how do we know where exactly our drone is relative to the marker?</p>
 <p>This requires us to look at the shape of the marker.</p>
 <p><strong>Brainstorm a method for determining orientation and position relative to the markers.</strong></p>
@@ -243,14 +245,14 @@ these values as object attributes that can be referenced when scanning markers i
 </section>
 </section>
 <section id="Unit-3---Tello-Control">
-<h2>Unit 3 - Tello Control<a class="headerlink" href="#Unit-3---Tello-Control" title="Permalink to this headline"></a></h2>
+<h2>Unit 3 - Tello Control<a class="headerlink" href="#Unit-3---Tello-Control" title="Permalink to this heading"></a></h2>
 <p>In this unit you’ll be using the knowledge you just acquired of PID and controls to write code to fly the drone semi-autonomously and incorporate autonomous components as you go.</p>
 <section id="Fly-in-a-Perfect-Circle">
-<h3>Fly in a Perfect Circle<a class="headerlink" href="#Fly-in-a-Perfect-Circle" title="Permalink to this headline"></a></h3>
+<h3>Fly in a Perfect Circle<a class="headerlink" href="#Fly-in-a-Perfect-Circle" title="Permalink to this heading"></a></h3>
 <p>Write a script similar to Unit 1 Challenge 3, except this time, use the <code class="docutils literal notranslate"><span class="pre">send_rc_control()</span></code> function and command your drone to fly in a perfect circle.</p>
 </section>
 <section id="Yaw-ArUco-Marker-Tracker">
-<h3>Yaw ArUco Marker Tracker<a class="headerlink" href="#Yaw-ArUco-Marker-Tracker" title="Permalink to this headline"></a></h3>
+<h3>Yaw ArUco Marker Tracker<a class="headerlink" href="#Yaw-ArUco-Marker-Tracker" title="Permalink to this heading"></a></h3>
 <p>Write an algorithm that commands the drone to takeoff, fly up to a certain height, and locate aruco markers. Then, adjusting only the yaw parameter of the <code class="docutils literal notranslate"><span class="pre">send_rc_control()</span></code> function, have the drone remain in the same position but autonomously adjust it’s orientation to face and track the aruco marker.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Hint:</strong></p>
@@ -258,7 +260,7 @@ these values as object attributes that can be referenced when scanning markers i
 </div>
 </section>
 <section id="Stationary-ArUco-Marker-Tracker">
-<h3>Stationary ArUco Marker Tracker<a class="headerlink" href="#Stationary-ArUco-Marker-Tracker" title="Permalink to this headline"></a></h3>
+<h3>Stationary ArUco Marker Tracker<a class="headerlink" href="#Stationary-ArUco-Marker-Tracker" title="Permalink to this heading"></a></h3>
 <p>Tape your marker on the wall. Then write a script to have the drone take off, locate the marker, and autonomously adjust all four parameters of the <code class="docutils literal notranslate"><span class="pre">send_rc_control()</span></code> function to command the drone to be flying right in front of the marker at a predetermined distance. This distance is up to you to determine. The goal is to implement PID controls for all four parameters such that if the drone were to be nudged/pulled/pushed during flight, it would quickly correct and return to the set point.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Challenge Warning:</strong></p>

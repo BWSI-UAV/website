@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Workflow &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,15 +16,17 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Bugged Zip Sims Repo" href="code_debugging.html" />
-    <link rel="prev" title="Course Overview" href="tello_intro.html" /> 
+    <link rel="prev" title="Module 4: Racing Challenges" href="racing_challenges.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,18 +54,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul class="current">
@@ -120,8 +122,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Project Workflow</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Project Workflow</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/project_workflow.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -341,7 +343,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -402,14 +404,14 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Project-Workflow">
-<h1>Project Workflow<a class="headerlink" href="#Project-Workflow" title="Permalink to this headline"></a></h1>
+<h1>Project Workflow<a class="headerlink" href="#Project-Workflow" title="Permalink to this heading"></a></h1>
 <p><strong>Objective:</strong> practice using Bash and Git commands within in a workflow that is fundamental to this class</p>
 <section id="Working-with-Bash">
-<h2>Working with Bash<a class="headerlink" href="#Working-with-Bash" title="Permalink to this headline"></a></h2>
+<h2>Working with Bash<a class="headerlink" href="#Working-with-Bash" title="Permalink to this heading"></a></h2>
 <p>Please see the <a class="reference external" href="https://docs.google.com/presentation/d/1oHvgSuEw-JCodptHiPUNJVaFFAIavAKGWx73SvviHc4/edit?usp=sharing">tutorial here</a></p>
 </section>
 <section id="Working-with-Git">
-<h2>Working with Git<a class="headerlink" href="#Working-with-Git" title="Permalink to this headline"></a></h2>
+<h2>Working with Git<a class="headerlink" href="#Working-with-Git" title="Permalink to this heading"></a></h2>
 <p>Please see the <a class="reference external" href="https://docs.google.com/presentation/d/1M-5IOTDlP4XkRy8c_6W5KSo7d45keXrfQQf4F43HNbc/edit?usp=sharing">tutorial here</a></p>
 <p>For further instruction:</p>
 <p>We will be using git and GitHub to manage all of our code and documentation throughout the course. During the online portion of this class you were exposed to some of the basics of git and GitHub. If you would like a refresher, check out the link below:</p>
@@ -422,7 +424,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Laptop-Repository-Setup">
-<h2>Laptop Repository Setup<a class="headerlink" href="#Laptop-Repository-Setup" title="Permalink to this headline"></a></h2>
+<h2>Laptop Repository Setup<a class="headerlink" href="#Laptop-Repository-Setup" title="Permalink to this heading"></a></h2>
 <p>We are going to start by cloning and configuring the <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> repo on the team laptops. Similar instructions can be used to configure the repo on your own personal laptops. The goal is to configure <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> such to have an <code class="docutils literal notranslate"><span class="pre">upstream</span></code> remote repo to access new code provided by the instructors, as well as an <code class="docutils literal notranslate"><span class="pre">origin</span></code> remote repo where your team collaborates on new code.</p>
 <p>Start by cloning the public repository that the instructors manage</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/bwsi-uav
@@ -444,7 +446,7 @@ git remote -v
 <p>You should see both an <code class="docutils literal notranslate"><span class="pre">upstream</span></code> and <code class="docutils literal notranslate"><span class="pre">origin</span></code> remote repo (each has two entries: fetch and push)</p>
 </section>
 <section id="Testing-Repository-Setup">
-<h2>Testing Repository Setup<a class="headerlink" href="#Testing-Repository-Setup" title="Permalink to this headline"></a></h2>
+<h2>Testing Repository Setup<a class="headerlink" href="#Testing-Repository-Setup" title="Permalink to this heading"></a></h2>
 <p>We will now test that you have configured your drone directories and repositories correctly</p>
 <ol class="arabic simple">
 <li><p>Instructors: push a new file called <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code> to <a class="reference external" href="https://github.com/BWSI-UAV/laboratory/tree/master/project_workflow">https://github.com/BWSI-UAV/laboratory/tree/master/project_workflow</a></p></li>
@@ -456,7 +458,7 @@ git remote -v
 <li><p>Team Members: In sequence each team member pulls the new commits to their own laptops with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code>, modifies the file again to add another line (totaling 10 new lines from the start of the exercise), commits, and pushes back to team’s repository</p></li>
 </ol>
 <section id="Stretch-Goal:-Merge-Conflicts">
-<h3>Stretch Goal: Merge Conflicts<a class="headerlink" href="#Stretch-Goal:-Merge-Conflicts" title="Permalink to this headline"></a></h3>
+<h3>Stretch Goal: Merge Conflicts<a class="headerlink" href="#Stretch-Goal:-Merge-Conflicts" title="Permalink to this heading"></a></h3>
 <p>If time permits, we will also practice resolving conflicts in git.</p>
 <ol class="arabic simple">
 <li><p>Instructors: introduce a change to <code class="docutils literal notranslate"><span class="pre">git_hello_world.md</span></code></p></li>
@@ -467,8 +469,7 @@ git remote -v
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -480,7 +481,7 @@ git remote -v
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tello_intro.html" class="btn btn-neutral float-left" title="Course Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="racing_challenges.html" class="btn btn-neutral float-left" title="Module 4: Racing Challenges" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="code_debugging.html" class="btn btn-neutral float-right" title="Bugged Zip Sims Repo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

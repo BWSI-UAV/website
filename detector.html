@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Custom ROS Message for Line Params &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,18 +54,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul class="current">
@@ -116,8 +118,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Custom ROS Message for Line Params</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Custom ROS Message for Line Params</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/detector.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -337,7 +339,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -398,7 +400,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Custom-ROS-Message-for-Line-Params">
-<h1>Custom ROS Message for Line Params<a class="headerlink" href="#Custom-ROS-Message-for-Line-Params" title="Permalink to this headline"></a></h1>
+<h1>Custom ROS Message for Line Params<a class="headerlink" href="#Custom-ROS-Message-for-Line-Params" title="Permalink to this heading"></a></h1>
 <p>All of the following instructions are based on <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv#Creating_a_msg">this</a> guide.</p>
 <p>First create the message file using the following commands:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/bwsi-uav/catkin_ws/src/aero_control
@@ -417,7 +419,7 @@ float64 vy
 <p>This will enable us to transmit a <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">=</span> <span class="pre">&lt;x,</span> <span class="pre">y&gt;</span> <span class="pre">+</span> <span class="pre">t</span> <span class="pre">*</span> <span class="pre">&lt;vx,</span> <span class="pre">vy&gt;</span></code> line parameterization. (<code class="docutils literal notranslate"><span class="pre">t</span></code> can be any real number and <code class="docutils literal notranslate"><span class="pre">P</span></code> is a point on the line)</p>
 <p>Each line has the sub-message type followed by the name of the variable.</p>
 <section id="Building-the-message-with-catkin">
-<h2>Building the message with catkin<a class="headerlink" href="#Building-the-message-with-catkin" title="Permalink to this headline"></a></h2>
+<h2>Building the message with catkin<a class="headerlink" href="#Building-the-message-with-catkin" title="Permalink to this heading"></a></h2>
 <p>We need to make sure that the msg files are turned into source code for C++, Python, and other languages:</p>
 <p>Open <code class="docutils literal notranslate"><span class="pre">aero_control/package.xml</span></code>, and make sure these two lines are in it and uncommented:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;build_depend&gt;message_generation&lt;/build_depend&gt;
@@ -484,22 +486,21 @@ source devel/setup.bash
 </div>
 </section>
 <section id="Modifying-talker.py-and-listener.py-to-use-custom-messages">
-<h2>Modifying <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> to use custom messages<a class="headerlink" href="#Modifying-talker.py-and-listener.py-to-use-custom-messages" title="Permalink to this headline"></a></h2>
+<h2>Modifying <code class="docutils literal notranslate"><span class="pre">talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">listener.py</span></code> to use custom messages<a class="headerlink" href="#Modifying-talker.py-and-listener.py-to-use-custom-messages" title="Permalink to this heading"></a></h2>
 <p>Fill out the <code class="docutils literal notranslate"><span class="pre">TODO</span></code> sections in <code class="docutils literal notranslate"><span class="pre">line_tracker/src/talker.py</span></code> and <code class="docutils literal notranslate"><span class="pre">line_tracker/src/listener.py</span></code>.</p>
 <p>You will probabally find the following guide/example code helpful: <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/CustomMessagePublisherSubscriber%28python%29">link</a></p>
 <p>Dont worry about making any files exicutable since we will be using launchfiles</p>
 <p>To run these two files together, use <code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">launch/talk_listen.launch</span></code> in the <code class="docutils literal notranslate"><span class="pre">line_tracker</span></code> package</p>
 </section>
 <section id="Writing-detector.py">
-<h2>Writing <code class="docutils literal notranslate"><span class="pre">detector.py</span></code><a class="headerlink" href="#Writing-detector.py" title="Permalink to this headline"></a></h2>
+<h2>Writing <code class="docutils literal notranslate"><span class="pre">detector.py</span></code><a class="headerlink" href="#Writing-detector.py" title="Permalink to this heading"></a></h2>
 <p>Fill out the TODO sections in <code class="docutils literal notranslate"><span class="pre">line_tracker/src/detector.py</span></code>, you should be able to reuse code from <code class="docutils literal notranslate"><span class="pre">line_tracker/src/talker.py</span></code>, your line paramaterization notebook, and <a class="reference external" href="downward_cam_bag.html?highlight=recording#Integrating-opencv-and-ROS-images">this</a> example code.</p>
 <p>To run your code, use <code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">aero_control</span> <span class="pre">detect_listen.launch</span></code> in the <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> package</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

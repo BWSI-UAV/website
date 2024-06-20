@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Module 2: Computer Vision &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,7 +54,7 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Module 2: Computer Vision</a><ul>
@@ -60,12 +68,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul>
@@ -119,8 +121,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Module 2: Computer Vision</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Module 2: Computer Vision</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/computer_vision.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -155,13 +157,13 @@
 }
 </style>
 <section id="Module-2:-Computer-Vision">
-<h1>Module 2: Computer Vision<a class="headerlink" href="#Module-2:-Computer-Vision" title="Permalink to this headline"></a></h1>
+<h1>Module 2: Computer Vision<a class="headerlink" href="#Module-2:-Computer-Vision" title="Permalink to this heading"></a></h1>
 <section id="Unit-1:-A-Survey-of-Computer-Vision">
-<h2>Unit 1: A Survey of Computer Vision<a class="headerlink" href="#Unit-1:-A-Survey-of-Computer-Vision" title="Permalink to this headline"></a></h2>
+<h2>Unit 1: A Survey of Computer Vision<a class="headerlink" href="#Unit-1:-A-Survey-of-Computer-Vision" title="Permalink to this heading"></a></h2>
 <p><strong>Goal</strong>: Understand the motivation and princples of utilizing computer vision as a means of perception for autonomous systems. Survey several common applications and current research trends in the field of computer vision from a robotics perspective.</p>
 </section>
 <section id="Unit-2:-Kernels,-Edges,-Thresholds">
-<h2>Unit 2: Kernels, Edges, Thresholds<a class="headerlink" href="#Unit-2:-Kernels,-Edges,-Thresholds" title="Permalink to this headline"></a></h2>
+<h2>Unit 2: Kernels, Edges, Thresholds<a class="headerlink" href="#Unit-2:-Kernels,-Edges,-Thresholds" title="Permalink to this heading"></a></h2>
 <p><strong>Goal:</strong> This unit introduces the fundamentals of image analysis for machine vision. We will treat images and videos as two-dimensional signals, allowing us to apply signal processing techniques to detect and interpret features in a camera stream on an embedded platform in real-time, using <a class="reference external" href="https://opencv.org/">the OpenCV library</a>.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
@@ -171,7 +173,7 @@
 </ol>
 </section>
 <section id="Unit-3:-Regression,-Line-Parameterization">
-<h2>Unit 3: Regression, Line Parameterization<a class="headerlink" href="#Unit-3:-Regression,-Line-Parameterization" title="Permalink to this headline"></a></h2>
+<h2>Unit 3: Regression, Line Parameterization<a class="headerlink" href="#Unit-3:-Regression,-Line-Parameterization" title="Permalink to this heading"></a></h2>
 <p><strong>Goal:</strong> Learn how to detect an LED rope present in a camera image by applying linear regression on thresholded pixel values, as the first step in enabling the drone to follow an LED track.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
@@ -180,7 +182,7 @@
 </ol>
 </section>
 <section id="Unit-4:-Color-Segmentation">
-<h2>Unit 4: Color Segmentation<a class="headerlink" href="#Unit-4:-Color-Segmentation" title="Permalink to this headline"></a></h2>
+<h2>Unit 4: Color Segmentation<a class="headerlink" href="#Unit-4:-Color-Segmentation" title="Permalink to this heading"></a></h2>
 <p><strong>Goal:</strong> Understand how to detect and segment a specific, narrow range of colors within an image.</p>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
@@ -188,7 +190,7 @@
 </ol>
 </section>
 <section id="Unit-5:-Integration-with-Quadrotor">
-<h2>Unit 5: Integration with Quadrotor<a class="headerlink" href="#Unit-5:-Integration-with-Quadrotor" title="Permalink to this headline"></a></h2>
+<h2>Unit 5: Integration with Quadrotor<a class="headerlink" href="#Unit-5:-Integration-with-Quadrotor" title="Permalink to this heading"></a></h2>
 <p><strong>Goal:</strong> In order to utilize computer vision techniques for UAV control, we need to be able to pass information between our vision processes (i.e. ROS nodes) and our command/control processes in a parameterized format. The goal of this unit is to develop such ROS messages.</p>
 <p><strong>Practicals</strong></p>
 <ol class="arabic simple">
@@ -197,7 +199,7 @@
 </ol>
 </section>
 <section id="Unit-6:-Advanced-Topics">
-<h2>Unit 6: Advanced Topics<a class="headerlink" href="#Unit-6:-Advanced-Topics" title="Permalink to this headline"></a></h2>
+<h2>Unit 6: Advanced Topics<a class="headerlink" href="#Unit-6:-Advanced-Topics" title="Permalink to this heading"></a></h2>
 <p><strong>Goal:</strong> Understand the theory behind some of the “black box” algorithms we have used thus far as well as the frontiers of computer vision research</p>
 <p><strong>Lectures:</strong></p>
 <ol class="arabic simple">

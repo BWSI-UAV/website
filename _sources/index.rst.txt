@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to BWSI Autonomous Air Vehicle Racing's documentation!
+Welcome to BWSI Autonomous Air Vehicle Racing!
 ======================================
 
 .. toctree::
@@ -17,13 +17,6 @@ Welcome to BWSI Autonomous Air Vehicle Racing's documentation!
    computer_vision.ipynb
    planning_control.ipynb
    racing_challenges.ipynb
-
-.. toctree::
-   :maxdepth: 2
-   :caption: BWSI @ Home:
-
-   tello_intro.ipynb
-
 
 .. toctree::
    :maxdepth: 2

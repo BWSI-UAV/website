@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hovering with Optical Flow &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,18 +54,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul class="current">
@@ -117,8 +119,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Hovering with Optical Flow</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Hovering with Optical Flow</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/enable_optical_flow.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -338,7 +340,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -399,12 +401,12 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Hovering-with-Optical-Flow">
-<h1>Hovering with Optical Flow<a class="headerlink" href="#Hovering-with-Optical-Flow" title="Permalink to this headline"></a></h1>
+<h1>Hovering with Optical Flow<a class="headerlink" href="#Hovering-with-Optical-Flow" title="Permalink to this heading"></a></h1>
 <p>In order for the drone to be capable of autonomous flight it needs some reference or estimate of it’s position in the world. Outdoors we can use GPS. Indoors GPS doesn’t work. If we have hundreds of thousands of dollars and a dedicated flight space, we can use a motion capture system for position information. Since we don’t assume we have access to such a facility, we will be using <em>optical flow</em> to get some sense of our position relative to the position we started.</p>
 <p>The theory and algorithms behind optical flow are beyond the scope of this module. Suffice it to say that optical flow is a way of using a video stream from an onboard camera in order for the drone to estimate its velocity which, in turn, can be used to estimate where the drone is relative to some arbitrary starting point. At this time we are only concerned with integrating existing libraries and hardware to enable optical flow on the Intel RTF Drone; any further discussion of the concepts and
 theory behind optical flow are left for a later module.</p>
 <section id="Step-1:-Install-Libraries">
-<h2>Step 1: Install Libraries<a class="headerlink" href="#Step-1:-Install-Libraries" title="Permalink to this headline"></a></h2>
+<h2>Step 1: Install Libraries<a class="headerlink" href="#Step-1:-Install-Libraries" title="Permalink to this heading"></a></h2>
 <p>Ensure that you have completed <a class="reference external" href="https://bwsi-uav.github.io/website/initial_setup.html#Step-5:-Optical-Flow-Libraries">these setup steps</a></p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong></p>
@@ -422,7 +424,7 @@ theory behind optical flow are left for a later module.</p>
 </ul>
 </section>
 <section id="Step-2:-Start-Optical-Flow-Services">
-<h2>Step 2: Start Optical Flow Services<a class="headerlink" href="#Step-2:-Start-Optical-Flow-Services" title="Permalink to this headline"></a></h2>
+<h2>Step 2: Start Optical Flow Services<a class="headerlink" href="#Step-2:-Start-Optical-Flow-Services" title="Permalink to this heading"></a></h2>
 <p>Follow these steps to run the start the optical flow service</p>
 <ul class="simple">
 <li><p>Power on remote control</p></li>
@@ -437,7 +439,7 @@ sudo systemctl start aero-optical-flow.service
 </div>
 </section>
 <section id="Step-3:-Verify-Services">
-<h2>Step 3: Verify Services<a class="headerlink" href="#Step-3:-Verify-Services" title="Permalink to this headline"></a></h2>
+<h2>Step 3: Verify Services<a class="headerlink" href="#Step-3:-Verify-Services" title="Permalink to this heading"></a></h2>
 <p>To make sure things are working as expected, run the following steps:</p>
 <ul class="simple">
 <li><p>Check that syslog is not being spammed and at risk of filling the disk. Run the following command and to ensure that this directory is not growing extremely quickly</p></li>
@@ -453,7 +455,7 @@ sudo systemctl start aero-optical-flow.service
 <p>If any of these parameters are not in MAVLink Inspector or Analyze, you know that something is wrong</p>
 </section>
 <section id="Step-4:-Test-Flight">
-<h2>Step 4: Test Flight<a class="headerlink" href="#Step-4:-Test-Flight" title="Permalink to this headline"></a></h2>
+<h2>Step 4: Test Flight<a class="headerlink" href="#Step-4:-Test-Flight" title="Permalink to this heading"></a></h2>
 <p>If everything in <a class="reference external" href="#enable_optical_flow-verify_services">step 3</a> appear to be working correctly, you are ready to try a test flight.</p>
 <ul class="simple">
 <li><p>Using the RC, switch to position control before arming. Your ground station should audibly inform you that you are in position control mode</p></li>
@@ -465,8 +467,7 @@ sudo systemctl start aero-optical-flow.service
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

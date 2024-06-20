@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Markdown Cells &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -28,14 +32,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -44,18 +52,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul>
@@ -109,8 +111,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Markdown Cells</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Markdown Cells</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/markdown_examples.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -145,11 +147,11 @@
 }
 </style>
 <section id="Markdown-Cells">
-<h1>Markdown Cells<a class="headerlink" href="#Markdown-Cells" title="Permalink to this headline"></a></h1>
+<h1>Markdown Cells<a class="headerlink" href="#Markdown-Cells" title="Permalink to this heading"></a></h1>
 <p>Text can be added to Jupyter Notebooks using Markdown cells. You can change the cell type to Markdown by using the <code class="docutils literal notranslate"><span class="pre">Cell</span></code> menu, the toolbar, or the key shortcut <code class="docutils literal notranslate"><span class="pre">m</span></code>. Markdown is a popular markup language that is a superset of HTML. Its specification can be found here:</p>
 <p><a class="reference external" href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a></p>
 <section id="Markdown-basics">
-<h2>Markdown basics<a class="headerlink" href="#Markdown-basics" title="Permalink to this headline"></a></h2>
+<h2>Markdown basics<a class="headerlink" href="#Markdown-basics" title="Permalink to this heading"></a></h2>
 <p>You can make text <em>italic</em> or <strong>bold</strong>.</p>
 <p>You can build nested itemized or enumerated lists:</p>
 <ul class="simple">
@@ -196,7 +198,7 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 <p><a class="reference external" href="http://jupyter.org">Jupyter’s website</a></p>
 </section>
 <section id="Headings">
-<h2>Headings<a class="headerlink" href="#Headings" title="Permalink to this headline"></a></h2>
+<h2>Headings<a class="headerlink" href="#Headings" title="Permalink to this heading"></a></h2>
 <p>You can add headings by starting a line with one (or multiple) <code class="docutils literal notranslate"><span class="pre">#</span></code> followed by a space, as in the following example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Heading 1
 # Heading 2
@@ -206,7 +208,7 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </div>
 </section>
 <section id="Embedded-code">
-<h2>Embedded code<a class="headerlink" href="#Embedded-code" title="Permalink to this headline"></a></h2>
+<h2>Embedded code<a class="headerlink" href="#Embedded-code" title="Permalink to this heading"></a></h2>
 <p>You can embed code meant for illustration instead of execution in Python:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def f(x):
     &quot;&quot;&quot;a docstring&quot;&quot;&quot;
@@ -222,7 +224,7 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </div>
 </section>
 <section id="LaTeX-equations">
-<h2>LaTeX equations<a class="headerlink" href="#LaTeX-equations" title="Permalink to this headline"></a></h2>
+<h2>LaTeX equations<a class="headerlink" href="#LaTeX-equations" title="Permalink to this heading"></a></h2>
 <p>Courtesy of MathJax, you can include mathematical expressions both inline: <span class="math notranslate nohighlight">\(e^{i\pi} + 1 = 0\)</span> and displayed:</p>
 <div class="math notranslate nohighlight">
 \[e^x=\sum_{i=0}^\infty \frac{1}{i!}x^i\]</div>
@@ -236,7 +238,7 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </div>
 </section>
 <section id="GitHub-flavored-markdown">
-<h2>GitHub flavored markdown<a class="headerlink" href="#GitHub-flavored-markdown" title="Permalink to this headline"></a></h2>
+<h2>GitHub flavored markdown<a class="headerlink" href="#GitHub-flavored-markdown" title="Permalink to this heading"></a></h2>
 <p>The Notebook webapp supports Github flavored markdown meaning that you can use triple backticks for code blocks:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```python
 print &quot;Hello World&quot;
@@ -279,7 +281,7 @@ console.log(&quot;Hello World&quot;)
 </table>
 </section>
 <section id="General-HTML">
-<h2>General HTML<a class="headerlink" href="#General-HTML" title="Permalink to this headline"></a></h2>
+<h2>General HTML<a class="headerlink" href="#General-HTML" title="Permalink to this heading"></a></h2>
 <p>Because Markdown is a superset of HTML you can even add things like HTML tables:</p>
 <table><tr><th><p>Header 1</p>
 </th><th><p>Header 2</p>
@@ -289,7 +291,7 @@ console.log(&quot;Hello World&quot;)
 </td><td><p>row 2, cell 2</p>
 </td></tr></table></section>
 <section id="Local-files">
-<h2>Local files<a class="headerlink" href="#Local-files" title="Permalink to this headline"></a></h2>
+<h2>Local files<a class="headerlink" href="#Local-files" title="Permalink to this heading"></a></h2>
 <p>If you have local files in your Notebook directory, you can refer to these files in Markdown cells directly:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[subdirectory/]&lt;filename&gt;
 </pre></div>
@@ -298,14 +300,14 @@ console.log(&quot;Hello World&quot;)
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;img src=&quot;../images/python_logo.svg&quot; /&gt;
 </pre></div>
 </div>
-<p><img alt="9ef2f51216d540b2a30dc40c4b29f8a6" src="../images/python_logo.svg" /></p>
+<p><img alt="26e65a809cd64f51a4b8420b9a7b9372" src="../images/python_logo.svg" /></p>
 <p>and a video with the HTML5 video tag:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;video controls src=&quot;../images/animation.m4v&quot; /&gt;
 </pre></div>
 </div>
 <video controls src="../images/animation.m4v" /><p>These do not embed the data into the notebook file, and require that the files exist when you are viewing the notebook.</p>
 <section id="Security-of-local-files">
-<h3>Security of local files<a class="headerlink" href="#Security-of-local-files" title="Permalink to this headline"></a></h3>
+<h3>Security of local files<a class="headerlink" href="#Security-of-local-files" title="Permalink to this heading"></a></h3>
 <p>Note that this means that the Jupyter notebook server also acts as a generic file server for files inside the same tree as your notebooks. Access is not granted outside the notebook folder so you have strict control over what files are visible, but for this reason it is highly recommended that you do not run the notebook server with a notebook directory at a high level in your filesystem (e.g. your home directory).</p>
 <p>When you run the notebook in a password-protected manner, local file access is restricted to authenticated users unless read-only views are active.</p>
 </section>

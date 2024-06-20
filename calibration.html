@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calibrating Intel RTF Drones &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,10 +16,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Autonomous Air Vehicle Racing
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
           </a>
               <div class="version">
                 0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,18 +54,12 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2021 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">BWSI &#64; Home:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html">Course Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Passport-Curriculum">Passport Curriculum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_intro.html#Final-Project">Final Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul class="current">
@@ -136,8 +138,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Calibrating Intel RTF Drones</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Calibrating Intel RTF Drones</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/calibration.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -357,7 +359,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -418,12 +420,12 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Calibrating-Intel-RTF-Drones">
-<h1>Calibrating Intel RTF Drones<a class="headerlink" href="#Calibrating-Intel-RTF-Drones" title="Permalink to this headline"></a></h1>
+<h1>Calibrating Intel RTF Drones<a class="headerlink" href="#Calibrating-Intel-RTF-Drones" title="Permalink to this heading"></a></h1>
 <section id="Step-1:-Connect-to-the-Drone">
-<h2>Step 1: Connect to the Drone<a class="headerlink" href="#Step-1:-Connect-to-the-Drone" title="Permalink to this headline"></a></h2>
+<h2>Step 1: Connect to the Drone<a class="headerlink" href="#Step-1:-Connect-to-the-Drone" title="Permalink to this heading"></a></h2>
 <p>You can connect the drone over QGroundControl using the following steps:</p>
 <section id="Connecting-with-QGroundControl">
-<h3>Connecting with QGroundControl<a class="headerlink" href="#Connecting-with-QGroundControl" title="Permalink to this headline"></a></h3>
+<h3>Connecting with QGroundControl<a class="headerlink" href="#Connecting-with-QGroundControl" title="Permalink to this heading"></a></h3>
 <p>In order to connect the groundstation software (i.e. QGroundControl) to the drone via a router: (skippable if already completed)</p>
 <p>On the drone:</p>
 <ul class="simple">
@@ -464,20 +466,20 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Step-2:-Calibration-Setup">
-<h2>Step 2: Calibration Setup<a class="headerlink" href="#Step-2:-Calibration-Setup" title="Permalink to this headline"></a></h2>
+<h2>Step 2: Calibration Setup<a class="headerlink" href="#Step-2:-Calibration-Setup" title="Permalink to this heading"></a></h2>
 <p>Open QGroundControl and select Sensors from the side menu.</p>
-<img alt="qgc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/acc.png?raw=true" />
+<p><img alt="qgc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/acc.png?raw=true" /></p>
 <p>Ensure you have a box/upside-down mount and a regular mount as pictured below, as well as an Intel RTF Drone with a charged battery.</p>
-<table><tr><td><div style="transform:rotate(90deg);"><img alt="box_mount.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/box-mount.jpg?raw=true" />
-</div></td><td><div style="transform:rotate(90deg);"><img alt="standard_mount.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/standard-mount.jpg?raw=true" />
+<table><tr><td><div style="transform:rotate(90deg);"><p><img alt="box_mount.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/box-mount.jpg?raw=true" /></p>
+</div></td><td><div style="transform:rotate(90deg);"><p><img alt="standard_mount.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/standard-mount.jpg?raw=true" /></p>
 </div></td></tr></table></section>
 <section id="Step-3:-Compass-Calibration">
-<h2>Step 3: Compass Calibration<a class="headerlink" href="#Step-3:-Compass-Calibration" title="Permalink to this headline"></a></h2>
+<h2>Step 3: Compass Calibration<a class="headerlink" href="#Step-3:-Compass-Calibration" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Begin with the drone in the standard mount.</p></li>
 </ul>
-<img alt="standard-mount-w-drone.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/standard-mount-w-drone.JPG?raw=true" />
-<img alt="compass_select.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/compass_select.png?raw=true" />
+<p><img alt="standard-mount-w-drone.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/standard-mount-w-drone.JPG?raw=true" /></p>
+<p><img alt="compass_select.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/compass_select.png?raw=true" /></p>
 <ul class="simple">
 <li><p>Select the Compass option in the calibration menu.</p>
 <ul>
@@ -488,31 +490,31 @@ div.rendered_html tbody tr:hover {
 </li>
 </ul>
 <section id="The-compass-calibration-process-(except-the-upside-down-configuration)-is-shown-below.">
-<h3>The compass calibration process (except the upside down configuration) is shown below.<a class="headerlink" href="#The-compass-calibration-process-(except-the-upside-down-configuration)-is-shown-below." title="Permalink to this headline"></a></h3>
-<img alt="compass.gif" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/compass.gif?raw=true" />
+<h3>The compass calibration process (except the upside down configuration) is shown below.<a class="headerlink" href="#The-compass-calibration-process-(except-the-upside-down-configuration)-is-shown-below." title="Permalink to this heading"></a></h3>
+<p><img alt="compass.gif" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/compass.gif?raw=true" /></p>
 <li><p>For the upside-down configuration, place the drone in the box mount.</p>
-</li><img alt="IMG_7980.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/IMG_7980.JPG?raw=true" />
-<img alt="IMG_7981.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/IMG_7981.JPG?raw=true" />
+</li><p><img alt="IMG_7980.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/IMG_7980.JPG?raw=true" /></p>
+<p><img alt="IMG_7981.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/IMG_7981.JPG?raw=true" /></p>
 <li><p>Turn the box mount continuously until the bounding box for the upside down configuration turns green.</p>
 </li></section>
 </section>
 <section id="Step-4:-Accelerometer-Calibration">
-<h2>Step 4: Accelerometer Calibration<a class="headerlink" href="#Step-4:-Accelerometer-Calibration" title="Permalink to this headline"></a></h2>
+<h2>Step 4: Accelerometer Calibration<a class="headerlink" href="#Step-4:-Accelerometer-Calibration" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Start with the drone in the standard mount.</p></li>
 <li><p>Select Accelerometer from the left menu on the Sensors page in QGroundControl.</p></li>
 <li><p>Move the drone to each of the indicated positions, and make sure to hold the mount still while the bounding box of each position is yellow in QGroundControl.</p></li>
 </ul>
 <section id="The-accelerometer-calibration-process-(except-the-upside-down-configuration)-is-shown-below.">
-<h3>The accelerometer calibration process (except the upside-down configuration) is shown below.<a class="headerlink" href="#The-accelerometer-calibration-process-(except-the-upside-down-configuration)-is-shown-below." title="Permalink to this headline"></a></h3>
-<img alt="accelerometer.gif" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/accelerometer.gif?raw=true" />
+<h3>The accelerometer calibration process (except the upside-down configuration) is shown below.<a class="headerlink" href="#The-accelerometer-calibration-process-(except-the-upside-down-configuration)-is-shown-below." title="Permalink to this heading"></a></h3>
+<p><img alt="accelerometer.gif" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/accelerometer.gif?raw=true" /></p>
 <li><p>For the upside-down configuration, place the drone in the box mount, as shown above in Step 3, and hold the box still until the bounding box on screen turns green.</p>
 </li></section>
 </section>
 <section id="Step-5:-Gyroscope-and-Level-Horizon-Calibration">
-<h2>Step 5: Gyroscope and Level Horizon Calibration<a class="headerlink" href="#Step-5:-Gyroscope-and-Level-Horizon-Calibration" title="Permalink to this headline"></a></h2>
+<h2>Step 5: Gyroscope and Level Horizon Calibration<a class="headerlink" href="#Step-5:-Gyroscope-and-Level-Horizon-Calibration" title="Permalink to this heading"></a></h2>
 <p>Both of these calibrations require the drone to be placed on a flat surface (without any mounts or other accessories).</p>
-<img alt="drone-on-table.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/drone-on-table.JPG?raw=true" />
+<p><img alt="drone-on-table.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/drone-on-table.JPG?raw=true" /></p>
 <ul class="simple">
 <li><p>Select Gyroscope from the left menu on the Sensors page in QGroundControl.</p></li>
 <li><p>Wait for the bounding box to turn green. Gyroscope calibration is now complete.</p></li>
@@ -521,34 +523,34 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Note:-Level-Horizon-calibration-is-critical-for-proper-drone-operation.">
-<h2>Note: Level Horizon calibration is critical for proper drone operation.<a class="headerlink" href="#Note:-Level-Horizon-calibration-is-critical-for-proper-drone-operation." title="Permalink to this headline"></a></h2>
+<h2>Note: Level Horizon calibration is critical for proper drone operation.<a class="headerlink" href="#Note:-Level-Horizon-calibration-is-critical-for-proper-drone-operation." title="Permalink to this heading"></a></h2>
 <p>Make sure your flat surface is actually flat, and avoid moving anything on the surface while calibrating.</p>
 </section>
 <section id="Step-6:-Verifying-Calibration">
-<h2>Step 6: Verifying Calibration<a class="headerlink" href="#Step-6:-Verifying-Calibration" title="Permalink to this headline"></a></h2>
+<h2>Step 6: Verifying Calibration<a class="headerlink" href="#Step-6:-Verifying-Calibration" title="Permalink to this heading"></a></h2>
 <li><p>From the QGroundControl top menu bar, select Analyze under Widgets.</p>
-</li><img alt="widgets.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/widgets.png?raw=true" />
+</li><p><img alt="widgets.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/widgets.png?raw=true" /></p>
 <li><p>In Analyze, enter ‘acc’ into the filter box.</p>
-</li><img alt="acc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/acc.png?raw=true" />
+</li><p><img alt="acc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/acc.png?raw=true" /></p>
 <li><p>Select the check box for IMU.zacc, and verify that the resulting graph is close to -9.81 m/s^2 (gravity)</p>
-</li><img alt="zacc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/zacc.png?raw=true" />
+</li><p><img alt="zacc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/zacc.png?raw=true" /></p>
 <li><p>Deselect IMU.zacc and select IMU.xacc and IMU.yacc. Verify that the resulting graphs are close to zero. The drone is still flyable if the magnitudes of xacc and yacc deviate from 0 by less than 0.1 m/s^2.</p>
-</li><img alt="xacc_yacc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/xacc_yacc.png?raw=true" />
+</li><p><img alt="xacc_yacc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/xacc_yacc.png?raw=true" /></p>
 </section>
 <section id="Step-7:-Radio-Calibration-(RC-Controller)">
-<h2>Step 7: Radio Calibration (RC Controller)<a class="headerlink" href="#Step-7:-Radio-Calibration-(RC-Controller)" title="Permalink to this headline"></a></h2>
+<h2>Step 7: Radio Calibration (RC Controller)<a class="headerlink" href="#Step-7:-Radio-Calibration-(RC-Controller)" title="Permalink to this heading"></a></h2>
 <li><p>Obtain the radio paired to your drone and select Radio from the left-most menu in QGroundControl.</p>
-</li><img alt="radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/radio.png?raw=true" />
+</li><p><img alt="radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/radio.png?raw=true" /></p>
 <li><p>You will now zero the roll, pitch, yaw, and throttle. If the throttle is very low, as seen above, flip the “ARM/DISARM” switch to ARM.</p>
 </li><section id="Control-surfaces-pre-zeroing.-(Your-setup-may-vary)">
-<h3>Control surfaces pre-zeroing. (Your setup may vary)<a class="headerlink" href="#Control-surfaces-pre-zeroing.-(Your-setup-may-vary)" title="Permalink to this headline"></a></h3>
-<img alt="pre-trim-radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/pre-trim-radio.png?raw=true" />
+<h3>Control surfaces pre-zeroing. (Your setup may vary)<a class="headerlink" href="#Control-surfaces-pre-zeroing.-(Your-setup-may-vary)" title="Permalink to this heading"></a></h3>
+<p><img alt="pre-trim-radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/pre-trim-radio.png?raw=true" /></p>
 </section>
 <section id="Trims,-labeled-on-the-radio.">
-<h3>Trims, labeled on the radio.<a class="headerlink" href="#Trims,-labeled-on-the-radio." title="Permalink to this headline"></a></h3>
-<img alt="trims.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/trims.JPG?raw=true" />
+<h3>Trims, labeled on the radio.<a class="headerlink" href="#Trims,-labeled-on-the-radio." title="Permalink to this heading"></a></h3>
+<p><img alt="trims.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/trims.JPG?raw=true" /></p>
 <p>Ensure that both joysticks are centered as seen above, and then adjust the trims until the throttle, yaw, roll, and pitch are at the center of their sliders in QGroundControl.</p>
-<img alt="post-trim-radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/post-trim-radio.png?raw=true" />
+<p><img alt="post-trim-radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/post-trim-radio.png?raw=true" /></p>
 <ul class="simple">
 <li><p>Select ‘Calibrate’ on the Radio screen in QGroundControl, and then select OK when prompted (because you just zeroed your trims/subtrims.)</p></li>
 <li><p>Follow the directions on screen for manipulating the joysticks. QGroundControl will detect the movement and continue through the calibration automatically.</p></li>
@@ -558,7 +560,7 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Flight-Modes">
-<h2>Flight Modes<a class="headerlink" href="#Flight-Modes" title="Permalink to this headline"></a></h2>
+<h2>Flight Modes<a class="headerlink" href="#Flight-Modes" title="Permalink to this heading"></a></h2>
 <p>To ensure everyone’s remote controls behave the same and that we can enter the appropriate flight modes for our test, we need set the flight modes. Flight mode is controlled by the toggle on the upper left shoulder of the remote control which is labeled “FLIGHT MODE”. This toggle is mapped to the onboard flight controller using QGroundControl’s “Flight Mode” tab. In the Flight Mode tab in QGC, set:</p>
 <ul class="simple">
 <li><p>Mode channel: Channel 5</p></li>
@@ -569,13 +571,12 @@ div.rendered_html tbody tr:hover {
 <p>Leave all other options as <code class="docutils literal notranslate"><span class="pre">Unassigned</span></code></p>
 </section>
 <section id="You-are-now-finished-with-calibration!">
-<h2>You are now finished with calibration!<a class="headerlink" href="#You-are-now-finished-with-calibration!" title="Permalink to this headline"></a></h2>
+<h2>You are now finished with calibration!<a class="headerlink" href="#You-are-now-finished-with-calibration!" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

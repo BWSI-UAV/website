@@ -14,12 +14,6 @@
     "---\n",
     "## Instructional Content Access\n",
     "\n",
-    "Throughout this course we leverage instructional content from various sources. For better or worse, some of those source require accounts. Please follow the links below for setting up accounts for MIT's GitHub and BWSI's edX platforms\n",
-    "\n",
-    "### MIT GitHub Account\n",
-    "\n",
-    "[MIT Touchstone Collaboration Account Instructions](http://kb.mit.edu/confluence/display/istcontrib/Creating+a+Touchstone+Collaboration+Account)\n",
-    "\n",
     "### BWSI edX Account\n",
     "\n",
     "[Instructions for BWSI's edX application](https://beaverworks.ll.mit.edu/CMS/bw/bwsiapply). Note: You should already have an account having completed the pre-requisite online portion of this course"
@@ -29,7 +23,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "---\n",
+    "<!-- ---\n",
     "## Intel RTF Drone Setup\n",
     "\n",
     "The purpose of this module is to walk you through the entire setup process for the Intel Ready-To-Fly Drone. In spite of its name, the Intel RTF isn't quite \"ready to fly\" out of the box; you need to connect some peripheral hardware to install the most recent software. Furthermore we will need to customize some of the software and firmware in order to prepare it for our specific use cases in the UAV Class and Challenge.\n",
@@ -65,14 +59,15 @@
     "When calibrating and configuring the remote control, set Flight Mode 1 to `Manual`, Flight Mode 4 to `Position`, and Flight Mode 6 to `Offboard`\n",
     "\n",
     "</div>\n",
-    "\n"
+    "\n",
+    " -->"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Step 2: Ubuntu Installation\n",
+    "<!-- ### Step 2: Ubuntu Installation\n",
     "\n",
     "[__Reference: Intel Documentation__](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation)\n",
     "\n",
@@ -111,14 +106,15 @@
     "\n",
     "<div class=\"alert alert-info\">\n",
     "**Note:** Whenever you start up the drone you need to boot Aero Compute into Advanced options for Ubuntu (which is set as the default), NOT normal ubuntu. Booting into normal Ubuntu can cause connection problems like QGroundControl not being able to connect with the drone (e.g. 'Error on socket: Connection refused')\n",
-    "</div>\n"
+    "</div>\n",
+    " -->"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Step 3: Network Setup <a id='network_setup'></a>\n",
+    "<!-- ### Step 3: Network Setup <a id='network_setup'></a>\n",
     "\n",
     "[**Reference: Intel Documentation**](https://github.com/intel-aero/meta-intel-aero/wiki/08-Aero-Network-and-System-Administration)\n",
     "\n",
@@ -177,14 +173,14 @@
     "\n",
     "<div class=\"alert alert-info\">\n",
     "**Note:** When you get this far, it might be a good time to try a manual flight test of the drone. [See instructions here](https://github.com/intel-aero/meta-intel-aero/wiki/03-First-flight)\n",
-    "</div>"
+    "</div> -->"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Step 4: PX4 Toolchain\n",
+    "<!-- ### Step 4: PX4 Toolchain\n",
     "\n",
     "[**Dronecode Documentation**](https://dev.px4.io/en/setup/dev_env_linux.html)\n",
     "\n",
@@ -230,14 +226,14 @@
     "```\n",
     "cd ~/Firmware\n",
     "sudo aerofc_update.sh build/aerofc-v1_default/aerofc-v1_default.px4\n",
-    "```"
+    "``` -->"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Step 5: Optical Flow Libraries\n",
+    "<!-- ### Step 5: Optical Flow Libraries\n",
     "<a id='initial_setup-optical_flow_libraries'></a>\n",
     "\n",
     "\n",
@@ -328,21 +324,22 @@
     "sudo systemctl start aero-teraranger.service\n",
     "sudo systemctl start aero-optical-flow.service\n",
     "```\n",
-    "\n"
+    "\n",
+    " -->"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Step 6: ROS Installation\n",
+    "<!-- ### Step 6: ROS Installation\n",
     "\n",
     "[**Intel Documentation**](https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS)\n",
     "\n",
     "All the high level, onboard control of the drone will be performed on the Aero Compute Board using ROS (as opposed to the AeroFC that is responsible for low level control using PX4). We therefore need to install ROS onboard the drone. Follow the instructions [here](https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS) under the sections; specifically:\n",
     "\n",
     " - https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#why-ros\n",
-    " - https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#installation"
+    " - https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS#installation -->"
    ]
   },
   {
@@ -366,7 +363,7 @@
     "\n",
     "**NOTE:** \n",
     "\n",
-    "As of the Summer of 2019, we are still using Ubuntu 16.04 LTS for this course. Please select this version of Ubuntu while installing using one of the following options.\n",
+    "As of the Summer of 2024, we will be using Ubuntu 22.04 LTS for this course. Please select this version of Ubuntu while installing using one of the following options.\n",
     "\n",
     "</div>\n",
     "\n",
@@ -403,26 +400,30 @@
     "\n",
     "_This option can be good when getting started with Linux as it requires less \"surgery\" on your computer, but it will eventually hit roadblocks/difficulties that a dual-boot avoids_\n",
     "\n",
-    "An alternative to dual booting is the create a virtual machine to run a \"guest\" Linux machine as a program within you native operating system. You should have already done this as part of the [online pre-requisite course](https://bwsix.mit.edu). \n",
+    "An alternative to dual booting is the create a virtual machine to run a \"guest\" Linux machine as a program within you native operating system. You should have already done this as part of the online prerequisite course.\n",
     "\n",
     "As with Dual Booting, there are many online tutorials to follow for creating a Ubuntu Linux virtual machine. Here is a link to one tutorial that uses [VirtualBox](https://www.virtualbox.org/):\n",
     "\n",
-    "[Medium Article on Linux VM Install](https://medium.com/@tushar0618/install-ubuntu-16-04-lts-on-virtual-box-desktop-version-30dc6f1958d0)\n",
+    "[Medium Article on Linux VM Install](https://medium.com/@efamharris/how-to-install-a-linux-virtual-machine-on-windows-10-522057b82ae6)\n",
+    "\n",
+    "### Install GIT\n",
+    "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git\n",
     "\n",
     "### PX4 Development Environment (UAV Firmware)\n",
     "\n",
-    "https://dev.px4.io/en/setup/dev_env_linux.html\n",
+    "https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html\n",
     "\n",
-    "### Install ROS (Robot Middleware)\n",
+    "### Install ROS2 (Robot Middleware)\n",
     "\n",
-    "http://wiki.ros.org/kinetic/Installation/Ubuntu\n",
+    "https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html\n",
     "\n",
-    "### Install Gazebo (Robot Simulator)\n",
     "\n",
-    "http://gazebosim.org/tutorials?tut=ros_wrapper_versions#Kinetic\n",
+    "### Miniconda/Adaconda & Jupyter Notebooks (Package Manager & Interactive Coding)\n",
+    "https://www.hostinger.com/tutorials/how-to-install-anaconda-on-ubuntu/\n",
     "\n",
-    "### Miniconda & Jupyter Notebooks (Package Manager & Interactive Coding)\n",
+    "https://jupyter.org/install\n",
     "\n",
+    "<!-- \n",
     "### Content Publishing\n",
     "\n",
     "To publish content we need to make use of `jupyter notebooks` and `sphinx`\n",
@@ -446,7 +447,8 @@
     "\n",
     "\n",
     "Spell checker (__NOTE:__ Need to ensure this doesn't spell check in the cloud)\n",
-    "+ http://www.simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html\n"
+    "+ http://www.simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html\n",
+    " -->"
    ]
   },
   {
@@ -465,9 +467,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 2",
+   "display_name": "Python 3 (ipykernel)",
    "language": "python",
-   "name": "python2"
+   "name": "python3"
   },
   "language_info": {
    "codemirror_mode": {

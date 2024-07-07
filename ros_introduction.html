@@ -56,10 +56,6 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="planning_control.html">Module 3: Estimation &amp; Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="racing_challenges.html">Module 4: Racing Challenges</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
 <ul class="current">
@@ -183,7 +179,7 @@ used in place of <code class="docutils literal notranslate"><span class="pre">in
 <p>The following is taken almost directly from <a class="reference external" href="http://wiki.ros.org/ROS/Concepts">http://wiki.ros.org/ROS/Concepts</a> and reproduced here for completeness</p>
 </div>
 <p><a class="reference external" href="http://wiki.ros.org/ROS/Concepts">Computation Graph</a> - The Computation Graph is the peer-to-peer network of ROS processes that are processing data together. The basic Computation Graph concepts of ROS are nodes, Master, Parameter Server, messages, services, topics, and bags, all of which provide data to the Graph in different ways.</p>
-<p><img alt="computation_graph" src="http://wiki.ros.org/ROS/Concepts?action=AttachFile&amp;do=get&amp;target=ROS_basic_concepts.png" /></p>
+<img alt="computation_graph" src="http://wiki.ros.org/ROS/Concepts?action=AttachFile&amp;do=get&amp;target=ROS_basic_concepts.png" />
 <ul class="simple">
 <li><p><a class="reference external" href="http://wiki.ros.org/Master">Master</a> - The ROS Master provides <a class="reference external" href="http://wiki.ros.org/Names">name</a> registration and lookup to the rest of the Computation Graph. Without the Master, nodes would not be able to find each other, exchange messages, or invoke services.</p></li>
 <li><p><a class="reference external" href="http://wiki.ros.org/Nodes">Nodes</a> - Nodes are processes that perform computation. ROS is designed to be modular at a fine-grained scale; a robot control system usually comprises many nodes. For example, one node controls a laser range-finder, one node controls the wheel motors, one node performs localization, one node performs path planning, one Node provides a graphical view of the system, and so on. A ROS node is written with the use of a ROS <a class="reference external" href="http://wiki.ros.org/Client%20Libraries">client

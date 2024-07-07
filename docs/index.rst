@@ -13,7 +13,7 @@ Welcome to BWSI Autonomous Air Vehicle Racing!
    intro.ipynb
    Syllabus.ipynb
    initial_setup.ipynb
-   quadrotor_basics.ipynb
+..   quadrotor_basics.ipynb
    computer_vision.ipynb
    planning_control.ipynb
    racing_challenges.ipynb

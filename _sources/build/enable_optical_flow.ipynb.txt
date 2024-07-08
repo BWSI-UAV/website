@@ -1,0 +1,122 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Hovering with Optical Flow<a id='enable_optical_flow'></a>\n",
+    "\n",
+    "In order for the drone to be capable of autonomous flight it needs some reference or estimate of it's position in the world. Outdoors we can use GPS. Indoors GPS doesn't work. If we have hundreds of thousands of dollars and a dedicated flight space, we can use a motion capture system for position information. Since we don't assume we have access to such a facility, we will be using _optical flow_ to get some sense of our position relative to the position we started.\n",
+    "\n",
+    "The theory and algorithms behind optical flow are beyond the scope of this module. Suffice it to say that optical flow is a way of using a video stream from an onboard camera in order for the drone to estimate its velocity which, in turn, can be used to estimate where the drone is relative to some arbitrary starting point. At this time we are only concerned with integrating existing libraries and hardware to enable optical flow on the Intel RTF Drone; any further discussion of the concepts and theory behind optical flow are left for a later module.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Step 1: Install Libraries\n",
+    "\n",
+    "Ensure that you have completed [these setup steps](https://bwsi-uav.github.io/website/initial_setup.html#Step-5:-Optical-Flow-Libraries)\n",
+    "\n",
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Warning:** \n",
+    "\n",
+    "At the time of this writing there was an unresolved, intermittent  bug that could cause error messages to spam `/var/log/syslog` so badly that it threatens to overfill the entire hard drive on the drone. To ensure this does not happen, check the size of that directory with\n",
+    "```\n",
+    "sudo du -sh /var/log\n",
+    "```\n",
+    "If at any time in this process that directory it is growing at a more than a MB every few seconds, shut down the drone and try restarting this process\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "Although they are part of the library install instructions, it is worth repeating that following parameters need to be set using QGroundControl\n",
+    "\n",
+    " - `EKF2_AID_MASK`: 2\n",
+    " - `EKF2_HGT_MODE`: 2\n",
+    " - `COM_POS_FS_EPH`: 50000\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Step 2: Start Optical Flow Services\n",
+    "\n",
+    "Follow these steps to run the start the optical flow service\n",
+    "\n",
+    "- Power on remote control\n",
+    "-  Power on the Intel RTF\n",
+    "-  Connect to UAV via QGroundControl (need to know IP address from previous flights or connect a monitor and run `ifconfig`)\n",
+    "- SSH into UAV (need to know IP address from previous flights or connect a monitor and run `ifconfig`)\n",
+    "-  Start the teraranger and optical flow services\n",
+    "```\n",
+    "sudo systemctl start aero-teraranger.service\n",
+    "sudo systemctl start aero-optical-flow.service\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Step 3: Verify Services<a id='enable_optical_flow-verify_services'></a>\n",
+    "\n",
+    "To make sure things are working as expected, run the following steps:\n",
+    "\n",
+    "-  Check that syslog is not being spammed and at risk of filling the disk. Run the following command and to ensure that this directory is not growing extremely quickly\n",
+    "```\n",
+    "sudo du -sh /var/log/\n",
+    "```\n",
+    "- Check quality of optical flow in QGroundControl: Widgets -> MAVlink Inspector -> Vehicle 1 -> OPTICAL_FLOW_RAD -> quality should be around 100 or more to be comfortable\n",
+    "- Check distance sensor is giving reasonable results: QGroundControl: Widgets -> MAVlink Inspector -> Vehicle 1 -> DISTANCE_SENSOR -> current_distance. If drone is sitting on the ground, the value should either be -Inf or equal to min_distance\n",
+    "- Make sure your local position estimate is reasonable in QGroundControl -> Widgets -> Analyze and check the following values: LOCAL_POSITION_NED.x, LOCAL_POSITION_NED.y, LOCAL_POSITION_NED.z\n",
+    "\n",
+    "If any of these parameters are not in MAVLink Inspector or Analyze, you know that something is wrong\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Step 4: Test Flight\n",
+    "\n",
+    "If everything in [step 3](#enable_optical_flow-verify_services) appear to be working correctly, you are ready to try a test flight.\n",
+    "\n",
+    "- Using the RC, switch to position control before arming. Your ground station should audibly inform you that you are in position control mode\n",
+    "- Arm the drone\n",
+    "- Once armed, slowly increase the throttle. Nothing should happen until the throttle reaches a predefined threshold that causes the drone the take-off in one (abrupt) \"jump\" and hover around 1 meter high.\n",
+    "- If the drone seems to ascend slowly while in position control, drop the throttle a small amount (it is registering a throttle above the \"hover in place\" threshold and thinks you want to ascend). If you drop the throttle enough, it will land automatically"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR Obstacle Avoidance &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Syllabus.html">2024 Course Syllabus*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer_vision.html">Module 2: Computer Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../kalman_filters.html">Kalman Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../simulation_challenge.html">Simulation Challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced_linefollowing_ideas.html">Advanced linefollowing ideas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../safety_checklist.html">Safety Checklist</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Autonomous Air Vehicle Racing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AR Obstacle Avoidance</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/build/.doctrees/nbsphinx/obstacle_avoidance.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="AR-Obstacle-Avoidance">
+<h1>AR Obstacle Avoidance<a class="headerlink" href="#AR-Obstacle-Avoidance" title="Permalink to this heading"></a></h1>
+<p>In this document, you will learn how to write obstacle avoidance code for your Intel Aero RTF drone, utilizing tools we have already seen in the course of the program. You can find our presentation on this here: <a class="reference external" href="https://docs.google.com/presentation/d/1TayWiAUiq3rBzKxJigS7_iZ-nUdeq2IVuoayHSu3zeA/edit?usp=sharing">https://docs.google.com/presentation/d/1TayWiAUiq3rBzKxJigS7_iZ-nUdeq2IVuoayHSu3zeA/edit?usp=sharing</a></p>
+<p>Key tools:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code></p></li>
+<li><p>Closed loop velocity control</p></li>
+<li><p>Open loop velocity control</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rqt_plot</span></code> to plot error signals</p></li>
+</ul>
+<section id="Challenge">
+<h2>Challenge<a class="headerlink" href="#Challenge" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Start &gt;1 m away from an AR tag and fly to the default height of 0.75 m</p></li>
+<li><p>Fly forward until the AR tag is &lt;= 1 m away from the drone</p></li>
+<li><p>Based on AR tag height, fly over/under the AR tag ‘obstacle’ and return to the default height on the other side</p></li>
+<li><p>Resume going forward (but pilot-in-command needs to take over before the drone hits the net).</p></li>
+</ul>
+<section id="Checkpoints">
+<h3>Checkpoints<a class="headerlink" href="#Checkpoints" title="Permalink to this heading"></a></h3>
+<section id="Height-Control">
+<h4>Height Control<a class="headerlink" href="#Height-Control" title="Permalink to this heading"></a></h4>
+<p>Demonstrate the drone automatically controlling its height.</p>
+<ul class="simple">
+<li><p>Graph the commanded z velocity with <code class="docutils literal notranslate"><span class="pre">rqt_plot</span></code> and show a TA before you fly</p></li>
+<li><p>Hover the drone low over the ground and show it rises/lowers to 0.75 m</p></li>
+</ul>
+</section>
+<section id="Over/Under-logic">
+<h4>Over/Under logic<a class="headerlink" href="#Over/Under-logic" title="Permalink to this heading"></a></h4>
+<p>Show the drone an AR tag and based on the AR tag’s height the drone will decide whether to go over or under the AR tag</p>
+<ul class="simple">
+<li><p>Make sure you are holding the drone over the ground so it knows its height off the ground</p></li>
+<li><p>This checkpoint doesn’t require you to fly</p></li>
+</ul>
+</section>
+<section id="State-transitions">
+<h4>State transitions<a class="headerlink" href="#State-transitions" title="Permalink to this heading"></a></h4>
+<p>Do after completing Over/Under logic checkpoint. Demonstrate that the drone changes its height setpoint after detecting the AR tag to avoid the obstacle and, after a period of time, reverts to the default height.</p>
+<ul class="simple">
+<li><p>This does not require you to actually fly the drone, so you can complete this before you finish Height Control</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="Launching-Obstacle-Avoidance">
+<h2>Launching Obstacle Avoidance<a class="headerlink" href="#Launching-Obstacle-Avoidance" title="Permalink to this heading"></a></h2>
+<p>You will be using a launch file to execute obstacle avoidance code called <code class="docutils literal notranslate"><span class="pre">obstacle_avoid.launch</span></code>. This launch file will be provided to you in <code class="docutils literal notranslate"><span class="pre">aero_control</span></code> upstream for you to use with your obstacle avoidance code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">obstacle_avoid.launch</span></code> does a few things:</p>
+<ul class="simple">
+<li><p>Starts <code class="docutils literal notranslate"><span class="pre">obstacle_avoid.py</span></code>, your avoidance code. Don’t forget to make it executable with <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>.</p></li>
+<li><p>Starts MAVROS</p></li>
+<li><p>Starts the Intel RealSense Camera</p></li>
+<li><p>Starts <code class="docutils literal notranslate"><span class="pre">ar_track_alvar</span></code></p></li>
+</ul>
+<p>You will also need <code class="docutils literal notranslate"><span class="pre">aero-optical-flow</span></code> and <code class="docutils literal notranslate"><span class="pre">aero-teraranger.service</span></code> running outside of the launch file to be able to fly autonomously.</p>
+</section>
+<section id="Code-overview">
+<h2>Code overview<a class="headerlink" href="#Code-overview" title="Permalink to this heading"></a></h2>
+<p>We recommend you start by copying code from your open loop controller, as we are not providing skeleton code. Here is an overview of what your controller needs to do:</p>
+<ol class="arabic simple">
+<li><p>Cruise forward until you are close enough to an AR tag, using P control to control your height</p>
+<ul class="simple">
+<li><p>Send horizontal velocities and a height setpoint to the streaming thread</p></li>
+<li><p>In the streaming thread, calculate vertical velocities using current height and height setpoint using a proportional controller.</p></li>
+</ul>
+</li>
+<li><p>Calculate the AR tag’s height using the drone’s pose and the pose of the AR tag relative to the drone. Look at the AR tag localization lab for ideas.</p></li>
+<li><p>Decide based on the height of the drone whether to go up or down.</p>
+<ul class="simple">
+<li><p>Change the height setpoint</p></li>
+<li><p>Have a check in the streaming thread that prevents the drone from moving forward if it isn’t close enough to its target altitude yet - this prevents the drone from plowing forward into an obstacle while changing altitude</p></li>
+</ul>
+</li>
+<li><p>After a certain length of time, return to the default height</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">rospy.sleep(dur)</span></code>, NOT <code class="docutils literal notranslate"><span class="pre">time.sleep(dur)</span></code></p></li>
+<li><p>Reset the height setpoint to the default height</p></li>
+</ul>
+</li>
+</ol>
+<section id="Side-topic:-Finite-state-Machine">
+<h3>Side topic: Finite-state Machine<a class="headerlink" href="#Side-topic:-Finite-state-Machine" title="Permalink to this heading"></a></h3>
+<p>To do obstacle avoidance, we are creating a simple <a class="reference external" href="https://en.wikipedia.org/wiki/Finite-state_machine">finite-state machine</a>. This means that there are a limited number of tasks, or “states” that the drone could be occupying, such as <code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">flight</span></code> or <code class="docutils literal notranslate"><span class="pre">going</span> <span class="pre">under</span></code>. At each time step, you will need to update this state with new information from AR tag detections, pose information, and time from when you last saw an AR tag.</p>
+</section>
+<section id="Mistakes-to-avoid">
+<h3>Mistakes to avoid<a class="headerlink" href="#Mistakes-to-avoid" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Do not forget to read the directions</p></li>
+<li><p>Do not avoid the obstacle by hard-coding to go up, over, and across</p></li>
+<li><p>Do not hard-code any constants (ex. threshold height, PID constants)</p></li>
+<li><p>Check how far away the AR tag you saw was</p>
+<ul>
+<li><p>Don’t begin your obstacle avoidance routine until the obstacle is close enough</p></li>
+</ul>
+</li>
+<li><p>Alvar occasionally sees tags with a position of (nan nan nan).</p>
+<ul>
+<li><p>Comparing nan to anything returns false!</p></li>
+</ul>
+</li>
+<li><p>Do not use <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> - use <code class="docutils literal notranslate"><span class="pre">rospy.sleep()</span></code></p>
+<ul>
+<li><p>This plays better with ROS</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="Debugging">
+<h2>Debugging<a class="headerlink" href="#Debugging" title="Permalink to this heading"></a></h2>
+<p>By now, you have gained experience with <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code> and <code class="docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span></code>. THere is one last tool you need to know: <code class="docutils literal notranslate"><span class="pre">rqt_plot</span></code>. This tool will allow us to graph numerical ros topics, such as velocity commands, which can be essential for tuning PID loops.</p>
+<section id="Accessing-parts-of-ROS-topics">
+<h3>Accessing parts of ROS topics<a class="headerlink" href="#Accessing-parts-of-ROS-topics" title="Permalink to this heading"></a></h3>
+<p>Whenever you want to view the commanded velocity, you run <code class="docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code>. This prints out the whole ROS message. However, you may want to print only parts of the message, such as the angular component of the message. Do this by extending the name of the ROS topic: ex. <code class="docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">echo</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped/angular</span></code></p>
+</section>
+<section id="rqt_plot">
+<h3><code class="docutils literal notranslate"><span class="pre">rqt_plot</span></code><a class="headerlink" href="#rqt_plot" title="Permalink to this heading"></a></h3>
+<p>Like <code class="docutils literal notranslate"><span class="pre">rqt_image_view</span></code>, this is a graphical tool (and can be very slow). Accordingly, you must have run <code class="docutils literal notranslate"><span class="pre">ssh</span></code> with the <code class="docutils literal notranslate"><span class="pre">-X</span></code> or <code class="docutils literal notranslate"><span class="pre">-Y</span></code> flags to be able to use it. You can either add the correct ROS topics in the GUI (not recommended) or add them via the command line: ex. <code class="docutils literal notranslate"><span class="pre">rqt_plot</span> <span class="pre">/topic_name</span></code>. Note that this only plots vectors and scalars: if you try to do <code class="docutils literal notranslate"><span class="pre">rqt_plot</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code> it will plot nothing. You need to tell <code class="docutils literal notranslate"><span class="pre">rqt_plot</span></code> to plot only a vector or
+a scalar component of the message (such as the <code class="docutils literal notranslate"><span class="pre">angular</span></code> or <code class="docutils literal notranslate"><span class="pre">linear</span></code> components of <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code>.</p>
+<p>You can pass multiple topics too: simply add them one after another: <code class="docutils literal notranslate"><span class="pre">rqt_plot</span> <span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span> <span class="pre">/some_fake_topic</span></code></p>
+<p>Be careful: topics with <code class="docutils literal notranslate"><span class="pre">/</span></code> at the end are NOT the same as topics without the <code class="docutils literal notranslate"><span class="pre">/</span></code>: <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped</span></code> is not the same as <code class="docutils literal notranslate"><span class="pre">/mavros/setpoint_velocity/cmd_vel_unstamped/</span></code></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Beaver Works Summer Institute, Nathaniel Hanson, Kendrick Cancio, Ross Allen, Mark Mazumder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

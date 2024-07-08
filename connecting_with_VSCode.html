@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connecting to the drone with VSCode &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
+  <title>&lt;no title&gt; &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
 
@@ -24,9 +24,7 @@
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="AR tag generation" href="ar_tag_generation.html" />
-    <link rel="prev" title="Safety Checklist" href="safety_checklist.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,30 +52,10 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus*</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_debugging.html">Bugged Zip Sims Repo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Analysis + Line Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
-<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
-<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_passport.html">Tello Passport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
 <ul>
@@ -88,12 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="advanced_linefollowing_ideas.html">Advanced linefollowing ideas</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Supplemental Material:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Connecting to the drone with VSCode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ar_tag_generation.html">AR tag generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 </ul>
 
         </div>
@@ -110,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Connecting to the drone with VSCode</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/connecting_with_VSCode.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -144,69 +119,56 @@
     text-align: unset;
 }
 </style>
-<section id="Connecting-to-the-drone-with-VSCode">
-<h1>Connecting to the drone with VSCode<a class="headerlink" href="#Connecting-to-the-drone-with-VSCode" title="Permalink to this heading"></a></h1>
-<ol class="arabic simple">
-<li><p>Install VSCode onto your computer (not the drone), <a class="reference external" href="https://code.visualstudio.com/Download">here</a></p></li>
-<li><p>Open a terminal window on your computer and run:</p></li>
-</ol>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/.ssh
+<!-- # Connecting to the drone with VSCode
+
+1. Install VSCode onto your computer (not the drone), [here](https://code.visualstudio.com/Download)
+
+2. Open a terminal window on your computer and run:
+```
+cd ~/.ssh
 ls
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>If you do not see <code class="docutils literal notranslate"><span class="pre">id_rsa</span></code> and <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code>, enter this command:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
-</pre></div>
-</div>
-<p><em>Do not enter a filepath, username, or password, just press ``return`` when asked for those fields</em></p>
-<ul class="simple">
-<li><p>Enter <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">id_rsa.pub</span></code> and copy the whole ssh key that is printed to your terminal</p></li>
-</ul>
-<ol class="arabic" start="3">
-<li><p>Open a terminal window that is SSH’d into your drone:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/.ssh
-ls
-vim authorized_keys
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Navigate the bottom of the file, press <code class="docutils literal notranslate"><span class="pre">i</span></code> to enter <code class="docutils literal notranslate"><span class="pre">insert</span></code> mode, and paste your id_rsa.pub key. Then save and quit (press <code class="docutils literal notranslate"><span class="pre">esc</span></code>, then <code class="docutils literal notranslate"><span class="pre">:wq</span></code>)</p></li>
-</ul>
-</li>
-<li><p>In your computer’s terminal (in the ~/.ssh folder) type:</p></li>
-</ol>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>vim config
-</pre></div>
-</div>
-<p>Add the following block (4 spaces, not tabs):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Host &lt;teamname&gt;
+```
+- If you do not see `id_rsa` and `id_rsa.pub`, enter this command:
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+*Do not enter a filepath, username, or password, just press `return` when asked for those fields*
+
++ Enter `cat id_rsa.pub` and copy the whole ssh key that is printed to your terminal
+
+3. Open a terminal window that is SSH'd into your drone:
+
+    ```
+    cd ~/.ssh
+    ls
+    vim authorized_keys
+    ```
+    + Navigate the bottom of the file, press `i` to enter `insert` mode, and paste your id_rsa.pub key. Then save and quit (press `esc`, then `:wq`)
+<br>
+
+4. In your computer's terminal (in the ~/.ssh folder) type:
+```
+vim config
+```
+Add the following block (4 spaces, not tabs):
+```
+Host <teamname>
     User uav
-    HostName &lt;teamname&gt;.beaver.works
+    HostName <teamname>.beaver.works
     ForwardX11 yes
     IdentityFile ~/.ssh/id_rsa
-</pre></div>
-</div>
-<ol class="arabic simple" start="5">
-<li><p>Try SSH’ing into the drone in a new terminal. You should be able to use simply <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">&lt;teamname&gt;</span></code>. You also should not have to enter the drone password anymore</p></li>
-<li><p>If this works, go to VSCode:</p>
-<ul class="simple">
-<li><p>Click the square icon in the sidebar under the debug icon</p></li>
-<li><p>Search for SSH and install the “Remote-SSH” plugin made by Microsoft</p></li>
-<li><p>Select the monitor icon that appears in the sidebar, then click the window icon that appears when you hovor over your teamname option under <code class="docutils literal notranslate"><span class="pre">Connections</span></code></p></li>
-</ul>
-</li>
-</ol>
-</section>
+```
 
+5. Try SSH'ing into the drone in a new terminal. You should be able to use simply `ssh <teamname>`. You also should not have to enter the drone password anymore
+
+6. If this works, go to VSCode:
+    + Click the square icon in the sidebar under the debug icon
+    + Search for SSH and install the "Remote-SSH" plugin made by Microsoft
+    + Select the monitor icon that appears in the sidebar, then click the window icon that appears when you hovor over your teamname option under `Connections` -->
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="safety_checklist.html" class="btn btn-neutral float-left" title="Safety Checklist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ar_tag_generation.html" class="btn btn-neutral float-right" title="AR tag generation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

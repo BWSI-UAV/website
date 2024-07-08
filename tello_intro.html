@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Course Overview &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
+  <title>&lt;no title&gt; &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
 
@@ -52,30 +52,10 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus*</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_debugging.html">Bugged Zip Sims Repo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flight_log_analysis.html">Flight Log Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Analysis + Line Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
-<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
-<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_passport.html">Tello Passport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
 <ul>
@@ -89,9 +69,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="connecting_with_VSCode.html">Connecting to the drone with VSCode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ar_tag_generation.html">AR tag generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 </ul>
 
         </div>
@@ -108,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Course Overview</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tello_intro.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -142,19 +119,17 @@
     text-align: unset;
 }
 </style>
-<section id="Course-Overview">
-<h1>Course Overview<a class="headerlink" href="#Course-Overview" title="Permalink to this heading"></a></h1>
-<p>The UAV course staff have modified the Intel Aero Course content previously used for in person instruction for with the <a class="reference external" href="https://www.ryzerobotics.com/tello">DJI Tello</a> mini-drone. The drone has core robotic functionality such as an IMU, onboard camera, and Python SDK. There is also an active community of users providing support for the platform. While an economic replacement, it does not offer all the same sensory capabilities.</p>
-</section>
-<section id="Passport-Curriculum">
-<h1>Passport Curriculum<a class="headerlink" href="#Passport-Curriculum" title="Permalink to this heading"></a></h1>
-<p>To manage remote learning, practicals here are called passports. Each student upon receiving a drone is issued a passport, which contains incremental exercises for development of robotic disciplines: controls, machine vision, etc. Instructors or teaching assistants sign off on exercises as they are completed.</p>
-</section>
-<section id="Final-Project">
-<h1>Final Project<a class="headerlink" href="#Final-Project" title="Permalink to this heading"></a></h1>
-<p>Since a standardized UAV cage is not readily available in every student’s home, we encourage summer students to choose an open-ended project that encompasses the skills they have learned in the prep coursework and over the summer. In past years, some students built their own race course out of pool noodles and others applied more advanced machine learning topics to create a persona videography drone. If you need project ideas, don’t feel shy about asking the instructors.</p>
-</section>
+<!-- # Course Overview
 
+The UAV course staff have modified the Intel Aero Course content previously used for in person instruction for with the [DJI Tello](https://www.ryzerobotics.com/tello) mini-drone. The drone has core robotic functionality such as an IMU, onboard camera, and Python SDK. There is also an active community of users providing support for the platform. While an economic replacement, it does not offer all the same sensory capabilities.
+
+# Passport Curriculum
+
+To manage remote learning, practicals here are called passports. Each student upon receiving a drone is issued a passport, which contains incremental exercises for development of robotic disciplines: controls, machine vision, etc. Instructors or teaching assistants sign off on exercises as they are completed.
+
+# Final Project
+
+Since a standardized UAV cage is not readily available in every student's home, we encourage summer students to choose an open-ended project that encompasses the skills they have learned in the prep coursework and over the summer. In past years, some students built their own race course out of pool noodles and others applied more advanced machine learning topics to create a persona videography drone. If you need project ideas, don't feel shy about asking the instructors. -->
 
            </div>
           </div>

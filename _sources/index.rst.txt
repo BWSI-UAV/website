@@ -13,16 +13,16 @@ Welcome to BWSI Autonomous Air Vehicle Racing!
    intro.ipynb
    Syllabus.ipynb
    initial_setup.ipynb
-..   quadrotor_basics.ipynb
+   quadrotor_basics.ipynb
    computer_vision.ipynb
-   planning_control.ipynb
+..   planning_control.ipynb
    racing_challenges.ipynb
 
 .. toctree::
    :maxdepth: 2
    :caption: Practicals:
 
-   project_workflow.ipynb
+..   project_workflow.ipynb
    code_debugging.ipynb
    student_drone_setup.ipynb
    calibration.ipynb
@@ -58,8 +58,8 @@ Welcome to BWSI Autonomous Air Vehicle Racing!
 
    team_roles.ipynb
    safety_checklist.ipynb
-   connecting_with_VSCode.ipynb
-   ar_tag_generation.ipynb
+..   connecting_with_VSCode.ipynb
+.  ar_tag_generation.ipynb
    Glossary.ipynb
 
 

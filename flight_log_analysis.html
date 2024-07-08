@@ -24,9 +24,7 @@
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Architecture Concept Review" href="intel_rtf_architecture.html" />
-    <link rel="prev" title="Calibrating Intel RTF Drones" href="calibration.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,40 +52,10 @@
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus*</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Practicals:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="project_workflow.html">Project Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_debugging.html">Bugged Zip Sims Repo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="student_drone_setup.html">Student Drone Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibrating Intel RTF Drones</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Flight Log Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Analyze-Pre-recorded-Flight">Analyze Pre-recorded Flight</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Import/Open-Data">Import/Open Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Inspecting-Data">Inspecting Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Problem-Set">Problem Set</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Analyze-Your-Flight">Analyze Your Flight</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Document-and-Push">Document and Push</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="intel_rtf_architecture.html">Architecture Concept Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ros_introduction.html">Intro to ROS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication_pipeline.html">Communication Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accessing_video_streams.html">Accessing Video Streams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internal_sensor_testing.html">Inspecting Sensor Feeds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enable_optical_flow.html">Hovering with Optical Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coordinate_transforms.html">Coordinate Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="downward_cam_bag.html">Downward Camera Analysis + Line Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="detector.html">Custom ROS Message for Line Params</a></li>
-<li class="toctree-l1"><a class="reference internal" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="yaw_color_tracker.html">Yaw-Only Color Tracker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="line_following.html">Line Following</a></li>
-<li class="toctree-l1"><a class="reference internal" href="obstacle_avoidance.html">AR Obstacle Avoidance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tello_passport.html">Tello Passport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
 <ul>
@@ -101,9 +69,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="team_roles.html">Team Roles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="safety_checklist.html">Safety Checklist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="connecting_with_VSCode.html">Connecting to the drone with VSCode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ar_tag_generation.html">AR tag generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 </ul>
 
         </div>
@@ -450,17 +415,19 @@ div.rendered_html tbody tr:hover {
 <li><p>What is the maximum discrepancy between the estimate z-position and the height sensor reading?</p></li>
 <li><p>What are the parameter values for <code class="docutils literal notranslate"><span class="pre">COM_POS_FS_EPH</span></code>, <code class="docutils literal notranslate"><span class="pre">EKF2_AID_MASK</span></code>, and <code class="docutils literal notranslate"><span class="pre">EKF2_HGT_MODE</span></code></p></li>
 </ul>
-</section>
-</section>
-<section id="Analyze-Your-Flight">
-<h2>Analyze Your Flight<a class="headerlink" href="#Analyze-Your-Flight" title="Permalink to this heading"></a></h2>
-<p>Now that you know how to use a flight log analysis tool, take a look at one of your flights.</p>
-<p>Your drone stores flight logs onboard in the location: <code class="docutils literal notranslate"><span class="pre">/var/lib/mavlink-router/</span></code></p>
-<p>You will need to first copy the flight log from the drone to your computer in order to analyze it. To do this, we will use secure copy (scp). From your laptop run the following, replacing <code class="docutils literal notranslate"><span class="pre">&lt;your-drone-name&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;timestamped-log-file-name&gt;</span></code> with the name of your drone and the flight log name, respectively.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>scp uav@&lt;your-drone-name&gt;.beaver.works:/var/lib/mavlink-router/&lt;timestamped-log-file-name&gt;.ulg ~/laboratory/flight_log_analysis/
-</pre></div>
-</div>
-<p>Once copied, open the log in FlightPlot to review your flight data and answer the previous questions</p>
+<!-- ## Analyze Your Flight
+
+Now that you know how to use a flight log analysis tool, take a look at one of your flights.
+
+Your drone stores flight logs onboard in the location: `/var/lib/mavlink-router/`
+
+You will need to first copy the flight log from the drone to your computer in order to analyze it. To do this, we will use secure copy (scp). From your laptop run the following, replacing `<your-drone-name>` and `<timestamped-log-file-name>` with the name of your drone and the flight log name, respectively.
+
+```
+scp uav@<your-drone-name>.beaver.works:/var/lib/mavlink-router/<timestamped-log-file-name>.ulg ~/laboratory/flight_log_analysis/
+```
+
+Once copied, open the log in FlightPlot to review your flight data and answer the previous questions --></section>
 </section>
 <section id="Document-and-Push">
 <h2>Document and Push<a class="headerlink" href="#Document-and-Push" title="Permalink to this heading"></a></h2>
@@ -479,10 +446,7 @@ div.rendered_html tbody tr:hover {
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calibration.html" class="btn btn-neutral float-left" title="Calibrating Intel RTF Drones" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="intel_rtf_architecture.html" class="btn btn-neutral float-right" title="Architecture Concept Review" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

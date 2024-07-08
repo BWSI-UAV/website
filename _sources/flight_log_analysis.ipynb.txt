@@ -82,7 +82,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Analyze Your Flight\n",
+    "<!-- ## Analyze Your Flight\n",
     "\n",
     "Now that you know how to use a flight log analysis tool, take a look at one of your flights. \n",
     "\n",
@@ -94,7 +94,7 @@
     "scp uav@<your-drone-name>.beaver.works:/var/lib/mavlink-router/<timestamped-log-file-name>.ulg ~/laboratory/flight_log_analysis/\n",
     "```\n",
     "\n",
-    "Once copied, open the log in FlightPlot to review your flight data and answer the previous questions"
+    "Once copied, open the log in FlightPlot to review your flight data and answer the previous questions -->"
    ]
   },
   {
@@ -116,9 +116,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 2",
+   "display_name": "Python 3 (ipykernel)",
    "language": "python",
-   "name": "python2"
+   "name": "python3"
   },
   "language_info": {
    "codemirror_mode": {
@@ -130,7 +130,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.5"
+   "version": "3.6.13"
   }
  },
  "nbformat": 4,

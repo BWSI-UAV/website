@@ -422,7 +422,7 @@
     "https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html\n",
     "\n",
     "\n",
-    "### Miniconda/Adaconda & Jupyter Notebooks (Package Manager & Interactive Coding)\n",
+    "### Miniconda/Anaconda & Jupyter Notebooks (Package Manager & Interactive Coding)\n",
     "https://www.hostinger.com/tutorials/how-to-install-anaconda-on-ubuntu/\n",
     "\n",
     "https://jupyter.org/install\n",
@@ -459,8 +459,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Troubleshooting\n",
-    "\n"
+    "<!-- ## Troubleshooting\n",
+    "\n",
+    " -->"
    ]
   },
   {

@@ -15,9 +15,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Talker - Listener\n",
+    "## ROS2 Talker - Listener\n",
     "\n",
-    "We are going to put some of basic tools of ROS2 into practice on the Intel RTF Drone. We are going to start by creating and sending a simple message in one ROS2 node (i.e. talker) and receiving it in another.\n",
+    "We are going to put some of basic tools of ROS2 into practice. We are going to start by creating and sending a simple message in one ROS2 node (i.e. talker) and receiving it in another.\n",
     "\n",
     "[Pub-Sub Tutorial](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/basics/ROS2-Simple-Publisher-Subscriber.html)"
    ]

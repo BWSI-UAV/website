@@ -54,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus*</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Hands-On Quadrotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Quadrotor Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
@@ -394,15 +394,13 @@ git clone https://github.com/BWSI-UAV/laboratory_2024.git
 </pre></div>
 </div>
 <p>This remote repo starts as your <code class="docutils literal notranslate"><span class="pre">origin</span></code> but we are going to reconfigure it to your <code class="docutils literal notranslate"><span class="pre">upstream</span></code> remote repo</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/bwsi-uav/laboratory
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /laboratory_2024
 git remote add upstream https://github.com/BWSI-UAV/laboratory_2024.git
 </pre></div>
 </div>
 <p>Now you need to create your team’s own <code class="docutils literal notranslate"><span class="pre">laboratory</span></code>. Go to your team’s Github account. Make a new private repository titled <code class="docutils literal notranslate"><span class="pre">laboratory</span></code> and copy the remote repository URL found here, making sure to select SSH.</p>
 <p>Go to the terminal window and type the following commands:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir bwsi-uav/laboratory
-cd ~/bwsi-uav/laboratory
-git remote set-url origin &lt;remote repo URL, pasted&gt;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote set-url origin &lt;remote repo URL, pasted&gt;
 git remote -v
 </pre></div>
 </div>

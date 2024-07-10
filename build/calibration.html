@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calibrating Intel RTF Drones &mdash; Autonomous Air Vehicle Racing 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Autonomous Air Vehicle Racing
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">2024 Course Syllabus*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initial_setup.html">Module 0: UAV Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quadrotor_basics.html">Module 1: Quadrotor Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer_vision.html">Module 2: Computer Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vim_tutorial.html">Vim Text Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exploring_px4_firmware.html">Exploring PX4 Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kalman_filters.html">Kalman Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation_challenge.html">Simulation Challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_linefollowing_ideas.html">Advanced linefollowing ideas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Supplemental Material:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../team_roles.html">Team Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../safety_checklist.html">Safety Checklist</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Autonomous Air Vehicle Racing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Calibrating Intel RTF Drones</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/build/calibration.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Calibrating-Intel-RTF-Drones">
+<h1>Calibrating Intel RTF Drones<a class="headerlink" href="#Calibrating-Intel-RTF-Drones" title="Permalink to this heading"></a></h1>
+<section id="Step-1:-Connect-to-the-Drone">
+<h2>Step 1: Connect to the Drone<a class="headerlink" href="#Step-1:-Connect-to-the-Drone" title="Permalink to this heading"></a></h2>
+<p>You can connect the drone over QGroundControl using the following steps:</p>
+<section id="Connecting-with-QGroundControl">
+<h3>Connecting with QGroundControl<a class="headerlink" href="#Connecting-with-QGroundControl" title="Permalink to this heading"></a></h3>
+<p>In order to connect the groundstation software (i.e. QGroundControl) to the drone via a router: (skippable if already completed)</p>
+<p>On the drone:</p>
+<ul class="simple">
+<li><p>Open a terminal and run <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code></p></li>
+<li><p>Get the IP address of the drone which is labeled <code class="docutils literal notranslate"><span class="pre">inet</span> <span class="pre">addr</span></code> under the <code class="docutils literal notranslate"><span class="pre">wlp1s0</span></code> heading</p></li>
+</ul>
+<p>On the groundstation:</p>
+<ul>
+<li><p>Open QGroundControl</p></li>
+<li><p>In the top left click on the “Q”</p></li>
+<li><p>Select the “Comm Links” tap</p></li>
+<li><p>Select “Add”</p>
+<ul class="simple">
+<li><p>Set the “Type” to TCP</p></li>
+<li><p>Set “Serial Port” to the IP address of the drone</p></li>
+<li><p>Set “TCP Port” to 5760</p></li>
+<li><p>Select “OK”</p></li>
+</ul>
+</li>
+<li><p>Select the new link and press “Connect”. This will connect QGroundControl to the drone</p>
+</li></li>
+</ul>
+<p>Alternative method: (if an instructor has provided you with a hostname for the drone you are calibrating)</p>
+<ul class="simple">
+<li><p>Open QGroundControl</p></li>
+<li><p>In the top left click on the “Q”</p></li>
+<li><p>Select the “Comm Links” tap</p></li>
+<li><p>Select “Add”</p>
+<ul>
+<li><p>Set the “Type” to TCP</p></li>
+<li><p>Set “Serial Port” to the hostname (_.beaver.works) of the drone</p></li>
+<li><p>Set “TCP Port” to 5760</p></li>
+<li><p>Select “OK”</p></li>
+</ul>
+</li>
+<li><p>Select the new link and press “Connect”. This will connect QGroundControl to the drone</p></li>
+</ul>
+</section>
+</section>
+<section id="Step-2:-Calibration-Setup">
+<h2>Step 2: Calibration Setup<a class="headerlink" href="#Step-2:-Calibration-Setup" title="Permalink to this heading"></a></h2>
+<p>Open QGroundControl and select Sensors from the side menu.</p>
+<p><img alt="qgc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/acc.png?raw=true" /></p>
+<p>Ensure you have a box/upside-down mount and a regular mount as pictured below, as well as an Intel RTF Drone with a charged battery.</p>
+<table><tr><td><div style="transform:rotate(90deg);"><p><img alt="box_mount.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/box-mount.jpg?raw=true" /></p>
+</div></td><td><div style="transform:rotate(90deg);"><p><img alt="standard_mount.jpg" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/standard-mount.jpg?raw=true" /></p>
+</div></td></tr></table></section>
+<section id="Step-3:-Compass-Calibration">
+<h2>Step 3: Compass Calibration<a class="headerlink" href="#Step-3:-Compass-Calibration" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Begin with the drone in the standard mount.</p></li>
+</ul>
+<p><img alt="standard-mount-w-drone.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/standard-mount-w-drone.JPG?raw=true" /></p>
+<p><img alt="compass_select.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/compass_select.png?raw=true" /></p>
+<ul class="simple">
+<li><p>Select the Compass option in the calibration menu.</p>
+<ul>
+<li><p>Select Ok when prompted.</p></li>
+<li><p>Place the drone into each of the positions indicated in QGroundControl</p></li>
+<li><p>Once the bounding box for each position turns yellow, rotate the mount continuously around the fixed point at which calibration started, until the bounding box turns green.</p></li>
+</ul>
+</li>
+</ul>
+<section id="The-compass-calibration-process-(except-the-upside-down-configuration)-is-shown-below.">
+<h3>The compass calibration process (except the upside down configuration) is shown below.<a class="headerlink" href="#The-compass-calibration-process-(except-the-upside-down-configuration)-is-shown-below." title="Permalink to this heading"></a></h3>
+<p><img alt="compass.gif" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/compass.gif?raw=true" /></p>
+<li><p>For the upside-down configuration, place the drone in the box mount.</p>
+</li><p><img alt="IMG_7980.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/IMG_7980.JPG?raw=true" /></p>
+<p><img alt="IMG_7981.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/IMG_7981.JPG?raw=true" /></p>
+<li><p>Turn the box mount continuously until the bounding box for the upside down configuration turns green.</p>
+</li></section>
+</section>
+<section id="Step-4:-Accelerometer-Calibration">
+<h2>Step 4: Accelerometer Calibration<a class="headerlink" href="#Step-4:-Accelerometer-Calibration" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Start with the drone in the standard mount.</p></li>
+<li><p>Select Accelerometer from the left menu on the Sensors page in QGroundControl.</p></li>
+<li><p>Move the drone to each of the indicated positions, and make sure to hold the mount still while the bounding box of each position is yellow in QGroundControl.</p></li>
+</ul>
+<section id="The-accelerometer-calibration-process-(except-the-upside-down-configuration)-is-shown-below.">
+<h3>The accelerometer calibration process (except the upside-down configuration) is shown below.<a class="headerlink" href="#The-accelerometer-calibration-process-(except-the-upside-down-configuration)-is-shown-below." title="Permalink to this heading"></a></h3>
+<p><img alt="accelerometer.gif" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/accelerometer.gif?raw=true" /></p>
+<li><p>For the upside-down configuration, place the drone in the box mount, as shown above in Step 3, and hold the box still until the bounding box on screen turns green.</p>
+</li></section>
+</section>
+<section id="Step-5:-Gyroscope-and-Level-Horizon-Calibration">
+<h2>Step 5: Gyroscope and Level Horizon Calibration<a class="headerlink" href="#Step-5:-Gyroscope-and-Level-Horizon-Calibration" title="Permalink to this heading"></a></h2>
+<p>Both of these calibrations require the drone to be placed on a flat surface (without any mounts or other accessories).</p>
+<p><img alt="drone-on-table.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/drone-on-table.JPG?raw=true" /></p>
+<ul class="simple">
+<li><p>Select Gyroscope from the left menu on the Sensors page in QGroundControl.</p></li>
+<li><p>Wait for the bounding box to turn green. Gyroscope calibration is now complete.</p></li>
+<li><p>Select Level Horizon from the left menu on the Sensors page in QGroundControl.</p></li>
+<li><p>Wait for the progress bar at the top of the screen to fill. Level Horizon sensor calibration is now complete.</p></li>
+</ul>
+</section>
+<section id="Note:-Level-Horizon-calibration-is-critical-for-proper-drone-operation.">
+<h2>Note: Level Horizon calibration is critical for proper drone operation.<a class="headerlink" href="#Note:-Level-Horizon-calibration-is-critical-for-proper-drone-operation." title="Permalink to this heading"></a></h2>
+<p>Make sure your flat surface is actually flat, and avoid moving anything on the surface while calibrating.</p>
+</section>
+<section id="Step-6:-Verifying-Calibration">
+<h2>Step 6: Verifying Calibration<a class="headerlink" href="#Step-6:-Verifying-Calibration" title="Permalink to this heading"></a></h2>
+<li><p>From the QGroundControl top menu bar, select Analyze under Widgets.</p>
+</li><p><img alt="widgets.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/widgets.png?raw=true" /></p>
+<li><p>In Analyze, enter ‘acc’ into the filter box.</p>
+</li><p><img alt="acc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/acc.png?raw=true" /></p>
+<li><p>Select the check box for IMU.zacc, and verify that the resulting graph is close to -9.81 m/s^2 (gravity)</p>
+</li><p><img alt="zacc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/zacc.png?raw=true" /></p>
+<li><p>Deselect IMU.zacc and select IMU.xacc and IMU.yacc. Verify that the resulting graphs are close to zero. The drone is still flyable if the magnitudes of xacc and yacc deviate from 0 by less than 0.1 m/s^2.</p>
+</li><p><img alt="xacc_yacc.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/xacc_yacc.png?raw=true" /></p>
+</section>
+<section id="Step-7:-Radio-Calibration-(RC-Controller)">
+<h2>Step 7: Radio Calibration (RC Controller)<a class="headerlink" href="#Step-7:-Radio-Calibration-(RC-Controller)" title="Permalink to this heading"></a></h2>
+<li><p>Obtain the radio paired to your drone and select Radio from the left-most menu in QGroundControl.</p>
+</li><p><img alt="radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/radio.png?raw=true" /></p>
+<li><p>You will now zero the roll, pitch, yaw, and throttle. If the throttle is very low, as seen above, flip the “ARM/DISARM” switch to ARM.</p>
+</li><section id="Control-surfaces-pre-zeroing.-(Your-setup-may-vary)">
+<h3>Control surfaces pre-zeroing. (Your setup may vary)<a class="headerlink" href="#Control-surfaces-pre-zeroing.-(Your-setup-may-vary)" title="Permalink to this heading"></a></h3>
+<p><img alt="pre-trim-radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/pre-trim-radio.png?raw=true" /></p>
+</section>
+<section id="Trims,-labeled-on-the-radio.">
+<h3>Trims, labeled on the radio.<a class="headerlink" href="#Trims,-labeled-on-the-radio." title="Permalink to this heading"></a></h3>
+<p><img alt="trims.JPG" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/trims.JPG?raw=true" /></p>
+<p>Ensure that both joysticks are centered as seen above, and then adjust the trims until the throttle, yaw, roll, and pitch are at the center of their sliders in QGroundControl.</p>
+<p><img alt="post-trim-radio.png" src="https://github.com/BWSI-UAV/website/blob/master/docs/images/post-trim-radio.png?raw=true" /></p>
+<ul class="simple">
+<li><p>Select ‘Calibrate’ on the Radio screen in QGroundControl, and then select OK when prompted (because you just zeroed your trims/subtrims.)</p></li>
+<li><p>Follow the directions on screen for manipulating the joysticks. QGroundControl will detect the movement and continue through the calibration automatically.</p></li>
+<li><p>Note: You can ignore the direction to play with transmitter switches.</p></li>
+<li><p>Select OK to write the calibrated radio settings to your drone.</p></li>
+</ul>
+</section>
+</section>
+<section id="Flight-Modes">
+<h2>Flight Modes<a class="headerlink" href="#Flight-Modes" title="Permalink to this heading"></a></h2>
+<p>To ensure everyone’s remote controls behave the same and that we can enter the appropriate flight modes for our test, we need set the flight modes. Flight mode is controlled by the toggle on the upper left shoulder of the remote control which is labeled “FLIGHT MODE”. This toggle is mapped to the onboard flight controller using QGroundControl’s “Flight Mode” tab. In the Flight Mode tab in QGC, set:</p>
+<ul class="simple">
+<li><p>Mode channel: Channel 5</p></li>
+<li><p>Flight Mode 1: Manual</p></li>
+<li><p>Flight Mode 4: Position</p></li>
+<li><p>Flight Mode 6: Offboard</p></li>
+</ul>
+<p>Leave all other options as <code class="docutils literal notranslate"><span class="pre">Unassigned</span></code></p>
+</section>
+<section id="You-are-now-finished-with-calibration!">
+<h2>You are now finished with calibration!<a class="headerlink" href="#You-are-now-finished-with-calibration!" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Beaver Works Summer Institute, Nathaniel Hanson, Kendrick Cancio, Ross Allen, Mark Mazumder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

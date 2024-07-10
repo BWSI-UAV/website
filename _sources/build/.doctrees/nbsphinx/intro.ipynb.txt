@@ -1,0 +1,62 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# BWSI's Autonomous Air Vehicle Racing\n",
+    "\n",
+    "![Intel Aero RTF Flying at Beaver Works](images/cover_photo_drone_flight.jpg)\n",
+    "\n",
+    "## Course Overview \n",
+    "\n",
+    "The objective of this course is to introduce you to all of the theory, software, hardware, and practical skills necessary to design and fly an autonomous unmanned aerial vehicle (UAV) through a structured, indoor obstacle course. This site attempts to aggregate and organize all of that content to help you learn the material as easily and quickly as possible.\n",
+    "\n",
+    "[Video: Final Challenge Demo - Phantom 2018](https://drive.google.com/open?id=1HsiDlrG2ZOzvFGZi6J3fCFllCGCw0ZoB)\n",
+    "<!-- \n",
+    "## BWSI @ Home\n",
+    "\n",
+    "In response to the COVID-19 Pandemic, the course content has been adapted to teach the same skills, but on a cost-effective, small platform. These resources are included as well to develop UAV skills for a wider audience. Please note this curriculum was developed over a short window and may not be as verbosely documented as the in-person curriculum.\n",
+    "\n",
+    "[![Virtual Final Challenge Presentations 2021](images/bwsi_virtual.png)](http://www.youtube.com/watch?v=Z96mSpiJN-I \"Autonomous Drone Racing 2021 Final Presentations\") -->\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Beaver Works Summer Institute\n",
+    "\n",
+    "For more about other courses offered as part of Beaver Works Summer Institute, please see here: https://beaverworks.ll.mit.edu/CMS/bw/bwsi"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

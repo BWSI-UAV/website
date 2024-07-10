@@ -82,7 +82,10 @@
     "\n",
     "__Lectures:__\n",
     "\n",
-    "1. [AR Tag Theory](git@github.com:BWSI-UAV/intro_to_ar_tags.git)\n",
+    "1. AR Tag Theory\n",
+    "```\n",
+    "git clone git@github.com:BWSI-UAV/intro_to_ar_tags.git\n",
+    "```\n",
     "2. [Optical Flow Theory](https://www.youtube.com/watch?v=hfXMw2dQO4E&ab_channel=NicolaiNielsen)\n",
     "3. [Computer Vision using ROS2](https://github.com/jmguerreroh/ros2_computer_vision)\n"
    ]

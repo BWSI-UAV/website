@@ -15,8 +15,8 @@ Welcome to BWSI Autonomous Air Vehicle Racing!
    initial_setup.ipynb
    quadrotor_basics.ipynb
    computer_vision.ipynb
-..   planning_control.ipynb
-   racing_challenges.ipynb
+   planning_control.ipynb
+.. racing_challenges.ipynb
 
 .. toctree::
    :maxdepth: 2

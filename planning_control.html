@@ -24,7 +24,9 @@
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vim Text Editor" href="vim_tutorial.html" />
+    <link rel="prev" title="Module 2: Computer Vision" href="computer_vision.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,12 +52,24 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Course Agenda:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">BWSI’s Autonomous Air Vehicle Racing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Syllabus.html">2024 Course Syllabus*</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initial_setup.html">Module 0: UAV Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quadrotor_basics.html">Module 1: Quadrotor Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Module 2: Computer Vision</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module 3: Estimation &amp; Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-1:-Kinematics-&amp;-Dynamics">Unit 1: Kinematics &amp; Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Challenge-2:-Aerial-Choreography"><em>Challenge 2:</em> Aerial Choreography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Basic-Challenge:-Square-Trajectory">Basic Challenge: Square Trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Advanced-Challenge:-Freeform-Sky-Writing">Advanced Challenge: Freeform Sky Writing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-2:-State-Estimation">Unit 2: State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-3:-Feedback-Control">Unit 3: Feedback Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unit-4:-Motion-Planning">Unit 4: Motion Planning</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
 <ul>
@@ -376,25 +390,23 @@ div.rendered_html tbody tr:hover {
 <li><p>Linear Transformations (Khan Academy): <a class="reference external" href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/linear-transformations/v/linear-transformations">Video 1</a>, <a class="reference external" href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/linear-transformations/v/linear-transformations-as-matrix-vector-products">Video 2</a>, <a class="reference external" href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/lin-trans-examples/v/linear-transformation-examples-rotations-in-r2">Video 3</a>, and <a class="reference external" href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/lin-trans-examples/v/rotation-in-r3-around-the-x-axis">Video
 4</a></p></li>
 <li><p><a class="reference external" href="https://docs.google.com/presentation/d/1GVwlcPnoXEd8YIijFUpA8aaEsqARjQlkwz9vTtguAIw/edit?usp=sharing">Euler Angles, Matrices, &amp; Quaternions</a></p></li>
-<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1mnRvfEPzBNhGA3VAog5cy7RKLxdanBdgMxHPgDytt0k/edit?usp=sharing">Equations of Motion</a></p></li>
+<li><p>Equations of Motion</p></li>
 </ol>
-<p><strong>Practicals:</strong></p>
+<!--  (https://docs.google.com/presentation/d/1mnRvfEPzBNhGA3VAog5cy7RKLxdanBdgMxHPgDytt0k/edit?usp=sharing) --><p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="coordinate_transforms.html">Coordinate Transforms</a></p></li>
-<li><p><a class="reference external" href="open_loop_translation_control.html">OFFBOARD Mode &amp; Open Loop Control</a></p></li>
+<li><p>Coordinate Transforms</p></li>
+<li><p>OFFBOARD Mode &amp; Open Loop Control</p></li>
 </ol>
-<p><strong>Advanced Topics:</strong></p>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="http://wiki.ros.org/tf2">Using ROS tf2 Library</a></p></li>
-<li><p><a class="reference external" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=5980409">Differential Flatness</a></p></li>
-</ol>
-</section>
+<!-- __Advanced Topics:__
+
+ 1. [Using ROS tf2 Library](http://wiki.ros.org/tf2)
+ 3. [Differential Flatness](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5980409) --></section>
 <section id="Challenge-2:-Aerial-Choreography">
 <h2><em>Challenge 2:</em> Aerial Choreography<a class="headerlink" href="#Challenge-2:-Aerial-Choreography" title="Permalink to this heading"></a></h2>
 <p><strong>Goal:</strong> Teams will compete to generate the best drone choreography; i.e. executing to most interesting and precise aerial maneuvers and trajectories using open loop control.</p>
 <section id="Basic-Challenge:-Square-Trajectory">
 <h3>Basic Challenge: Square Trajectory<a class="headerlink" href="#Basic-Challenge:-Square-Trajectory" title="Permalink to this heading"></a></h3>
-<p>Can you program your drone to trace out a perfect square in the air? Building on the code from the <a class="reference external" href="open_loop_translation_control.html">open loop control practical</a>, add functionality to trace a complete square. The instructors will judge the winning flight by taking a long-exposure photo and score how well the LEDs onboard trace a square</p>
+<p>Can you program your drone to trace out a perfect square in the air? Building on the code from the open loop control practical, add functionality to trace a complete square. The instructors will judge the winning flight by taking a long-exposure photo and score how well the LEDs onboard trace a square</p>
 </section>
 <section id="Advanced-Challenge:-Freeform-Sky-Writing">
 <h3>Advanced Challenge: Freeform Sky Writing<a class="headerlink" href="#Advanced-Challenge:-Freeform-Sky-Writing" title="Permalink to this heading"></a></h3>
@@ -415,13 +427,15 @@ it does it!</p>
 an understanding of the importance and challenges of estimating the state of a robot as well as the techniques for doing so.</p>
 <p><strong>Lectures:</strong></p>
 <ol class="arabic simple" start="2">
-<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1XvmpOj22YY_8G9WJtQzyF8tyoFqdUGLfzBHfnAyXjDM/edit?usp=sharing">State Estimation Concepts</a></p></li>
+<li><p>State Estimation Concepts</p></li>
 </ol>
-<p><strong>Practicals:</strong></p>
+<!--  (https://docs.google.com/presentation/d/1XvmpOj22YY_8G9WJtQzyF8tyoFqdUGLfzBHfnAyXjDM/edit?usp=sharing)
+  --><p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/flight_log_analysis/accelerometer_filtering.ipynb">Accelerometer-based Position Estimation</a></p></li>
+<li><p>Accelerometer-based Position Estimation</p></li>
 </ol>
-<p><strong>Advanced Topics:</strong></p>
+<!--  (https://github.com/BWSI-UAV/laboratory/blob/master/flight_log_analysis/accelerometer_filtering.ipynb)
+  --><p><strong>Advanced Topics:</strong></p>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://github.com/AtsushiSakai/PythonRobotics#extended-kalman-filter-localization">Kalman Filters</a></p></li>
 <li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/control/linear_estimation_and_control.ipynb">Kalman Filter (Linear System)</a></p></li>
@@ -435,17 +449,19 @@ an understanding of the importance and challenges of estimating the state of a r
 <p>In a specific sense, we will see how the computer vision algorithms we have developed can be implemented on the quadrotor in order to achieve autonomous flight</p>
 <p><strong>Lectures:</strong></p>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1zNs8I7kZRAkrgk6v_GUz2FGrbknvyp5dRYudM537OWs/edit?usp=sharing">Feedback Control</a></p></li>
+<li><p>Feedback Control</p></li>
+</ol>
+<!--  (https://docs.google.com/presentation/d/1zNs8I7kZRAkrgk6v_GUz2FGrbknvyp5dRYudM537OWs/edit?usp=sharing) --><ol class="arabic simple" start="2">
 <li><p><a class="reference external" href="http://bit.ly/2KGbPuy">PID Control</a> (MATLAB Tech Talk Video)</p></li>
 </ol>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/control/simple_feedback_control.ipynb">Simple Feedback Control</a></p></li>
 <li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/control/advanced_feedback_control.ipynb">Advanced Feedback Control</a></p></li>
-<li><p><a class="reference external" href="https://bwsi-uav.github.io/website/yaw_color_tracker.html">Yaw-Only Color Tracker</a></p></li>
-<li><p><a class="reference external" href="https://bwsi-uav.github.io/website/line_following.html">Line Following</a></p></li>
+<li><p>Yaw-Only Color Tracker</p></li>
+<li><p>Line Following</p></li>
 </ol>
-<p><strong>Advanced Topics:</strong></p>
+<!--  (https://bwsi-uav.github.io/website/line_following.html) --><p><strong>Advanced Topics:</strong></p>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://github.com/BWSI-UAV/laboratory/blob/master/control/nonlinear_estimation_and_control.ipynb">Nonlinear Estimation &amp; Control</a></p></li>
 <li><p><a class="reference external" href="https://github.com/AtsushiSakai/PythonRobotics#linearquadratic-regulator-lqr-speed-and-steering-control">Linear-Quadratic Regulator (LQR) Control</a></p></li>
@@ -461,8 +477,8 @@ an understanding of the importance and challenges of estimating the state of a r
 </ol>
 <p><strong>Practicals:</strong></p>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://bwsi-uav.github.io/website/obstacle_avoidance.html">Obstacle Avoidance Maneuvers</a></p></li>
-<li><p>[Yaw Planning]</p></li>
+<li><p>Obstacle Avoidance Maneuvers</p></li>
+<li><p>Yaw Planning</p></li>
 </ol>
 <p><strong>Advanced Topics:</strong></p>
 <ol class="arabic simple">
@@ -485,7 +501,10 @@ an understanding of the importance and challenges of estimating the state of a r
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="computer_vision.html" class="btn btn-neutral float-left" title="Module 2: Computer Vision" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vim_tutorial.html" class="btn btn-neutral float-right" title="Vim Text Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

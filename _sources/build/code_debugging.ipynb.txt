@@ -1,0 +1,54 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Bugged Zip Sims Repo\n",
+    "\n",
+    "As a short practical exercise in code debugging, we present a virtual environment containing four bugged versions of winged drone simulation.\n",
+    "\n",
+    "This challenged is adapted from an interview question given by [Zipline](https://flyzipline.com/) to be completed for their Robotics Engineering Internship / Co-op (Summer or Fall 2021).\n",
+    "\n",
+    "In compliance with the license requirements this code was modified for educational purposes and used with permission.\n",
+    "\n",
+    "## Running the code\n",
+    "\n",
+    "Clone the following Git repository:\n",
+    "\n",
+    "```\n",
+    "git clone https://github.com/BWSI-UAV/bugged_zip_sims_repo.git\n",
+    "```\n",
+    "\n",
+    "Prepare your local environment to run Pygame window:\n",
+    "\n",
+    "```\n",
+    "pip install -U pygame --user\n",
+    "```\n",
+    "\n",
+    "Code can be run by invoking `python bugged_zip_sim_<<NUM>>.py`. Each simulation contains at least 1 error which causes unintended behavior. The errors are progressively more difficult to find and correct. *Note bugs will not necessarily result in a stack trace error.* Use your python debugging skills to figure out what is causing the deviations from expected behavior."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

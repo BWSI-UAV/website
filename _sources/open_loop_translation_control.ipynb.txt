@@ -1,0 +1,176 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# OFFBOARD Mode & Open Loop Control\n",
+    "\n",
+    "At the beginning of this class we flew our drones in [MANUAL](https://docs.px4.io/en/flight_modes/manual_stabilized_mc.html) mode, piloting it using the remote control. This mode was difficult to control and required constant input from the pilot in order to prevent it from drifting off and crashing into the walls. This constant input from the pilot to maintain control was a required because the drone had very little knowledge of the world; i.e. it had no way of _localizing_ itself in the world which meant that it had no way of knowing that it's position was drifting toward a wall.\n",
+    "\n",
+    "After implementing off-the-shelf [_optical flow_](enable_optical_flow.html) and [_ARTag localization_](ar_localization.html) libraries, we were able to fly the drone in [POSITION](https://docs.px4.io/en/flight_modes/position_mc.html) mode (sometimes refered to as `POSITION CONTROL` or `POSCTL`). This mode still took inputs from the pilot via the remote control, but it was _much_ easier to fly since the drone could effectively hover in place without drifting. In this mode, the input from the pilot commanded the drone to make slow movements in body-frame directions.\n",
+    "\n",
+    "Our next step is to utilize the [OFFBOARD](https://docs.px4.io/en/flight_modes/offboard.html) mode, which is removes the need for pilot input and is our first venture into truly autonomous flight! This practical will walk us through sending short duration velocity commands that the drone will execute. We call it \"open loop\" because the commands are pre-scripted and don't adapt or update based on new information (i.e. sensor/camera data).\n",
+    "\n",
+    "For more information on PX'4 various flight modes, [see here](https://docs.px4.io/en/flight_modes/)\n",
+    "\n",
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**WARNING:** \n",
+    "\n",
+    "`OFFBOARD` mode is potentially one of the more dangerous modes because you are handing over control of your quadrotor to computer program that may not be perfect. We will implement as many software-based safety checks as possible, but the last line of defence is still the [Pilot in Command](team_roles.html#Pilot-in-Command). Therefore, for safety purposes, the pilot we will __always have the remote control in hand in order to regain control when necessary__.\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "The learning objectives for this practical include:\n",
+    "\n",
+    "1. Understand how to safely enable and operate PX4's `OFFBOARD` mode\n",
+    "2. Develop the code necessary to send velocity commands\n",
+    "3. Gain intuition about the various coordinate frames in which we can command velocities (e.g. world reference frames vs. body reference frames)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Step 1: Complete Control Script\n",
+    "\n",
+    "In the `aero_control` repository/ROS package, we have given you a incomplete script for running a simple open-loop translation control demonstration. The purpose of this script is to publish low-speed velocity commands in the form of ROS `Twist` messages to the topic `/mavros/setpoint_velocity/cmd_vel_unstamped` for a short duration (e.g. 3 seconds) and then send \"hover\" messages (i.e. `Twist` message of all zeros) causing the drone to safely hover in place. The script should also be able to take various coordinate frames in which to control the drone (e.g body-up, body-down, local NED, local ENU, downward camera).\n",
+    "\n",
+    "To access the partially complete script, `git pull upstream master` in you drone and laptops `aero_control` repository that is part of your catkin workspace. You should now find the file `aero_control/open_loop_control/src/translation_control.py`. Complete portions of code marked as `TODO`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Step 2: Setup for Test Flight\n",
+    "\n",
+    "Once `translation_control.py` has been completed and pulled onto the drone, run the flight test by following these procedures\n",
+    "\n",
+    "- Power on remote control\n",
+    "- Power on the Intel RTF\n",
+    "- Connect to the UAV via QGroundControl\n",
+    "- SSH into the UAV (you will need to have at least four terminals SSHed into the UAV). use X-forwarding in order to pass graphics (i.e. stream the camera feed from the drone to your computer). Example replacing `<team-drone-name>` with the name of your drone:\n",
+    "\n",
+    "    ```\n",
+    "    ssh -X uav@<team-drone-name>.beaver.works\n",
+    "    ```\n",
+    "    \n",
+    "- In terminal 1, start distance sensor\n",
+    "\n",
+    "\t```\n",
+    "    sudo systemctl start aero-teraranger.service\n",
+    "\t```\n",
+    "    \n",
+    "- In terminal 1, start ROS\n",
+    "\n",
+    "\t```\n",
+    "\troscore\n",
+    "\t```\n",
+    "\n",
+    "- In terminal 2, start _patched_ optical flow + down-camera streaming. Note: this is different from _standard_ optical flow service that prevents streaming downward-facing camera. Needed for line detection. [See here for more info on setting up](https://github.mit.edu/ma23705/aero_downward_ros/blob/master/README.md)\n",
+    "\n",
+    "\t```\n",
+    "\tcd ~/bwsi-uav/catkin_ws/src/aero-optical-flow/build\n",
+    "\tsudo -E ./aero-optical-flow\n",
+    "\t```\n",
+    "\n",
+    "- Without arming drone, switch to `POSITION CONTROL` mode to ensure previous steps worked as expect. If QGroundControl declares that that position control is rejected, restart process.\n",
+    "\n",
+    "- In terminal 3, launch mavros and translation control\n",
+    "\n",
+    "\t```\n",
+    "\tcd ~/bwsi-uav/catkin_ws\n",
+    "\tsource devel/setup.bash\n",
+    "\troslaunch aero_control translation_control.launch\n",
+    "\t```\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "    \n",
+    "## Step 3: Test Flight\n",
+    "\n",
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**WARNING:** \n",
+    "\n",
+    "Pilot-in-Command must always be ready to regain control by switching back to `POSCTL` mode. Never take your hands off the remote control!\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "\n",
+    "In `POSITION CONTROL` mode \n",
+    "\n",
+    "1. Arm the quadrotor\n",
+    "2. Takeoff\n",
+    "3. Position in a safe location in the air\n",
+    "4. Switch to `OFFBOARD` mode to run test\n",
+    "5. Regain control with `POSITION` mode\n",
+    "6. Land quadrotor\n",
+    "7. Disarm\n",
+    "8. Collect [flight log](flight_log_analysis.html)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Step 4: Reference Frame Intuition\n",
+    "\n",
+    "Now we can start to explore the different reference frames that may be of use for quadrotor flight such as the body-up, body-down, local NED, local ENU, forward camera, and downward camera reference frames.\n",
+    "\n",
+    "In `translation_control.py`, try using different frames and different velocity vectors for the variables `maneuver_reference_frame` and `maneuver_velocity_setpoint`. For each of the following reference frames, your task is to:\n",
+    "\n",
+    "1. select a velocity vector to be flown (making sure it is sufficiently slow so as not to cause a crash)\n",
+    "2. used a fixed, short duration such as 2 seconds\n",
+    "3. before flying, based on your understanding for the various reference frames, record your prediction of the direction in which the drone will fly. For example, I might say: \"we oriented the drone pointing away from us and gave it a velocity setpoint of [0.3, 0.0, 0.0] m/s expressed in the `fc` (forward camera) reference frame. Since the `fc` x-axis points in to the right-side of the quadrotor, we expect the quadrotor to fly right at 0.3 m/s for 2 seconds\n",
+    "4. Execute the flight and record your observations. Did the drone do what you expected? If not, can you explain why? Did you have an incorrect understanding of the reference frames involved?\n",
+    "\n",
+    "These steps should be done for each of the following reference frames:\n",
+    "\n",
+    "- `dc` = downward-facing camera (body-fixed, non-inertial frame. Origin: downward camera focal plane. Alignment with respect to drone airframe: x-forward, y-right, z-down)\n",
+    "- `fc` = forward-facing camera (body-fixed, non-inertial frame. Origin: forward camera focal plane. Alignment with respect to drone airframe: x-right, y-down, z-forward)\n",
+    "- `bu` = body-up frame (body-fixed, non-inertial frame. Origin: drone center of mass. Alignment with respect to drone airframe: x-forward, y-left, z-up)\n",
+    "- `bd` = body-down frame (body-fixed, non-inertial frame. Origin: drone center of mass. Alignment with respect to drone airframe: x-forward, y-right, z-down)\n",
+    "- `lenu` = local East-North-Up world frame (world-fixed, inertial frame. Origin: apprx at take-off point, but not guaranteed. Alignment with respect to world: x-East, y-North, z-up)\n",
+    "- `lned` = local North-East-Down world frame (world-fixed, inertial frame. Origin: apprx at take-off point, but not guaranteed. Alignment with respect to world: x-North, y-East, z-down)\n",
+    "- `m` = marker frame (inertial or non-inertial, depending on motion of marker. Origin: center of marker. Alignment when looking at marker: x-right, y-up, z-out of plane toward you)\n",
+    "\n",
+    "The team's [Research Specialist](team_roles.html#Research-Specialist) is to document these flights (preferably in a `.md` file) and push it to the team's `documents` repository "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

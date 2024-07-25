@@ -1,0 +1,244 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Safety Checklist\n",
+    "\n",
+    "Flights are conducted in an enclosed space, either indoors or enclosed by netting outdoors, to prevent fly offs. Spectators not actively engaged in the flight test will be separated from flight area by netting, barriers, and/or 25 feet of distance. Pilots and other test participants that need to be in closer proximity to drone (e.g. need to power cycle hardware), will wear personal protective equipment for full duration of testing. Minimum PPE required: safety goggles/glasses. If handling drone during tests, gardening gloves required.\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note:**\n",
+    "\n",
+    "Refer to [team roles](team_roles.html):  \n",
+    "PiC = Pilot in Command; \n",
+    "HS = Hardware Specialist; \n",
+    "GC = Ground Commander\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Flight Prep\n",
+    "\n",
+    "\n",
+    "1. PiC: Pre-flight safety check  \n",
+    "    1. Put on all required personal protection equipment. Loose, billowing clothing should not be worn due to risk of catching rotor blade. Long hair should be tied back.\n",
+    "    2. Enter flight space with drone, rotors, and battery separated  \n",
+    "    3. Make sure all drone components and wires are securely attached to the airframe \n",
+    "    5. Clear flight space of all non-participants   \n",
+    "    \n",
+    "2. HS: Attach a Battery  \n",
+    "    1. Insert a battery inside the center cavity of the drone's airframe with cables extending out toward the rear of the drone  \n",
+    "    2. Connect the battery cable to the drone using the XT60 connector  \n",
+    "\n",
+    "3. HS: Setup the GPS antenna  \n",
+    "    1. Raise the GPS antenna mast 90° until vertical then tighten the antenna base cover  \n",
+    "\n",
+    "4. HS: Attach the propellers  \n",
+    "    1. Identify propellers marked as \"A\" and \"B\" on top of the propeller blade  \n",
+    "    2. Attach each propeller to its corresponding label motor by pressing down and twisting until each propeller latches securely  \n",
+    "        * Twist counter-clockwise for \"A\" (black) propellers and clockwise for \"B\" (white) propellers  \n",
+    "        * To detach the propeller, press the center hub of the probeller while twisting the propeller blade in the opposite direction used when attaching\n",
+    "    3. Ensure each rotor will not contact any part of the drone by spinning them with your hand\n",
+    "    \n",
+    "5. PiC: Prepare the remote control transmitter  \n",
+    "    1. Flip all toggle switches AWAY from the pilot  \n",
+    "        * The Flight Mode switch should be set to **Manual** (mode 0)  \n",
+    "    2. Turn of the transmitter  \n",
+    "    3. Verbally confirm *\"Remote Control Ready\"*  \n",
+    "    4. Maintain continuous, hands-on control of RC remote\n",
+    "    \n",
+    "6. HS: Turn ON the drone  \n",
+    "    1. Press the power button on the drone for about 1 second  \n",
+    "    2. Verbally confirm *\"Powering drone\"* \n",
+    "\n",
+    "7. HS: Place the drone in takeoff position and exit flight space"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Manual Flight\n",
+    " \n",
+    "3. GC: Wirelessly connect groundstation laptop to drone using QGroundControl\n",
+    "    \n",
+    "4. GC: Verify the remote control transmitter is paired to the drone\n",
+    "    1. QGroundControl should audibly announce \"Manual flight mode\"\n",
+    "    2. If not connecting, verify the orange LED on the remote control receiver located on the bottom side of the drone is illuminated and steady orange  \n",
+    "    \n",
+    "5. PiC: Arm the motors  \n",
+    "    1. Announce *\"ARMING\"  \n",
+    "    2. To arm the motors, press the throttle stick toward the bottom right. Hold for about 2 seconds  \n",
+    "        * The motors will start spinning once the motors are armed  \n",
+    "    3. Once armed, the Pilot in Command must have both hands on remote control until motors are disarmed\n",
+    "\n",
+    "6. PiC: FLY!\n",
+    "    1. If switching to a non-manual mode, Pilot in Command must have both hands on remote control ready to regain manual control _at all times_\n",
+    "\n",
+    "7. PiC: Disarm the motors  \n",
+    "    1. If switched to non-manual mode during flight, switch manual in order to land or after landing\n",
+    "    1. To disarm the motors, press the throttle stick toward the bottom left. Hold for about 2 seconds  \n",
+    "    2. Verbally confirm *\"DISARMED\"*  \n",
+    "\n",
+    "8. HS: Turn OFF/Power Down  \n",
+    "    1. Always turn OFF the drone before turning off the transmitter  \n",
+    "    2. Press and hold the power button on the drone for 5 seconds until the bue LEDs blink 3 times  \n",
+    "    3. Turn OFF the transmitter"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Battery Handling & Charging\n",
+    "\n",
+    "Tutorials/Instructions:   \n",
+    "    https://www.youtube.com/watch?v=5AIAomVTKHw  \n",
+    "    https://rogershobbycenter.com/lipoguide/  \n",
+    "    \n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note:** \n",
+    "\n",
+    "Charging mode should be _BALANCE_, not _CHARGE_. The charge rate should done at 1C where C = capacity/amperage To figure out the balance amperage (i.e. charge rate) divide the capacity that is printed on the battery by 1000 (because the capacity is given in mAh instead of Ah).\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note:** \n",
+    "\n",
+    "1300mAh battery should be balanced at 1.3A\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note:** \n",
+    "\n",
+    "2200mAh battery should be balanced at 2.2A\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note:** \n",
+    "\n",
+    "4000mAh battery should be balanced at 4.0A\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "* Place battery balancer in as safe a location as possible, as far from anything flamible as possible\n",
+    "* Plug in battery balancer to wall power\n",
+    "* Plug battery into battery balancer\n",
+    "* Set to BALANCE\n",
+    "* Ensure settings match battery\n",
+    "    * Type = LiPo\n",
+    "    * Number of cells = 4S\n",
+    "    * Capacity = 1300 mAh\n",
+    "    * Voltage = 14.8V\n",
+    "    * If capacity = 1300mAh, then charge rate = 1.3A\n",
+    "    * If capacity = 2200mAh, then charge rate = 2.2A\n",
+    "    * If capacity = 4000mAh, then charge rate = 4.0A\n",
+    "    \n",
+    "* Place battery in LiPo Guard\n",
+    "* Start charger\n",
+    "* Don't leave unattended!\n",
+    "\n",
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Warning:** \n",
+    "\n",
+    "If any batteries appear damaged (e.g. tears in packaging) or distended (e.g. puffy, bloated, soft), immediately stop use and inform an instructor. These batteries need to be disposed of as they present a fire risk\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Emergency Procedures\n",
+    "\n",
+    "The LiPo batteries used by the drones present a potential fire risk. In the event that any battery starts to spark, smoke, or burn, immediately notify the class and begin exiting the building.\n",
+    "\n",
+    "### Evacuation Practice\n",
+    "\n",
+    "We will use this time to practice a fire evacuation scenario so that students understand where are the nearest exits."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "9384e9fb8d994365b07491d427c761ef",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/html": [
+       "<p>Failed to display Jupyter Widget of type <code>Checkbox</code>.</p>\n",
+       "<p>\n",
+       "  If you're reading this message in the Jupyter Notebook or JupyterLab Notebook, it may mean\n",
+       "  that the widgets JavaScript is still loading. If this message persists, it\n",
+       "  likely means that the widgets JavaScript library is either not installed or\n",
+       "  not enabled. See the <a href=\"https://ipywidgets.readthedocs.io/en/stable/user_install.html\">Jupyter\n",
+       "  Widgets Documentation</a> for setup instructions.\n",
+       "</p>\n",
+       "<p>\n",
+       "  If you're reading this message in another frontend (for example, a static\n",
+       "  rendering on GitHub or <a href=\"https://nbviewer.jupyter.org/\">NBViewer</a>),\n",
+       "  it may mean that your frontend doesn't currently support widgets.\n",
+       "</p>\n"
+      ],
+      "text/plain": [
+       "Checkbox(value=False, description=u'Check me')"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "import ipywidgets as widgets\n",
+    "\n",
+    "widgets.Checkbox(\n",
+    "    value=False,\n",
+    "    description='Check me',\n",
+    "    disabled=False\n",
+    ")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

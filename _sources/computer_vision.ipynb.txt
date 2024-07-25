@@ -1,0 +1,124 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Module 2: Computer Vision"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Unit 1: A Survey of Computer Vision\n",
+    "\n",
+    "__Goal__: Understand the motivation and princples of utilizing computer vision as a means of perception for autonomous systems. Survey several common applications and current research trends in the field of computer vision from a robotics perspective. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Unit 2: Kernels, Edges, Thresholds\n",
+    "\n",
+    "__Goal:__ This unit introduces the fundamentals of image analysis for machine vision. We will treat images and videos as two-dimensional signals, allowing us to apply signal processing techniques to detect and interpret features in a camera stream on an embedded platform in real-time, using [the OpenCV library](https://opencv.org/).  \n",
+    "\n",
+    "__Practicals:__\n",
+    "\n",
+    " 1. [Derivatives](https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/derivatives_and_windows.ipynb)\n",
+    " 2. [Convolution](https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/convolutions.ipynb)\n",
+    " 3. [OpenCV](https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/OpenCV.ipynb)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Unit 3: Regression, Line Parameterization\n",
+    "\n",
+    "__Goal:__ Learn how to detect an LED rope present in a camera image by applying linear regression on thresholded pixel values, as the first step in enabling the drone to follow an LED track.\n",
+    "\n",
+    "__Practicals:__\n",
+    "\n",
+    " 1. [Linear Regression](https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/LinearRegression.ipynb)\n",
+    " 2. [Detecting the LED line](https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/Downward.ipynb)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Unit 4: Color Segmentation\n",
+    "\n",
+    "__Goal:__ Understand how to detect and segment a specific, narrow range of colors within an image.\n",
+    "\n",
+    "__Practicals:__\n",
+    "\n",
+    " 1. [Color Segmentation and Bounding Boxes](https://github.com/BWSI-UAV/laboratory/blob/master/computer_vision/ColorSegmentation.ipynb)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<!-- ## Unit 5: Integration with Quadrotor\n",
+    "\n",
+    "__Goal:__ In order to utilize computer vision techniques for UAV control, we need to be able to pass information between our vision processes (i.e. ROS nodes) and our command/control processes in a parameterized format. The goal of this unit is to develop such ROS messages.\n",
+    "\n",
+    "__Practicals__\n",
+    "\n",
+    " 1. [Drone-based ROS Bag Collection](downward_cam_bag.html)\n",
+    " 2. [Line Param ROS Message](detector.html) -->"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Drone Nav Topics\n",
+    "\n",
+    "__Goal:__ Understand the theory behind some of the \"black box\" algorithms we have used thus far as well as the frontiers of computer vision research\n",
+    "\n",
+    "__Lectures:__\n",
+    "\n",
+    "1. AR Tag Theory\n",
+    "```\n",
+    "git clone https://github.com/BWSI-UAV/intro_to_ar_tags.git\n",
+    "```\n",
+    "2. Optical Flow Theory\n",
+    "\n",
+    "<!-- (https://www.youtube.com/watch?v=hfXMw2dQO4E&ab_channel=NicolaiNielsen) -->\n",
+    "3. [Computer Vision using ROS2](https://github.com/jmguerreroh/ros2_computer_vision)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
